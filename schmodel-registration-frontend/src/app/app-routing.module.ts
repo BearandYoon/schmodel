@@ -10,6 +10,7 @@ const routes: Routes = [
     },
     { path: 'login', loadChildren: './pages/login/login.module#LoginModule' },
     { path: 'signup', loadChildren: './pages/signup/signup.module#SignupModule' },
+    { path: 'edit-profile', loadChildren: './pages/edit-profile/edit-profile.module#EditProfileModule' },
     { path: 'not-found', loadChildren: './pages/not-found/not-found.module#NotFoundModule' },
     { path: '**', redirectTo: 'not-found' }
 ];
