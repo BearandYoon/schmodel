@@ -1,4 +1,4 @@
-<div class="login-page" [@routerTransition]>
+<div class="page-container" [@routerTransition]>
   <div class="logo-container">
     <img class="img-logo" src="assets/img/img_logo.png">
   </div>
@@ -6,19 +6,21 @@
     <p class="comment">
       Beauty is in the<br> eye of the employer
     </p>
-    <form role="form">
+    <form [formGroup]="signInForm" (submit)="onSignIn()">
       <div class="form-content">
         <div class="form-group">
-          <input type="text" ng-model="name" class="form-control input-underline input-lg" id="" placeholder="Email Address">
+          <input type="email" class="form-control input-underline input-lg" formControlName="email" id="email" placeholder="Email Address">
+          <app-control-messages [control]="signInForm.controls.email"></app-control-messages>
         </div>
         <div class="form-group">
-          <input type="password" class="form-control input-underline input-lg" id="" placeholder="Password">
+          <input type="password" class="form-control input-underline input-lg" formControlName="password" id="password" placeholder="Password">
+          <app-control-messages [control]="signInForm.controls.password"></app-control-messages>
         </div>
       </div>
       <p class="forgot-pass">Forgot Password?</p>
       <div class="action-container">
         <div class="btn-login-container">
-          <a class="btn bordered-btn" [routerLink]="['/home']" (click)="onLoggedin()"> Login </a>
+          <button class="btn bordered-btn" type="submit" (click)="onSignIn()" [disabled]="!signInForm.valid"> Login </button>
         </div>
         <div class="btn-register-container">
           <a class="" [routerLink]="['/signup']">Schmodel Sign-up</a>
