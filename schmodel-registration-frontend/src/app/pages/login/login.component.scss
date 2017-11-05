@@ -15,7 +15,7 @@ $topnav-background-color: #222;
   .img-logo {
     display: block;
     margin: auto;
-    width: 50%;
+    width: 60%;
   }
 
   .content-container {
@@ -24,6 +24,10 @@ $topnav-background-color: #222;
     text-align: center;
     color: white;
     width: calc(100% - 100px);
+
+    .comment {
+      font-size: 24px;
+    }
   }
 
   .forgot-pass {
@@ -31,36 +35,25 @@ $topnav-background-color: #222;
   }
 
   .input-lg {
-    height: 46px;
-    padding: 10px 16px;
+    height: 40px;
+    padding: 5px 0;
     font-size: 18px;
     line-height: 1.3333333;
     border-radius: 0;
   }
+
   .input-underline {
     background: 0 0;
     border: none;
     box-shadow: none;
-    border-bottom: 2px solid rgba(255, 255, 255, .5);
+    border-bottom: 1px solid rgba(255, 255, 255, .5);
     color: #FFF;
     border-radius: 0;
   }
+
   .input-underline:focus {
-    border-bottom: 2px solid #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, .5);
     box-shadow: none;
-  }
-  .bordered-btn {
-    color: rgba(255, 255, 255, 0.8);
-    background: $topnav-background-color;
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    font-size: 18px;
-    line-height: 40px;
-    padding: 0 25px;
-  }
-  .bordered-btn:hover, .bordered-btn:focus, .bordered-btn:active, .bordered-btn:visited {
-    color: rgba(255, 255, 255, 1);
-    border: 2px solid rgba(255, 255, 255, 1);
-    outline: none;
   }
 
   h1 {
@@ -76,32 +69,61 @@ $topnav-background-color: #222;
 
   p {
     font-family: "Open Sans Light";
-    font-size: 14px;
+    font-size: 10px;
   }
 
   .form-group {
     input::-webkit-input-placeholder {
       color: rgba(255, 255, 255, 0.6) !important;
+      font-family: "Open Sans Bold";
+      font-size: 12px;
     }
 
     input:-moz-placeholder { /* Firefox 18- */
       color: rgba(255, 255, 255, 0.6) !important;
+      font-family: "Open Sans Bold";
+      font-size: 12px;
     }
 
     input::-moz-placeholder { /* Firefox 19+ */
       color: rgba(255, 255, 255, 0.6) !important;
+      font-family: "Open Sans Bold";
+      font-size: 12px;
     }
 
     input:-ms-input-placeholder {
       color: rgba(255, 255, 255, 0.6) !important;
+      font-family: "Open Sans Bold";
+      font-size: 12px;
     }
   }
-  .form-content {
-    //padding: 40px 0;
-  }
-  .user-avatar {
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-    border: 2px solid #FFF;
+
+  .action-container {
+    text-transform: uppercase;
+    font-family: "Open Sans Bold";
+
+    .bordered-btn {
+      color: rgba(255, 255, 255, 0.8);
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      font-size: 18px;
+      line-height: 40px;
+      padding: 0 25px;
+      border-radius: 0;
+    }
+
+    .bordered-btn:hover, .bordered-btn:focus, .bordered-btn:active, .bordered-btn:visited {
+      color: rgba(255, 255, 255, 1);
+      border: 1px solid rgba(255, 255, 255, 1);
+      outline: none;
+    }
+
+    .btn-login-container {
+      padding-bottom: 20px;
+    }
+
+    .btn-register-container a {
+      color: #FFFFFF;
+    }
   }
 }
