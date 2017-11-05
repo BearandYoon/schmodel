@@ -76,24 +76,28 @@ $topnav-background-color: #222;
       color: rgba(255, 255, 255, 0.6) !important;
       font-family: "Open Sans Bold";
       font-size: 12px;
+      text-transform: uppercase;
     }
 
     input:-moz-placeholder { /* Firefox 18- */
       color: rgba(255, 255, 255, 0.6) !important;
       font-family: "Open Sans Bold";
       font-size: 12px;
+      text-transform: uppercase;
     }
 
     input::-moz-placeholder { /* Firefox 19+ */
       color: rgba(255, 255, 255, 0.6) !important;
       font-family: "Open Sans Bold";
       font-size: 12px;
+      text-transform: uppercase;
     }
 
     input:-ms-input-placeholder {
       color: rgba(255, 255, 255, 0.6) !important;
       font-family: "Open Sans Bold";
       font-size: 12px;
+      text-transform: uppercase;
     }
   }
 
@@ -109,6 +113,7 @@ $topnav-background-color: #222;
       line-height: 40px;
       padding: 0 25px;
       border-radius: 0;
+      text-transform: uppercase;
     }
 
     .bordered-btn:hover, .bordered-btn:focus, .bordered-btn:active, .bordered-btn:visited {
