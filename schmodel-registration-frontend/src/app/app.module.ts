@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
 import { AppRoutingModule } from './app-routing.module';
 
+import { ValidationService } from './shared/services';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -17,7 +19,10 @@ import { AppRoutingModule } from './app-routing.module';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [AuthGuard],
+  providers: [
+    AuthGuard,
+    ValidationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

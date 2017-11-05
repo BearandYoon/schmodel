@@ -1,26 +1,32 @@
-<div class="login-page" [@routerTransition]>
-    <div class="row">
-        <div class="col-md-4 mx-auto">
-            <form role="form">
-                <div class="form-content">
-                    <div class="form-group">
-                        <input type="text" class="form-control input-underline input-lg" id="" placeholder="Full Name">
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" class="form-control input-underline input-lg" id="" placeholder="Email">
-                    </div>
-
-                    <div class="form-group">
-                        <input type="password" class="form-control input-underline input-lg" id="" placeholder="Password">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control input-underline input-lg" id="" placeholder="Repeat Password">
-                    </div>
-                </div>
-                <a class="btn bordered-btn" [routerLink]="['/dashboard']"> Register </a>&nbsp;
-                <a class="btn bordered-btn" [routerLink]="['/login']"> Log in </a>
-            </form>
+<div class="page-container" [@routerTransition]>
+  <div class="logo-container">
+    <img class="img-logo" src="assets/img/img_logo.png">
+  </div>
+  <p class="comment">
+    Beauty is in the<br> eye of the employer
+  </p>
+  <div class="content-container">
+    <form [formGroup]="signUpForm" (submit)="onSignIn()">
+      <div class="form-content">
+        <div class="form-group">
+          <input type="email" class="form-control input-underline input-lg" formControlName="email" id="email" placeholder="Email Address">
+          <app-control-messages [control]="signUpForm.controls.email"></app-control-messages>
         </div>
-    </div>
+        <div class="form-group">
+          <input type="password" class="form-control input-underline input-lg" formControlName="password" id="password" placeholder="Password">
+          <app-control-messages [control]="signUpForm.controls.password"></app-control-messages>
+        </div>
+      </div>
+      <p class="forgot-pass">Forgot Password?</p>
+      <div class="action-container">
+        <div class="btn-login-container">
+          <button class="btn bordered-btn" type="submit" (click)="onSignIn()" [disabled]="!signUpForm.valid"> Login </button>
+        </div>
+        <div class="btn-register-container">
+          <a class="" [routerLink]="['/signup']">Schmodel Sign-up</a>
+        </div>
+      </div>
+      <p class="">Terms & Conditions</p>
+    </form>
+  </div>
 </div>

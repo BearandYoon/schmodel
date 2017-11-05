@@ -4,24 +4,20 @@ import { NgModule } from '@angular/core';
 
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
-
-import { ValidationService } from '../../shared/services';
-import { ControlMessagesComponent } from "../../components";
+import { SharedModule } from "../../shared/modules";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    LoginRoutingModule
+    LoginRoutingModule,
+    SharedModule
   ],
   declarations: [
-    LoginComponent,
-    ControlMessagesComponent
+    LoginComponent
   ],
-  providers: [
-    ValidationService,
-  ],
+  providers: [],
 })
 export class LoginModule {
 }
