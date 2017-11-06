@@ -4,3 +4,9 @@ app-control-messages div {
   font-size: 10px;
   color: red;
 }
+
+.modal-dialog {
+  position: absolute;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+}

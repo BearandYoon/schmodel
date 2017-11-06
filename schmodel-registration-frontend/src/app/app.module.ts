@@ -3,6 +3,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+import { ModalModule } from 'ngx-bootstrap';
+
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,7 +19,8 @@ import { ValidationService } from './shared/services';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ModalModule.forRoot()
   ],
   providers: [
     AuthGuard,
