@@ -1,2 +1,22 @@
 // shared css for the login and signup page
 @import "../login/login.component.scss";
+
+.page-container {
+  background-image: url("/assets/img/bg_register.png");
+
+  .img-logo {
+    width: 50%;
+    padding-bottom: 20px;
+  }
+
+  .content-wrapper {
+    min-height: 300px;
+    padding-bottom: 20px;
+  }
+
+  p.comment {
+    font-size: 24px;
+    text-align: center;
+    color: #FFFFFF;
+  }
+}
