@@ -13,9 +13,18 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {
-        path: '', loadChildren: './pages/home/home.module#HomeModule'
+        path: '',
+        loadChildren: './pages/home/home.module#HomeModule',
+        data: {
+          title: 'Home'
+        }
       }, {
-        path: 'edit-profile', loadChildren: './pages/edit-profile/edit-profile.module#EditProfileModule'
+        path: 'edit-profile',
+        loadChildren: './pages/edit-profile/edit-profile.module#EditProfileModule',
+        data: {
+          title: 'Edit My Profile',
+          left: 'back'
+        }
       }
     ]
   },
