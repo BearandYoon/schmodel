@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
 import { AppRoutingModule } from './app-routing.module';
+import { LayoutModule } from './pages/layout/layout.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LayoutModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
