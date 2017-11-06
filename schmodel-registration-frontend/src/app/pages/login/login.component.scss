@@ -4,13 +4,14 @@ $topnav-background-color: #222;
 }
 
 .page-container {
-  position: fixed;
   background-image: url("/assets/img/bg_login.png");
   background-size: cover;
   background-position: center top;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   padding: 50px 50px 0;
+  display: flex;
+  flex-flow: column wrap;
 
   .img-logo {
     display: block;
@@ -18,12 +19,17 @@ $topnav-background-color: #222;
     width: 60%;
   }
 
+  .content-wrapper {
+    flex: 1 0 0;
+    align-items: flex-end;
+    display: flex;
+    min-height: 350px;
+  }
+
   .content-container {
-    bottom: 10px;
-    position: absolute;
     text-align: center;
     color: white;
-    width: calc(100% - 100px);
+    width: 100%;
 
     .comment {
       font-size: 24px;
@@ -76,24 +82,28 @@ $topnav-background-color: #222;
       color: rgba(255, 255, 255, 0.6) !important;
       font-family: "Open Sans Bold";
       font-size: 12px;
+      text-transform: uppercase;
     }
 
     input:-moz-placeholder { /* Firefox 18- */
       color: rgba(255, 255, 255, 0.6) !important;
       font-family: "Open Sans Bold";
       font-size: 12px;
+      text-transform: uppercase;
     }
 
     input::-moz-placeholder { /* Firefox 19+ */
       color: rgba(255, 255, 255, 0.6) !important;
       font-family: "Open Sans Bold";
       font-size: 12px;
+      text-transform: uppercase;
     }
 
     input:-ms-input-placeholder {
       color: rgba(255, 255, 255, 0.6) !important;
       font-family: "Open Sans Bold";
       font-size: 12px;
+      text-transform: uppercase;
     }
   }
 
@@ -105,10 +115,11 @@ $topnav-background-color: #222;
       color: rgba(255, 255, 255, 0.8);
       background: transparent;
       border: 1px solid rgba(255, 255, 255, 0.8);
-      font-size: 18px;
-      line-height: 40px;
+      font-size: 12px;
+      line-height: 30px;
       padding: 0 25px;
       border-radius: 0;
+      text-transform: uppercase;
     }
 
     .bordered-btn:hover, .bordered-btn:focus, .bordered-btn:active, .bordered-btn:visited {
@@ -122,6 +133,7 @@ $topnav-background-color: #222;
     }
 
     .btn-register-container a {
+      font-size: 12px;
       color: #FFFFFF;
     }
   }
