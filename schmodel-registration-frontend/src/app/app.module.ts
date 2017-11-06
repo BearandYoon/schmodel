@@ -15,7 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

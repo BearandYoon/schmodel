@@ -11,6 +11,7 @@ const routes: Routes = [
     { path: 'login', loadChildren: './pages/login/login.module#LoginModule' },
     { path: 'signup', loadChildren: './pages/signup/signup.module#SignupModule' },
     { path: 'not-found', loadChildren: './pages/not-found/not-found.module#NotFoundModule' },
+    { path: 'forgot', loadChildren: './pages/forgot/forgot.module#ForgotModule' },
     { path: '**', redirectTo: 'not-found' }
 ];
 
