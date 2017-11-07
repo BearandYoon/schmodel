@@ -13,6 +13,7 @@ import { ValidationService } from '../../shared/services';
 })
 export class SignupComponent implements OnInit {
   signUpForm: any;
+  missMatchPass: string;
 
   constructor(
     public router: Router,
@@ -24,11 +25,21 @@ export class SignupComponent implements OnInit {
       'confirmPass': ['', [Validators.required, ValidationService.passwordValidator]],
       'activeCode': ['', Validators.required]
     });
+
+    this.missMatchPass = '';
   }
 
   ngOnInit() { }
 
   onSignUp() {
     console.log('onSignUp = ', this.signUpForm);
+
+    if (this.signUpForm.value.password !== this.signUpForm.value.confirmPass) {
+      this.missMatchPass = 'These passwords don\'t match. Try again?';
+    }
+  }
+
+  onKeyUpConfirmPass(event: any) {
+    this.missMatchPass = '';
   }
 }
