@@ -1,5 +1,5 @@
 <div class="page-container">
-  <app-header></app-header>
+  <app-header *ngIf="pageData.title" [pageData]="pageData"></app-header>
   <div class="page-content">
     <router-outlet></router-outlet>
   </div>

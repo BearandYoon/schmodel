@@ -1,9 +1,9 @@
 <div class="header">
-  <button type="button" class="nav nav-left">
+  <button [style.visibility]="pageData.navLeft ? 'visible' : 'hidden'" type="button" class="nav nav-left">
     <img src="/assets/images/ic_nav_back.png" width="12px" height="22px">
   </button>
   <p class="header-title">
-    Edit My Profile
+    {{pageData.title}}
   </p>
-  <button type="button" class="nav nav-right"></button>
+  <button [style.visibility]="pageData.navRight ? 'visible' : 'hidden'" type="button" class="nav nav-right"></button>
 </div>

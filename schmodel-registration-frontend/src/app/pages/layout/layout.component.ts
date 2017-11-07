@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
@@ -7,7 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutComponent implements OnInit {
 
-  constructor() { }
+  pageData: any = {};
+
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) {
+    router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        let route = activatedRoute;
+        while (route.firstChild) {
+          route = route.firstChild;
+        }
+
+        this.pageData = route.snapshot.data;
+      }
+    })
+  }
 
   ngOnInit() {
   }

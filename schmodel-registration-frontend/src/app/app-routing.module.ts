@@ -23,7 +23,7 @@ const routes: Routes = [
         loadChildren: './pages/edit-profile/edit-profile.module#EditProfileModule',
         data: {
           title: 'Edit My Profile',
-          left: 'back'
+          navLeft: 'back'
         }
       }
     ]
