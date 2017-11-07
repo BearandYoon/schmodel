@@ -1,0 +1,15 @@
+<div class="modal-header">
+  <h4 class="modal-title">Terms & Conditions</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="content-wrapper">
+    <p class="content">{{termsContent}}</p>
+  </div>
+  <div class="action-wrapper">
+    <button *ngIf="isBtnAgree" (click)="onAgreeTerms()"> Agree </button>
+    <button (click)="onCancelTerms()"> Cancel </button>
+  </div>
+</div>

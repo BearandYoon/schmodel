@@ -27,26 +27,8 @@
             <a class="" [routerLink]="['/signup']">Schmodel Sign-up</a>
           </div>
         </div>
-        <p (click)="showTermsAndConditions(termsAndConditions)">Terms & Conditions</p>
+        <p (click)="showTermsAndConditions()">Terms & Conditions</p>
       </form>
     </div>
   </div>
 </div>
-
-<ng-template #termsAndConditions>
-  <div class="modal-header">
-    <h4 class="modal-title">Terms & Conditions</h4>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <div class="content-wrapper">
-      <p class="content">{{termsContent}}</p>
-    </div>
-    <div class="action-wrapper">
-      <button (click)="onAgreeTerms()"> Agree </button>
-      <button (click)="onCancelTerms()"> Cancel </button>
-    </div>
-  </div>
-</ng-template>

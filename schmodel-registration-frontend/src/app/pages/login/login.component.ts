@@ -5,9 +5,9 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 
-
 import { routerTransition } from '../../router.animations';
 import { ValidationService } from '../../shared/services';
+import { TermsModalComponent } from '../../shared/modules/termsModal/termsModal.component';
 
 @Component({
     selector: 'app-login',
@@ -17,7 +17,7 @@ import { ValidationService } from '../../shared/services';
 })
 export class LoginComponent implements OnInit {
   signInForm: any;
-  modalRef: BsModalRef;
+  termsModalRef: BsModalRef;
   termsContent: string;
   config = {
     animated: true,
@@ -49,15 +49,9 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['']);
   }
 
-  showTermsAndConditions(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template, this.config);
-  }
-
-  onAgreeTerms() {
-    this.modalRef.hide();
-  }
-
-  onCancelTerms() {
-    this.modalRef.hide();
+  showTermsAndConditions() {
+    this.termsModalRef = this.modalService.show(TermsModalComponent);
+    this.termsModalRef.content.termsContent = this.termsContent;
+    this.termsModalRef.content.isBtnAgree = true;
   }
 }

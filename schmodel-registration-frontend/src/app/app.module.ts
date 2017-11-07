@@ -11,9 +11,12 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { ValidationService } from './shared/services';
 
+import { TermsModalComponent } from "./shared/modules/termsModal/termsModal.component";
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TermsModalComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +28,9 @@ import { ValidationService } from './shared/services';
   providers: [
     AuthGuard,
     ValidationService
+  ],
+  entryComponents: [
+    TermsModalComponent
   ],
   bootstrap: [AppComponent]
 })
