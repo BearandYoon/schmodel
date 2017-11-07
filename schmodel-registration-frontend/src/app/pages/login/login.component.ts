@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 
@@ -19,17 +19,17 @@ export class LoginComponent implements OnInit {
   signInForm: any;
   termsModalRef: BsModalRef;
   termsContent: string;
-  config = {
+  termsModalConfig = {
     animated: true,
-    keyboard: true,
+    keyboard: false,
     backdrop: true,
-    ignoreBackdropClick: false
+    ignoreBackdropClick: true
   };
 
   constructor(
     public router: Router,
     private formBuilder: FormBuilder,
-    private modalService: BsModalService
+    private modalService: BsModalService,
   ) {
     this.signInForm = this.formBuilder.group({
       'email': ['', [Validators.required, ValidationService.emailValidator]],
@@ -50,8 +50,12 @@ export class LoginComponent implements OnInit {
   }
 
   showTermsAndConditions() {
-    this.termsModalRef = this.modalService.show(TermsModalComponent);
+    this.termsModalRef = this.modalService.show(TermsModalComponent, this.termsModalConfig);
     this.termsModalRef.content.termsContent = this.termsContent;
     this.termsModalRef.content.isBtnAgree = true;
+
+    this.termsModalRef.content.onCloseReason.subscribe(result => {
+      console.log('Terms Modal Close Reason = ', result);
+    })
   }
 }

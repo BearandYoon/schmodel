@@ -10,7 +10,7 @@
     line-height: 1.5;
     text-align: center;
     width: 100%;
-    font-size: 19px;
+    font-size: 25px;
     letter-spacing: 1px;
   }
 
@@ -25,14 +25,16 @@
 .modal-body {
   background-color: #e6e7e8;
   font-family: "Open Sans Regular";
+  max-height: 300px;
+  overflow: auto;
+  padding: 20px;
+  letter-spacing: 1px;
 
   .content-wrapper {
-    max-height: 200px;
-    overflow: auto;
-
     .content {
       padding: 10px;
       font-size: 14px;
+      margin-bottom: 0;
     }
   }
 
@@ -42,9 +44,9 @@
     button {
       background-color: transparent;
       border: 1px solid darkgray;
-      margin: 9px;
+      margin: 10px;
       font-size: 14px;
-      padding: 5px 10px;
+      padding: 5px 30px;
       border-radius: 0;
       font-family: "Open Sans Bold";
       text-transform: uppercase;

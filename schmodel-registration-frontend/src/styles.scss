@@ -8,5 +8,13 @@ app-control-messages div {
 .modal-dialog {
   position: absolute;
   top: 50% !important;
-  transform: translateY(-50%) !important;
+  left: 50% !important;
+  transform: translateY(-50%) translateX(-50%) !important;
+}
+
+@media (max-width: 425px) {
+  .modal-dialog {
+    left: 0 !important;
+    transform: translateY(-50%) !important;
+  }
 }

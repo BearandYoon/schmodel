@@ -1,33 +1,38 @@
-import { Component, Input, TemplateRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal';
+import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'app-terms-conditions-modal',
   templateUrl: './termsModal.component.html',
   styleUrls: ['./termsModal.component.scss'],
 })
-export class TermsModalComponent {
+export class TermsModalComponent implements OnInit {
   termsContent: String;
   isBtnAgree: boolean;
-
-  config = {
-    animated: true,
-    keyboard: true,
-    backdrop: true,
-    ignoreBackdropClick: false
-  };
+  public onCloseReason: Subject<string>;
 
   constructor(
     public bsModalRef: BsModalRef
   ) { }
 
+  ngOnInit() {
+    this.onCloseReason = new Subject();
+  }
+
   onAgreeTerms() {
+    this.onCloseReason.next('agree');
     this.bsModalRef.hide();
   }
 
   onCancelTerms() {
+    this.onCloseReason.next('decline');
+    this.bsModalRef.hide();
+  }
+
+  onClose() {
+    this.onCloseReason.next('close');
     this.bsModalRef.hide();
   }
 }
