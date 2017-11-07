@@ -1,7 +1,7 @@
-<div [ngStyle] = "{'background-image' : 'url(../../assets/img/bg_pattern.png)'}" >
+<div [ngStyle] = "{'background-image' : 'url(../../assets/img/bg_pattern.png)'}" [@routerTransition]>
   <div>
-    <div class = "col-md-4 col-4">
-
+    <div class = "col-md-4 col-4" style = "padding-left: 0px; padding-right: 0px">
+      <img src = "/assets/img/ic_formulae.png">
     </div>
 
     <div class = "col-md-2 col-2">
@@ -28,13 +28,16 @@
         </div>
       </div>
 
-      <div class = "col-md-2 col-2" style = "padding-left:2%; padding-right:2%">
-        <div style = "padding-bottom: 10px">
-          <img src = "/assets/img/ic_checked.png" style = "width: 90%"/>
+
+      <div class = "col-md-2 col-2" style = "padding-left:2%; padding-right:2%; border-style:solid; border-right-color: rgba(100,100,100,1)">
+        <app-my-jobs-button [status] = "1" [price] = "'1,650'"></app-my-jobs-button>
+
+        <!-- <div (click) = "onToggle()" style = "padding-bottom: 10px">
+          <img src = {{url_button}} style = "width: 90%"/>
         </div>
         <div class = "text-center">
           <p> 1,650€ </p>
-        </div>
+        </div> -->
       </div>
 
       <div class = "col-md-2 col-2" style = "padding-left:2%; padding-right:2%">
@@ -54,7 +57,7 @@
         <div>
           <p> &nbsp; </p>
         </div>
-      </div>
+      </div>      
       <div class = "col-md-2 col-2" style = "padding-left:2%; padding-right:2%">
         <div style = "padding-bottom: 10px;">
           <img src = "/assets/img/ic_apply.png" style = "width: 90%"/>
