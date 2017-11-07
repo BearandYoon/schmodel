@@ -1,3 +1,29 @@
-<p>
-    forgot works!
-</p>
+<div class="page-container" [@routerTransition]>
+    <div class="logo-container">
+      <img class="img-logo" src="assets/img/img_logo.png">
+    </div>
+    <p class="title">Reset Password</p>
+    <div class="content-wrapper">
+      <div class="content-container">
+        <p class="comment">
+            Forgot your password?<br>
+            No problem, just enter your email<br>
+            below and we'll reset it for you
+        </p>
+        <form [formGroup]="forgotForm" (submit)="onRest()">
+          <div class="form-content">
+            <div class="form-group">
+              <input type="email" class="form-control input-underline input-lg" formControlName="email" id="email" placeholder="ENTER YOUR EMAIL">
+              <!-- <app-control-messages [control]="forgotForm.controls.email"></app-control-messages> -->
+            </div>
+          </div>
+          <div class="action-container">
+            <div class="btn-login-container">
+              <button class="btn bordered-btn" type="submit" (click)="onRest()" [disabled]="!forgotForm.valid"> SUBMIT </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
