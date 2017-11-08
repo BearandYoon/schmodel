@@ -1,71 +1,61 @@
-<div [ngStyle] = "{'background-image' : 'url(../../assets/img/bg_pattern.png)'}" [@routerTransition]>
-  <div>
-    <div class = "col-md-4 col-4" style = "padding-left: 0px; padding-right: 0px">
-      <img src = "/assets/img/ic_formulae.png">
+<div [ngStyle]="{'background-image' : 'url(/assets/img/bg_pattern.png)'}" > 
+
+  <div class="row align-items-center">
+    <div class="col-md-4 col-4">
+      <img src="/assets/img/ic_formulae.png" width="100%">
     </div>
 
-    <div class = "col-md-2 col-2">
+    <div class="col-md-2 col-2">
     </div>
 
-    <div class = "col-md-2 col-2">
+    <div class="col-md-2 col-2">
     </div>
 
-    <div class = "col-md-2 col-2">
+    <div class="col-md-2 col-2">
     </div>
 
-    <div class = "col-md-2 col-2">
+    <div class="col-md-2 col-2">
     </div>
   </div>
 
-  <div class = "bg">
-    <div class = "row align-items-center" style="margin-left:0px; margin-right:0px">
-      <div class = "col-md-4 col-4 div-opacity1">
-        <div class = "text-left" style = "padding-top:15%; padding-bottom:15%;">
-          <h1> R1-2 </h1>
-          <p> Dec. 2-3, 2017 </p>
-          <h3> HONG KONG, </h3>
-          <p> HK </p>
-        </div>
-      </div>
 
+<!-- 
+  @Output() event: EventEmitter<any> = new EventEmitter();
+  @Input() race_no:           number;
+  @Input() race_number:       string;
+  @Input() race_date:         string;
+  @Input() race_city:         string;
+  @Input() race_country_code: string;
+  
+  @Input() job_price: string[];   //[job_price] = "[1, 2, ...]"
+  @Input() job_status: number[]; -->
 
-      <div class = "col-md-2 col-2" style = "padding-left:2%; padding-right:2%; border-style:solid; border-right-color: rgba(100,100,100,1)">
-        <app-my-jobs-button [status] = "1" [price] = "'1,650'"></app-my-jobs-button>
+  <div preventParentScroll [preventParentScrollDisabled]="true" class="gradient_scroll_down">
+    <div style="margin-left: 2px; padding-bottom: 50px">
 
-        <!-- <div (click) = "onToggle()" style = "padding-bottom: 10px">
-          <img src = {{url_button}} style = "width: 90%"/>
-        </div>
-        <div class = "text-center">
-          <p> 1,650€ </p>
-        </div> -->
-      </div>
+      <app-formula-race [race_no]="0" [race_number]="'R1-2'" [race_date]="'Dec. 2-3, 2017'" [race_city]="'HONG KONG,'" [race_country_code]="'HK'" 
+                        [job_price]="['1,650€', '0', '0', '0']" [job_status]="[1, 0, 0, 2]"></app-formula-race>
 
-      <div class = "col-md-2 col-2" style = "padding-left:2%; padding-right:2%">
-        <div style = "padding-bottom: 10px">
-          <img src = "/assets/img/ic_disabled.png" style = "width: 90%"/>
-        </div>
+      <app-formula-race [race_no]="1" [race_number]="'R3'" [race_date]="'Jan. 13, 2018'" [race_city]="'MARRAKESH,'" [race_country_code]="'MA'" 
+                        [job_price]="['1,400€', '800€', '200€', '0']" [job_status]="[2, 2, 2, 2]"></app-formula-race>
 
-        <div>
-          <p> &nbsp; </p>
-        </div>
-      </div>
+      <app-formula-race [race_no]="2" [race_number]="'R4'" [race_date]="'Feb. 3, 2018'" [race_city]="'SANTIAGO,'" [race_country_code]="'CL'" 
+                        [job_price]="['1,400€', '800€', '200€', '0']" [job_status]="[2, 1, 2, 2]"></app-formula-race>
 
-      <div class = "col-md-2 col-2" style = "padding-left:2%; padding-right:2%">
-        <div style = "padding-bottom: 10px">
-          <img src = "/assets/img/ic_disabled.png" style = "width: 90%"/>
-        </div>
-        <div>
-          <p> &nbsp; </p>
-        </div>
-      </div>      
-      <div class = "col-md-2 col-2" style = "padding-left:2%; padding-right:2%">
-        <div style = "padding-bottom: 10px;">
-          <img src = "/assets/img/ic_apply.png" style = "width: 90%"/>
-        </div>
-        <div>
-          <p> &nbsp; </p>
-        </div>
-      </div>
+      <app-formula-race [race_no]="3" [race_number]="'R5'" [race_date]="'Mar. 3, 2018'" [race_city]="'MEXICO CITY,'" [race_country_code]="'MX'" 
+                        [job_price]="['1,400€', '800€', '200€', '0']" [job_status]="[2, 2, 2, 2]"></app-formula-race>
+
+      <app-formula-race [race_no]="4" [race_number]="'R6'" [race_date]="'Mar. 17, 2018'" [race_city]="'SAO PAULO,'" [race_country_code]="'BR'" 
+                        [job_price]="['1,400€', '800€', '200€', '0']" [job_status]="[2, 2, 1, 2]"></app-formula-race>
+
+      <!-- <app-formula-race [race_no]="5" [race_number]="'R7'" [race_date]="'Apr. 14, 2018'" [race_city]="'ROME,'" [race_country_code]="'IT'" 
+                        [job_price]="['1,400€', '800€', '200€', '0']" [job_status]="[2, 2, 2, 2]"></app-formula-race>
+                        
+      <app-formula-race [race_no]="6" [race_number]="'R8'" [race_date]="'Apr. 38, 2018'" [race_city]="'PARIS,'" [race_country_code]="'FR'" 
+                        [job_price]="['1,400€', '800€', '200€', '0']" [job_status]="[2, 2, 2, 2]"></app-formula-race>
+
+      <app-formula-race [race_no]="7" [race_number]="'R9'" [race_date]="'May. 19, 2018'" [race_city]="'BERLIN,'" [race_country_code]="'DE'" 
+                        [job_price]="['1,400€', '800€', '200€', '0']" [job_status]="[2, 2, 2, 2]"></app-formula-race> -->
     </div>
   </div>
 </div>
