@@ -11,25 +11,7 @@ import { Router } from '@angular/router';
 })
 export class MyJobsComponent implements OnInit {
 
-  public btn_status_image: Array<any> = [];
-  public url_button = "";
-  public toggleFlag = 0;
-
   constructor() {
-    this.url_button = 'assets/img/ic_apply.png';
-
-    this.btn_status_image.push({
-        imagePath: 'assets/img/ic_apply.png'
-    }, {
-        imagePath: 'assets/img/ic_checked.png'
-    }, {
-        imagePath: 'assets/img/ic_disabled.png'
-    });
-  }
-
-  onToggle() {
-    this.toggleFlag = (this.toggleFlag + 1) % 3;
-    this.url_button = this.btn_status_image[this.toggleFlag].imagePath;
   }
 
   ngOnInit() {

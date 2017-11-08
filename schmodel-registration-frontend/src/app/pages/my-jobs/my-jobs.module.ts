@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PreventParentScrollModule } from "ng2-prevent-parent-scroll";
 
 import { MyJobsRoutingModule } from './my-jobs-routing.module';
 import { MyJobsComponent } from './my-jobs.component';
@@ -10,8 +9,7 @@ import { FormulaRaceComponent } from './components/formula-race/formula-race.com
 @NgModule({
   imports: [
     CommonModule,
-    MyJobsRoutingModule,
-    PreventParentScrollModule
+    MyJobsRoutingModule
   ],
   declarations: [MyJobsComponent, MyJobsButtonComponent, FormulaRaceComponent]
 })
