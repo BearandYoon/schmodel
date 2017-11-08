@@ -1,9 +1,11 @@
 <div class="header">
-  <button [style.visibility]="pageData.navLeft ? 'visible' : 'hidden'" type="button" class="nav nav-left">
-    <img src="/assets/images/ic_nav_back.png" width="12px" height="22px">
+  <button type="button" class="nav nav-left" (click)="handleLeftNavClick()">
+    <span *ngIf="pageData.navLeft=='back'" class="icon icon-arrow-left"></span>
   </button>
   <p class="header-title">
     {{pageData.title}}
   </p>
-  <button [style.visibility]="pageData.navRight ? 'visible' : 'hidden'" type="button" class="nav nav-right"></button>
+  <button type="button" class="nav nav-right" (click)="handleRightNavClick()">
+    <span *ngIf="pageData.navRight=='settings'" class="icon icon-settings"></span>
+  </button>
 </div>
