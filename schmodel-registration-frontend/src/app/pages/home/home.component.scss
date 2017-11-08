@@ -1,0 +1,135 @@
+:host {
+  display: block;
+}
+.page-container {
+  background-image: url("/assets/img/bg_home_page.png");
+  background-size: cover;
+  background-position: center top;
+  width: 100%;
+  min-height: 100vh;
+  padding: 30px 50px 0;
+  display: flex;
+  flex-flow: column wrap;
+
+  .img-logo {
+    display: block;
+    margin: auto;
+    width: 50%;
+  }
+  
+  .title {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 40px;
+    font-weight: 200;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 6%;
+  }
+
+  .content-wrapper {
+    flex: 1 0 0;
+    align-items: flex-end;
+    display: flex;
+    min-height: 350px;
+  }
+
+  .content-container {
+    text-align: center;
+    color: white;
+    width: 100%;
+
+    .comment {
+      font-size: 21px;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 200;
+    }
+  }
+
+  .input-lg {
+    padding: 5px 0;
+    font-size: 14px;
+    line-height: 1.3333333;
+    border-radius: 0;
+  }
+
+  .input-underline {
+    background: 0 0;
+    border: none;
+    box-shadow: none;
+    border-bottom: 1px solid rgba(255, 255, 255, .5);
+    color: #FFF;
+    border-radius: 0;
+  }
+
+  .input-underline:focus {
+    border-bottom: 1px solid rgba(255, 255, 255, .5);
+    box-shadow: none;
+  }
+
+  p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 10px;
+    margin-bottom: 50px;
+  }
+
+  .form-group {
+    input::-webkit-input-placeholder {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    input:-moz-placeholder { /* Firefox 18- */
+      color: rgba(255, 255, 255, 0.6) !important;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    input::-moz-placeholder { /* Firefox 19+ */
+      color: rgba(255, 255, 255, 0.6) !important;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    input:-ms-input-placeholder {
+      color: rgba(255, 255, 255, 0.6) !important;
+      font-family: 'Open Sans', sans-serif;
+      
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+  }
+
+  .action-container {
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+
+    .bordered-btn {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 900; 
+      color: rgba(255, 255, 255, 1);
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 1);
+      font-size: 12px;
+      line-height: 30px;
+      padding: 3px 25px;
+      border-radius: 0;
+      text-transform: uppercase;
+    }
+
+    .bordered-btn:hover, .bordered-btn:focus, .bordered-btn:active, .bordered-btn:visited {
+      color: rgba(255, 255, 255, 1);
+      border: 1px solid rgba(255, 255, 255, 1);
+      outline: none;
+    }
+
+    .btn-submit-container {
+      padding: 27px 0 53px 0;
+    }
+  }
+}
