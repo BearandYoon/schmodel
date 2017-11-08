@@ -24,8 +24,10 @@ export class ForgotComponent implements OnInit {
   }
   ngOnInit() {
   }
-  // onResetPassword() {
-  //   console.log('onSignIn - email and password = ', this.forgotForm.value.email, this.forgotForm.value.password);
-  //   this.router.navigate(['']);
-  // }
+    // reset password feature
+    onReset() {
+
+     console.log('onReset - email = ', this.forgotForm.value.email);
+     // this.router.navigate(['']);
+    }
 }
