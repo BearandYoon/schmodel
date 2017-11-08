@@ -23,13 +23,21 @@
             <p *ngIf="missMatchPass" class="miss-match-pass">{{missMatchPass}}</p>
           </div>
           <div class="form-group">
-            <input type="password" class="form-control input-underline input-lg" formControlName="activeCode" id="activeCode" placeholder="Activation Code (If you have one)">
-            <app-control-messages [control]="signUpForm.controls.activeCode"></app-control-messages>
+            <input type="password" class="form-control input-underline input-lg" formControlName="activationCode" id="activeCode" placeholder="Activation Code (If you have one)">
+            <app-control-messages [control]="signUpForm.controls.activationCode"></app-control-messages>
           </div>
         </div>
         <div class="action-container">
           <div class="btn-login-container">
+            <!--
+              With type="submit" this button reloads all the page,
+              and this happen before server side response
+              reaches the handler. Changed to type="button"
+  
             <button class="btn bordered-btn" type="submit" (click)="onSignUp()" [disabled]="!signUpForm.valid"> Create Schmodel Account </button>
+            -->
+
+            <button class="btn bordered-btn" type="button" (click)="onSignUp()" [disabled]="!signUpForm.valid"> Create Schmodel Account </button>            
           </div>
         </div>
       </form>

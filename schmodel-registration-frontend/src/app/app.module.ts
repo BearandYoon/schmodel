@@ -9,6 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { ValidationService } from './shared/services';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -17,7 +19,8 @@ import { ValidationService } from './shared/services';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [
     AuthGuard,
