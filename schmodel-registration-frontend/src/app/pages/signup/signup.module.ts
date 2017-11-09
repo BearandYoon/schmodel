@@ -4,7 +4,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SignupRoutingModule } from './signup-routing.module';
 import { SignupComponent } from './signup.component';
-import { SharedModule } from "../../shared/modules";
+import { SharedModule } from '../../shared/modules';
+import { AuthenticationService } from '../../core/services';
 
 @NgModule({
   imports: [
@@ -17,6 +18,8 @@ import { SharedModule } from "../../shared/modules";
   declarations: [
     SignupComponent
   ],
-  providers: [],
+  providers: [
+    AuthenticationService
+  ],
 })
 export class SignupModule { }

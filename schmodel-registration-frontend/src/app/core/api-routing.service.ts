@@ -8,6 +8,6 @@ export class ApiRoutingService {
   constructor() {}
 
   getLoginAPIUrl(): string {
-    return this.baseUrl + '/auth/local';
+    return this.baseUrl + '/talent/signup';
   }
 }
