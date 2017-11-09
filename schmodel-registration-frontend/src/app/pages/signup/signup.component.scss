@@ -25,3 +25,49 @@
     text-align: left;
   }
 }
+
+@media (min-width: 426px) {
+  .page-container {
+    background-image: url("/assets/img/bg_register_desktop.jpg");
+
+    .img-logo {
+      width: 35%;
+    }
+
+    .content-container {
+      .comment {
+        font-size: 35px;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .page-container {
+    .img-logo {
+      width: 35%;
+    }
+
+    .input-lg {
+      font-size: 15px;
+    }
+
+    p {
+      font-size: 15px;
+    }
+
+    .action-container {
+      .bordered-btn {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-container {
+    .img-logo {
+      width: 300px;
+    }
+  }
+}
