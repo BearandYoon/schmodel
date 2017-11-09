@@ -7,28 +7,30 @@
       <p class="comment">
         Beauty is in the<br> eye of the employer
       </p>
-      <form [formGroup]="signInForm" (submit)="onSignIn()">
-        <div class="form-content">
-          <div class="form-group">
-            <input type="email" class="form-control input-underline input-lg" formControlName="email" id="email" placeholder="Email Address">
-            <app-control-messages [control]="signInForm.controls.email"></app-control-messages>
+      <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-3 form-wrapper">
+        <form [formGroup]="signInForm" (submit)="onSignIn()">
+          <div class="form-content">
+            <div class="form-group">
+              <input type="email" class="form-control input-underline input-lg" formControlName="email" id="email" placeholder="Email Address">
+              <app-control-messages [control]="signInForm.controls.email"></app-control-messages>
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control input-underline input-lg" formControlName="password" id="password" placeholder="Password">
+              <app-control-messages [control]="signInForm.controls.password"></app-control-messages>
+            </div>
           </div>
-          <div class="form-group">
-            <input type="password" class="form-control input-underline input-lg" formControlName="password" id="password" placeholder="Password">
-            <app-control-messages [control]="signInForm.controls.password"></app-control-messages>
+          <p class="forgot-pass">Forgot Password?</p>
+          <div class="action-container">
+            <div class="btn-login-container">
+              <button class="btn bordered-btn" type="submit" (click)="onSignIn()" [disabled]="!signInForm.valid"> Login </button>
+            </div>
+            <div class="btn-register-container">
+              <a class="" [routerLink]="['/signup']">Schmodel Sign-up</a>
+            </div>
           </div>
-        </div>
-        <p class="forgot-pass">Forgot Password?</p>
-        <div class="action-container">
-          <div class="btn-login-container">
-            <button class="btn bordered-btn" type="submit" (click)="onSignIn()" [disabled]="!signInForm.valid"> Login </button>
-          </div>
-          <div class="btn-register-container">
-            <a class="" [routerLink]="['/signup']">Schmodel Sign-up</a>
-          </div>
-        </div>
-        <p class="">Terms & Conditions</p>
-      </form>
+          <p (click)="showTermsAndConditions()">Terms & Conditions</p>
+        </form>
+      </div>
     </div>
   </div>
 </div>
