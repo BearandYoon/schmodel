@@ -4,35 +4,22 @@
   </div>
   <p class="title">Complete Your Profile</p>
   <div class="content-wrapper">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-  <p>Only Schmodels with an activation code can apply for jobs(until further notice)</p>
-  <div class="page-footer">
-    <p>LOG-OUT</p>
-    <p>Terms&Conditions</p>
-  </div>
-  <!-- <div class="content-wrapper">
-    <div class="content-container">
-      <p class="comment">
-          Forgot your password?<br>
-          No problem, just enter your email<br>
-          below and we'll reset it for you
-      </p>
-      <form [formGroup]="forgotForm" (submit)="onReset()">
-        <div class="form-content">
-          <div class="form-group">
-            <input type="email" class="form-control input-underline input-lg" formControlName="email" id="email" placeholder="ENTER YOUR EMAIL">
-            <app-control-message  [control]="forgotForm.controls.email"></app-control-message>
-          </div>
-        </div>
-        <div class="action-container">
-          <div class="btn-submit-container">
-            <button class="btn bordered-btn" type="submit" [disabled]="!forgotForm.valid"> SUBMIT </button>
-          </div>
-        </div>
-      </form>
+    <div class="btn-edit-profile common-pattern">
+      <div class="btn-text"><span>Edit My Profile</span></div>
+      <div class="btn-icon"><img src="assets/img/ic_app_jobs.png"></div>
     </div>
-  </div> -->
+    <div class="btn-apply-job common-pattern">
+      <div class="btn-text"><span>Apply for Jobs</span></div>
+      <div class="btn-icon"><img src="assets/img/ic_edit_jobs.png"></div>
+    </div>
+    <div class="btn-my-job common-pattern">
+      <div class="btn-text"><span>My Jobs</span></div>
+      <div class="btn-icon"><img src="assets/img/ic_my_jobs.png"></div>
+    </div>
+  </div>
+  <p class="content-text">Only Schmodels with an activation code can apply for jobs(until further notice)</p>
+  <div class="page-footer">
+    <p class="logout-text">LOG-OUT</p>
+    <p class="terms-condition">Terms & Conditions</p>
+  </div>
 </div>
