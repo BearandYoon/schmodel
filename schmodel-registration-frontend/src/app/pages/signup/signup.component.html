@@ -7,7 +7,10 @@
   </p>
   <div class="content-wrapper">
     <div class="content-container">
-      <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-3 form-wrapper">
+      <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-4 form-wrapper">
+        <alert type="danger" *ngIf="message">
+          <strong>{{message}}</strong>
+        </alert>
         <form [formGroup]="signUpForm" (submit)="onSignUp()">
           <div class="form-content">
             <div class="form-group">

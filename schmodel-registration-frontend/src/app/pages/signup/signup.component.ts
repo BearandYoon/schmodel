@@ -2,14 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 
-import { LocalStorageService } from 'ngx-webstorage';
-
 import { routerTransition } from '../../router.animations';
 import { ValidationService } from '../../shared/services';
 import { AuthenticationService } from '../../core/services';
 
 import { AuthUser } from '../../shared/models';
-import { environment } from '../../../environments/environment';
 
 @Component({
     selector: 'app-signup',
@@ -21,11 +18,11 @@ export class SignupComponent implements OnInit {
   signUpForm: any;
   missMatchPass: string;
   authUser: AuthUser = new AuthUser();
+  message: string;
 
   constructor(
     public router: Router,
     private formBuilder: FormBuilder,
-    private localStorage: LocalStorageService,
     private authService: AuthenticationService
   ) {
     this.signUpForm = this.formBuilder.group({
@@ -36,13 +33,12 @@ export class SignupComponent implements OnInit {
     });
 
     this.missMatchPass = '';
+    this.message = '';
   }
 
   ngOnInit() { }
 
   onSignUp() {
-    console.log('onSignUp = ', this.signUpForm);
-
     if (this.signUpForm.value.password !== this.signUpForm.value.confirmPass) {
       this.missMatchPass = 'These passwords don\'t match. Try again?';
     } else {
@@ -51,14 +47,26 @@ export class SignupComponent implements OnInit {
       this.authUser.activationCode = this.signUpForm.value.activationCode;
 
       this.authService.signUp(this.authUser).subscribe( res => {
-        console.log('SignUp Response = ', res);
-        this.localStorage.store(
-          environment.localStorage.token,
-          res.access_token
-        );
-        this.router.navigate(['']);
+        if (!res.emailIsValid) {
+          this.message = 'Your Email is invalid.';
+          return;
+        }
+        if (!res.emailAvailable) {
+          this.message = 'Your Email is not available.';
+          return;
+        }
+        if (!res.passwordValid) {
+          this.message = 'Your password should contain at least 6 characters long, and contain a number..';
+          return;
+        }
+        if (!res.activationCodeValid) {
+          this.message = 'Your Activation Code is invalid.';
+          return;
+        }
+        this.router.navigate(['login']);
       }, err => {
         console.log('signUp Error = ', err);
+        this.message = 'Something went wrong.';
       });
     }
   }

@@ -1,8 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 app-control-messages div {
+  position: absolute;
   text-align: left;
   font-size: 10px;
-  color: red;
+  color: rgba(255, 4, 0, 0.52);
 }
 
 .modal-dialog {
@@ -10,6 +11,21 @@ app-control-messages div {
   top: 50% !important;
   left: 50% !important;
   transform: translateY(-50%) translateX(-50%) !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #fff !important;
+}
+
+.alert {
+  padding: 8px;
+  font-size: 14px;
+  background-color: transparent;
+  color: rgba(255, 4, 0, 0.52);
 }
 
 @media (max-width: 425px) {

@@ -3,7 +3,7 @@ export class ValidationService {
     const config = {
       'required': 'Required',
       'invalidEmailAddress': 'Invalid email address',
-      'invalidPassword': 'Invalid password. Password must be at least 6 characters long, and contain a number.',
+      'invalidPassword': 'Password must be at least 6 characters and contain a number.',
       'invalidPhoneNumber': 'Invalid Phone Number',
       'minlength': `Minimum length ${validatorValue.requiredLength}`
     };
