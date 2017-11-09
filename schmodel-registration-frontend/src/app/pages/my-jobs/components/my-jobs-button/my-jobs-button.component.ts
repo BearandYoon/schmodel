@@ -46,7 +46,6 @@ export class MyJobsButtonComponent implements OnInit{
       this.status = ButtonStatus.Checked;
       this.image_url = '/assets/img/ic_checked.png';
     }
-    
     else if(this.status == ButtonStatus.Disabled) {
       this.image_url = '/assets/img/ic_disabled.png';
       this.price = ' ';

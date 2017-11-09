@@ -11,6 +11,9 @@ import { routerTransition } from '../../../../router.animations';
 
 export class FormulaRaceComponent implements OnInit {
 
+  private light_blue: string = 'rgba(78, 200, 235, 0.1)';
+  private light_purple:string = 'rgba(53, 20, 77, 0.1)';
+
   public race_bg_urls: Array<any> = [];
   public race_title_style: Array<any> = [];
 
@@ -40,10 +43,9 @@ export class FormulaRaceComponent implements OnInit {
   ngOnChanges() {
     this.bg_url = this.race_bg_urls[this.race_no].imagePath;
     if(this.race_no % 2 == 0)
-      this.title_border_style = 'rgba(78, 200, 235, 0.1)';
+      this.title_border_style = this.light_blue;
     else
-      this.title_border_style = 'rgba(53, 20, 77, 0.1)';
-    // alert(this.title_border_style);
+      this.title_border_style = this.light_purple;
   }
   
   @Output() event: EventEmitter<any> = new EventEmitter();
