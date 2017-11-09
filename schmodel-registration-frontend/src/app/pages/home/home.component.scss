@@ -8,8 +8,6 @@
   width: 100%;
   min-height: 100vh;
   padding: 30px 0 0;
-  display: flex;
-  flex-flow: column wrap;
   font-family: 'Open Sans', sans-serif;
 
   .img-logo {
@@ -57,6 +55,28 @@
           width: 37px;
           opacity: .3;
           margin: auto 47px;
+        }
+      }
+    }
+    .profile-content {
+      display: flex;
+      margin-bottom: 3px;
+      
+      .profile-image {
+        width: 70%;
+        margin-right: 2px;
+        img {
+          width : 100%;
+        }
+      }
+      .profile-info {
+        background-image: url("/assets/img/bg_home_ract.png");
+        width: 30%;
+
+        .profile-title {
+          font-size: 18px;
+          font-weight: 700;
+          border-bottom: 1px solid rgba(255, 255,255, .8);
         }
       }
     }
