@@ -1,3 +1,11 @@
-<p>
-  layout works!
-</p>
+<div class="page-container">
+
+  <nav class="fixed-nav-bar">
+    <app-header *ngIf="pageData.title" [pageData]="pageData"></app-header>
+  </nav>
+
+  <section class="page-content content">
+    <router-outlet></router-outlet>
+  </section>
+</div>
+  
