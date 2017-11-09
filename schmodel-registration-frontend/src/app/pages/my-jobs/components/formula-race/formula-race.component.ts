@@ -12,30 +12,38 @@ import { routerTransition } from '../../../../router.animations';
 export class FormulaRaceComponent implements OnInit {
 
   public race_bg_urls: Array<any> = [];
+  public race_title_style: Array<any> = [];
+
   public bg_url: string = "";
+  public title_border_style: string = "";
 
   constructor() { 
     this.race_bg_urls.push(
-      { imagePath: '/assets/img/bg_r1_2.png'}, 
-      { imagePath: '/assets/img/bg_r3.png'},
-      { imagePath: '/assets/img/bg_r4.png'},
-      { imagePath: '/assets/img/bg_r5.png'},
-      { imagePath: '/assets/img/bg_r6.png'},
-      { imagePath: '/assets/img/bg_r7.png'},
-      { imagePath: '/assets/img/bg_r8.png'},
-      { imagePath: '/assets/img/bg_r9.png'},
-      { imagePath: '/assets/img/bg_r10.png'},
-      { imagePath: '/assets/img/bg_r11_12.png'},
-      { imagePath: '/assets/img/bg_r13_14.png'},
+      { imagePath: '/assets/img/bg_r1_2.png' }, 
+      { imagePath: '/assets/img/bg_r3.png' },
+      { imagePath: '/assets/img/bg_r4.png' },
+      { imagePath: '/assets/img/bg_r5.png' },
+      { imagePath: '/assets/img/bg_r6.png' },
+      { imagePath: '/assets/img/bg_r7.png' },
+      { imagePath: '/assets/img/bg_r8.png' },
+      { imagePath: '/assets/img/bg_r9.png' },
+      { imagePath: '/assets/img/bg_r10.png' },
+      { imagePath: '/assets/img/bg_r11_12.png' },
+      { imagePath: '/assets/img/bg_r13_14.png' },
     )
   }
 
-  
+
   ngOnInit() {
   }
 
   ngOnChanges() {
     this.bg_url = this.race_bg_urls[this.race_no].imagePath;
+    if(this.race_no % 2 == 0)
+      this.title_border_style = 'rgba(78, 200, 235, 0.1)';
+    else
+      this.title_border_style = 'rgba(53, 20, 77, 0.1)';
+    // alert(this.title_border_style);
   }
   
   @Output() event: EventEmitter<any> = new EventEmitter();

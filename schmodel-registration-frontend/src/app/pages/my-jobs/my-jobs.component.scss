@@ -9,7 +9,7 @@ h1 {
 
 h2 {
     font-family: 'Open Sans', sans-serif;
-    font-size: 10px;
+    font-size: 12px;
     font-style: normal;
     font-variant: normal;
     font-weight: 800;
@@ -19,16 +19,27 @@ h2 {
 
 h3 {
     font-family: 'Open Sans', sans-serif;
-    font-size: 11px;
+    font-size: 10px;
     font-style: normal;
     font-variant: normal;
     font-weight: 700;
     color: white;
     margin-bottom: 0px;
 }
+
+h4 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 8px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 0px;
+}
+
 p {
     font-family: 'Open Sans', sans-serif;
-    font-size: 11px;
+    font-size: 10px;
     font-style: normal;
     font-variant: normal;
     font-weight: 300;
@@ -36,15 +47,30 @@ p {
     margin-bottom: 0px;
 }
 
+.role-border-style {
+    border-style: solid;
+    border-width: 5px;
+    border-color: transparent;
+}
 .role_bg {
     background-color: rgba(255, 255, 255, 0.1);
+    border-style:solid;
+    border-width:1px;
+    border-color:rgba(0, 0, 0, 1);
     text-align: center;
 }
+.row.role_bg {
+    margin: 1px 0px 0px 0px;
+}
 
+.col-md-12.role-title-style {
+    padding-left: 0px;
+    padding-right: 0px;
+}
 .row{
     margin-left: 0px;
     margin-right: 0px;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
 }
 
 .col-md-4.col-4.formula-e {
@@ -52,6 +78,7 @@ p {
     padding-left: 2px;
     padding-right: 0px;
 }
+
 .gradient_scroll_down {
     // background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(255, 0, 0, 0)), color-stop(1, rgba(255, 0, 0, 100)))
 }
