@@ -1,7 +1,7 @@
 $header-height: 64px;
 $navitem-width: 50px;
 
-.header {
+header.header--main {
   width: 100%;
   height: $header-height;
   display: flex;
@@ -32,7 +32,7 @@ $navitem-width: 50px;
     }
   }
 
-  .header-title {
+  .title {
     flex: 1;
     margin: 0;
     text-align: center;
