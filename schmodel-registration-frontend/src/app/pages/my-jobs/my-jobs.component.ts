@@ -12,33 +12,33 @@ import { routerTransition } from '../../router.animations';
 export class MyJobsComponent implements OnInit {
 
   // @ViewChild('scrollMe') private myScrollContainer: ElementRef;
-  public style_height: string = '';
+  public showDialog = false;
+  public style_height: Array<any> = [];
   public flag: boolean = false;
 
+  public boardHeight: string ='';
+  public bottomHeight: string='';
+
   constructor() {
-    this.style_height = "100vh";
+    this.style_height.push(
+      {
+        boardHeight: '100vh', bottomHeight: '50vh',
+      }, {
+        boardHeight: '100%', bottomHeight: '0vh',
+      },
+    )
   }
 
   ngOnInit() {
     this.flag = true;
-
+    this.boardHeight = this.style_height[0].boardHeight;
+    this.bottomHeight = this.style_height[0].bottomHeight;
   }
 
   onScrollDown() {
     this.flag = false;
-    this.style_height = "100%";
+
+    this.boardHeight = this.style_height[1].boardHeight;
+    this.bottomHeight = this.style_height[1].bottomHeight;
   }
-  
-  
-  // this.scrollToBottom();
-
-  // ngAfterViewChecked() {
-  //   this.scrollToBottom();
-  // }
-
-  // scrollToBottom(): void {
-  //   try {
-  //     this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
-  //   }catch(errr) { }
-  // }
 }

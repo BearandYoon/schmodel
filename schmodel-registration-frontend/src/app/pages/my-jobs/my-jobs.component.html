@@ -1,4 +1,4 @@
-<div [ngStyle]="{'background-image' : 'url(/assets/img/bg_pattern.png)', 'height' : style_height }" [@routerTransition]> 
+<div class="my-jobs" [ngStyle]="{ 'height' : boardHeight }" [@routerTransition]> 
 
   <div class="row text-center">
     <div class="col-md-4 col-4 formula-e">
@@ -158,11 +158,10 @@
     </app-event>
   </div>
 
-  <div class="sticky-footer text-center">
+  <div [ngStyle]="{'height' : bottomHeight}" [style.visibility]="(flag == 0) ? 'hidden' : 'visible' " class="sticky-footer text-center">
     <div style="padding-top: 40vh">
       <button (click)="onScrollDown()" type="button" class="btn btn-primary">arrow down button</button>
     </div>
-
   </div>
 
 </div>

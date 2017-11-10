@@ -5,12 +5,13 @@ import { MyJobsRoutingModule } from './my-jobs-routing.module';
 import { MyJobsComponent } from './my-jobs.component';
 import { EventRoleComponent } from './components/event-role/event-role.component';
 import { EventComponent } from './components/event/event.component';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 @NgModule({
   imports: [
     CommonModule,
     MyJobsRoutingModule
   ],
-  declarations: [MyJobsComponent, EventRoleComponent, EventComponent]
+  declarations: [MyJobsComponent, EventRoleComponent, EventComponent, DialogComponent]
 })
 export class MyJobsModule { }
