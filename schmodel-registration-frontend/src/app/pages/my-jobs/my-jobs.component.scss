@@ -79,7 +79,21 @@ p {
     padding-left: 2px;
     padding-right: 0px;
 }
+.app-event-style {
+    margin-left: 2px;
+}
 
-.gradient_scroll_down {
-    // background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, rgba(255, 0, 0, 0)), color-stop(1, rgba(255, 0, 0, 100)))
+.sticky-footer {
+    position: sticky;
+
+    bottom: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+.footer-margin {
+    padding-bottom: 40px;
+    background-image: url('/assets/img/bg_pattern.png');
+    background-repeat: no-repeat;
+    background-size: cover
 }

@@ -4,28 +4,29 @@
 
     <div class="col-md-4 col-4" [ngStyle]="{'background-color': title_border_style }">
       <div class="race_title_style text-left">
-        <h1> {{race_number}} </h1>
-        <p>  {{race_date}} </p>
-        <h3> {{race_city}} </h3>
-        <p>  {{race_country_code}} </p>
+        <h1> {{event_number}} </h1>
+        <p>  {{event_date}} </p>
+        <h3> {{event_city}} </h3>
+        <p>  {{event_country_code}} </p>
       </div>
     </div>
 
     <div class="col-md-2 col-2 align-items-center row event-role-style custom-border">
-      <app-event-role class="event-role" [status]=job_status[0] [price]=job_price[0]></app-event-role>
+      <app-event-role class="event-role" [status]=event_role_status[0] [price]=event_role_price[0]></app-event-role>
     </div>
 
     <div class="col-md-2 col-2 align-items-center row event-role-style custom-border">
-      <app-event-role class="event-role" [status]=job_status[1] [price]=job_price[1]></app-event-role>
+      <app-event-role class="event-role" [status]=event_role_status[1] [price]=event_role_price[1]></app-event-role>
     </div>
 
     <div class="col-md-2 col-2 align-items-center row event-role-style custom-border">
-      <app-event-role class="event-role" [status]=job_status[2] [price]=job_price[2]></app-event-role>
+      <app-event-role class="event-role" [status]=event_role_status[2] [price]=event_role_price[2]></app-event-role>
     </div>
 
     <div class="col-md-2 col-2 align-items-center row event-role-style custom-border">
-      <app-event-role class="event-role" [status]=job_status[3] [price]=job_price[3]></app-event-role>
+      <app-event-role class="event-role" [status]=event_role_status[3] [price]=event_role_price[3]></app-event-role>
     </div>
+
   </div>
 
 </div>

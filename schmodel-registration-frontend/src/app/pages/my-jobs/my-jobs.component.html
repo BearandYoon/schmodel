@@ -46,119 +46,125 @@
     </div>
   </div>
 
+  <div class="app-event-style">
+    <app-event 
+                      [event_no]="0" 
+                      [event_number]="'R1-2'" 
+                      [event_date]="'Dec. 2-3, 2017'" 
+                      [event_city]="'HONG KONG,'" 
+                      [event_country_code]="'HK'" 
+                      [event_role_price]="['1,650€', '0', '0', '0']" 
+                      [event_role_status]="[1, 0, 0, 2]">
+    </app-event>
 
-<!-- 
-  @Output() event: EventEmitter<any> = new EventEmitter();
-  @Input() race_no:           number;
-  @Input() race_number:       string;
-  @Input() race_date:         string;
-  @Input() race_city:         string;
-  @Input() race_country_code: string;
-  
-  @Input() job_price: string[];   //[job_price] = "[1, 2, ...]"
-  @Input() job_status: number[]; -->
+    <app-event 
+                      [event_no]="1" 
+                      [event_number]="'R3'" 
+                      [event_date]="'Jan. 13, 2018'" 
+                      [event_city]="'MARRAKESH,'" 
+                      [event_country_code]="'MA'" 
+                      [event_role_price]="['1,400€', '800€', '200€', '0']" 
+                      [event_role_status]="[2, 2, 2, 2]">
+    </app-event>
 
-  <div class="gradient_scroll_down">
-    <div style="margin-left: 2px; padding-bottom: 50px">
+    <app-event 
+                      [event_no]="2" 
+                      [event_number]="'R4'" 
+                      [event_date]="'Feb. 3, 2018'" 
+                      [event_city]="'SANTIAGO,'" 
+                      [event_country_code]="'CL'" 
+                      [event_role_price]="['1,400€', '800€', '200€', '0']" 
+                      [event_role_status]="[2, 1, 2, 2]">
+    </app-event>
 
-      <app-event [race_no]="0" 
-                        [race_number]="'R1-2'" 
-                        [race_date]="'Dec. 2-3, 2017'" 
-                        [race_city]="'HONG KONG,'" 
-                        [race_country_code]="'HK'" 
-                        [job_price]="['1,650€', '0', '0', '0']" 
-                        [job_status]="[1, 0, 0, 2]">
-      </app-event>
+    <app-event 
+                      [event_no]="3" 
+                      [event_number]="'R5'" 
+                      [event_date]="'Mar. 3, 2018'" 
+                      [event_city]="'MEXICO CITY,'" 
+                      [event_country_code]="'MX'" 
+                      [event_role_price]="['1,400€', '800€', '200€', '0']" 
+                      [event_role_status]="[2, 2, 2, 2]">
+    </app-event>
 
-      <app-event [race_no]="1" 
-                        [race_number]="'R3'" 
-                        [race_date]="'Jan. 13, 2018'" 
-                        [race_city]="'MARRAKESH,'" 
-                        [race_country_code]="'MA'" 
-                        [job_price]="['1,400€', '800€', '200€', '0']" 
-                        [job_status]="[2, 2, 2, 2]">
-      </app-event>
+    <app-event 
+                      [event_no]="4" 
+                      [event_number]="'R6'" 
+                      [event_date]="'Mar. 17, 2018'" 
+                      [event_city]="'SAO PAULO,'" 
+                      [event_country_code]="'BR'" 
+                      [event_role_price]="['1,400€', '800€', '200€', '0']" 
+                      [event_role_status]="[2, 2, 1, 2]">
+    </app-event>
 
-      <app-event [race_no]="2" 
-                        [race_number]="'R4'" 
-                        [race_date]="'Feb. 3, 2018'" 
-                        [race_city]="'SANTIAGO,'" 
-                        [race_country_code]="'CL'" 
-                        [job_price]="['1,400€', '800€', '200€', '0']" 
-                        [job_status]="[2, 1, 2, 2]">
-      </app-event>
+    <app-event 
+                      [event_no]="5" 
+                      [event_number]="'R7'" 
+                      [event_date]="'Apr. 14, 2018'" 
+                      [event_city]="'ROME,'" 
+                      [event_country_code]="'IT'" 
+                      [event_role_price]="['1,400€', '800€', '200€', '0']" 
+                      [event_role_status]="[2, 2, 2, 2]">
+    </app-event>
+                      
+    <app-event 
+                      [event_no]="6" 
+                      [event_number]="'R8'" 
+                      [event_date]="'Apr. 38, 2018'" 
+                      [event_city]="'PARIS,'" 
+                      [event_country_code]="'FR'" 
+                      [event_role_price]="['1,400€', '800€', '200€', '0']" 
+                      [event_role_status]="[2, 2, 2, 2]">
+    </app-event>
 
-      <app-event [race_no]="3" 
-                        [race_number]="'R5'" 
-                        [race_date]="'Mar. 3, 2018'" 
-                        [race_city]="'MEXICO CITY,'" 
-                        [race_country_code]="'MX'" 
-                        [job_price]="['1,400€', '800€', '200€', '0']" 
-                        [job_status]="[2, 2, 2, 2]">
-      </app-event>
+    <app-event 
+                      [event_no]="7" 
+                      [event_number]="'R9'" 
+                      [event_date]="'May. 19, 2018'" 
+                      [event_city]="'BERLIN,'" 
+                      [event_country_code]="'DE'" 
+                      [event_role_price]="['1,400€', '800€', '200€', '0']" 
+                      [event_role_status]="[2, 2, 2, 2]">
+    </app-event>
 
-      <app-event [race_no]="4" 
-                        [race_number]="'R6'" 
-                        [race_date]="'Mar. 17, 2018'" 
-                        [race_city]="'SAO PAULO,'" 
-                        [race_country_code]="'BR'" 
-                        [job_price]="['1,400€', '800€', '200€', '0']" 
-                        [job_status]="[2, 2, 1, 2]">
-      </app-event>
+    <app-event 
+                      [event_no]="8" 
+                      [event_number]="'R10'" 
+                      [event_date]="'May. 19, 2018'" 
+                      [event_city]="'BERLIN,'" 
+                      [event_country_code]="'DE'" 
+                      [event_role_price]="['1,400€', '800€', '200€', '0']" 
+                      [event_role_status]="[2, 2, 2, 2]">
+    </app-event>
 
-      <app-event [race_no]="5" 
-                        [race_number]="'R7'" 
-                        [race_date]="'Apr. 14, 2018'" 
-                        [race_city]="'ROME,'" 
-                        [race_country_code]="'IT'" 
-                        [job_price]="['1,400€', '800€', '200€', '0']" 
-                        [job_status]="[2, 2, 2, 2]">
-      </app-event>
-                        
-      <app-event [race_no]="6" 
-                        [race_number]="'R8'" 
-                        [race_date]="'Apr. 38, 2018'" 
-                        [race_city]="'PARIS,'" 
-                        [race_country_code]="'FR'" 
-                        [job_price]="['1,400€', '800€', '200€', '0']" 
-                        [job_status]="[2, 2, 2, 2]">
-      </app-event>
+    <app-event 
+                      [event_no]="9" 
+                      [event_number]="'R11-12'" 
+                      [event_date]="'May. 19, 2018'" 
+                      [event_city]="'BERLIN,'" 
+                      [event_country_code]="'DE'" 
+                      [event_role_price]="['1,400€', '800€', '200€', '0']" 
+                      [event_role_status]="[2, 2, 2, 2]">
+    </app-event>
+    
+    <app-event 
+                      [event_no]="10" 
+                      [event_number]="'R13-14'" 
+                      [event_date]="'May. 19, 2018'" 
+                      [event_city]="'BERLIN'" 
+                      [event_country_code]="'DE'"
+                      [event_role_price]="['1,400€', '800€', '200€', '0']" 
+                      [event_role_status]="[2, 2, 2, 2]">
+    </app-event>
+  </div>
 
-      <app-event [race_no]="7" 
-                        [race_number]="'R9'" 
-                        [race_date]="'May. 19, 2018'" 
-                        [race_city]="'BERLIN,'" 
-                        [race_country_code]="'DE'" 
-                        [job_price]="['1,400€', '800€', '200€', '0']" 
-                        [job_status]="[2, 2, 2, 2]">
-      </app-event>
+  <div class="sticky-footer text-center">
+    <div>
+      <button type="button" class="btn btn-primary">arrow down button</button>
+    </div>
 
-      <app-event [race_no]="8" 
-                        [race_number]="'R10'" 
-                        [race_date]="'May. 19, 2018'" 
-                        [race_city]="'BERLIN,'" 
-                        [race_country_code]="'DE'" 
-                        [job_price]="['1,400€', '800€', '200€', '0']" 
-                        [job_status]="[2, 2, 2, 2]">
-      </app-event>
-
-      <app-event [race_no]="9" 
-                        [race_number]="'R11-12'" 
-                        [race_date]="'May. 19, 2018'" 
-                        [race_city]="'BERLIN,'" 
-                        [race_country_code]="'DE'" 
-                        [job_price]="['1,400€', '800€', '200€', '0']" 
-                        [job_status]="[2, 2, 2, 2]">
-      </app-event>
-      
-      <app-event [race_no]="10" 
-                        [race_number]="'R13-14'" 
-                        [race_date]="'May. 19, 2018'" 
-                        [race_city]="'BERLIN'" 
-                        [race_country_code]="'DE'"
-                        [job_price]="['1,400€', '800€', '200€', '0']" 
-                        [job_status]="[2, 2, 2, 2]">
-      </app-event>
+    <div class="footer-margin">
     </div>
   </div>
+
 </div>

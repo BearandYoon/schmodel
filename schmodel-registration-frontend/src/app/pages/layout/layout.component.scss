@@ -1,7 +1,7 @@
 .page-container {
-  background-image: url('/assets/img/bg_pattern.png');
-  background-repeat: no-repeat;
-  background-size: cover;
+  overflow:hidden;
+  width:100%;
+  height:100vh;
 }
 
 .sticky-nav-bar {
@@ -13,5 +13,4 @@
   background-image: url('/assets/img/bg_pattern.png');
   background-repeat: no-repeat;
   background-size: cover;
-  
 }
