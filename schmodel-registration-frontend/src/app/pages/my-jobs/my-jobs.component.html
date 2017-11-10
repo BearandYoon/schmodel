@@ -1,4 +1,4 @@
-<div [ngStyle]="{'background-image' : 'url(/assets/img/bg_pattern.png)'}" [@routerTransition]> 
+<div [ngStyle]="{'background-image' : 'url(/assets/img/bg_pattern.png)', 'height' : style_height }" [@routerTransition]> 
 
   <div class="row text-center">
     <div class="col-md-4 col-4 formula-e">
@@ -159,12 +159,10 @@
   </div>
 
   <div class="sticky-footer text-center">
-    <div>
-      <button type="button" class="btn btn-primary">arrow down button</button>
+    <div style="padding-top: 40vh">
+      <button (click)="onScrollDown()" type="button" class="btn btn-primary">arrow down button</button>
     </div>
 
-    <div class="footer-margin">
-    </div>
   </div>
 
 </div>

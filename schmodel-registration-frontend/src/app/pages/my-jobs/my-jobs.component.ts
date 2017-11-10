@@ -12,13 +12,25 @@ import { routerTransition } from '../../router.animations';
 export class MyJobsComponent implements OnInit {
 
   // @ViewChild('scrollMe') private myScrollContainer: ElementRef;
+  public style_height: string = '';
+  public flag: boolean = false;
 
   constructor() {
+    this.style_height = "100vh";
   }
 
   ngOnInit() {
+    this.flag = true;
 
-  }    // this.scrollToBottom();
+  }
+
+  onScrollDown() {
+    this.flag = false;
+    this.style_height = "100%";
+  }
+  
+  
+  // this.scrollToBottom();
 
   // ngAfterViewChecked() {
   //   this.scrollToBottom();
