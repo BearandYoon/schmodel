@@ -1,7 +1,16 @@
 $header-height: 64px;
 
-section {
+accordion-group {
   margin-top: 4px;
+
+  .panel,
+  .panel-heading {
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0 !important;
+    background-color: transparent;
+  }
 
   header {
     width: 100%;
@@ -25,5 +34,25 @@ section {
       font-size: 22px;
       color: #939598;
     }
+  }
+
+  .icon-plus-circle {
+    display: block;
+  }
+  .icon-minus-circle {
+    display: none;
+  }
+
+  &.panel-open {
+    .icon-plus-circle {
+      display: none;
+    }
+    .icon-minus-circle {
+      display: block;
+    }
+  }
+
+  .panel-body {
+    color: white;
   }
 }
