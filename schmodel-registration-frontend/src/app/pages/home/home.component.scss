@@ -7,7 +7,7 @@
   background-position: center top;
   width: 100%;
   min-height: 100vh;
-  padding: 30px 0 0;
+  padding: 18px 0 0;
   font-family: 'Open Sans', sans-serif;
 
   .img-logo {
@@ -21,7 +21,7 @@
     font-weight: 200;
     color: #ffffff;
     text-align: center;
-    margin-top: 6%;
+    margin-top: 2%;
   }
 
   .content-wrapper {
@@ -71,12 +71,47 @@
       }
       .profile-info {
         background-image: url("/assets/img/bg_home_ract.png");
+        background-size: cover;
         width: 30%;
+        
 
         .profile-title {
+          padding: 6px 0;
           font-size: 18px;
           font-weight: 700;
-          border-bottom: 1px solid rgba(255, 255,255, .8);
+          border-bottom: 1px solid rgba(255, 255,255, .6);
+        }
+
+        .profile-upcoming {
+          border-bottom: 1px solid rgba(255, 255,255, .6);
+
+          span {
+            font-weight: bold;
+            font-size: 40px;
+            color: rgba(82, 201, 235, 1);
+          }
+
+          p {
+            font-weight: 400;
+            font-size: 12px;
+            color: rgba(255, 255,255, .6);
+          }
+        }
+
+        .profile-applications {
+
+          span {
+            font-weight: bold;
+            font-size: 40px;
+            color: rgba(255, 255,255, 1);
+          }
+          p {
+            font-weight: 400;
+            font-size: 12px;
+            color: rgba(255, 255,255, .6);
+          }
+
+
         }
       }
     }
@@ -86,6 +121,7 @@
     color: #ffffff;
     font-weight: 100;
     text-align: center;
+    font-size: 14px;
   }
   .page-footer {
     width: 100%;
