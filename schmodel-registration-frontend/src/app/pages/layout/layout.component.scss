@@ -1,17 +1,15 @@
 .page-container {
-  width: 100%;
-
   background-image: url('/assets/img/bg_pattern.png');
   background-repeat: no-repeat;
   background-size: cover;
 }
-.fixed-nav-bar {
+
+.sticky-nav-bar {
   position: sticky;
   top: 0;
   left: 0;
   z-index: 9999;
-  width: 100%;
-
+  
   background-image: url('/assets/img/bg_pattern.png');
   background-repeat: no-repeat;
   background-size: cover;

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MyJobsButtonComponent } from './my-jobs-button.component';
+import { EventRoleComponent } from './event-role.component';
 
-describe('MyJobsButtonComponent', () => {
-  let component: MyJobsButtonComponent;
-  let fixture: ComponentFixture<MyJobsButtonComponent>;
+describe('EventRoleComponent', () => {
+  let component: EventRoleComponent;
+  let fixture: ComponentFixture<EventRoleComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MyJobsButtonComponent ]
+      declarations: [ EventRoleComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MyJobsButtonComponent);
+    fixture = TestBed.createComponent(EventRoleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

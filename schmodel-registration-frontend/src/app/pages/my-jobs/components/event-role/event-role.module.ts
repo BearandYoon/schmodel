@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { MyJobsButtonComponent } from './my-jobs-button.component';
+import { EventRoleComponent } from './event-role.component';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule
   ],
-  declarations: [MyJobsButtonComponent],
-  exports: [MyJobsButtonComponent]
+  declarations: [EventRoleComponent],
+  exports: [EventRoleComponent]
 })
-export class MyJobsButtonModule { }
+export class EventRoleModule { }

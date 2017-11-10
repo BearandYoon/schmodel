@@ -3,13 +3,13 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { routerTransition } from '../../../../router.animations';
 
 @Component({
-  selector: 'app-formula-race',
-  templateUrl: './formula-race.component.html',
-  styleUrls: ['./formula-race.component.scss'],
+  selector: 'app-event',
+  templateUrl: './event.component.html',
+  styleUrls: ['./event.component.scss'],
   animations: [routerTransition()]
 })
 
-export class FormulaRaceComponent implements OnInit {
+export class EventComponent implements OnInit {
 
   private light_blue: string = 'rgba(78, 200, 235, 0.1)';
   private light_purple:string = 'rgba(53, 20, 77, 0.1)';

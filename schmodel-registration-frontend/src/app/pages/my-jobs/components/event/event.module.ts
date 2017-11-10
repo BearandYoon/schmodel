@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { FormulaRaceComponent } from './formula-race.component';
+import { EventComponent } from './event.component';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule
   ],
-  declarations: [FormulaRaceComponent],
-  exports: [FormulaRaceComponent]
+  declarations: [EventComponent],
+  exports: [EventComponent]
 })
-export class FormulaRaceModule { }
+export class EventModule { }
