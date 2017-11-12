@@ -1,3 +1,4 @@
+/* icomoon font */
 @font-face {
   font-family: 'icomoon';
   src:  url('/assets/fonts/icomoon/icomoon.eot?x1rs2z');
@@ -24,6 +25,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-minus-circle:before {
+  content: "\e907";
+}
+.icon-plus-circle:before {
+  content: "\e908";
+}
 .icon-apply:before {
   content: "\e900";
 }
@@ -45,15 +52,52 @@
 .icon-info:before {
   content: "\e906";
 }
-.icon-minus-circle:before {
-  content: "\e907";
-}
-.icon-plus-circle:before {
-  content: "\e908";
-}
 .icon-settings:before {
   content: "\e909";
 }
 .icon-uncheck:before {
   content: "\e90a";
+}
+
+/* AkzidenzGroteskBE */
+@font-face {
+  font-family: 'AkzidenzGroteskBE';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/assets/fonts/AkzidenzGroteskBE/AkzidenzGroteskBERegular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'AkzidenzGroteskBE';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/assets/fonts/AkzidenzGroteskBE/AkzidenzGroteskBEMedium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'AkzidenzGroteskBE';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/assets/fonts/AkzidenzGroteskBE/AkzidenzGroteskBEBold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'AkzidenzGroteskBE';
+  font-style: normal;
+  font-weight: 800;
+  src: url('/assets/fonts/AkzidenzGroteskBE/AkzidenzGroteskBESuper.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'AkzidenzGroteskBE';
+  font-style: normal;
+  font-weight: 300;
+  src: url('/assets/fonts/AkzidenzGroteskBE/AkzidenzGroteskBELight.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'AkzidenzGroteskBE';
+  font-style: italic;
+  font-weight: normal;
+  src: url('/assets/fonts/AkzidenzGroteskBE/AkzidenzGroteskBEItalic.woff') format('woff');
 }
