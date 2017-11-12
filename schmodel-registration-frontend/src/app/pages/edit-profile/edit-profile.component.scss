@@ -2,6 +2,7 @@ $header-height: 64px;
 
 accordion-group {
   margin-top: 4px;
+  font-family: 'AkzidenzGroteskBE', Arial, sans-serif;
 
   .panel,
   .panel-heading {
@@ -25,6 +26,7 @@ accordion-group {
     background-size: 100% 100%;
 
     .title {
+      font-size: 13px;
       font-weight: bold;
       color: white;
       margin: 0;
@@ -33,17 +35,18 @@ accordion-group {
     .icon {
       font-size: 22px;
       color: #939598;
+
+      &.icon-plus-circle {
+        display: block;
+      }
+      &.icon-minus-circle {
+        display: none;
+      }
+    
     }
   }
 
-  .icon-plus-circle {
-    display: block;
-  }
-  .icon-minus-circle {
-    display: none;
-  }
-
-  &.panel-open {
+  &.panel-open header {
     .icon-plus-circle {
       display: none;
     }
@@ -53,6 +56,7 @@ accordion-group {
   }
 
   .panel-body {
+    padding: 0;
     color: white;
   }
 }

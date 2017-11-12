@@ -10,24 +10,24 @@ export class EditProfileComponent implements OnInit {
 
   panels: any[] = [
     {
-      title: 'PASSWORD',
-      isOpen: false
+      component: 'edit-profile-password',
+      title: 'PASSWORD'
     },
     {
-      title: 'PHOTOS',
-      isOpen: false
+      component: 'edit-talent-photos',
+      title: 'PHOTOS'
     },
     {
-      title: 'PERSONAL INFORMATION',
-      isOpen: false
+      component: 'edit-personal-info',
+      title: 'PERSONAL INFORMATION'
     },
     {
-      title: 'MY TERMS & CONDITIONS',
-      isOpen: false
+      component: 'edit-terms',
+      title: 'MY TERMS & CONDITIONS'
     },
     {
-      title: 'BILLING INFORMATION',
-      isOpen: false
+      component: 'edit-billing-info',
+      title: 'BILLING INFORMATION'
     }
   ]
 
