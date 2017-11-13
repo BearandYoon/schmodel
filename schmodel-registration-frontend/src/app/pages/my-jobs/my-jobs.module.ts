@@ -9,8 +9,7 @@ import { MyJobsRoutingModule } from './my-jobs-routing.module';
 import { MyJobsComponent } from './my-jobs.component';
 import { EventRoleComponent } from './components/event-role/event-role.component';
 import { EventComponent } from './components/event/event.component';
-import { DialogComponent } from './components/dialog/dialog.component';
-import { MyDialogComponent } from './components/my-dialog/my-dialog.component';
+import { DialogJobApplyComponent } from './components/dialog-job-apply/dialog-job-apply.component';
 
 @NgModule({
   imports: [
@@ -22,14 +21,14 @@ import { MyDialogComponent } from './components/my-dialog/my-dialog.component';
   ],
 
   entryComponents: [
-    MyDialogComponent
+    DialogJobApplyComponent
   ],
   declarations: [
     MyJobsComponent,
     EventRoleComponent,
     EventComponent,
-    DialogComponent,
-    MyDialogComponent
+    DialogJobApplyComponent,
+    DialogJobApplyComponent
   ],
   providers: []
 

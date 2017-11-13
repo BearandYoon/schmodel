@@ -3,13 +3,13 @@ import { MatDialogRef } from '@angular/material';
 import { MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
-  selector: 'app-my-dialog',
-  templateUrl: './my-dialog.component.html',
-  styleUrls: ['./my-dialog.component.scss']
+  selector: 'app-dialog-job-apply',
+  templateUrl: './dialog-job-apply.component.html',
+  styleUrls: ['./dialog-job-apply.component.scss']
 })
-export class MyDialogComponent implements OnInit {
+export class DialogJobApplyComponent implements OnInit {
 
-  constructor(public thisDialogRef: MatDialogRef<MyDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: string) { }
+  constructor(public thisDialogRef: MatDialogRef<DialogJobApplyComponent>, @Inject(MAT_DIALOG_DATA) public data: string) { }
 
   ngOnInit() {
   }
