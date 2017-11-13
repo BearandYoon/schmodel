@@ -1,16 +1,38 @@
-<div>
-  <h2 mat-dialog-title> MY DIALOG </h2>
-  <hr>
-  <mat-dialog-content>
-    Mat Dialog mat-dialog-content
-    <br>
-    <br>
-    <strong>{{data}}</strong>
-  </mat-dialog-content>
+<div class="text-center"> 
+  <div class="modal-header">
+    <h4 class="modal-title">{{dialogTitle}}</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="onClose()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
 
-  <hr>
-  <mat-dialog-actions>
-    <button mat-raised-button (click)="onCloseConfirm()">CONFIRM</button>
-    <button mat-raised-button (click)="onCloseCancel()">CANCEL</button>
-  </mat-dialog-actions>
+  <div class="modal-body">
+    <div class="container content-wrapper">
+      <div class="text-left row custom-border">
+        <div class="col-md-4 col-4"> Position:</div>      
+        <div class="col-md-8 col-8 text-left"> PR</div>
+
+        <div class="col-md-4 col-4"> City/Country:</div>  
+        <div class="col-md-8 col-8 text-left"> Marrakech, Morocco</div>  
+
+        <div class="col-md-4 col-4"> Pay rate:</div>
+        <div class="col-md-8 col-8 text-left"> €1,300</div>  
+      </div>
+
+      <div class="row custom-border">
+        <div class="col-md-12 col-12 text-left"> WORK SCHEDULE:</div>
+        <div class="col-md-6 col-6 text-left"> Date </div>
+        <div class="col-md-3 col-3 text-right"> Start </div>
+        <div class="col-md-3 col-3 text-right"> End </div>
+      </div>
+
+      <div>
+      </div>
+
+    </div>
+    <div class="action-wrapper">
+      <button (click)="onClose()"> YES </button>
+      <button (click)="onClose()"> NO  </button>
+    </div>
+  </div>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { BsModalService } from "ngx-bootstrap/modal";
+import { BsModalRef } from "ngx-bootstrap/modal";
 
 import { DialogJobApplyComponent } from '../dialog-job-apply/dialog-job-apply.component';
 
@@ -14,8 +15,18 @@ enum ButtonStatus { Disabled, Checked, Apply }
   animations: [routerTransition()]
 })
 
-export class EventRoleComponent implements OnInit, OnChanges {
-  dialogResult = "";
+export class EventRoleComponent implements OnInit {
+
+  public showDialog = false;
+  detailDlgRef: BsModalRef;
+  detailDlgContent: string;
+  detailDlgConfig = {
+    animated: true,
+    keyboard: true,
+    backdrop: true,
+    ignoreBackdropClick: false
+  };
+
 
   // Input & Output section
   @Output() event: EventEmitter<any> = new EventEmitter();
@@ -25,43 +36,30 @@ export class EventRoleComponent implements OnInit, OnChanges {
   get getStatus() {
     return this.status;
   }
-  // public properties
+  
   public image_url: string = '';
-
   private ic_checked: string = '/assets/img/ic_checked.png';
   private ic_apply: string = '/assets/img/ic_apply.png';
   private ic_disabled: string = '/assets/img/ic_disabled.png';
+  
+  openDialogApply(title: string) {
+    if (this.status != ButtonStatus.Disabled) {
+      this.detailDlgRef = this.detailDlgService.show(DialogJobApplyComponent, this.detailDlgConfig);
+      this.detailDlgRef.content.dialogTitle = title;
+      
 
-  // Button Status change function
-
-  openDialog() {
-    let dialogRef = this.dialog.open(DialogJobApplyComponent, {
-      width: '80%',
-      data: 'This test is passed into the dialog'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog closed': $(result)`);
-      this.dialogResult = result;
-      if (result === 'Confirm') {
-        if (this.status === ButtonStatus.Apply) {
-          this.status = ButtonStatus.Checked;
-          this.image_url = this.ic_checked;
-        } else if (this.status === ButtonStatus.Checked) {
-          this.status = ButtonStatus.Apply;
-          this.image_url = this.ic_apply;
-        } else if (this.status === ButtonStatus.Disabled) {
-          this.image_url = this.ic_disabled;
-        }
-      }
-    })
+      this.detailDlgRef.content.onCloseReason.subscribe(result => {
+        console.log('Detail Dialog close reason = ', result);
+      })
+    }
   }
 
-  constructor(public dialog: MatDialog) {
+  constructor(private detailDlgService: BsModalService) {
     this.image_url = this.ic_disabled;
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   ngOnChanges() {
     if (this.status === ButtonStatus.Apply) {

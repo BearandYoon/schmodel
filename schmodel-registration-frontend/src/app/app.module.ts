@@ -11,11 +11,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { LayoutModule } from './pages/layout/layout.module';
 
 import { DetailDialogComponent } from './pages/my-jobs/components/detail-dialog/detail-dialog.component';
+import { DialogJobApplyComponent } from './pages/my-jobs/components/dialog-job-apply/dialog-job-apply.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DetailDialogComponent
+    DetailDialogComponent,
+    DialogJobApplyComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,8 @@ import { DetailDialogComponent } from './pages/my-jobs/components/detail-dialog/
   ],
   providers: [AuthGuard],
   entryComponents: [
-    DetailDialogComponent
+    DetailDialogComponent,
+    DialogJobApplyComponent
   ],
   bootstrap: [AppComponent]
 })

@@ -9,7 +9,7 @@ import { MyJobsRoutingModule } from './my-jobs-routing.module';
 import { MyJobsComponent } from './my-jobs.component';
 import { EventRoleComponent } from './components/event-role/event-role.component';
 import { EventComponent } from './components/event/event.component';
-import { DialogJobApplyComponent } from './components/dialog-job-apply/dialog-job-apply.component';
+import { DialogWithdrawComponent } from './components/dialog-withdraw/dialog-withdraw.component';
 
 @NgModule({
   imports: [
@@ -19,15 +19,11 @@ import { DialogJobApplyComponent } from './components/dialog-job-apply/dialog-jo
     MatButtonModule,
     MatDialogModule,
   ],
-  entryComponents: [
-    DialogJobApplyComponent
-  ],
   declarations: [
     MyJobsComponent,
     EventRoleComponent,
     EventComponent,
-    DialogJobApplyComponent,
-    DialogJobApplyComponent
+    DialogWithdrawComponent
   ],
   providers: []
 
