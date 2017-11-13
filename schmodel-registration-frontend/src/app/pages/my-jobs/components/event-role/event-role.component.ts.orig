@@ -25,8 +25,14 @@ export class EventRoleComponent implements OnInit, OnChanges {
   get getStatus() {
     return this.status;
   }
+<<<<<<< HEAD
+
+  
+  public image_url: String = '';
+=======
   // public properties
   public image_url: string = '';
+>>>>>>> befb9715561e98fe507694d6c4984c5b84d3d697
 
   private ic_checked: string = '/assets/img/ic_checked.png';
   private ic_apply: string = '/assets/img/ic_apply.png';

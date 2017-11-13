@@ -17,9 +17,8 @@ import { DialogJobApplyComponent } from './components/dialog-job-apply/dialog-jo
     MyJobsRoutingModule,
     MatCardModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
   ],
-
   entryComponents: [
     DialogJobApplyComponent
   ],

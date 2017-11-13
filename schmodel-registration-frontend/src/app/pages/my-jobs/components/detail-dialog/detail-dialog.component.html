@@ -1,0 +1,14 @@
+<div class="modal-header">
+  <h4 class="modal-title">Details: {{dialogTitle}}</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="onClose()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="content-wrapper">
+    <p class="content">{{dialogContent}}</p>
+  </div>
+  <div class="action-wrapper">
+    <button (click)="onClose()"> OK </button>
+  </div>
+</div>
