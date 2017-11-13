@@ -11,7 +11,6 @@ import { routerTransition } from '../../router.animations';
 })
 export class MyJobsComponent implements OnInit {
 
-  // @ViewChild('scrollMe') private myScrollContainer: ElementRef;
   public showDialog = false;
   public style_height: Array<any> = [];
   public flag: boolean = false;
@@ -31,6 +30,7 @@ export class MyJobsComponent implements OnInit {
 
   ngOnInit() {
     this.flag = true;
+
     this.boardHeight = this.style_height[0].boardHeight;
     this.bottomHeight = this.style_height[0].bottomHeight;
   }

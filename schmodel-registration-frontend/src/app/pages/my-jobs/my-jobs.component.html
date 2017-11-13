@@ -1,5 +1,9 @@
 <div class="my-jobs" [ngStyle]="{ 'height' : boardHeight }" [@routerTransition]> 
 
+  <div class="text-center">
+    <app-dialog></app-dialog>
+  </div>
+
   <div class="row text-center">
     <div class="col-md-4 col-4 formula-e">
       <img src="/assets/img/ic_formulae.png" width="100%">
@@ -160,7 +164,7 @@
 
   <div [ngStyle]="{'height' : bottomHeight}" [style.visibility]="(flag == 0) ? 'hidden' : 'visible' " class="sticky-footer text-center">
     <div style="padding-top: 40vh">
-      <button (click)="onScrollDown()" type="button" class="btn btn-primary">arrow down button</button>
+      <img src="/assets/img/ic_down.png" (click)="onScrollDown()">
     </div>
   </div>
 

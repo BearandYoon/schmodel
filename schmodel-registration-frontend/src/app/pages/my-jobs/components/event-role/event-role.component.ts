@@ -35,7 +35,6 @@ export class EventRoleComponent implements OnInit{
       this.image_url = this.ic_disabled;
   }  
 
-  //constructor
   constructor() {
     this.image_url = this.ic_disabled;
   }
@@ -61,7 +60,6 @@ export class EventRoleComponent implements OnInit{
   }
 
   ngOnInit() {}
-
   
   //Input & Output section
   @Output() event: EventEmitter<any> = new EventEmitter();
