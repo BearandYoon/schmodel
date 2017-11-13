@@ -21,14 +21,14 @@ export class EventComponent implements OnInit, OnChanges {
   @Input() event_role_price: string[];           // [job_price] = "['1,400€', '200€', '0', '0']"
   @Input() event_role_status: number[];          // [job_status] = "[1, 2, 0, 0]", 0:disabled, 1:checked, 2:apply
 
-  private light_blue: String = 'rgba(78, 200, 235, 0.1)';
-  private light_purple: String = 'rgba(53, 20, 77, 0.1)';
+  private light_blue: string = 'rgba(78, 200, 235, 0.1)';
+  private light_purple: string = 'rgba(53, 20, 77, 0.1)';
 
   public race_bg_urls: Array<any> = [];
   public race_title_style: Array<any> = [];
 
-  public bg_url: String = '';
-  public title_border_style: String = '';
+  public bg_url: string = '';
+  public title_border_style: string = '';
 
   constructor() {
     this.race_bg_urls.push(

@@ -3,11 +3,25 @@
 
 .col-md-2.col-2 {
     padding-left: 1.5%;
-    padding-right: 1.5%;    
+    padding-right: 1.5%;
 }
 
 .row.align-items-center {
     margin-left: 0px;
     margin-right: 0px;
     margin-bottom: 5px;
+}
+
+.modal-dialog {
+  position: absolute;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translateY(-50%) translateX(-50%) !important;
+}
+
+@media (max-width: 425px) {
+  .modal-dialog {
+    left: 0 !important;
+    transform: translateY(-50%) !important;
+  }
 }

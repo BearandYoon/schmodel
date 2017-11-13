@@ -21,11 +21,11 @@ export class EventRoleComponent implements OnInit, OnChanges {
     return this.status;
   }
   // public properties
-  public image_url: String = '';
+  public image_url: string = '';
 
-  private ic_checked: String = '/assets/img/ic_checked.png';
-  private ic_apply: String = '/assets/img/ic_apply.png';
-  private ic_disabled: String = '/assets/img/ic_disabled.png';
+  private ic_checked: string = '/assets/img/ic_checked.png';
+  private ic_apply: string = '/assets/img/ic_apply.png';
+  private ic_disabled: string = '/assets/img/ic_disabled.png';
 
   // Button Status change function
   onToggle() {

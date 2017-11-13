@@ -18,9 +18,8 @@ import { MyDialogComponent } from './components/my-dialog/my-dialog.component';
     MyJobsRoutingModule,
     MatCardModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
   ],
-
   entryComponents: [
     MyDialogComponent
   ],
