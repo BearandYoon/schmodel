@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatTooltipModule } from '@angular/material/tooltip';
+
 
 import { MyJobsRoutingModule } from './my-jobs-routing.module';
 import { MyJobsComponent } from './my-jobs.component';
@@ -19,8 +19,7 @@ import { MyDialogComponent } from './components/my-dialog/my-dialog.component';
     MyJobsRoutingModule,
     MatCardModule,
     MatButtonModule,
-    MatDialogModule,
-    MatTooltipModule
+    MatDialogModule
   ],
 
   entryComponents: [
@@ -31,7 +30,9 @@ import { MyDialogComponent } from './components/my-dialog/my-dialog.component';
     EventRoleComponent, 
     EventComponent, 
     DialogComponent, 
-    MyDialogComponent],
+    MyDialogComponent
+  ],
   providers: []
+
 })
 export class MyJobsModule { }
