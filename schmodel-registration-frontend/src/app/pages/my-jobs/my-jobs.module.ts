@@ -5,7 +5,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 
-
 import { MyJobsRoutingModule } from './my-jobs-routing.module';
 import { MyJobsComponent } from './my-jobs.component';
 import { EventRoleComponent } from './components/event-role/event-role.component';
@@ -23,13 +22,13 @@ import { MyDialogComponent } from './components/my-dialog/my-dialog.component';
   ],
 
   entryComponents: [
-    MyDialogComponent    
+    MyDialogComponent
   ],
   declarations: [
-    MyJobsComponent, 
-    EventRoleComponent, 
-    EventComponent, 
-    DialogComponent, 
+    MyJobsComponent,
+    EventRoleComponent,
+    EventComponent,
+    DialogComponent,
     MyDialogComponent
   ],
   providers: []

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-
 import { routerTransition } from '../../router.animations';
 
 @Component({
@@ -14,10 +13,10 @@ export class MyJobsComponent implements OnInit {
 
   public showDialog = false;
   public style_height: Array<any> = [];
-  public flag: boolean = false;
+  public flag = false;
 
-  public boardHeight: string ='';
-  public bottomHeight: string='';
+  public boardHeight: String = '';
+  public bottomHeight: String = '';
 
   constructor() {
     this.style_height.push(
@@ -26,7 +25,7 @@ export class MyJobsComponent implements OnInit {
       }, {
         boardHeight: '100%', bottomHeight: '0vh',
       },
-    )
+    );
   }
 
   ngOnInit() {

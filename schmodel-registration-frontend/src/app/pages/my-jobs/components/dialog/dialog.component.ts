@@ -10,17 +10,15 @@ import { MyDialogComponent } from '../my-dialog/my-dialog.component';
 })
 
 export class DialogComponent implements OnInit {
-
-  dialogResult = "";
+  dialogResult = '';
 
   constructor(public dialog: MatDialog) { }
 
- 
   ngOnInit() {
   }
 
   openDialog() {
-    let dialogRef = this.dialog.open(MyDialogComponent, {
+    const dialogRef = this.dialog.open(MyDialogComponent, {
       width: '600px',
       data: 'This test is passed into the dialog'
     });
@@ -28,6 +26,6 @@ export class DialogComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog closed': $(result)`);
       this.dialogResult = result;
-    })
+    });
   }
 }
