@@ -12,7 +12,10 @@ import { Subject } from 'rxjs/Subject';
 export class DialogJobApplyComponent implements OnInit {
 
 
-  public dialogTitle: string='';
+  public position_field: string = "";
+  public city_country_field: string = "";
+  public pay_rate_field: string = "";
+  public dialogTitle: string = "";
   public onCloseReason: Subject<string>;
 
   constructor(
@@ -20,7 +23,13 @@ export class DialogJobApplyComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.dialogTitle = "You are applying for:"
     this.onCloseReason = new Subject();
+  }
+
+  onConfirm() {
+    this.onCloseReason.next('confirm');
+    this.bsModalRef.hide();
   }
 
   onClose() {

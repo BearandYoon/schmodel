@@ -1,7 +1,5 @@
 <div [ngStyle]="{'background-image':'url(' + bg_url + ')', 'background-repeat':'no-repeat', 'background-size':'cover', 'background-position':'center'}" [@routerTransition]>
-  
   <div class="row text-center">
-
     <div class="col-md-4 col-4" [ngStyle]="{'background-color': title_border_style }">
       <div class="race_title_style text-left">
         <h1> {{event_number}} </h1>
@@ -12,21 +10,43 @@
     </div>
 
     <div class="col-md-2 col-2 align-items-center row event-role-style custom-border">
-      <app-event-role class="event-role" [status]=event_role_status[0] [price]=event_role_price[0]></app-event-role>
-    </div>
-
-    <div class="col-md-2 col-2 align-items-center row event-role-style custom-border">
-      <app-event-role class="event-role" [status]=event_role_status[1] [price]=event_role_price[1]></app-event-role>
-    </div>
-
-    <div class="col-md-2 col-2 align-items-center row event-role-style custom-border">
-      <app-event-role class="event-role" [status]=event_role_status[2] [price]=event_role_price[2]></app-event-role>
+      <app-event-role class="event-role"
+                      [position]=role_infor[0]
+                      [city]=event_city
+                      [country]=event_country_code
+                      [status]=event_role_status[0]
+                      [price]=event_role_price[0]>
+      </app-event-role>
     </div>
     
     <div class="col-md-2 col-2 align-items-center row event-role-style custom-border">
-      <app-event-role class="event-role" [status]=event_role_status[3] [price]=event_role_price[3]></app-event-role>
+      <app-event-role class="event-role"
+                      [position]=role_infor[1]
+                      [city]=event_city
+                      [country]=event_country_code
+                      [status]=event_role_status[1]
+                      [price]=event_role_price[1]>
+      </app-event-role>
     </div>
 
+    <div class="col-md-2 col-2 align-items-center row event-role-style custom-border">
+      <app-event-role class="event-role"
+                      [position]=role_infor[2]
+                      [city]=event_city
+                      [country]=event_country_code
+                      [status]=event_role_status[2]
+                      [price]=event_role_price[2]>
+      </app-event-role>
+    </div>
+    
+    <div class="col-md-2 col-2 align-items-center row event-role-style custom-border">
+      <app-event-role class="event-role"
+                      [position]=role_infor[3]
+                      [city]=event_city
+                      [country]=event_country_code
+                      [status]=event_role_status[3]
+                      [price]=event_role_price[3]>
+      </app-event-role>
+    </div>
   </div>
-
 </div>

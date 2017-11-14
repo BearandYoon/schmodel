@@ -17,46 +17,53 @@ enum ButtonStatus { Disabled, Checked, Apply }
 
 export class EventRoleComponent implements OnInit {
 
+  @Output() event: EventEmitter<any> = new EventEmitter();
+  @Input() price: string;
+  @Input() city: string;
+  @Input() country: string;
+  @Input() status: number;
+  @Input() position: string;
+  @Input()
+  get getStatus() {
+    return this.status;
+  }
+
   public showDialog = false;
-  detailDlgRef: BsModalRef;
-  detailDlgContent: string;
-  detailDlgConfig = {
+  public detailDlgRef: BsModalRef;
+  public jobapplyDlgRef: BsModalRef;
+  public withdrawDlgRef: BsModalRef;
+  public image_url: string = "";
+
+  private ic_checked: string = "/assets/img/ic_checked.png";
+  private ic_apply: string = "/assets/img/ic_apply.png";
+  private ic_disabled: string = "/assets/img/ic_disabled.png";
+  private dialogConfig = {
     animated: true,
     keyboard: true,
     backdrop: true,
     ignoreBackdropClick: false
   };
-
-
-  // Input & Output section
-  @Output() event: EventEmitter<any> = new EventEmitter();
-  @Input() price: string;
-  @Input() status: number;
-  @Input()
-  get getStatus() {
-    return this.status;
-  }
   
-  public image_url: string = '';
-  private ic_checked: string = '/assets/img/ic_checked.png';
-  private ic_apply: string = '/assets/img/ic_apply.png';
-  private ic_disabled: string = '/assets/img/ic_disabled.png';
-  
-  openDialogApply(title: string) {
+  openDialog() {
     if (this.status === ButtonStatus.Apply) {
-      this.detailDlgRef = this.detailDlgService.show(DialogJobApplyComponent, this.detailDlgConfig);
-      this.detailDlgRef.content.dialogTitle = title;
-      
-      this.detailDlgRef.content.onCloseReason.subscribe(result => {
-        console.log('Detail Dialog close reason = ', result);
-      })
+      this.jobapplyDlgRef = this.detailDlgService.show(DialogJobApplyComponent, this.dialogConfig);
+      this.jobapplyDlgRef.content.pay_rate_field = this.price;
+      this.jobapplyDlgRef.content.position_field = this.position;
+      this.jobapplyDlgRef.content.city_country_field = this.city + ", " + this.country;
+      this.jobapplyDlgRef.content.onCloseReason.subscribe(result => {
+        if (result == "confirm") {
+          this.status = ButtonStatus.Checked;
+          this.ngOnChanges();
+        }
+      });
     } else if (this.status === ButtonStatus.Checked) {
-      this.detailDlgRef = this.withdrawDlgService.show(DialogWithdrawComponent, this.detailDlgConfig);
-      this.detailDlgRef.content.dialogTitle = title;
-      
-      this.detailDlgRef.content.onCloseReason.subscribe(result => {
-        console.log('Detail Dialog close reason = ', result);
-      })
+      this.withdrawDlgRef = this.withdrawDlgService.show(DialogWithdrawComponent, this.dialogConfig);
+      this.withdrawDlgRef.content.onCloseReason.subscribe(result => {
+        if (result == "confirm") {
+          this.status = ButtonStatus.Apply;
+          this.ngOnChanges();
+        }
+      });
     }
   }
 
@@ -76,11 +83,11 @@ export class EventRoleComponent implements OnInit {
       this.image_url = this.ic_checked;
     } else if (this.status === ButtonStatus.Disabled) {
       this.image_url = this.ic_disabled;
-      this.price = '';
+      this.price = "";
     }
 
-    if (this.price === '0') {
-      this.price = '';
+    if (this.price === "0") {
+      this.price = "";
     }
   }
 }

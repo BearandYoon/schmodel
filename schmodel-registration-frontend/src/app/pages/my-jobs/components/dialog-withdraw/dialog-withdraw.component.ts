@@ -12,7 +12,7 @@ import { Subject } from 'rxjs/Subject';
 export class DialogWithdrawComponent implements OnInit {
 
 
-  public dialogTitle: string='';
+  public dialogTitle: string="";
   public onCloseReason: Subject<string>;
 
   constructor(
@@ -20,11 +20,17 @@ export class DialogWithdrawComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.dialogTitle = "Withdraw Application";
     this.onCloseReason = new Subject();
   }
 
+  onConfirm() {
+    this.onCloseReason.next("confirm");
+    this.bsModalRef.hide();
+  }
+
   onClose() {
-    this.onCloseReason.next('close');
+    this.onCloseReason.next("close");
     this.bsModalRef.hide();
   }
 }
