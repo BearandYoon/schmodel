@@ -9,6 +9,7 @@ import { EditTalentPhotosComponent } from './edit-talent-photos/edit-talent-phot
 import { EditPersonalInfoComponent } from './edit-personal-info/edit-personal-info.component';
 import { EditTermsComponent } from './edit-terms/edit-terms.component';
 import { EditBillingInfoComponent } from './edit-billing-info/edit-billing-info.component';
+import { SchInputComponent } from './sch-input/sch-input.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { EditBillingInfoComponent } from './edit-billing-info/edit-billing-info.
     AccordionModule.forRoot(),
     EditProfileRoutingModule
   ],
-  declarations: [EditProfileComponent, EditProfilePasswordComponent, EditTalentPhotosComponent, EditPersonalInfoComponent, EditTermsComponent, EditBillingInfoComponent]
+  declarations: [EditProfileComponent, EditProfilePasswordComponent, EditTalentPhotosComponent, EditPersonalInfoComponent, EditTermsComponent, EditBillingInfoComponent, SchInputComponent]
 })
 export class EditProfileModule { }

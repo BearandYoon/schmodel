@@ -1,44 +1,17 @@
 <section>
   <form>
     <div class="form-group">
-      <div class="row">
-        <label for="company_name">Company Name</label>
-        <input type="text" id="company_name" name="company_name">
-      </div>
-      <div class="row">
-        <label for="country_reg">Country of Reg.</label>
-        <input type="text" id="country_reg" name="country_reg">
-      </div>
-      <div class="row">
-        <label for="vat">UK (or EU) VAT #</label>
-        <input type="text" id="vat" name="vat">
-      </div>
+      <sch-input [id]="company_name" label="Company Name"></sch-input>
+      <sch-input [id]="country_reg" label="Country of Reg."></sch-input>
+      <sch-input [id]="vat" label="UK (or EU) VAT #"></sch-input>
     </div>
     <div class="form-group">
-      <div class="row">
-        <label for="billing_addr">Billing Address</label>
-        <input type="text" id="billing_addr" name="billing_addr">
-      </div>
-      <div class="row">
-        <label for="billing_addr2">Billing Address2</label>
-        <input type="text" id="billing_addr2" name="billing_addr2">
-      </div>
-      <div class="row">
-        <label for="country">Country</label>
-        <input type="text" id="country" name="country">
-      </div>
-      <div class="row">
-        <label for="city">City</label>
-        <input type="text" id="city" name="city">
-      </div>
-      <div class="row">
-        <label for="state">State/Province</label>
-        <input type="text" id="state" name="state">
-      </div>
-      <div class="row">
-        <label for="zipcode">Zip/Post code</label>
-        <input type="text" id="zipcode" name="zipcode">
-      </div>
+      <sch-input [id]="billing_addr" label="Billing Address"></sch-input>
+      <sch-input [id]="billing_addr2" label="Billing Address2"></sch-input>
+      <sch-input [id]="billing_country" label="Country"></sch-input>
+      <sch-input [id]="billing_city" label="City"></sch-input>
+      <sch-input [id]="billing_state" label="State/Province"></sch-input>
+      <sch-input [id]="billing_zipcode" label="Zip/Post code"></sch-input>
     </div>
     <div class="form-group form-group--submit">
       <div class="row">
