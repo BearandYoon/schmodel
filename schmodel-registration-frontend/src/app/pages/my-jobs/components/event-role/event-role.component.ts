@@ -3,7 +3,7 @@ import { BsModalService } from "ngx-bootstrap/modal";
 import { BsModalRef } from "ngx-bootstrap/modal";
 
 import { DialogJobApplyComponent } from '../dialog-job-apply/dialog-job-apply.component';
-
+import { DialogWithdrawComponent } from '../dialog-withdraw/dialog-withdraw.component';
 import { routerTransition } from '../../../../router.animations';
 
 enum ButtonStatus { Disabled, Checked, Apply }
@@ -43,18 +43,24 @@ export class EventRoleComponent implements OnInit {
   private ic_disabled: string = '/assets/img/ic_disabled.png';
   
   openDialogApply(title: string) {
-    if (this.status != ButtonStatus.Disabled) {
+    if (this.status === ButtonStatus.Apply) {
       this.detailDlgRef = this.detailDlgService.show(DialogJobApplyComponent, this.detailDlgConfig);
       this.detailDlgRef.content.dialogTitle = title;
       
-
+      this.detailDlgRef.content.onCloseReason.subscribe(result => {
+        console.log('Detail Dialog close reason = ', result);
+      })
+    } else if (this.status === ButtonStatus.Checked) {
+      this.detailDlgRef = this.withdrawDlgService.show(DialogWithdrawComponent, this.detailDlgConfig);
+      this.detailDlgRef.content.dialogTitle = title;
+      
       this.detailDlgRef.content.onCloseReason.subscribe(result => {
         console.log('Detail Dialog close reason = ', result);
       })
     }
   }
 
-  constructor(private detailDlgService: BsModalService) {
+  constructor(private detailDlgService:BsModalService, private withdrawDlgService: BsModalService) {
     this.image_url = this.ic_disabled;
   }
 

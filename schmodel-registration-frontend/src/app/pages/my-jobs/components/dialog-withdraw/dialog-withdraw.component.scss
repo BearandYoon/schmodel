@@ -1,0 +1,59 @@
+.modal-header {
+    background-image: url("/assets/img/bg_modal_title.png");
+    background-size: cover;
+    color: #FFFFFF;
+    border-radius: 0;
+    height: 70px;
+  
+    .modal-title {
+      margin-bottom: 0;
+      text-align: center;
+      width: 90%;
+      font-size: 20px;
+      font-family: "Open Sans";
+      font-weight: 200;
+      letter-spacing: 1.2px;
+      position: absolute;
+    }
+  
+    .close {
+      background-size: cover;
+      position: absolute;
+      font-weight: 100;
+      font-size: 1.9em;
+      top: 0;
+      right: 8px;
+      color: #FFFFFF;
+    }
+}
+  
+.modal-body {
+  background-color: #ebecec;
+  overflow: auto;
+  padding: 20px;
+  font-size: 12px;
+  font-weight: 400;
+  
+  .description-wrapper {
+    padding: 10px 0 10px 0px;
+    width: 80%;
+  }
+  
+  .action-wrapper {
+    text-align: center;
+  
+    button {
+      background-color: transparent;
+      border: 1px solid black;
+      margin: 10px;
+      font-size: 10px;
+      padding: 5px 30px;
+      border-radius: 0;
+      font-family: "Open Sans";
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  }
+}
+  
+  

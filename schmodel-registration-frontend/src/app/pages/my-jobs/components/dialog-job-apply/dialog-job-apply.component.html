@@ -1,6 +1,6 @@
 <div class="text-center"> 
   <div class="modal-header">
-    <h2 class="modal-title">{{dialogTitle}}</h2>
+    <h2 class="modal-title">You are applying for:</h2>
     <button type="button" class="close pull-right" aria-label="Close" (click)="onClose()">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -8,7 +8,7 @@
 
   <div class="modal-body">
     <div class="container content-wrapper">
-      <div class="container text-left row custom-border">
+      <div class="container role-wrapper row custom-border">
         <div class="col-md-4 col-4"> Position:</div>
         <div class="col-md-2 col-2"></div>
         <div class="col-md-6 col-6 text-left"> PR</div>
@@ -22,16 +22,16 @@
         <div class="col-md-6 col-6 text-left"> €1,300</div>
       </div>
 
-      <div class="container row custom-border">
-        <div class="col-md-12 col-12 text-left"> WORK SCHEDULE:</div>
+      <div class="container workschedule-wrapper row custom-border">
+        <div class="workschedule-title col-md-12 col-12"> WORK SCHEDULE:</div>
 
-        <div class="col-md-6 col-6 text-left"> Date </div>
-        <div class="col-md-3 col-3 text-right"> Start </div>
-        <div class="col-md-3 col-3 text-right"> End </div>
+        <div class="workschedule-col-title col-md-6 col-6 text-left"> Date </div>
+        <div class="workschedule-col-title col-md-3 col-3 text-right"> Start </div>
+        <div class="workschedule-col-title col-md-3 col-3 text-right"> End </div>
 
         <div class="col-md-6 col-6 text-left"> 30 Novemeber 2017 </div>
-        <div class="col-md-3 col-3 text-right"> Start </div>
-        <div class="col-md-3 col-3 text-right"> End </div>
+        <div class="col-md-3 col-3 text-right"> 9:00am </div>
+        <div class="col-md-3 col-3 text-right"> 5:00pm </div>
 
         <div class="col-md-6 col-6 text-left"> 1 December 2017 </div>
         <div class="col-md-3 col-3 text-right"> 8:00am </div>
@@ -42,7 +42,7 @@
         <div class="col-md-3 col-3 text-right"> 10:30pm </div>
       </div>
 
-      <div class="container">
+      <div class="container description-wrapper">
         <p> This job requires work eligibility in Morocco. Do you confirm your applicaion for this job as per the Terms and Conditions?</p>
       </div>
 

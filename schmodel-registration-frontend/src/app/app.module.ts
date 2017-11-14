@@ -12,12 +12,14 @@ import { LayoutModule } from './pages/layout/layout.module';
 
 import { DetailDialogComponent } from './pages/my-jobs/components/detail-dialog/detail-dialog.component';
 import { DialogJobApplyComponent } from './pages/my-jobs/components/dialog-job-apply/dialog-job-apply.component';
+import { DialogWithdrawComponent } from './pages/my-jobs/components/dialog-withdraw/dialog-withdraw.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DetailDialogComponent,
-    DialogJobApplyComponent
+    DialogJobApplyComponent,
+    DialogWithdrawComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,8 @@ import { DialogJobApplyComponent } from './pages/my-jobs/components/dialog-job-a
   providers: [AuthGuard],
   entryComponents: [
     DetailDialogComponent,
-    DialogJobApplyComponent
+    DialogJobApplyComponent,
+    DialogWithdrawComponent
   ],
   bootstrap: [AppComponent]
 })
