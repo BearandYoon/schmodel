@@ -5,13 +5,25 @@
   color: #FFFFFF;
   border-radius: 0;
 
+  .img-info {
+    width: 12%;
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+  }
+
   .modal-title {
-    margin-bottom: 0;
-    line-height: 1.5;
-    text-align: center;
     width: 100%;
-    font-size: 25px;
     letter-spacing: 1px;
+    text-align: center;
+
+    .dialog-title {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .dialog-subtitle {
+      font-size: 20px;
+    }
   }
 
   .close {

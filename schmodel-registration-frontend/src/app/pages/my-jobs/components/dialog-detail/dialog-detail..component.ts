@@ -5,10 +5,10 @@ import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'app-my-jobs-detail-dialog',
-  templateUrl: './detail-dialog.component.html',
-  styleUrls: ['./detail-dialog.component.scss'],
+  templateUrl: './dialog-detail.component.html',
+  styleUrls: ['./dialog-detail.component.scss'],
 })
-export class DetailDialogComponent implements OnInit {
+export class DialogDetailComponent implements OnInit {
   dialogContent: string;
   dialogTitle: string;
   public onCloseReason: Subject<string>;

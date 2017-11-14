@@ -10,14 +10,14 @@ import { AuthGuard } from './shared';
 import { AppRoutingModule } from './app-routing.module';
 import { LayoutModule } from './pages/layout/layout.module';
 
-import { DetailDialogComponent } from './pages/my-jobs/components/detail-dialog/detail-dialog.component';
+import { DialogDetailComponent } from './pages/my-jobs/components/dialog-detail/dialog-detail..component';
 import { DialogJobApplyComponent } from './pages/my-jobs/components/dialog-job-apply/dialog-job-apply.component';
 import { DialogWithdrawComponent } from './pages/my-jobs/components/dialog-withdraw/dialog-withdraw.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DetailDialogComponent,
+    DialogDetailComponent,
     DialogJobApplyComponent,
     DialogWithdrawComponent
   ],
@@ -31,7 +31,7 @@ import { DialogWithdrawComponent } from './pages/my-jobs/components/dialog-withd
   ],
   providers: [AuthGuard],
   entryComponents: [
-    DetailDialogComponent,
+    DialogDetailComponent,
     DialogJobApplyComponent,
     DialogWithdrawComponent
   ],

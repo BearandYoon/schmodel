@@ -5,7 +5,7 @@ import { BsModalService } from "ngx-bootstrap/modal";
 import { BsModalRef } from "ngx-bootstrap/modal";
 
 import { routerTransition } from '../../router.animations';
-import { DetailDialogComponent } from './components/detail-dialog/detail-dialog.component';
+import { DialogDetailComponent } from './components/dialog-detail/dialog-detail..component';
 
 @Component({
   selector: 'app-my-jobs',
@@ -68,7 +68,7 @@ export class MyJobsComponent implements OnInit {
   }
 
   showDetailDialog(title: string) {
-    this.detailDlgRef = this.detailDlgService.show(DetailDialogComponent, this.detailDlgConfig);
+    this.detailDlgRef = this.detailDlgService.show(DialogDetailComponent, this.detailDlgConfig);
     this.detailDlgRef.content.dialogContent = this.detailDlgContent;
     this.detailDlgRef.content.dialogTitle = title;
 
