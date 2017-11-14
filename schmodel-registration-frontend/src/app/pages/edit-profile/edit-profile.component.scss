@@ -86,9 +86,14 @@ accordion-group {
   align-items: center;
   font-size: 11px;
 
+  &:first-child {
+    padding-top: 0;
+  }
+
   label {
     min-width: 112px;
     margin: 0;
+    line-height: 1em;
   }
 
   input {
@@ -104,6 +109,15 @@ accordion-group {
     &[type="password"] {
       letter-spacing: 2px;
     }
+  }
+
+  textarea {
+    flex: 1;
+    height: 85px;
+    background-color: transparent;
+    color: white;
+    border: 1px solid $border-color;
+    font-size: 9px;
   }
 
   button {
