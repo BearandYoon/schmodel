@@ -10,6 +10,6 @@
   </div>
   <div class="action-wrapper">
     <button *ngIf="isBtnAgree" (click)="onAgreeTerms()"> Agree </button>
-    <button (click)="onCancelTerms()"> Cancel </button>
+    <button (click)="onCancelTerms()"> {{isBtnAgree ? 'Decline' : 'Close'}} </button>
   </div>
 </div>
