@@ -22,8 +22,8 @@
   transform: translateY(-50%) translateX(-50%) !important;
 }
 
-.modal {
-    border-bottom: 0px solid !important;
+.modal-header, .modal-content, .modal {
+  border-bottom: 0!important;
 }
 
 @media (max-width: 425px) {

@@ -10,8 +10,9 @@ import { Subject } from 'rxjs/Subject';
 })
 
 export class DialogJobApplyComponent implements OnInit {
-  dialogContent: string;
-  dialogTitle: string;
+
+
+  public dialogTitle: string='';
   public onCloseReason: Subject<string>;
 
   constructor(

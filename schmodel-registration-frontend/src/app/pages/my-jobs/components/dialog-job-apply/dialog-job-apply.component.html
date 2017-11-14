@@ -1,6 +1,6 @@
 <div class="text-center"> 
   <div class="modal-header">
-    <h4 class="modal-title">{{dialogTitle}}</h4>
+    <h2 class="modal-title">{{dialogTitle}}</h2>
     <button type="button" class="close pull-right" aria-label="Close" (click)="onClose()">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -8,28 +8,46 @@
 
   <div class="modal-body">
     <div class="container content-wrapper">
-      <div class="text-left row custom-border">
-        <div class="col-md-4 col-4"> Position:</div>      
-        <div class="col-md-8 col-8 text-left"> PR</div>
+      <div class="container text-left row custom-border">
+        <div class="col-md-4 col-4"> Position:</div>
+        <div class="col-md-2 col-2"></div>
+        <div class="col-md-6 col-6 text-left"> PR</div>
 
-        <div class="col-md-4 col-4"> City/Country:</div>  
-        <div class="col-md-8 col-8 text-left"> Marrakech, Morocco</div>  
+        <div class="col-md-4 col-4"> City/Country:</div>
+        <div class="col-md-2 col-2"></div>
+        <div class="col-md-6 col-6 text-left"> Marrakech, Morocco</div>
 
         <div class="col-md-4 col-4"> Pay rate:</div>
-        <div class="col-md-8 col-8 text-left"> €1,300</div>  
+        <div class="col-md-2 col-2"></div>
+        <div class="col-md-6 col-6 text-left"> €1,300</div>
       </div>
 
-      <div class="row custom-border">
+      <div class="container row custom-border">
         <div class="col-md-12 col-12 text-left"> WORK SCHEDULE:</div>
+
         <div class="col-md-6 col-6 text-left"> Date </div>
         <div class="col-md-3 col-3 text-right"> Start </div>
         <div class="col-md-3 col-3 text-right"> End </div>
+
+        <div class="col-md-6 col-6 text-left"> 30 Novemeber 2017 </div>
+        <div class="col-md-3 col-3 text-right"> Start </div>
+        <div class="col-md-3 col-3 text-right"> End </div>
+
+        <div class="col-md-6 col-6 text-left"> 1 December 2017 </div>
+        <div class="col-md-3 col-3 text-right"> 8:00am </div>
+        <div class="col-md-3 col-3 text-right"> 8:00pm </div>
+
+        <div class="col-md-6 col-6 text-left"> 2 December 2017 </div>
+        <div class="col-md-3 col-3 text-right"> 7:00am </div>
+        <div class="col-md-3 col-3 text-right"> 10:30pm </div>
       </div>
 
-      <div>
+      <div class="container">
+        <p> This job requires work eligibility in Morocco. Do you confirm your applicaion for this job as per the Terms and Conditions?</p>
       </div>
 
     </div>
+
     <div class="action-wrapper">
       <button (click)="onClose()"> YES </button>
       <button (click)="onClose()"> NO  </button>
