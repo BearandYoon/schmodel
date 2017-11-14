@@ -11,9 +11,9 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: './pages/home/home.module#HomeModule',
+        loadChildren: './pages/my-jobs/my-jobs.module#MyJobsModule',
         data: {
-          title: 'Home'
+          title: 'Apply for Jobs'
         }
       }, {
         path: 'my-jobs',
