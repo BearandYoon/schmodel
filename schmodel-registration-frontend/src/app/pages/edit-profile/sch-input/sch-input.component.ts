@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class SchInputComponent implements OnInit {
 
   @Input() type: string = 'text';
-  @Input() id: string = '';
+  @Input() name: string = '';
   @Input() label: string = '';
 
   constructor() { }

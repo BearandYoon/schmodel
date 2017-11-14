@@ -91,7 +91,7 @@ accordion-group {
     margin: 0;
     line-height: 1em;
   }
-
+  
   input {
     flex: 1;
     height: $form-control-height;
@@ -101,12 +101,12 @@ accordion-group {
     background: none;
     border: none;
     border-bottom: 1px solid $border-color;
-
+  
     &[type="password"] {
       letter-spacing: 2px;
     }
   }
-
+  
   textarea {
     flex: 1;
     height: 85px;
@@ -153,5 +153,9 @@ accordion-group {
     color: white;
     font-size: 8px;
     border: 1px solid $border-color;
+
+    option {
+      color: black;
+    }
   }
 }
