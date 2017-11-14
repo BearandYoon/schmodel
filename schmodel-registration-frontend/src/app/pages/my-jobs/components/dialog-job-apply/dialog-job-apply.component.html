@@ -1,6 +1,6 @@
 <div class="text-center"> 
   <div class="modal-header">
-    <h2 class="modal-title">You are applying for:</h2>
+    <h2 class="modal-title">{{dialogTitle}}</h2>
     <button type="button" class="close pull-right" aria-label="Close" (click)="onClose()">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -11,15 +11,15 @@
       <div class="container role-wrapper row custom-border">
         <div class="col-md-4 col-4"> Position:</div>
         <div class="col-md-2 col-2"></div>
-        <div class="col-md-6 col-6 text-left"> PR</div>
+        <div class="col-md-6 col-6 text-left">{{position_field}}</div>
 
         <div class="col-md-4 col-4"> City/Country:</div>
         <div class="col-md-2 col-2"></div>
-        <div class="col-md-6 col-6 text-left"> Marrakech, Morocco</div>
+        <div class="col-md-6 col-6 text-left">{{city_country_field}}</div>
 
         <div class="col-md-4 col-4"> Pay rate:</div>
         <div class="col-md-2 col-2"></div>
-        <div class="col-md-6 col-6 text-left"> €1,300</div>
+        <div class="col-md-6 col-6 text-left">{{pay_rate_field}}</div>
       </div>
 
       <div class="container workschedule-wrapper row custom-border">
@@ -45,11 +45,10 @@
       <div class="container description-wrapper">
         <p> This job requires work eligibility in Morocco. Do you confirm your applicaion for this job as per the Terms and Conditions?</p>
       </div>
-
     </div>
 
     <div class="action-wrapper">
-      <button (click)="onClose()"> YES </button>
+      <button (click)="onConfirm()"> YES </button>
       <button (click)="onClose()"> NO  </button>
     </div>
   </div>

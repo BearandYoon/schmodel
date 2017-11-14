@@ -21,15 +21,14 @@ export class EventComponent implements OnInit, OnChanges {
   @Input() event_role_price: string[];           // [job_price] = "['1,400€', '200€', '0', '0']"
   @Input() event_role_status: number[];          // [job_status] = "[1, 2, 0, 0]", 0:disabled, 1:checked, 2:apply
 
-  private light_blue: string = 'rgba(78, 200, 235, 0.1)';
-  private light_purple: string = 'rgba(53, 20, 77, 0.1)';
-
   public race_bg_urls: Array<any> = [];
   public race_title_style: Array<any> = [];
-
   public bg_url: string = '';
   public title_border_style: string = '';
+  public role_infor: string[];
 
+  private light_blue: string = 'rgba(78, 200, 235, 0.1)';
+  private light_purple: string = 'rgba(53, 20, 77, 0.1)';
   constructor() {
     this.race_bg_urls.push(
       { imagePath: '/assets/img/bg_r1_2.png' },
@@ -44,6 +43,7 @@ export class EventComponent implements OnInit, OnChanges {
       { imagePath: '/assets/img/bg_r11_12.png' },
       { imagePath: '/assets/img/bg_r13_14.png' }
     );
+    this.role_infor = ["PR", "HOST", "GRID", "SCHMODEL GUEST"];
   }
 
   ngOnInit() {

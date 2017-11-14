@@ -1,22 +1,19 @@
 <div class="text-center"> 
   <div class="modal-header">
-    <h2 class="modal-title">Withdraw Application</h2>
+    <h2 class="modal-title">{{dialogTitle}}</h2>
     <button type="button" class="close pull-right" aria-label="Close" (click)="onClose()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-
   <div class="modal-body">
     <div class="container content-wrapper">
       <div class="container description-wrapper">
         <p> Confirm you want to withdraw your application for this job?</p>
       </div>
     </div>
-
     <div class="action-wrapper">
-      <button (click)="onClose()"> YES </button>
+      <button (click)="onConfirm()"> YES </button>
       <button (click)="onClose()"> NO  </button>
     </div>
   </div>
 </div>
-  
