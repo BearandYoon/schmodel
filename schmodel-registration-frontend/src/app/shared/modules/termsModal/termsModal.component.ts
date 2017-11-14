@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { Subject } from 'rxjs/Subject';
@@ -11,6 +11,7 @@ import { Subject } from 'rxjs/Subject';
 export class TermsModalComponent implements OnInit {
   termsContent: String;
   isBtnAgree: boolean;
+  isScrollBottom: boolean;
   public onCloseReason: Subject<string>;
 
   constructor(
@@ -19,6 +20,19 @@ export class TermsModalComponent implements OnInit {
 
   ngOnInit() {
     this.onCloseReason = new Subject();
+    this.isScrollBottom = false;
+  }
+
+  onScroll(event) {
+    let termsWrapper = document.getElementById('termsWrapper');
+    let pos = termsWrapper.scrollTop + termsWrapper.offsetHeight;
+    let max = termsWrapper.scrollHeight;
+
+    if (pos == max ) {
+      this.isScrollBottom = true;
+    } else {
+      this.isScrollBottom = false;
+    }
   }
 
   onAgreeTerms() {
