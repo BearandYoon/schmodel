@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { ForgotRoutingModule } from './forgot-routing.module';
 import { ForgotComponent } from './forgot.component';
 import { SharedModule } from '../../shared/shared.module';
+import { ResetPasswordService } from '../../core/services';
 
 @NgModule({
   imports: [
@@ -14,6 +15,9 @@ import { SharedModule } from '../../shared/shared.module';
     ForgotRoutingModule,
     SharedModule,
   ],
-  declarations: [ForgotComponent]
+  declarations: [ForgotComponent],
+  providers: [
+    ResetPasswordService
+  ]
 })
 export class ForgotModule { }

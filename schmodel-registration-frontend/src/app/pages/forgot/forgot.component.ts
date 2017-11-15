@@ -5,6 +5,9 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { routerTransition } from '../../router.animations';
 import { ValidationService } from '../../shared/services';
 
+import { ResetPasswordService } from '../../core/services';
+import { ResetUser } from '../../shared/models';
+
 @Component({
   selector: 'app-forgot',
   templateUrl: './forgot.component.html',
@@ -13,10 +16,14 @@ import { ValidationService } from '../../shared/services';
 })
 export class ForgotComponent implements OnInit {
   forgotForm: any;
+  missMatchPass: string;
+  resetUser: ResetUser = new ResetUser();
+  message: string;
 
   constructor(
     public router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private resetPwdService: ResetPasswordService
   ) {
     this.forgotForm = this.formBuilder.group({
       'email': ['', [Validators.required, ValidationService.emailValidator]],
@@ -26,8 +33,28 @@ export class ForgotComponent implements OnInit {
   }
     // reset password feature
     onReset() {
-
-     console.log('onReset - email = ', this.forgotForm.value.email);
-     // this.router.navigate(['']);
+      if (this.forgotForm.value.password !== this.forgotForm.value.confirmPass) {
+        this.missMatchPass = 'These passwords don\'t match. Try again?';
+      } else {
+        this.resetUser.email = this.forgotForm.value.email;
+        this.resetPwdService.resetPwd(this.resetUser).subscribe( res => {
+          if (!res.emailIsValid) {
+            this.message = 'Your Email is invalid.';
+            return;
+          }
+          if (!res.emailAvailable) {
+            this.message = 'Your Email is not available.';
+            return;
+          }
+          if (!res.activationCodeValid) {
+            this.message = 'Your Activation Code is invalid.';
+            return;
+          }
+          // this.router.navigate(['']);
+        }, err => {
+          console.log('resetPassword Error = ', err);
+          this.message = 'Something went wrong.';
+        });
+      }
     }
 }

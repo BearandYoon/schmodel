@@ -4,5 +4,9 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  BASE_API_URL: 'http://150.129.180.94:8087',
+  localStorage: {
+    token: 'schmodel token'
+  }
 };
