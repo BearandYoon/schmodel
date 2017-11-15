@@ -79,15 +79,14 @@ export class SignupComponent implements OnInit {
     this.termsModalRef.content.isBtnAgree = true;
 
     this.termsModalRef.content.onCloseReason.subscribe(result => {
-      console.log('Terms Modal Close Reason = ', result);
-
       if (result === TermsModalResponse.AGREE) {
         this.authUser.email = this.signUpForm.value.email;
         this.authUser.password = this.signUpForm.value.password;
         this.authUser.activationCode = this.signUpForm.value.activationCode;
 
         this.authService.signUp(this.authUser).subscribe( res => {
-          if (!res.emailIsValid) {
+          this.message = '';
+          if (!res.emailValid) {
             this.message = 'Your Email is invalid.';
             return;
           }
@@ -95,6 +94,7 @@ export class SignupComponent implements OnInit {
             this.message = 'Your Email is not available.';
             return;
           }
+
           if (!res.passwordValid) {
             this.message = 'Your password should contain at least 6 characters long, and contain a number..';
             return;
