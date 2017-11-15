@@ -5,22 +5,13 @@
       <sch-input name="last_name" label="Last Name"></sch-input>
       <div class="row">
         <label>Date of Birth</label>
-        <select>
-          <option value="" disabled selected hidden>MM</option>
-          <option value="1">1</option>
-        </select>
-        <select>
-          <option value="value1">DD</option>
-        </select>
-        <select>
-          <option value="value1">YYYY</option>
-        </select>
+        <sch-dropdown [data]="dropdownData.months"></sch-dropdown>
+        <sch-dropdown [data]="dropdownData.days"></sch-dropdown>
+        <sch-dropdown [data]="dropdownData.years"></sch-dropdown>
       </div>
       <div class="row">
         <label>Country</label>
-        <select>
-          <option value="value1">United Kingdom</option>
-        </select>
+        <sch-dropdown [data]="dropdownData.countries"></sch-dropdown>
       </div>
       <sch-input name="city" label="City"></sch-input>
       <sch-input name="state" label="State/Province"></sch-input>
@@ -29,75 +20,46 @@
       <sch-input name="postcode" label="Post/Zip code"></sch-input>
       <div class="row">
         <label>Phone</label>
-        <select>
-          <option value="value1">(+41) UK</option>
-        </select>
+        <sch-dropdown [data]="dropdownData.phonePrefixes"></sch-dropdown>
         <input type="text" id="phone" name="phone">
       </div>
       <div class="row">
         <label>Citizenship</label>
-        <select>
-          <option value="value1">British</option>
-        </select>
-        <select>
-          <option value="value1">American</option>
-        </select>
+        <sch-dropdown [data]="dropdownData.nationalities"></sch-dropdown>
       </div>
       <div class="row row--valign-top">
         <label>Languages<br/><span>(working proficiency)</span></label>
-        <select>
-          <option value="value1">English</option>
-        </select>
-        <select>
-          <option value="value1">Arabic</option>
-        </select>
-        <select>
-          <option value="value1">French</option>
-        </select>
+        <sch-dropdown [data]="dropdownData.languages"></sch-dropdown>
       </div>
     </div>
     <div class="form-group form-group--body">
       <div class="row">
         <label>Height</label>
-        <select>
-          <option value="value1">5'10.0" (177cm)</option>
-        </select>
+        <sch-dropdown [data]="dropdownData.heights"></sch-dropdown>
       </div>
       <div class="row">
         <label>Bust/Chest</label>
-        <select>
-          <option value="value1">34B</option>
-        </select>
+        <sch-dropdown [data]="dropdownData.chestSizes"></sch-dropdown>
       </div>
       <div class="row">
         <label>Waist</label>
-        <select>
-          <option value="value1">31" (78 cm)</option>
-        </select>
+        <sch-dropdown [data]="dropdownData.waistSizes"></sch-dropdown>
       </div>
       <div class="row">
         <label>Weight</label>
-        <select>
-          <option value="value1">121 (55kg)</option>
-        </select>
+        <sch-dropdown [data]="dropdownData.weights"></sch-dropdown>
       </div>
       <div class="row">
         <label>Dress Size</label>
-        <select>
-          <option value="value1">5.5 (36.0 EU)</option>
-        </select>
+        <sch-dropdown [data]="dropdownData.dressSizes"></sch-dropdown>
       </div>
       <div class="row">
         <label>Hair Color</label>
-        <select>
-          <option value="value1">Blond</option>
-        </select>
+        <sch-dropdown [data]="dropdownData.hairColors"></sch-dropdown>
       </div>
       <div class="row">
         <label>Eye Color</label>
-        <select>
-          <option value="value1">Green</option>
-        </select>
+        <sch-dropdown [data]="dropdownData.eyeColors"></sch-dropdown>
       </div>
     </div>
     <div class="form-group form-group--social">
