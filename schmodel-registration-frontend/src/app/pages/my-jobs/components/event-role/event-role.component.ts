@@ -18,11 +18,12 @@ enum ButtonStatus { Disabled, Checked, Apply }
 export class EventRoleComponent implements OnInit {
 
   @Output() event: EventEmitter<any> = new EventEmitter();
-  @Input() price: string;
+  @Input() price: number;
   @Input() city: string;
   @Input() country: string;
   @Input() status: number;
   @Input() position: string;
+  @Input() workschedule: Array<any>;
   @Input()
   get getStatus() {
     return this.status;
@@ -50,6 +51,7 @@ export class EventRoleComponent implements OnInit {
       this.jobapplyDlgRef.content.pay_rate_field = this.price;
       this.jobapplyDlgRef.content.position_field = this.position;
       this.jobapplyDlgRef.content.city_country_field = this.city + " " + this.country;
+      this.jobapplyDlgRef.content.workschedule = this.workschedule;
       this.jobapplyDlgRef.content.onCloseReason.subscribe(result => {
         if (result == "confirm") {
           this.status = ButtonStatus.Checked;
@@ -83,11 +85,11 @@ export class EventRoleComponent implements OnInit {
       this.image_url = this.ic_checked;
     } else if (this.status === ButtonStatus.Disabled) {
       this.image_url = this.ic_disabled;
-      this.price = "";
+      this.price = null;
     }
 
-    if (this.price === "0") {
-      this.price = "";
+    if (this.price === 0) {
+      this.price = null;
     }
   }
 }

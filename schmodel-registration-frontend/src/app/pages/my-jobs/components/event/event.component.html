@@ -3,49 +3,20 @@
     <div class="col-md-4 col-4" [ngStyle]="{'background-color': title_border_style }">
       <div class="race_title_style text-left">
         <h1> {{event_number}} </h1>
-        <p>  {{event_date}} </p>
+        <time> {{event_start_date | date: 'yMMMd' }}</time>
         <h3> {{event_city}} </h3>
         <p>  {{event_country_code}} </p>
       </div>
     </div>
 
-    <div class="col-md-2 col-2 align-items-center row event-role-style custom-border">
+    <div *ngFor="let i of [0,1,2,3]" class="col-md-2 col-2 align-items-center row event-role-style custom-border">
       <app-event-role class="event-role"
-                      [position]=role_infor[0]
+                      [position]=role_infor[i]
+                      [price]=event_role_price[i]
                       [city]=event_city
                       [country]=event_country_code
-                      [status]=event_role_status[0]
-                      [price]=event_role_price[0]>
-      </app-event-role>
-    </div>
-    
-    <div class="col-md-2 col-2 align-items-center row event-role-style custom-border">
-      <app-event-role class="event-role"
-                      [position]=role_infor[1]
-                      [city]=event_city
-                      [country]=event_country_code
-                      [status]=event_role_status[1]
-                      [price]=event_role_price[1]>
-      </app-event-role>
-    </div>
-
-    <div class="col-md-2 col-2 align-items-center row event-role-style custom-border">
-      <app-event-role class="event-role"
-                      [position]=role_infor[2]
-                      [city]=event_city
-                      [country]=event_country_code
-                      [status]=event_role_status[2]
-                      [price]=event_role_price[2]>
-      </app-event-role>
-    </div>
-    
-    <div class="col-md-2 col-2 align-items-center row event-role-style custom-border">
-      <app-event-role class="event-role"
-                      [position]=role_infor[3]
-                      [city]=event_city
-                      [country]=event_country_code
-                      [status]=event_role_status[3]
-                      [price]=event_role_price[3]>
+                      [status]=event_role_status[i]
+                      [workschedule]=event_role_workschedule[i]>
       </app-event-role>
     </div>
   </div>

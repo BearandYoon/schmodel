@@ -8,6 +8,7 @@ import { Subject } from 'rxjs/Subject';
   templateUrl: './dialog-detail.component.html',
   styleUrls: ['./dialog-detail.component.scss'],
 })
+
 export class DialogDetailComponent implements OnInit {
   dialogContent: string;
   dialogTitle: string;

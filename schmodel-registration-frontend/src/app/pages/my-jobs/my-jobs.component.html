@@ -5,33 +5,13 @@
       <img src="/assets/img/ic_formulae.png" width="100%">
     </div>
 
-    <div class="col-md-2 col-2 role_bg align-items-center row">
-      <div class="col-md-12" (click)="showDetailDialog('PR position')">
+    <div *ngFor="let i of [0,1,2]" class="col-md-2 col-2 role_bg align-items-center row">
+      <div class="col-md-12" (click)="showDetailDialog(role_title[i] + 'position')">
         <img src="/assets/img/ic_infor.png" width="60%">
       </div>
 
       <div class="col-md-12 role-title-style">
-        <h2> PR </h2>
-      </div>
-    </div>
-
-    <div class="col-md-2 col-2 role_bg align-items-center row">
-      <div class="col-md-12" (click)="showDetailDialog('HOST position')">
-        <img src="/assets/img/ic_infor.png" width="60%">
-      </div>
-
-      <div class="col-md-12 role-title-style">
-        <h2> HOST </h2>
-      </div>
-    </div>
-
-    <div class="col-md-2 col-2 role_bg align-items-center row">
-      <div class="col-md-12" (click)="showDetailDialog('GRID position')">
-        <img src="/assets/img/ic_infor.png" width="60%">
-      </div>
-
-      <div class="col-md-12 role-title-style">
-        <h2> GRID </h2>
+        <h2> {{role_title[i]}} </h2>
       </div>
     </div>
 
@@ -46,122 +26,21 @@
     </div>
   </div>
 
-  <div class="app-event-style">
+  <div *ngFor="let event of eventView" class="app-event-style">
     <app-event
-                      [event_no]="0"
-                      [event_number]="'R1-2'"
-                      [event_date]="'Dec. 2-3, 2017'"
-                      [event_city]="'HONG KONG,'"
-                      [event_country_code]="'HK'"
-                      [event_role_price]="['1,650€', '0', '0', '0']"
-                      [event_role_status]="[1, 0, 0, 2]">
-    </app-event>
-
-    <app-event
-                      [event_no]="1"
-                      [event_number]="'R3'"
-                      [event_date]="'Jan. 13, 2018'"
-                      [event_city]="'MARRAKESH,'"
-                      [event_country_code]="'MA'"
-                      [event_role_price]="['1,400€', '800€', '200€', '0']"
-                      [event_role_status]="[2, 2, 2, 2]">
-    </app-event>
-
-    <app-event
-                      [event_no]="2"
-                      [event_number]="'R4'"
-                      [event_date]="'Feb. 3, 2018'"
-                      [event_city]="'SANTIAGO,'"
-                      [event_country_code]="'CL'"
-                      [event_role_price]="['1,400€', '800€', '200€', '0']"
-                      [event_role_status]="[2, 1, 2, 2]">
-    </app-event>
-
-    <app-event
-                      [event_no]="3"
-                      [event_number]="'R5'"
-                      [event_date]="'Mar. 3, 2018'"
-                      [event_city]="'MEXICO CITY,'"
-                      [event_country_code]="'MX'"
-                      [event_role_price]="['1,400€', '800€', '200€', '0']"
-                      [event_role_status]="[2, 2, 2, 2]">
-    </app-event>
-
-    <app-event
-                      [event_no]="4"
-                      [event_number]="'R6'"
-                      [event_date]="'Mar. 17, 2018'"
-                      [event_city]="'SAO PAULO,'"
-                      [event_country_code]="'BR'"
-                      [event_role_price]="['1,400€', '800€', '200€', '0']"
-                      [event_role_status]="[2, 2, 1, 2]">
-    </app-event>
-
-    <app-event
-                      [event_no]="5"
-                      [event_number]="'R7'"
-                      [event_date]="'Apr. 14, 2018'"
-                      [event_city]="'ROME,'"
-                      [event_country_code]="'IT'"
-                      [event_role_price]="['1,400€', '800€', '200€', '0']"
-                      [event_role_status]="[2, 2, 2, 2]">
-    </app-event>
-
-    <app-event
-                      [event_no]="6"
-                      [event_number]="'R8'"
-                      [event_date]="'Apr. 38, 2018'"
-                      [event_city]="'PARIS,'"
-                      [event_country_code]="'FR'"
-                      [event_role_price]="['1,400€', '800€', '200€', '0']"
-                      [event_role_status]="[2, 2, 2, 2]">
-    </app-event>
-
-    <app-event
-                      [event_no]="7"
-                      [event_number]="'R9'"
-                      [event_date]="'May. 19, 2018'"
-                      [event_city]="'BERLIN,'"
-                      [event_country_code]="'DE'"
-                      [event_role_price]="['1,400€', '800€', '200€', '0']"
-                      [event_role_status]="[2, 2, 2, 2]">
-    </app-event>
-
-    <app-event
-                      [event_no]="8"
-                      [event_number]="'R10'"
-                      [event_date]="'May. 19, 2018'"
-                      [event_city]="'BERLIN,'"
-                      [event_country_code]="'DE'"
-                      [event_role_price]="['1,400€', '800€', '200€', '0']"
-                      [event_role_status]="[2, 2, 2, 2]">
-    </app-event>
-
-    <app-event
-                      [event_no]="9"
-                      [event_number]="'R11-12'"
-                      [event_date]="'May. 19, 2018'"
-                      [event_city]="'BERLIN,'"
-                      [event_country_code]="'DE'"
-                      [event_role_price]="['1,400€', '800€', '200€', '0']"
-                      [event_role_status]="[2, 2, 2, 2]">
-    </app-event>
-
-    <app-event
-                      [event_no]="10"
-                      [event_number]="'R13-14'"
-                      [event_date]="'May. 19, 2018'"
-                      [event_city]="'BERLIN'"
-                      [event_country_code]="'DE'"
-                      [event_role_price]="['1,400€', '800€', '200€', '0']"
-                      [event_role_status]="[2, 2, 2, 2]">
+              [event_no]="event.id"
+              [event_number]="event.name"
+              [event_start_date]="event.startDate"
+              [event_end_date]="event.endDate"
+              [event_city]="event.city"
+              [event_country_code]="event.country"
+              [roles_data]="event.roles">
     </app-event>
   </div>
 
-  <div [ngStyle]="{'height' : bottomHeight}" [style.visibility]="(flag == 0) ? 'hidden' : 'visible' " class="sticky-footer text-center">
+  <div [ngStyle]="{'height' : '50vh'}" class="sticky-footer text-center" *ngIf="flag">
     <div class="gra-footer-padding">
       <img src="/assets/img/ic_down.png" (click)="onScrollDown()">
     </div>
   </div>
-
 </div>

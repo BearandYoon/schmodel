@@ -13,12 +13,12 @@ export class DialogJobApplyComponent implements OnInit {
 
   public position_field: string = "";
   public city_country_field: string = "";
-  public pay_rate_field: string = "";
+  public pay_rate_field: number;
   public dialogTitle: string = "";
   public onCloseReason: Subject<string>;
   public terms_conditions: string = "";
-  public tc_script: string = "";
   public tc_flag ;
+  public workschedule: Array<any> = [];
 
   constructor(
     public bsModalRef: BsModalRef

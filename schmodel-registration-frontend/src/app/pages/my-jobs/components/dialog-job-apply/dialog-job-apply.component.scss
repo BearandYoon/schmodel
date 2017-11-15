@@ -36,10 +36,14 @@
   font-weight: 400;
 
   .content-wrapper {
-    padding: 10px 10px 0 10px;
+    width: 80%;
+    margin:auto;
+    //padding: 10px 10px 0px 10px;
   }
 
   .role-wrapper {
+    width: 100%;
+    margin:auto;
     font-family: "Open Sans";
     font-weight: 9px;
     text-align: left;
@@ -51,6 +55,8 @@
   }
 
   .workschedule-wrapper {
+    width: 100%;
+    margin:auto;
     padding-bottom: 10px;
     font-family: "Open Sans";
     font-size: 9px;
@@ -66,12 +72,19 @@
 
     .workschedule-col-title {
       font-weight: 700;
+      padding-right: 0;
+    }
+
+    .workschedule {
+      padding-right: 0;
+      width: 100%;
     }
   }
 
   .description-wrapper {
     padding: 10px 0 10px 0px;
-    width: 80%;
+    width: 75%;
+    margin: auto;
     
     .terms-conditions {
       font-size: 9px;
@@ -81,7 +94,7 @@
   .term-condition-wrapper {
     font-family: "Open Sans";
     font-size: 9px;
-    font-weight: 400;
+    font-weight: 600;
     text-align: justify;
   }
 
@@ -100,6 +113,10 @@
       text-transform: uppercase;
     }
   }
+}
+
+.col-3.col-md-3 {
+  padding-left: 0px;
 }
 
 .custom-border {
