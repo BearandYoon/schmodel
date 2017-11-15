@@ -11,6 +11,7 @@ import { EditTermsComponent } from './edit-terms/edit-terms.component';
 import { EditBillingInfoComponent } from './edit-billing-info/edit-billing-info.component';
 import { SchInputRowComponent } from './sch-input-row/sch-input-row.component';
 import { SchDropdownComponent } from './sch-dropdown/sch-dropdown.component';
+import { SchDropdownRowComponent } from './sch-dropdown-row/sch-dropdown-row.component';
 
 @NgModule({
   imports: [
@@ -18,6 +19,6 @@ import { SchDropdownComponent } from './sch-dropdown/sch-dropdown.component';
     AccordionModule.forRoot(),
     EditProfileRoutingModule
   ],
-  declarations: [EditProfileComponent, EditProfilePasswordComponent, EditTalentPhotosComponent, EditPersonalInfoComponent, EditTermsComponent, EditBillingInfoComponent, SchInputRowComponent, SchDropdownComponent]
+  declarations: [EditProfileComponent, EditProfilePasswordComponent, EditTalentPhotosComponent, EditPersonalInfoComponent, EditTermsComponent, EditBillingInfoComponent, SchInputRowComponent, SchDropdownComponent, SchDropdownRowComponent]
 })
 export class EditProfileModule { }

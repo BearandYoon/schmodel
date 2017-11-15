@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import * as dropdownData from './dropdown-data';
 
 @Component({
   selector: 'sch-dropdown',
@@ -7,9 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SchDropdownComponent implements OnInit {
 
-  @Input() data: any = {};
+  @Input() category: string = '';
+  dropdownData: any = {};
 
-  constructor() { }
+  constructor() {
+    this.dropdownData = dropdownData;
+  }
 
   ngOnInit() {
   }

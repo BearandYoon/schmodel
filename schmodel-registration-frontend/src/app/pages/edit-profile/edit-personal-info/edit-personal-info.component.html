@@ -3,16 +3,8 @@
     <div class="form-group form-group--personal">
       <sch-input-row name="first_name" label="First Name"></sch-input-row>
       <sch-input-row name="last_name" label="Last Name"></sch-input-row>
-      <div class="row">
-        <label>Date of Birth</label>
-        <sch-dropdown [data]="dropdownData.months"></sch-dropdown>
-        <sch-dropdown [data]="dropdownData.days"></sch-dropdown>
-        <sch-dropdown [data]="dropdownData.years"></sch-dropdown>
-      </div>
-      <div class="row">
-        <label>Country</label>
-        <sch-dropdown [data]="dropdownData.countries"></sch-dropdown>
-      </div>
+      <sch-dropdown-row label="Date of Birth" [items]="['months', 'days', 'years']"></sch-dropdown-row>
+      <sch-dropdown-row label="Country" [items]="['countries']"></sch-dropdown-row>
       <sch-input-row name="city" label="City"></sch-input-row>
       <sch-input-row name="state" label="State/Province"></sch-input-row>
       <sch-input-row name="address" label="Address"></sch-input-row>
@@ -20,47 +12,20 @@
       <sch-input-row name="postcode" label="Post/Zip code"></sch-input-row>
       <div class="row">
         <label>Phone</label>
-        <sch-dropdown [data]="dropdownData.phonePrefixes"></sch-dropdown>
+        <sch-dropdown category="phonePrefixes"></sch-dropdown>
         <input type="text" id="phone" name="phone">
       </div>
-      <div class="row">
-        <label>Citizenship</label>
-        <sch-dropdown [data]="dropdownData.nationalities"></sch-dropdown>
-      </div>
-      <div class="row row--valign-top">
-        <label>Languages<br/><span>(working proficiency)</span></label>
-        <sch-dropdown [data]="dropdownData.languages"></sch-dropdown>
-      </div>
+      <sch-dropdown-row label="Citizenship" [allowAddCategory]="'nationalities'" [items]="['nationalities', 'nationalities']"></sch-dropdown-row>
+      <sch-dropdown-row label="Languages" description="(working proficiency)" [allowAddCategory]="'languages'" [items]="['languages', 'languages', 'languages']"></sch-dropdown-row>
     </div>
     <div class="form-group form-group--body">
-      <div class="row">
-        <label>Height</label>
-        <sch-dropdown [data]="dropdownData.heights"></sch-dropdown>
-      </div>
-      <div class="row">
-        <label>Bust/Chest</label>
-        <sch-dropdown [data]="dropdownData.chestSizes"></sch-dropdown>
-      </div>
-      <div class="row">
-        <label>Waist</label>
-        <sch-dropdown [data]="dropdownData.waistSizes"></sch-dropdown>
-      </div>
-      <div class="row">
-        <label>Weight</label>
-        <sch-dropdown [data]="dropdownData.weights"></sch-dropdown>
-      </div>
-      <div class="row">
-        <label>Dress Size</label>
-        <sch-dropdown [data]="dropdownData.dressSizes"></sch-dropdown>
-      </div>
-      <div class="row">
-        <label>Hair Color</label>
-        <sch-dropdown [data]="dropdownData.hairColors"></sch-dropdown>
-      </div>
-      <div class="row">
-        <label>Eye Color</label>
-        <sch-dropdown [data]="dropdownData.eyeColors"></sch-dropdown>
-      </div>
+      <sch-dropdown-row label="Height" [items]="['heights']"></sch-dropdown-row>
+      <sch-dropdown-row label="Bust/Chest" [items]="['chestSizes']"></sch-dropdown-row>
+      <sch-dropdown-row label="Waist" [items]="['waistSizes']"></sch-dropdown-row>
+      <sch-dropdown-row label="Weight" [items]="['weights']"></sch-dropdown-row>
+      <sch-dropdown-row label="Dress Size" [items]="['dressSizes']"></sch-dropdown-row>
+      <sch-dropdown-row label="Hair Color" [items]="['hairColors']"></sch-dropdown-row>
+      <sch-dropdown-row label="Eye Color" [items]="['eyeColors']"></sch-dropdown-row>
     </div>
     <div class="form-group form-group--social">
       <sch-input-row name="twitter" label="Twitter"></sch-input-row>
