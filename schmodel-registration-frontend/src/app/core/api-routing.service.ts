@@ -14,4 +14,8 @@ export class ApiRoutingService {
   getLoginAPIUrl(): string {
     return this.baseUrl + '/talent/login';
   }
+
+  getIsProfileCompleteAPIUrl(): string {
+    return this.baseUrl + '/talent/is-profile-complete';
+  }
 }

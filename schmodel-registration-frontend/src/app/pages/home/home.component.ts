@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal';
-
 import { LocalStorageService } from 'ngx-webstorage';
+
+import { UserService } from '../../core/services';
 import { TermsModalComponent } from '../../shared/modules/termsModal/termsModal.component';
 import { environment } from '../../../environments/environment';
 
@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit {
     public router: Router,
     private localStorage: LocalStorageService,
     private modalService: BsModalService,
+    private userService: UserService
   ) { }
 
   ngOnInit() {
@@ -47,6 +48,9 @@ export class HomeComponent implements OnInit {
       'In the event of any inconsistency or contradiction between these terms and conditions and the booking ' +
       'confirmation form, the terms set out in the booking confirmation form shall prevail.';
 
+    this.userService.isProfileComplete().subscribe(res => {
+      console.log('profile = ', res);
+    });
   }
 
   logout() {
