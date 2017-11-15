@@ -10,13 +10,14 @@ import { environment } from '../../../environments/environment';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  isCompletedProfile: boolean;
   constructor(
     public router: Router,
     private localStorage: LocalStorageService
   ) { }
 
   ngOnInit() {
+    this.isCompletedProfile = false;
   }
 
   logout() {

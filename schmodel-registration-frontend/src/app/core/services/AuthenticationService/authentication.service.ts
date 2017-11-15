@@ -14,6 +14,16 @@ export class AuthenticationService {
 
   signUp(user: AuthUser) {
     return this.http.post(
+      this.apiRoutingService.getSignUpnAPIUrl(),
+      user,
+      false,
+      null
+    );
+  }
+
+  logIn(user: AuthUser) {
+    delete user.activationCode;
+    return this.http.post(
       this.apiRoutingService.getLoginAPIUrl(),
       user,
       false,

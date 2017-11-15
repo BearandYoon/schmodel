@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 import { SharedModule } from '../../shared/modules';
+import { AuthenticationService } from '../../core/services';
 
 @NgModule({
   imports: [
@@ -17,7 +18,9 @@ import { SharedModule } from '../../shared/modules';
   declarations: [
     LoginComponent
   ],
-  providers: [],
+  providers: [
+    AuthenticationService
+  ],
 })
 export class LoginModule {
 }

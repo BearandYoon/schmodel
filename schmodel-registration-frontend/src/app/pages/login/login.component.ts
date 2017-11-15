@@ -4,10 +4,12 @@ import { FormBuilder, Validators } from '@angular/forms';
 
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal';
+import { AuthenticationService } from '../../core/services';
 
 import { routerTransition } from '../../router.animations';
 import { ValidationService } from '../../shared/services';
 import { TermsModalComponent } from '../../shared/modules/termsModal/termsModal.component';
+import { AuthUser, TermsModalResponse } from '../../shared/models';
 
 @Component({
     selector: 'app-login',
@@ -17,6 +19,7 @@ import { TermsModalComponent } from '../../shared/modules/termsModal/termsModal.
 })
 export class LoginComponent implements OnInit {
   signInForm: any;
+  authUser: AuthUser = new AuthUser();
   termsModalRef: BsModalRef;
   termsContent: string;
   termsModalConfig = {
@@ -30,6 +33,7 @@ export class LoginComponent implements OnInit {
     public router: Router,
     private formBuilder: FormBuilder,
     private modalService: BsModalService,
+    private authService: AuthenticationService
   ) {
     this.signInForm = this.formBuilder.group({
       'email': ['', [Validators.required, ValidationService.emailValidator]],
@@ -51,10 +55,22 @@ export class LoginComponent implements OnInit {
       'confirmation form after the amendment and/or variation has been included on the booking confirmation form. ' +
       'In the event of any inconsistency or contradiction between these terms and conditions and the booking ' +
       'confirmation form, the terms set out in the booking confirmation form shall prevail.';
+    this.signInForm.value.email = 'luckysevenbear@gmail.com';
+    this.signInForm.value.password = 'yoon1104';
+
+    this.signInForm.setValue({
+      email: 'luckysevenbear@gmail.com',
+      password: 'yoon1104'
+    });
   }
 
   onSignIn() {
     console.log('onSignIn - email and password = ', this.signInForm.value.email, this.signInForm.value.password);
+    this.authUser.email = this.signInForm.value.email;
+    this.authUser.password = this.signInForm.value.password;
+    this.authService.logIn(this.authUser).subscribe( res => {
+      console.log('login user = ', res);
+    });
     this.router.navigate(['']);
   }
 

@@ -7,7 +7,11 @@ export class ApiRoutingService {
 
   constructor() {}
 
-  getLoginAPIUrl(): string {
+  getSignUpnAPIUrl(): string {
     return this.baseUrl + '/talent/signup';
+  }
+
+  getLoginAPIUrl(): string {
+    return this.baseUrl + '/talent/login';
   }
 }
