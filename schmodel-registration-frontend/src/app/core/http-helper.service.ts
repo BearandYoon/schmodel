@@ -213,6 +213,19 @@ export class HttpHelperService {
    * @returns {any}
    */
   private handleError(error: Response | any) {
+    // let errMsg: string;
+    // if (error instanceof Response) {
+    //   const body = error.json() || '';
+    //   errMsg = '';
+    //
+    //   if (body.errors) {
+    //     body.errors.forEach(_err => {
+    //       errMsg += _err.field + ' ' + _err.massage;
+    //     });
+    //   } else {
+    //     errMsg = error.message ? error.message : error.toString();
+    //   }
+    // }
     return Observable.throw(error);
   }
 }

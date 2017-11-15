@@ -8,6 +8,9 @@
         Beauty is in the<br> eye of the employer
       </p>
       <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-3 form-wrapper">
+        <alert type="danger" *ngIf="message">
+          <strong>{{message}}</strong>
+        </alert>
         <form [formGroup]="signInForm" (submit)="onSignIn()">
           <div class="form-content">
             <div class="form-group">

@@ -15,7 +15,7 @@
     margin: auto;
     width: 33%;
   }
-  
+
   .title {
     font-size: 22px;
     font-weight: 200;
@@ -45,7 +45,7 @@
       justify-content: space-between;
       align-items: center;
       align-content: stretch;
-      
+
       .btn-text {
         margin: auto 50px;
       }
@@ -58,10 +58,15 @@
         }
       }
     }
+
+    .common-pattern.unCompleted {
+      color: #656566;
+    }
+
     .profile-content {
       display: flex;
       margin-bottom: 3px;
-      
+
       .profile-image {
         width: 70%;
         margin-right: 2px;
@@ -73,7 +78,7 @@
         background-image: url("/assets/img/bg_home_ract.png");
         background-size: cover;
         width: 30%;
-        
+
 
         .profile-title {
           padding: 6px 0;
@@ -89,7 +94,7 @@
 
         .profile-upcoming {
           font-weight: bold;
-        
+
           span {
             font-size: 70px;
             color: #52c9eb;
@@ -106,7 +111,7 @@
 
         .profile-applications {
           font-weight: bold;
-      
+
           span {
             font-size: 70px;
             color: #ffffff;
@@ -143,7 +148,7 @@
     bottom: 0;
     text-align: center;
     color: #ffffff;
-    
+
     .logout-text {
        font-weight: 700;
        margin-bottom: 2px;
@@ -152,9 +157,9 @@
       font-weight: 200;
       font-size: 14px;
       margin-bottom: 36px;
-    } 
+    }
   }
-} 
+}
 
-    
+
 

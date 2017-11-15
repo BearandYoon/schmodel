@@ -20,6 +20,7 @@ import { AuthUser, TermsModalResponse } from '../../shared/models';
 export class LoginComponent implements OnInit {
   signInForm: any;
   authUser: AuthUser = new AuthUser();
+  message: string;
   termsModalRef: BsModalRef;
   termsContent: string;
   termsModalConfig = {
@@ -42,6 +43,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.message = '';
     this.termsContent = 'As required by Department of Employment regulations, Schmodel’s booking confirmation form, containi\n' +
       'As required by Department of Employment regulations, Schmodel’s booking confirmation form, containing the specific ' +
       'terms of the booking, must be signed and returned by the client and the signed booking confirmation form together with ' +
@@ -55,8 +57,6 @@ export class LoginComponent implements OnInit {
       'confirmation form after the amendment and/or variation has been included on the booking confirmation form. ' +
       'In the event of any inconsistency or contradiction between these terms and conditions and the booking ' +
       'confirmation form, the terms set out in the booking confirmation form shall prevail.';
-    this.signInForm.value.email = 'luckysevenbear@gmail.com';
-    this.signInForm.value.password = 'yoon1104';
 
     this.signInForm.setValue({
       email: 'luckysevenbear@gmail.com',
@@ -65,13 +65,18 @@ export class LoginComponent implements OnInit {
   }
 
   onSignIn() {
-    console.log('onSignIn - email and password = ', this.signInForm.value.email, this.signInForm.value.password);
+    this.message = '';
     this.authUser.email = this.signInForm.value.email;
     this.authUser.password = this.signInForm.value.password;
     this.authService.logIn(this.authUser).subscribe( res => {
       console.log('login user = ', res);
+      this.router.navigate(['']);
+    }, error => {
+      if (error.status === 401) {
+        this.message = 'UnRegistered User';
+      }
+      console.log(error);
     });
-    this.router.navigate(['']);
   }
 
   showTermsAndConditions() {

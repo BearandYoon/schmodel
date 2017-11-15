@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { AlertModule } from 'ngx-bootstrap';
 
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
@@ -13,7 +14,8 @@ import { AuthenticationService } from '../../core/services';
     FormsModule,
     ReactiveFormsModule,
     LoginRoutingModule,
-    SharedModule
+    SharedModule,
+    AlertModule
   ],
   declarations: [
     LoginComponent
