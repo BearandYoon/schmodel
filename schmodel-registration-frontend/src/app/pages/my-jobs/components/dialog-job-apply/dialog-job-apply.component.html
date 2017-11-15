@@ -43,7 +43,13 @@
       </div>
 
       <div class="container description-wrapper">
-        <p> This job requires work eligibility in Morocco. Do you confirm your applicaion for this job as per the Terms and Conditions?</p>
+        <p> This job requires work eligibility in Morocco. Do you confirm your applicaion for this job as per the
+          <span class="terms-conditions" (click)="onTC()">Terms and Conditions</span>?
+        </p>
+      </div>
+
+      <div class="container term-condition-wrapper" *ngIf="tc_flag">
+        <p>{{terms_conditions}}</p>
       </div>
     </div>
 

@@ -29,6 +29,7 @@
 
 .modal-body {
   background-color: #ebecec;
+  max-height: 400px;
   overflow: auto;
   padding: 20px;
   font-size: 9px;
@@ -47,7 +48,6 @@
     .col-md-4.col-4 {
       font-weight: 700;
     }
-
   }
 
   .workschedule-wrapper {
@@ -72,7 +72,17 @@
   .description-wrapper {
     padding: 10px 0 10px 0px;
     width: 80%;
-    //font-size: 8px;
+    
+    .terms-conditions {
+      font-size: 9px;
+      text-decoration: underline;
+    }
+  }
+  .term-condition-wrapper {
+    font-family: "Open Sans";
+    font-size: 9px;
+    font-weight: 400;
+    text-align: justify;
   }
 
   .action-wrapper {

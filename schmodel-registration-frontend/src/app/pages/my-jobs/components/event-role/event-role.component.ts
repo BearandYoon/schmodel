@@ -49,7 +49,7 @@ export class EventRoleComponent implements OnInit {
       this.jobapplyDlgRef = this.detailDlgService.show(DialogJobApplyComponent, this.dialogConfig);
       this.jobapplyDlgRef.content.pay_rate_field = this.price;
       this.jobapplyDlgRef.content.position_field = this.position;
-      this.jobapplyDlgRef.content.city_country_field = this.city + ", " + this.country;
+      this.jobapplyDlgRef.content.city_country_field = this.city + " " + this.country;
       this.jobapplyDlgRef.content.onCloseReason.subscribe(result => {
         if (result == "confirm") {
           this.status = ButtonStatus.Checked;
