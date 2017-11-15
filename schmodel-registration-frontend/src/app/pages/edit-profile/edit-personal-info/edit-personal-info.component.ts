@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as dropdownData from './dropdown-data';
 
 @Component({
   selector: 'edit-personal-info',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditPersonalInfoComponent implements OnInit {
 
-  constructor() { }
+  dropdownData: any = {};
+
+  constructor() {
+    this.dropdownData = dropdownData;
+  }
 
   ngOnInit() {
   }
