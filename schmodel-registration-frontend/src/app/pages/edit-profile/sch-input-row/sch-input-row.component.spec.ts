@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SchInputComponent } from './sch-input.component';
+import { SchInputRowComponent } from './sch-input-row.component';
 
-describe('SchInputComponent', () => {
-  let component: SchInputComponent;
-  let fixture: ComponentFixture<SchInputComponent>;
+describe('SchInputRowComponent', () => {
+  let component: SchInputRowComponent;
+  let fixture: ComponentFixture<SchInputRowComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SchInputComponent ]
+      declarations: [ SchInputRowComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SchInputComponent);
+    fixture = TestBed.createComponent(SchInputRowComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

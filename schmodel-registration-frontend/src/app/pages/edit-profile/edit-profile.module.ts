@@ -9,7 +9,7 @@ import { EditTalentPhotosComponent } from './edit-talent-photos/edit-talent-phot
 import { EditPersonalInfoComponent } from './edit-personal-info/edit-personal-info.component';
 import { EditTermsComponent } from './edit-terms/edit-terms.component';
 import { EditBillingInfoComponent } from './edit-billing-info/edit-billing-info.component';
-import { SchInputComponent } from './sch-input/sch-input.component';
+import { SchInputRowComponent } from './sch-input-row/sch-input-row.component';
 import { SchDropdownComponent } from './sch-dropdown/sch-dropdown.component';
 
 @NgModule({
@@ -18,6 +18,6 @@ import { SchDropdownComponent } from './sch-dropdown/sch-dropdown.component';
     AccordionModule.forRoot(),
     EditProfileRoutingModule
   ],
-  declarations: [EditProfileComponent, EditProfilePasswordComponent, EditTalentPhotosComponent, EditPersonalInfoComponent, EditTermsComponent, EditBillingInfoComponent, SchInputComponent, SchDropdownComponent]
+  declarations: [EditProfileComponent, EditProfilePasswordComponent, EditTalentPhotosComponent, EditPersonalInfoComponent, EditTermsComponent, EditBillingInfoComponent, SchInputRowComponent, SchDropdownComponent]
 })
 export class EditProfileModule { }

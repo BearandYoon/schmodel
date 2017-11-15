@@ -1,8 +1,8 @@
 <section>
   <form>
     <div class="form-group form-group--personal">
-      <sch-input name="first_name" label="First Name"></sch-input>
-      <sch-input name="last_name" label="Last Name"></sch-input>
+      <sch-input-row name="first_name" label="First Name"></sch-input-row>
+      <sch-input-row name="last_name" label="Last Name"></sch-input-row>
       <div class="row">
         <label>Date of Birth</label>
         <sch-dropdown [data]="dropdownData.months"></sch-dropdown>
@@ -13,11 +13,11 @@
         <label>Country</label>
         <sch-dropdown [data]="dropdownData.countries"></sch-dropdown>
       </div>
-      <sch-input name="city" label="City"></sch-input>
-      <sch-input name="state" label="State/Province"></sch-input>
-      <sch-input name="address" label="Address"></sch-input>
-      <sch-input name="address2" label="Address2"></sch-input>
-      <sch-input name="postcode" label="Post/Zip code"></sch-input>
+      <sch-input-row name="city" label="City"></sch-input-row>
+      <sch-input-row name="state" label="State/Province"></sch-input-row>
+      <sch-input-row name="address" label="Address"></sch-input-row>
+      <sch-input-row name="address2" label="Address2"></sch-input-row>
+      <sch-input-row name="postcode" label="Post/Zip code"></sch-input-row>
       <div class="row">
         <label>Phone</label>
         <sch-dropdown [data]="dropdownData.phonePrefixes"></sch-dropdown>
@@ -63,10 +63,10 @@
       </div>
     </div>
     <div class="form-group form-group--social">
-      <sch-input name="twitter" label="Twitter"></sch-input>
-      <sch-input name="instagram" label="Instagram"></sch-input>
-      <sch-input name="facebook" label="Facebook"></sch-input>
-      <sch-input name="linkedin" label="LinkedIn"></sch-input>
+      <sch-input-row name="twitter" label="Twitter"></sch-input-row>
+      <sch-input-row name="instagram" label="Instagram"></sch-input-row>
+      <sch-input-row name="facebook" label="Facebook"></sch-input-row>
+      <sch-input-row name="linkedin" label="LinkedIn"></sch-input-row>
     </div>
     <div class="form-group form-group--bio">
       <div class="row row--valign-top">
