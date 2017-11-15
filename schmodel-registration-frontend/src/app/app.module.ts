@@ -10,8 +10,10 @@ import { AuthGuard } from './shared';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 
+import { ValidTokenService } from './core/services';
 import { HttpHelperService } from './core/http-helper.service';
 import { ApiRoutingService } from './core/api-routing.service';
+
 
 
 @NgModule({
@@ -30,6 +32,7 @@ import { ApiRoutingService } from './core/api-routing.service';
   providers: [
     HttpHelperService,
     ApiRoutingService,
+    ValidTokenService,
     AuthGuard
   ],
   bootstrap: [AppComponent]

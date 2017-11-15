@@ -10,4 +10,7 @@ export class ApiRoutingService {
   getResetPwdAPIUrl(): string {
     return this.baseUrl + '/talent/reset-password';
   }
+  getValidTokenAPIUrl(): string {
+    return this.baseUrl + '/talent/validate-token';
+  }
 }
