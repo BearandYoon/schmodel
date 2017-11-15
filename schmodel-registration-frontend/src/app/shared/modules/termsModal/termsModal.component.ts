@@ -24,11 +24,11 @@ export class TermsModalComponent implements OnInit {
   }
 
   onScroll(event) {
-    let termsWrapper = document.getElementById('termsWrapper');
-    let pos = termsWrapper.scrollTop + termsWrapper.offsetHeight;
-    let max = termsWrapper.scrollHeight;
+    const termsWrapper = document.getElementById('termsWrapper');
+    const pos = termsWrapper.scrollTop + termsWrapper.offsetHeight;
+    const max = termsWrapper.scrollHeight;
 
-    if (pos == max ) {
+    if (pos === max ) {
       this.isScrollBottom = true;
     } else {
       this.isScrollBottom = false;
