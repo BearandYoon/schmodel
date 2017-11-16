@@ -51,7 +51,7 @@ export class HttpHelperService {
       const token = this.localStorage.retrieve(
         environment.localStorage.token
       );
-      headers.append('Authorization', `Bearer ${token}`);
+      headers.append('Authorization', `${token}`);
     }
 
     if (customHeader) {
