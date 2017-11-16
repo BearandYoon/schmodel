@@ -14,7 +14,7 @@ import { ValidTokenService } from './core/services';
 import { HttpHelperService } from './core/http-helper.service';
 import { ApiRoutingService } from './core/api-routing.service';
 
-
+import { LayoutModule } from './pages/layout/layout.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +28,7 @@ import { ApiRoutingService } from './core/api-routing.service';
     AppRoutingModule,
     Ng2Webstorage,
     SharedModule,
+    LayoutModule
   ],
   providers: [
     HttpHelperService,

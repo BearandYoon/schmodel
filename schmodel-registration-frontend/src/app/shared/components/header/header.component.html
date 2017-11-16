@@ -1,0 +1,11 @@
+<header class="header--main">
+  <button type="button" class="nav nav-left" (click)="handleLeftNavClick()">
+    <span *ngIf="pageData.navLeft=='back'" class="icon icon-arrow-left"></span>
+  </button>
+  <p class="title">
+    {{pageData.title}}
+  </p>
+  <button type="button" class="nav nav-right" (click)="handleRightNavClick()">
+    <span *ngIf="pageData.navRight=='settings'" class="icon icon-settings"></span>
+  </button>
+</header>

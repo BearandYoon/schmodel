@@ -1,0 +1,48 @@
+$header-height: 64px;
+$navitem-width: 50px;
+
+header.header--main {
+  width: 100%;
+  height: $header-height;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-image: url('/assets/images/bg_row.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  font-family: 'Open Sans', sans-serif;
+
+  .nav {
+    width: $navitem-width;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background-color: transparent;
+
+    & > * {
+      margin: auto;
+    }
+    &.nav-left {
+      left: 0;
+    }
+    &.nav-right {
+      right: 0;
+    }
+  }
+
+  .title {
+    flex: 1;
+    margin: 0;
+    text-align: center;
+    font-size: 19px;
+    color: white;
+    font-weight: 300;
+  }
+
+  .icon {
+    font-size: 22px;
+    color: #939598;
+  }
+}

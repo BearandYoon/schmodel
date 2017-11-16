@@ -1,0 +1,16 @@
+<accordion>
+  <accordion-group *ngFor="let panel of panels" [isOpen]="panel.isOpen">
+    <header accordion-heading>
+      <p class="title">
+        {{ panel.title }}
+      </p>
+      <span class="icon icon-plus-circle"></span>
+      <span class="icon icon-minus-circle"></span>
+    </header>
+    <edit-profile-password *ngIf="panel.component=='edit-profile-password'"></edit-profile-password>
+    <edit-talent-photos *ngIf="panel.component=='edit-talent-photos'"></edit-talent-photos>
+    <edit-personal-info *ngIf="panel.component=='edit-personal-info'"></edit-personal-info>
+    <edit-terms *ngIf="panel.component=='edit-terms'"></edit-terms>
+    <edit-billing-info *ngIf="panel.component=='edit-billing-info'"></edit-billing-info>
+  </accordion-group>
+</accordion>

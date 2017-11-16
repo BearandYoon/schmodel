@@ -1,0 +1,11 @@
+<div class="row" [ngClass]="{'row--valign-top': !!description}">
+  <label>{{label}}
+    <span *ngIf="!!description"><br/>{{description}}</span>
+  </label>
+  <div class="dropdown-wrapper">
+    <sch-dropdown *ngFor="let item of items" [category]="item"></sch-dropdown>
+    <span class="add-category">
+      <span *ngIf="!!allowAddCategory" class="icon-plus-circle" [ngClass]="{'icon-plus-circle--alone': !items.length}"></span>
+    </span>
+  </div>
+</div>
