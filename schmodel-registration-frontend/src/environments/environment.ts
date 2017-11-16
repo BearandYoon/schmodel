@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  BASE_API_URL: 'http://150.129.180.94:8087',
+  BASE_API_URL: '/api',
   localStorage: {
     token: 'schmodel token'
   }
