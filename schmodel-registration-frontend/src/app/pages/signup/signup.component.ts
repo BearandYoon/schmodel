@@ -9,7 +9,7 @@ import { routerTransition } from '../../router.animations';
 import { ValidationService } from '../../shared/services';
 import { AuthenticationService } from '../../core/services';
 
-import { TermsModalComponent } from '../../shared/modules/termsModal/termsModal.component';
+import { TermsModalComponent, MessageModalComponent } from '../../shared/modules';
 import { AuthUser, TermsModalResponse } from '../../shared/models';
 
 @Component({
@@ -30,6 +30,15 @@ export class SignupComponent implements OnInit {
     keyboard: false,
     backdrop: true,
     ignoreBackdropClick: true
+  };
+
+  messageModalRef: BsModalRef;
+  messageContent: string;
+  messageModalConfig = {
+    animated: true,
+    keyboard: true,
+    backdrop: true,
+    ignoreBackdropClick: false
   };
 
   constructor(
@@ -63,6 +72,7 @@ export class SignupComponent implements OnInit {
       'confirmation form after the amendment and/or variation has been included on the booking confirmation form. ' +
       'In the event of any inconsistency or contradiction between these terms and conditions and the booking ' +
       'confirmation form, the terms set out in the booking confirmation form shall prevail.';
+    this.messageContent = '';
   }
 
   onSignUp() {
@@ -103,7 +113,7 @@ export class SignupComponent implements OnInit {
             this.message = 'Your Activation Code is invalid.';
             return;
           }
-          this.router.navigate(['login']);
+          this.showSignUpSuccessMessage();
         }, err => {
           console.log('signUp Error = ', err);
           this.message = 'Something went wrong.';
@@ -111,6 +121,18 @@ export class SignupComponent implements OnInit {
       } else {
         console.log('T&C declined.');
       }
+    });
+  }
+
+  showSignUpSuccessMessage() {
+    this.messageContent = 'Your Schmodel account has been created! ' +
+      'Please complete your profile so you can start applying to jobs." below the heading Complete Your Profile.';
+    this.messageModalRef = this.modalService.show(MessageModalComponent, this.messageModalConfig);
+    this.messageModalRef.content.messageContent = this.messageContent;
+    this.messageModalRef.content.isBtnCancel = true;
+
+    this.messageModalRef.content.onCloseReason.subscribe(result => {
+      this.router.navigate(['login']);
     });
   }
 }

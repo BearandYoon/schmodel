@@ -14,12 +14,13 @@ import { AuthGuard } from './shared';
 import { HttpHelperService } from './core/http-helper.service';
 import { ApiRoutingService } from './core/api-routing.service';
 import { ValidationService } from './shared/services';
-import { TermsModalComponent } from './shared/modules';
+import { TermsModalComponent, MessageModalComponent } from './shared/modules';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TermsModalComponent
+    TermsModalComponent,
+    MessageModalComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +39,8 @@ import { TermsModalComponent } from './shared/modules';
     ValidationService
   ],
   entryComponents: [
-    TermsModalComponent
+    TermsModalComponent,
+    MessageModalComponent
   ],
   bootstrap: [AppComponent]
 })
