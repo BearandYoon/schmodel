@@ -120,6 +120,7 @@ export class SignupComponent implements OnInit {
         });
       } else {
         console.log('T&C declined.');
+        this.showSignUpDeclineMessage();
       }
     });
   }
@@ -129,10 +130,19 @@ export class SignupComponent implements OnInit {
       'Please complete your profile so you can start applying to jobs." below the heading Complete Your Profile.';
     this.messageModalRef = this.modalService.show(MessageModalComponent, this.messageModalConfig);
     this.messageModalRef.content.messageContent = this.messageContent;
-    this.messageModalRef.content.isBtnCancel = true;
+    this.messageModalRef.content.isBtnCancel = false;
 
     this.messageModalRef.content.onCloseReason.subscribe(result => {
       this.router.navigate(['login']);
     });
+  }
+
+  showSignUpDeclineMessage() {
+    this.messageContent = 'Schmodel account can be created only if you agree to Terms & Conditions.';
+    this.messageModalRef = this.modalService.show(MessageModalComponent, this.messageModalConfig);
+    this.messageModalRef.content.messageContent = this.messageContent;
+    this.messageModalRef.content.isBtnCancel = false;
+
+    this.messageModalRef.content.onCloseReason.subscribe(result => {});
   }
 }
