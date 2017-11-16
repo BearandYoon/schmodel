@@ -10,7 +10,7 @@ import { ValidationService } from '../../shared/services';
 import { AuthenticationService } from '../../core/services';
 
 import { TermsModalComponent, MessageModalComponent } from '../../shared/modules';
-import { AuthUser, TermsModalResponse } from '../../shared/models';
+import { AuthUser, TermsModalResponse, ValidationMessage } from '../../shared/models';
 
 @Component({
     selector: 'app-signup',
@@ -59,25 +59,13 @@ export class SignupComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.termsContent = 'As required by Department of Employment regulations, Schmodel’s booking confirmation form, containi\n' +
-      'As required by Department of Employment regulations, Schmodel’s booking confirmation form, containing the specific ' +
-      'terms of the booking, must be signed and returned by the client and the signed booking confirmation form together with ' +
-      'these terms and conditions shall form the agreement between the parties relating to each booking.\n' +
-      '\n' +
-      'The failure to sign and/or return the booking confirmation form whilst proceeding with the booking ' +
-      'will be deemed to be an acceptance by the client of these terms and conditions and they shall apply ' +
-      'to and govern the booking between Schmodel and the client. Any amendment and/or variations made ' +
-      'to the booking confirmation form by the client shall not be valid and binding unless IMG has agreed ' +
-      'to such amendment and/or variation in advance and confirmed such agreement by signing the booking ' +
-      'confirmation form after the amendment and/or variation has been included on the booking confirmation form. ' +
-      'In the event of any inconsistency or contradiction between these terms and conditions and the booking ' +
-      'confirmation form, the terms set out in the booking confirmation form shall prevail.';
+    this.termsContent = ValidationMessage.TERMS_CONTENT;
     this.messageContent = '';
   }
 
   onSignUp() {
     if (this.signUpForm.value.password !== this.signUpForm.value.confirmPass) {
-      this.missMatchPass = 'These passwords don\'t match. Try again?';
+      this.missMatchPass = ValidationMessage.NON_MATCHING_PASSWORD;
     } else {
       this.showTermsAndConditions();
     }
@@ -97,20 +85,20 @@ export class SignupComponent implements OnInit {
         this.authService.signUp(this.authUser).subscribe( res => {
           this.message = '';
           if (!res.emailValid) {
-            this.message = 'Your Email is invalid.';
+            this.message = ValidationMessage.ALREADY_REGISTERED;
             return;
           }
           if (!res.emailAvailable) {
-            this.message = 'Your Email is not available.';
+            this.message = ValidationMessage.INVALID_EMAIL;
             return;
           }
 
           if (!res.passwordValid) {
-            this.message = 'Your password should contain at least 6 characters long, and contain a number..';
+            this.message = ValidationMessage.INVALID_PASSWORD;
             return;
           }
           if (!res.activationCodeValid) {
-            this.message = 'Your Activation Code is invalid.';
+            this.message = ValidationMessage.WRONG_ACTIVATION_CODE;
             return;
           }
           this.showSignUpSuccessMessage();
@@ -126,8 +114,7 @@ export class SignupComponent implements OnInit {
   }
 
   showSignUpSuccessMessage() {
-    this.messageContent = 'Your Schmodel account has been created! ' +
-      'Please complete your profile so you can start applying to jobs." below the heading Complete Your Profile.';
+    this.messageContent = ValidationMessage.ACCEPT_TERMS;
     this.messageModalRef = this.modalService.show(MessageModalComponent, this.messageModalConfig);
     this.messageModalRef.content.messageContent = this.messageContent;
     this.messageModalRef.content.isBtnCancel = false;
@@ -138,7 +125,7 @@ export class SignupComponent implements OnInit {
   }
 
   showSignUpDeclineMessage() {
-    this.messageContent = 'Schmodel account can be created only if you agree to Terms & Conditions.';
+    this.messageContent = ValidationMessage.DECLINE_TERMS;
     this.messageModalRef = this.modalService.show(MessageModalComponent, this.messageModalConfig);
     this.messageModalRef.content.messageContent = this.messageContent;
     this.messageModalRef.content.isBtnCancel = false;

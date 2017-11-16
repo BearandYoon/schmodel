@@ -1,10 +1,11 @@
+import { ValidationMessage } from '../../../shared/models';
+
 export class ValidationService {
   static getValidatorErrorMessage(validatorName: string, validatorValue?: any) {
     const config = {
-      'required': 'Required',
-      'invalidEmailAddress': 'Invalid email address',
-      'invalidPassword': 'Password must be at least 6 characters and contain a number.',
-      'invalidPhoneNumber': 'Invalid Phone Number',
+      'required': ValidationMessage.EMPTY_FIELDS,
+      'invalidEmailAddress': ValidationMessage.INVALID_EMAIL,
+      'invalidPassword': ValidationMessage.INVALID_PASSWORD,
       'minlength': `Minimum length ${validatorValue.requiredLength}`
     };
 
@@ -23,18 +24,10 @@ export class ValidationService {
   static passwordValidator(control) {
     // {6,100}           - Assert password is between 6 and 100 characters
     // (?=.*[0-9])       - Assert a string has at least one number
-    if (control.value.match(/^(?=.*[0-9])[a-zA-Z0-9!@#$%^&*]{6,100}$/)) {
+    if (control.value.match(/^[a-zA-Z0-9!@#$%^&*]{6,100}$/)) {
       return null;
     } else {
       return { 'invalidPassword': true };
-    }
-  }
-
-  static phoneNumberValidator(control) {
-    if (control.value.match(/^\d{3}-\d{3}-\d{4}$/)) {
-      return null;
-    } else {
-      return { 'invalidPhoneNumber': true };
     }
   }
 }
