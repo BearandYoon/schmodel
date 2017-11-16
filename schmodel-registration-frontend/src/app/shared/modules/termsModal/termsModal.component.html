@@ -1,0 +1,15 @@
+<div class="modal-header">
+  <h4 class="modal-title">Terms & Conditions</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="onClose()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="content-wrapper" (scroll)="onScroll($event)" id="termsWrapper">
+    <p class="content">{{termsContent}}</p>
+  </div>
+  <div class="action-wrapper">
+    <button *ngIf="isBtnAgree" (click)="onAgreeTerms()" [disabled]="!isScrollBottom"> Agree </button>
+    <button (click)="onCancelTerms()" [disabled]="!isScrollBottom"> {{isBtnAgree ? 'Decline' : 'Close'}} </button>
+  </div>
+</div>

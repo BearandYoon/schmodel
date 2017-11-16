@@ -3,13 +3,17 @@ import { NgModule } from '@angular/core';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
+import { UserService } from '../../core/services';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        HomeRoutingModule
-    ],
-    declarations: [HomeComponent]
+  imports: [
+    CommonModule,
+    HomeRoutingModule
+  ],
+  declarations: [HomeComponent],
+  providers: [
+    UserService
+  ]
 })
 export class HomeModule {
 }

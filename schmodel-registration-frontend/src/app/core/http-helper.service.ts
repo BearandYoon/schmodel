@@ -1,22 +1,29 @@
 import { Injectable } from '@angular/core';
-import {
-  Http,
-  RequestOptions,
-  Headers,
-  Response,
-  URLSearchParams,
-} from '@angular/http';
+import { Http, RequestOptions, Headers, Response, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 
 import { LocalStorageService } from 'ngx-webstorage';
-
 import { environment } from '../../environments/environment';
 
 @Injectable()
 export class HttpHelperService {
   constructor(private http: Http, private localStorage: LocalStorageService) {}
 
+  private checkAuthHeader(response: Response) {
+    let res;
+    const authorizationHeader =  response.headers.toJSON()['authorization'];
+
+    if (authorizationHeader) {
+      this.localStorage.store(environment.localStorage.token, authorizationHeader[0]);
+    }
+    try {
+      res = response.json();
+    } catch (e) {
+      res = {};
+    }
+    return res;
+  }
   /***
    * generate request options
    * @param isUrlEncoded
@@ -44,7 +51,7 @@ export class HttpHelperService {
       const token = this.localStorage.retrieve(
         environment.localStorage.token
       );
-      headers.append('Authorization', `Bearer ${token}`);
+      headers.append('Authorization', `${token}`);
     }
 
     if (customHeader) {
@@ -79,7 +86,9 @@ export class HttpHelperService {
   ): Observable<any> {
     return this.http
       .get(url, this.generateReqOptions(false, requiredAuth, headers, query))
-      .map(response => response.json())
+      .map((response: Response) => {
+        return this.checkAuthHeader(response);
+      })
       .catch(this.handleError);
   }
 
@@ -107,12 +116,10 @@ export class HttpHelperService {
       body = urlSearchParams.toString();
     }
     return this.http
-      .post(
-        url,
-        body,
-        this.generateReqOptions(isUrlEncoded, requiredAuth, headers)
-      )
-      .map(response => response.json())
+      .post( url, body, this.generateReqOptions(isUrlEncoded, requiredAuth, headers))
+      .map((response: Response) => {
+        return this.checkAuthHeader(response);
+      })
       .catch(this.handleError);
   }
 
@@ -140,12 +147,10 @@ export class HttpHelperService {
       body = urlSearchParams.toString();
     }
     return this.http
-      .patch(
-        url,
-        body,
-        this.generateReqOptions(isUrlEncoded, requiredAuth, headers)
-      )
-      .map(response => response.json())
+      .patch( url, body, this.generateReqOptions(isUrlEncoded, requiredAuth, headers))
+      .map((response: Response) => {
+        return this.checkAuthHeader(response);
+      })
       .catch(this.handleError);
   }
 
@@ -173,12 +178,10 @@ export class HttpHelperService {
       body = urlSearchParams.toString();
     }
     return this.http
-      .put(
-        url,
-        body,
-        this.generateReqOptions(isUrlEncoded, requiredAuth, headers)
-      )
-      .map(response => response.json())
+      .put( url, body, this.generateReqOptions(isUrlEncoded, requiredAuth, headers))
+      .map((response: Response) => {
+        return this.checkAuthHeader(response);
+      })
       .catch(this.handleError);
   }
 
@@ -198,7 +201,9 @@ export class HttpHelperService {
   ): Observable<any> {
     return this.http
       .delete(url, this.generateReqOptions(false, requiredAuth, headers, query))
-      .map(response => response.json())
+      .map((response: Response) => {
+        return this.checkAuthHeader(response);
+      })
       .catch(this.handleError);
   }
 

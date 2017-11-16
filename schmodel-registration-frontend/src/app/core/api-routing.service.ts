@@ -13,4 +13,16 @@ export class ApiRoutingService {
   getValidTokenAPIUrl(): string {
     return this.baseUrl + '/talent/is-reset-password-token-valid';
   }
+
+  getSignUpnAPIUrl(): string {
+    return this.baseUrl + '/talent/signup';
+  }
+
+  getLoginAPIUrl(): string {
+    return this.baseUrl + '/talent/login';
+  }
+
+  getIsProfileCompleteAPIUrl(): string {
+    return this.baseUrl + '/talent/is-profile-complete';
+  }
 }

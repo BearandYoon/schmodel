@@ -1,26 +1,44 @@
-<div class="login-page" [@routerTransition]>
-    <div class="row">
-        <div class="col-md-4 mx-auto">
-            <form role="form">
-                <div class="form-content">
-                    <div class="form-group">
-                        <input type="text" class="form-control input-underline input-lg" id="" placeholder="Full Name">
-                    </div>
-
-                    <div class="form-group">
-                        <input type="text" class="form-control input-underline input-lg" id="" placeholder="Email">
-                    </div>
-
-                    <div class="form-group">
-                        <input type="password" class="form-control input-underline input-lg" id="" placeholder="Password">
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control input-underline input-lg" id="" placeholder="Repeat Password">
-                    </div>
-                </div>
-                <a class="btn bordered-btn" [routerLink]="['/dashboard']"> Register </a>&nbsp;
-                <a class="btn bordered-btn" [routerLink]="['/login']"> Log in </a>
-            </form>
-        </div>
+<div class="page-container" [@routerTransition]>
+  <div class="logo-container">
+    <img class="img-logo" src="assets/img/img_logo.png">
+  </div>
+  <p class="comment">
+    Lets get to know<br>each other
+  </p>
+  <div class="content-wrapper">
+    <div class="content-container">
+      <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-4 form-wrapper">
+        <alert type="danger" *ngIf="message">
+          <strong>{{message}}</strong>
+        </alert>
+        <form [formGroup]="signUpForm" (submit)="onSignUp()">
+          <div class="form-content">
+            <div class="form-group">
+              <input type="email" class="form-control input-underline input-lg" formControlName="email" id="email" placeholder="Enter your email">
+              <app-control-messages [control]="signUpForm.controls.email"></app-control-messages>
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control input-underline input-lg" formControlName="password" id="password" placeholder="Create a Password (Min. 6 Characters)">
+              <app-control-messages [control]="signUpForm.controls.password"></app-control-messages>
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control input-underline input-lg" formControlName="confirmPass" id="confirm" placeholder="Re-enter Password">
+              <app-control-messages [control]="signUpForm.controls.confirmPass"></app-control-messages>
+              <p *ngIf="missMatchPass" class="miss-match-pass">{{missMatchPass}}</p>
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control input-underline input-lg" formControlName="activationCode" id="activationCode" placeholder="Activation Code(If you have one)">
+              <app-control-messages [control]="signUpForm.controls.activationCode"></app-control-messages>
+            </div>
+          </div>
+          <div class="action-container">
+            <div class="btn-login-container">
+              <button class="btn bordered-btn" type="submit" [disabled]="!signUpForm.valid"> Create Schmodel Account </button>
+            </div>
+            <a [routerLink]="['/login']">Already have an account?</a>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 </div>
