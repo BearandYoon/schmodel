@@ -39,8 +39,10 @@ export class ForgotComponent implements OnInit {
         this.resetUser.email = this.forgotForm.value.email;
         this.resetPwdService.resetPwd(this.resetUser).subscribe( res => {
           if (!res.emailValid) {
-            this.message = 'Enter a valid email address';
+            this.message = 'Enter your registered email address';
             return;
+          }else {
+            this.message = 'Please check your email to reset password';
           }
           // this.router.navigate(['']);
         }, err => {
