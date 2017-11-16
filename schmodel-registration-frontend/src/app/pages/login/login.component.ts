@@ -57,11 +57,6 @@ export class LoginComponent implements OnInit {
       'confirmation form after the amendment and/or variation has been included on the booking confirmation form. ' +
       'In the event of any inconsistency or contradiction between these terms and conditions and the booking ' +
       'confirmation form, the terms set out in the booking confirmation form shall prevail.';
-
-    this.signInForm.setValue({
-      email: 'luckysevenbear@gmail.com',
-      password: 'yoon1104'
-    });
   }
 
   onSignIn() {
