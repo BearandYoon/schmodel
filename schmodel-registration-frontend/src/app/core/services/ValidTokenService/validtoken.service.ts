@@ -14,7 +14,7 @@ export class ValidTokenService {
 
   validateToken(user: TokenUser) {
     console.log(this.apiRoutingService.getValidTokenAPIUrl());
-    return this.http.post(
+    return this.http.get(
       this.apiRoutingService.getValidTokenAPIUrl(),
       user,
       false,
