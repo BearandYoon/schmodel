@@ -43,6 +43,7 @@ export class ForgotComponent implements OnInit {
             return;
           }else {
             this.message = 'Please check your email to reset password';
+            return;
           }
           // this.router.navigate(['']);
         }, err => {
