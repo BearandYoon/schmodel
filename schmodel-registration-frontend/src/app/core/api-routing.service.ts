@@ -25,4 +25,7 @@ export class ApiRoutingService {
   getIsProfileCompleteAPIUrl(): string {
     return this.baseUrl + '/talent/is-profile-complete';
   }
+  getChangePwdAPIUrl(): string {
+    return this.baseUrl + '/talent/change-password';
+  }
 }

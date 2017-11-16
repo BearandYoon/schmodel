@@ -3,12 +3,12 @@ import { ValidationMessage } from '../../../shared/models';
 export class ValidationService {
   static getValidatorErrorMessage(validatorName: string, validatorValue?: any) {
     const config = {
-      'required': ValidationMessage.EMPTY_FIELDS,
-      'invalidEmailAddress': ValidationMessage.INVALID_EMAIL,
-      'invalidPassword': ValidationMessage.INVALID_PASSWORD,
+      'required': 'Required',
+      'invalidEmailAddress': 'Invalid email address',
+      'invalidPassword': 'Invalid password. Password must be at least 6 characters long, and contain a number.',
+      'invalidPhoneNumber': 'Invalid Phone Number',
       'minlength': `Minimum length ${validatorValue.requiredLength}`
     };
-
     return config[validatorName];
   }
 

@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers, Response, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
-
 import { LocalStorageService } from 'ngx-webstorage';
 import { environment } from '../../environments/environment';
 
@@ -10,6 +9,7 @@ import { environment } from '../../environments/environment';
 export class HttpHelperService {
   constructor(private http: Http, private localStorage: LocalStorageService) {}
 
+ 
   private checkAuthHeader(response: Response) {
     let res;
     const authorizationHeader =  response.headers.toJSON()['authorization'];
@@ -24,6 +24,7 @@ export class HttpHelperService {
     }
     return res;
   }
+ 
   /***
    * generate request options
    * @param isUrlEncoded
@@ -52,6 +53,7 @@ export class HttpHelperService {
         environment.localStorage.token
       );
       headers.append('Authorization', `${token}`);
+ 
     }
 
     if (customHeader) {
