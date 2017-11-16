@@ -5,7 +5,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 import { LocalStorageService } from 'ngx-webstorage';
 
 import { UserService } from '../../core/services';
-import { TermsModalComponent } from '../../shared/modules/termsModal/termsModal.component';
+import { TermsModalComponent } from '../../shared/modules';
 import { environment } from '../../../environments/environment';
 
 @Component({
