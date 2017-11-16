@@ -38,16 +38,8 @@ export class ForgotComponent implements OnInit {
       } else {
         this.resetUser.email = this.forgotForm.value.email;
         this.resetPwdService.resetPwd(this.resetUser).subscribe( res => {
-          if (!res.emailIsValid) {
-            this.message = 'Your Email is invalid.';
-            return;
-          }
-          if (!res.emailAvailable) {
-            this.message = 'Your Email is not available.';
-            return;
-          }
-          if (!res.activationCodeValid) {
-            this.message = 'Your Activation Code is invalid.';
+          if (!res.emailValid) {
+            this.message = 'Enter a valid email address';
             return;
           }
           // this.router.navigate(['']);
