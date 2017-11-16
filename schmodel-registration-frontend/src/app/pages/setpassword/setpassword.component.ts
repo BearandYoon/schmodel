@@ -26,15 +26,10 @@ export class SetpasswordComponent implements OnInit {
 
     this.activatedRoute.queryParams.subscribe((params: Params) => {
       const token = params['token'];
-      const email = params['email'];
-      const timeStamp = params['timeStamp'];
-
-      this.tokenUser.email = email;
-      this.tokenUser.timeStamp = timeStamp;
       this.tokenUser.token = token;
 
       this.validTokenService.validateToken(this.tokenUser).subscribe( res => {
-        if (res.tokenValid === true && res.emailValid === true && res.timeStampValid === true) {
+        if (res.tokenValid === true) {
           this.router.navigate(['/change-password']);
         } else {
           this.router.navigate(['/not-found']);
