@@ -45,7 +45,7 @@ export class ChangepasswordComponent implements OnInit {
       this.user.token = this.token;
       this.changePwdService.changePwd(this.user).subscribe( res => {
         if (res.tokenValid === true && res.newPasswordValid === true) {
-          this.router.navigate(['/home']);
+          this.router.navigate(['/']);
         } else {
           this.message = 'Passwords do not match. Please try again';
         }
