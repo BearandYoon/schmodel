@@ -133,7 +133,7 @@ export class SignupComponent implements OnInit {
     this.messageModalRef.content.isBtnCancel = false;
 
     this.messageModalRef.content.onCloseReason.subscribe(result => {
-      this.router.navigate(['login']);
+      this.router.navigate(['']);
     });
   }
 
