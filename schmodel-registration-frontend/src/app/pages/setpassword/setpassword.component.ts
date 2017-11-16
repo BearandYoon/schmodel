@@ -30,7 +30,7 @@ export class SetpasswordComponent implements OnInit {
 
       this.validTokenService.validateToken(this.tokenUser).subscribe( res => {
         if (res.tokenValid === true) {
-          this.router.navigate(['/change-password']);
+          this.router.navigate(['/change-password'], { queryParams: { token: token }});
         } else {
           this.router.navigate(['/not-found']);
         }
