@@ -29,6 +29,8 @@ export class ChangepasswordComponent implements OnInit {
       'password': ['', [Validators.required, ValidationService.passwordValidator]],
       'confirmPass': ['', [Validators.required, ValidationService.passwordValidator]]
     });
+     this.missMatchPass = '';
+     this.message = '';
   }
 
   ngOnInit() {
@@ -36,10 +38,15 @@ export class ChangepasswordComponent implements OnInit {
       this.token = params['token'];
     });
   }
+  onChangeInput() {
+    console.log('thischange');
+    this.missMatchPass = '';
+    this.message = '';
+  }
 
   onChangePwd() {
     if (this.changePwdForm.value.password !== this.changePwdForm.value.confirmPass) {
-      this.missMatchPass = 'These passwords don\'t match. Try again?';
+      this.missMatchPass = 'Passwords do not match. Please try again';
     } else {
       this.user.newPassword = this.changePwdForm.value.password;
       this.user.token = this.token;
@@ -47,7 +54,7 @@ export class ChangepasswordComponent implements OnInit {
         if (res.tokenValid === true && res.newPasswordValid === true) {
           this.router.navigate(['/']);
         } else {
-          this.message = 'Error changing password. Please try again';
+          this.message = 'Invalid token. Unable to change password';
         }
       }, err => {
         this.message = 'Error changing password. Please try again';
