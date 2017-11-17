@@ -1,9 +1,10 @@
 export class ValidationService {
-  static getValidatorErrorMessage(validatorName: string, validatorValue?: any) {
+  static getValidatorErrorMessage(validatorName: string, validatorValue: any = {}) {
     const config = {
       'required': 'Required',
       'invalidEmailAddress': 'Invalid email address',
       'invalidPassword': 'Password must be at least 6 characters and contain a number.',
+      'passwordNotMatch': 'Passwords do not match.',
       'invalidPhoneNumber': 'Invalid Phone Number',
       'minlength': `Minimum length ${validatorValue.requiredLength}`
     };
