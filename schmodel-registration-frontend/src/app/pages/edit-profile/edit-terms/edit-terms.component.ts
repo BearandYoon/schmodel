@@ -24,13 +24,22 @@ export class EditTermsComponent implements OnInit {
 
   onClose(i:number) {
     this.tc_content = this.tc_content.filter(item => item.content != this.tc_content[i].content);
+    for(let id = 0; id < this.tc_content.length; id++) {
+      this.tc_content[id].id = id + 1;
+    }
   }
 
   onAddTC() {
     this.tc_content.push({id: this.tc_content.length+1, content: ""});
+    for(let id = 0; id < this.tc_content.length; id++) {
+      this.tc_content[id].id = id + 1;
+    }
   }
 
   valuechange(i:number, newValue) {
+    for(let id = 0; id < this.tc_content.length; id++) {
+      this.tc_content[id].id = id + 1;
+    }
     this.tc_content[i].content = newValue;
   }
 }
