@@ -51,7 +51,7 @@ export class SignupComponent implements OnInit {
       'email': ['', [Validators.required, ValidationService.emailValidator]],
       'password': ['', [Validators.required, ValidationService.passwordValidator]],
       'confirmPass': ['', [Validators.required, ValidationService.passwordValidator]],
-      'activationCode': ['', Validators.required]
+      'activationCode': ''
     });
 
     this.missMatchPass = '';
@@ -83,6 +83,7 @@ export class SignupComponent implements OnInit {
         this.authUser.activationCode = this.signUpForm.value.activationCode;
 
         this.authService.signUp(this.authUser).subscribe( res => {
+          console.log('signUp response = ', res);
           this.message = '';
           if (!res.emailValid) {
             this.message = ValidationMessage.ALREADY_REGISTERED;
