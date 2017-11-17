@@ -47,10 +47,10 @@ export class ChangepasswordComponent implements OnInit {
         if (res.tokenValid === true && res.newPasswordValid === true) {
           this.router.navigate(['/']);
         } else {
-          this.message = 'Passwords do not match. Please try again';
+          this.message = 'Error changing password. Please try again';
         }
       }, err => {
-        this.message = 'Passwords do not match. Please try again';
+        this.message = 'Error changing password. Please try again';
       });
     }
   }
