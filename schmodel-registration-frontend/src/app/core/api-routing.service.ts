@@ -29,4 +29,8 @@ export class ApiRoutingService {
   getProfileUpdatePasswordUrl(): string {
     return this.baseUrl + '/talent/edit-password';
   }
+
+  getProfileUpdateBillingInfoUrl(): string {
+    return this.baseUrl + '/talent/edit-billing-information';
+  }
 }

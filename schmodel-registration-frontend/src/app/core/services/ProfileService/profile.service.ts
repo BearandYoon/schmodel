@@ -26,4 +26,14 @@ export class ProfileService {
     );
   }
 
+  updateBillingInfo(data) {
+    return this.http.post(
+      this.apiRoutingService.getProfileUpdateBillingInfoUrl(),
+      data,
+      false,
+      true,
+      null
+    );
+  }
+
 }

@@ -36,7 +36,7 @@ export class EditProfilePasswordComponent implements OnInit {
     }
   }
 
-  onUpdatePassword() {
+  onSubmit() {
     const { oldPassword, newPassword } = this.editPasswordForm.value;
     this.profileService.updatePassword(oldPassword, newPassword).subscribe( res => {
       console.log('edit password = ', res);

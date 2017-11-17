@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+
+import { ProfileService } from '../../../core/services';
 
 @Component({
   selector: 'edit-billing-info',
@@ -7,9 +10,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditBillingInfoComponent implements OnInit {
 
-  constructor() { }
+  editBillingForm: FormGroup;
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private profileService: ProfileService
+  ) {
+    this.editBillingForm = formBuilder.group({
+      'company': ['', [Validators.required]],
+      'companyRegistrationCountryId': ['', [Validators.required]],
+      'companyVatNumber': ['', [Validators.required]],
+      'addressLine1': ['', [Validators.required]],
+      'addressLine2': ['', [Validators.required]],
+      'addressCountryId': ['', [Validators.required]],
+      'addressCity': ['', [Validators.required]],
+      'addressState': ['', [Validators.required]],
+      'addressZipCode': ['', [Validators.required]],
+    });
+  }
 
   ngOnInit() {
+  }
+
+  onSubmit() {
+    const data = this.editBillingForm.value;
+    this.profileService.updateBillingInfo(data).subscribe( res => {
+      console.log('edit billing = ', res);
+    }, error => {
+      console.log(error);
+    });
   }
 
 }
