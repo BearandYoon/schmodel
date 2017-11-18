@@ -30,3 +30,7 @@ export class ValidationMessage {
                                 'these terms and conditions and the booking confirmation form, the terms set out in the booking' +
                                 ' confirmation form shall prevail.';
 }
+
+export class ErrorResponse {
+  public static TOKEN_EXPIRE = 'io.jsonwebtoken.ExpiredJwtException';
+}
