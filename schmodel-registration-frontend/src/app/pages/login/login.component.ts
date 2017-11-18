@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
   showTermsAndConditions() {
     this.termsModalRef = this.modalService.show(TermsModalComponent, this.termsModalConfig);
     this.termsModalRef.content.termsContent = this.termsContent;
-    this.termsModalRef.content.isBtnAgree = true;
+    this.termsModalRef.content.isBtnAgree = false;
 
     this.termsModalRef.content.onCloseReason.subscribe(result => {
       console.log('Terms Modal Close Reason = ', result);
