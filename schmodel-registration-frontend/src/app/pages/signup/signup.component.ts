@@ -86,11 +86,11 @@ export class SignupComponent implements OnInit {
           console.log('signUp response = ', res);
           this.message = '';
           if (!res.emailValid) {
-            this.message = ValidationMessage.ALREADY_REGISTERED;
+            this.message = ValidationMessage.INVALID_EMAIL;
             return;
           }
           if (!res.emailAvailable) {
-            this.message = ValidationMessage.INVALID_EMAIL;
+            this.message = ValidationMessage.ALREADY_REGISTERED;
             return;
           }
 
