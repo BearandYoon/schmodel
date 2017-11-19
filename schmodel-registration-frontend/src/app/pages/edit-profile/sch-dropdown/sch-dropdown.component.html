@@ -1,0 +1,4 @@
+<select class="{{'select--'+category}}">
+  <option value="" disabled selected hidden>{{dropdownData[category].placeholder}}</option>
+  <option *ngFor="let option of dropdownData[category].options" [attr.value]="option.value">{{option.text}}</option>
+</select>
