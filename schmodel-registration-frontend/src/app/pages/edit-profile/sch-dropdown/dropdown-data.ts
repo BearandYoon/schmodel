@@ -40,6 +40,10 @@ const countries = {
     {
       value: 'United Kingdom',
       text: 'United Kingdom'
+    },
+    {
+      value: 'United States',
+      text: 'United States'
     }
   ]
 };

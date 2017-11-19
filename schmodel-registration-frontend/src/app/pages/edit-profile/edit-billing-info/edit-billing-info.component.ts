@@ -21,7 +21,7 @@ export class EditBillingInfoComponent implements OnInit {
       'companyRegistrationCountryId': ['', [Validators.required]],
       'companyVatNumber': ['', [Validators.required]],
       'addressLine1': ['', [Validators.required]],
-      'addressLine2': ['', [Validators.required]],
+      'addressLine2': [''],
       'addressCountryId': ['', [Validators.required]],
       'addressCity': ['', [Validators.required]],
       'addressState': ['', [Validators.required]],
@@ -30,6 +30,17 @@ export class EditBillingInfoComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.editBillingForm.setValue({
+      company: '',
+      companyRegistrationCountryId: '',
+      companyVatNumber: '',
+      addressLine1: '',
+      addressLine2: '',
+      addressCountryId: '',
+      addressCity: '',
+      addressState: '',
+      addressZipCode: ''
+    });
   }
 
   onSubmit() {
