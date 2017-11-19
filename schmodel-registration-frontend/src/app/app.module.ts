@@ -16,8 +16,6 @@ import { ValidTokenService } from './core/services';
 import { TermsModalComponent, MessageModalComponent } from './shared/modules';
 import { LayoutModule } from './pages/layout/layout.module';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,

@@ -31,9 +31,8 @@ const routes: Routes = [
       }
     ]
   },
-  { path: 'change-password', loadChildren: './pages/changepassword/changepassword.module#ChangepasswordModule' },  
+  { path: 'change-password', loadChildren: './pages/changepassword/changepassword.module#ChangepasswordModule' },
   { path: '**', redirectTo: 'not-found' }
- 
 ];
 
 @NgModule({
