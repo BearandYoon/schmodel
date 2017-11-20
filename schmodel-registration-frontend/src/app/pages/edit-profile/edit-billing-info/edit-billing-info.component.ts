@@ -17,7 +17,7 @@ export class EditBillingInfoComponent implements OnInit {
     private profileService: ProfileService
   ) {
     this.editBillingForm = formBuilder.group({
-      'company': ['', [Validators.required]],
+      'companyName': ['', [Validators.required]],
       'companyRegistrationCountryId': ['', [Validators.required]],
       'companyVatNumber': ['', [Validators.required]],
       'addressLine1': ['', [Validators.required]],
@@ -30,23 +30,34 @@ export class EditBillingInfoComponent implements OnInit {
   }
 
   ngOnInit() {
+    const {
+      billingCompanyName,
+      billingCompanyRegistrationCountry,
+      billingCompanyVatNumber,
+      billingAddressCity,
+      billingAddressCountry,
+      billingAddressLine1,
+      billingAddressLine2,
+      billingAddressState,
+      billingAddressZipCode
+    } = this.profileService.profileData;
     this.editBillingForm.setValue({
-      company: '',
-      companyRegistrationCountryId: '',
-      companyVatNumber: '',
-      addressLine1: '',
-      addressLine2: '',
-      addressCountryId: '',
-      addressCity: '',
-      addressState: '',
-      addressZipCode: ''
+      companyName: billingCompanyName,
+      companyRegistrationCountryId: billingCompanyRegistrationCountry.id,
+      companyVatNumber: billingCompanyVatNumber,
+      addressLine1: billingAddressLine1,
+      addressLine2: billingAddressLine2,
+      addressCountryId: billingAddressCountry.id,
+      addressCity: billingAddressCity,
+      addressState: billingAddressState,
+      addressZipCode: billingAddressZipCode
     });
   }
 
   onSubmit() {
-    const data = this.editBillingForm.value;
+    const data = {...this.editBillingForm.value};
+    console.log(data);
     this.profileService.updateBillingInfo(data).subscribe( res => {
-      console.log('edit billing = ', res);
     }, error => {
       console.log(error);
     });

@@ -33,4 +33,12 @@ export class ApiRoutingService {
   getProfileUpdateBillingInfoUrl(): string {
     return this.baseUrl + '/talent/edit-billing-information';
   }
+
+  getProfileUpdatePersonalInfoUrl(): string {
+    return this.baseUrl + '/talent/edit-personal-information';
+  }
+
+  getProfileInfoUrl(): string {
+    return this.baseUrl + '/talent/edit-my-profile';
+  }
 }

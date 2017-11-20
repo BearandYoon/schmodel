@@ -86,8 +86,13 @@ accordion-group {
   align-items: center;
   font-size: 11px;
 
-  &.row--valign-top {
+  &.row--valign-top,
+  &.row--multi {
     align-items: flex-start;
+  }
+
+  &.row--multi select {
+    margin-bottom: 4px;
   }
 
   label {

@@ -1,11 +1,11 @@
-<div class="row" [ngClass]="{'row--valign-top': !!description}">
+<div class="row" [ngClass]="{'row--multi': !!allowAddCategory}">
   <label>{{label}}
     <span *ngIf="!!description"><br/>{{description}}</span>
   </label>
   <div class="dropdown-wrapper">
     <sch-dropdown *ngFor="let item of items; let i = index" [category]="item" [ngModel]="values[i]" (ngModelChange)="onValueChange($event, i)"></sch-dropdown>
-    <span class="add-category">
-      <span *ngIf="!!allowAddCategory" class="icon-plus-circle" [ngClass]="{'icon-plus-circle--alone': !items.length}"></span>
+    <span *ngIf="!!allowAddCategory" class="add-category" (click)="onClickAdd($event)">
+      <span class="icon-plus-circle" [ngClass]="{'icon-plus-circle--alone': !items.length}"></span>
     </span>
   </div>
 </div>

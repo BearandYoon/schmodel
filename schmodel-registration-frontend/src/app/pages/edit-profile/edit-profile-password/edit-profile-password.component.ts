@@ -25,6 +25,11 @@ export class EditProfilePasswordComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.editPasswordForm.setValue({
+      oldPassword: '',
+      newPassword: '',
+      confirmPassword: ''
+    });
   }
 
   areEqual(fg: FormGroup) {
@@ -39,7 +44,6 @@ export class EditProfilePasswordComponent implements OnInit {
   onSubmit() {
     const { oldPassword, newPassword } = this.editPasswordForm.value;
     this.profileService.updatePassword(oldPassword, newPassword).subscribe( res => {
-      console.log('edit password = ', res);
     }, error => {
       console.log(error);
     });

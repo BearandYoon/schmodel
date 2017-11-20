@@ -1,7 +1,7 @@
 <section>
   <form [formGroup]="editBillingForm" (submit)="onSubmit()">
     <div class="form-group">
-      <sch-input-row formControlName="company" label="Company Name"></sch-input-row>
+      <sch-input-row formControlName="companyName" label="Company Name"></sch-input-row>
       <sch-dropdown-row formControlName="companyRegistrationCountryId" label="Country" [items]="['countries']"></sch-dropdown-row>
       <sch-input-row formControlName="companyVatNumber" label="UK (or EU) VAT #"></sch-input-row>
     </div>
