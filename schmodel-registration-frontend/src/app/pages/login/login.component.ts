@@ -52,7 +52,6 @@ export class LoginComponent implements OnInit {
     this.authUser.email = this.signInForm.value.email;
     this.authUser.password = this.signInForm.value.password;
     this.authService.logIn(this.authUser).subscribe( res => {
-      console.log('login user = ', res);
       this.router.navigate(['']);
     }, error => {
       if (error.status === 401) {
@@ -65,7 +64,7 @@ export class LoginComponent implements OnInit {
   showTermsAndConditions() {
     this.termsModalRef = this.modalService.show(TermsModalComponent, this.termsModalConfig);
     this.termsModalRef.content.termsContent = this.termsContent;
-    this.termsModalRef.content.isBtnAgree = true;
+    this.termsModalRef.content.isBtnAgree = false;
 
     this.termsModalRef.content.onCloseReason.subscribe(result => {
       console.log('Terms Modal Close Reason = ', result);

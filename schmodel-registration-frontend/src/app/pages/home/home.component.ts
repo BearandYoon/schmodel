@@ -5,9 +5,10 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 import { LocalStorageService } from 'ngx-webstorage';
 
 import { UserService } from '../../core/services';
+import { SharedService } from '../../shared/services';
+import { ValidationMessage } from '../../shared/models';
 import { TermsModalComponent } from '../../shared/modules';
 import { environment } from '../../../environments/environment';
-import { ValidationMessage } from '../../shared/models';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +18,8 @@ import { ValidationMessage } from '../../shared/models';
 
 export class HomeComponent implements OnInit {
   isCompletedProfile: boolean;
+  beforeTitle: string;
+  beforeTitle1: string;
   termsModalRef: BsModalRef;
   termsContent: string;
   termsModalConfig = {
@@ -30,12 +33,19 @@ export class HomeComponent implements OnInit {
     public router: Router,
     private localStorage: LocalStorageService,
     private modalService: BsModalService,
-    private userService: UserService
-  ) { }
+    private userService: UserService,
+    private sharedService: SharedService
+  ) {}
 
   ngOnInit() {
     this.isCompletedProfile = false;
     this.termsContent = ValidationMessage.TERMS_CONTENT;
+    this.beforeTitle1 = null;
+    if (this.sharedService.fromSignup) {
+      this.beforeTitle = ValidationMessage.BEFORE_COMPLETE_HOME_TITLE_ONCE_SIGNUP;
+    } else {
+      this.beforeTitle = ValidationMessage.BEFORE_COMPLETE_HOME_TITLE;
+    }
 
     this.userService.isProfileComplete().subscribe(res => {
       this.isCompletedProfile = res.profileComplete;

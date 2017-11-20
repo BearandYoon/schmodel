@@ -17,8 +17,7 @@ export class HttpHelperService {
 
   private checkAuthHeader(response: Response) {
     let res;
-    const authorizationHeader =  response.headers.toJSON()['authorization'];
-
+    const authorizationHeader =  response.headers.toJSON()['Authorization'] || response.headers.toJSON()['authorization'];
     if (authorizationHeader) {
       this.localStorage.store(environment.localStorage.token, authorizationHeader[0]);
     }

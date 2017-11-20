@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
+import 'rxjs/add/operator/pairwise';
+import 'rxjs/add/operator/filter';
 import { FormBuilder, Validators } from '@angular/forms';
 
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 
 import { routerTransition } from '../../router.animations';
-import { ValidationService } from '../../shared/services';
+import { ValidationService, SharedService } from '../../shared/services';
 import { AuthenticationService } from '../../core/services';
 
 import { TermsModalComponent, MessageModalComponent } from '../../shared/modules';
@@ -45,13 +47,14 @@ export class SignupComponent implements OnInit {
     public router: Router,
     private formBuilder: FormBuilder,
     private authService: AuthenticationService,
+    private sharedService: SharedService,
     private modalService: BsModalService,
   ) {
     this.signUpForm = this.formBuilder.group({
       'email': ['', [Validators.required, ValidationService.emailValidator]],
       'password': ['', [Validators.required, ValidationService.passwordValidator]],
       'confirmPass': ['', [Validators.required, ValidationService.passwordValidator]],
-      'activationCode': ['', Validators.required]
+      'activationCode': ''
     });
 
     this.missMatchPass = '';
@@ -65,7 +68,7 @@ export class SignupComponent implements OnInit {
 
   onSignUp() {
     if (this.signUpForm.value.password !== this.signUpForm.value.confirmPass) {
-      this.missMatchPass = ValidationMessage.NON_MATCHING_PASSWORD;
+      this.message = ValidationMessage.NON_MATCHING_PASSWORD;
     } else {
       this.showTermsAndConditions();
     }
@@ -85,11 +88,11 @@ export class SignupComponent implements OnInit {
         this.authService.signUp(this.authUser).subscribe( res => {
           this.message = '';
           if (!res.emailValid) {
-            this.message = ValidationMessage.ALREADY_REGISTERED;
+            this.message = ValidationMessage.INVALID_EMAIL;
             return;
           }
           if (!res.emailAvailable) {
-            this.message = ValidationMessage.INVALID_EMAIL;
+            this.message = ValidationMessage.ALREADY_REGISTERED;
             return;
           }
 
@@ -101,26 +104,14 @@ export class SignupComponent implements OnInit {
             this.message = ValidationMessage.WRONG_ACTIVATION_CODE;
             return;
           }
-          this.showSignUpSuccessMessage();
+          this.sharedService.fromSignup = true;
+          this.router.navigate(['']);
         }, err => {
-          console.log('signUp Error = ', err);
           this.message = 'Something went wrong.';
         });
       } else {
-        console.log('T&C declined.');
         this.showSignUpDeclineMessage();
       }
-    });
-  }
-
-  showSignUpSuccessMessage() {
-    this.messageContent = ValidationMessage.ACCEPT_TERMS;
-    this.messageModalRef = this.modalService.show(MessageModalComponent, this.messageModalConfig);
-    this.messageModalRef.content.messageContent = this.messageContent;
-    this.messageModalRef.content.isBtnCancel = false;
-
-    this.messageModalRef.content.onCloseReason.subscribe(result => {
-      this.router.navigate(['']);
     });
   }
 
