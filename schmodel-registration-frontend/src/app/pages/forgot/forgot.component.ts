@@ -19,6 +19,7 @@ export class ForgotComponent implements OnInit {
   missMatchPass: string;
   resetUser: ResetUser = new ResetUser();
   message: string;
+  isSubmitting: boolean;
 
   constructor(
     public router: Router,
@@ -28,6 +29,7 @@ export class ForgotComponent implements OnInit {
     this.forgotForm = this.formBuilder.group({
       'email': ['', [Validators.required, ValidationService.emailValidator]],
     });
+    this.isSubmitting = false;
   }
   ngOnInit() {
   }
@@ -37,6 +39,7 @@ export class ForgotComponent implements OnInit {
         this.missMatchPass = 'These passwords don\'t match. Try again?';
       } else {
         this.resetUser.email = this.forgotForm.value.email;
+        this.isSubmitting = true;
         this.resetPwdService.resetPwd(this.resetUser).subscribe( res => {
           if (!res.emailValid) {
             this.message = 'Enter your registered email address';

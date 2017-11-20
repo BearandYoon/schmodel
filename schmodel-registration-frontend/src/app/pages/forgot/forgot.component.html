@@ -20,7 +20,7 @@
           </div>
           <div class="action-container">
             <div class="btn-submit-container">
-              <button class="btn bordered-btn" type="submit" [disabled]="!forgotForm.valid"> SUBMIT </button>
+              <button class="btn bordered-btn" type="submit" [disabled]="!forgotForm.valid || isSubmitting"> SUBMIT </button>
             </div>
           </div>
         </form>
