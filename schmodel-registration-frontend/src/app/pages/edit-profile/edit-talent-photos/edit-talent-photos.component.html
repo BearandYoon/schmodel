@@ -1,74 +1,20 @@
 <section>
-  <div class="item item--head">
-    <img class="item-bg" src="/assets/images/bg_cell_gradient.png">
-    <div class="item-content">
-      <button class="btn-close">
+  <div *ngFor="let val of photo_section_infor" class="item item--head">
+    <img *ngIf="!val.flag; else elseBlock" class="item-bg" src="/assets/images/bg_cell_gradient.png">
+    <div class="item-content" [ngStyle]="{'background-image':'url(' + val.backImg + ')', 'background-repeat':'no-repeat', 'background-size':val.backSize, 'background-position':val.backPos}">
+      <button *ngIf="val.flag" class="btn-close">
         <span class="icon-close"></span>
       </button>
-      <p class="photo-type">
-        <span class="icon-plus-circle"></span>
-        Headshot Photo
-      </p>
-    </div>
-  </div>
-  <div class="item item--body">
-    <img class="item-bg" src="/assets/images/bg_cell_gradient.png">
-    <div class="item-content">
-      <button class="btn-close">
-        <span class="icon-close"></span>
-      </button>
-      <p class="photo-type">
-        <span class="icon-plus-circle"></span>
-        Full Length Photo
-      </p>
-    </div>
-  </div>
-  <div class="item item--profile">
-    <img class="item-bg" src="/assets/images/bg_cell_gradient.png">
-    <div class="item-content">
-      <button class="btn-close">
-        <span class="icon-close"></span>
-      </button>
-      <p class="photo-type">
-        <span class="icon-plus-circle"></span>
-        Profile Photo
-      </p>
-    </div>
-  </div>
-  <div class="item item--additional">
-    <img class="item-bg" src="/assets/images/bg_cell_gradient.png">
-    <div class="item-content">
-      <button class="btn-close">
-        <span class="icon-close"></span>
-      </button>
-      <p class="photo-type">
-        <span class="icon-plus-circle"></span>
-        Additional Photo
-      </p>
-    </div>
-  </div>
-  <div class="item item--additional">
-    <img class="item-bg" src="/assets/images/bg_cell_gradient.png">
-    <div class="item-content">
-      <button class="btn-close">
-        <span class="icon-close"></span>
-      </button>
-      <p class="photo-type">
-        <span class="icon-plus-circle"></span>
-        Additional Photo
-      </p>
-    </div>
-  </div>
-  <div class="item item--additional">
-    <img class="item-bg" src="/assets/images/bg_cell_gradient.png">
-    <div class="item-content">
-      <button class="btn-close">
-        <span class="icon-close"></span>
-      </button>
-      <p class="photo-type">
-        <span class="icon-plus-circle"></span>
-        Additional Photo
-      </p>
+      <div class="photo-type">
+        <div>
+          <i class="icon-plus-circle" (click)="onUploadFile()"></i>
+          <input #fileInput type="file" value="" (change)="valuechange($event)"/>
+        </div>
+        <p>{{val.text}}</p>
+      </div>
     </div>
   </div>
 </section>
+<ng-template #elseBlock>
+  &nbsp;
+</ng-template>
