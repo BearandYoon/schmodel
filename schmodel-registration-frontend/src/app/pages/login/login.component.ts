@@ -45,6 +45,11 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.message = '';
     this.termsContent = ValidationMessage.TERMS_CONTENT;
+
+    this.signInForm.setValue({
+      email: 'luckysevenbear@gmail.com',
+      password: 'yoon1104'
+    });
   }
 
   onSignIn() {
