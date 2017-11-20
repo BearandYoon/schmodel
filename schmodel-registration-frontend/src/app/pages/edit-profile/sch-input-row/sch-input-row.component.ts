@@ -16,6 +16,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 export class SchInputRowComponent implements ControlValueAccessor {
 
   @Input() type: string = 'text';
+  @Input() maxlength: number = 0;
   @Input() label: string = '';
   @Input('value') _value = '';
   onChange: any = () => { };

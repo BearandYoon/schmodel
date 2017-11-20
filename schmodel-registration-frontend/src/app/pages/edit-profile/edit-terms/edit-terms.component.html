@@ -3,7 +3,7 @@
     <div formArrayName="items" *ngFor="let item of editTermsForm.get('items').controls; let i = index;">
       <div [formGroupName]="i" class="item">
         <span>{{i+1}}.</span>
-        <input type="text" formControlName="term">
+        <input type="text" formControlName="term" maxlength="300">
         <span class="icon-close" (click)="onRemoveTerm(i)"></span>
       </div>
     </div>
