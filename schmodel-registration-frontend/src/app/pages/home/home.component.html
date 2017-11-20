@@ -3,21 +3,7 @@
     <img class="img-logo" src="assets/img/img_logo.png">
   </div>
   <p class="title">{{beforeTitle}}</p>
-  <div class="content-wrapper" *ngIf="false">
-    <div class="btn-edit-profile common-pattern" (click)="onEdit()">
-      <div class="btn-text"><span>Edit My Profile</span></div>
-      <div class="btn-icon"><img src="assets/img/ic_app_jobs.png" /></div>
-    </div>
-    <div class="btn-apply-job common-pattern" (click)="onApp()">
-      <div class="btn-text"><span>Apply for Jobs</span></div>
-      <div class="btn-icon"><img src="assets/img/ic_edit_jobs.png" /></div>
-    </div>
-    <div class="btn-my-job common-pattern" (click)="onMyJob()">
-      <div class="btn-text"><span>My Jobs</span></div>
-      <div class="btn-icon"><img src="assets/img/ic_my_jobs.png" /></div>
-    </div>
-  </div>
-  <div class="content-wrapper" *ngIf="true">
+  <div class="content-wrapper">
     <div class="profile-content" *ngIf="isCompletedProfile">
       <div class="profile-image">
         <img src="/assets/img/img_home.png" />

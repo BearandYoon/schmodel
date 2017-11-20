@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit {
     }
 
     this.userService.isProfileComplete().subscribe(res => {
-      console.log('profile = ', res);
+      this.isCompletedProfile = res.profileComplete;
     });
   }
 

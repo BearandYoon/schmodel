@@ -55,3 +55,35 @@
     }
   }
 }
+
+@media (max-width: 321px) {
+  .modal-header {
+    .modal-title {
+      font-size: 20px;
+    }
+
+    .close {
+      font-size: 20px;
+    }
+  }
+
+  .modal-body {
+    padding: 10px;
+
+    .content-wrapper {
+      max-height: 300px;
+      overflow: auto;
+
+      .content {
+        font-size: 12px;
+      }
+    }
+
+    .action-wrapper {
+      button {
+        font-size: 14px;
+        padding: 5px 15px;
+      }
+    }
+  }
+}

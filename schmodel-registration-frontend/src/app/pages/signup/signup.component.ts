@@ -68,7 +68,7 @@ export class SignupComponent implements OnInit {
 
   onSignUp() {
     if (this.signUpForm.value.password !== this.signUpForm.value.confirmPass) {
-      this.missMatchPass = ValidationMessage.NON_MATCHING_PASSWORD;
+      this.message = ValidationMessage.NON_MATCHING_PASSWORD;
     } else {
       this.showTermsAndConditions();
     }
