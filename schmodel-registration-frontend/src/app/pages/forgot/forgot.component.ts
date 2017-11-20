@@ -35,24 +35,20 @@ export class ForgotComponent implements OnInit {
   }
     // reset password feature
     onReset() {
-      if (this.forgotForm.value.password !== this.forgotForm.value.confirmPass) {
-        this.missMatchPass = 'These passwords don\'t match. Try again?';
-      } else {
-        this.resetUser.email = this.forgotForm.value.email;
-        this.isSubmitting = true;
-        this.resetPwdService.resetPwd(this.resetUser).subscribe( res => {
-          if (!res.emailValid) {
-            this.message = 'Enter your registered email address';
-            return;
-          }else {
-            this.message = 'Please check your email to reset password';
-            return;
-          }
-          // this.router.navigate(['']);
-        }, err => {
-          console.log('resetPassword Error = ', err);
-          this.message = 'Something went wrong.';
-        });
-      }
+      this.resetUser.email = this.forgotForm.value.email;
+      this.isSubmitting = true;
+      this.resetPwdService.resetPwd(this.resetUser).subscribe( res => {
+        if (!res.emailValid) {
+          this.message = 'Enter your registered email address';
+          return;
+        }else {
+          this.message = 'Please check your email to reset password';
+          return;
+        }
+        // this.router.navigate(['']);
+      }, err => {
+        console.log('resetPassword Error = ', err);
+        this.message = 'Something went wrong.';
+      });
     }
 }
