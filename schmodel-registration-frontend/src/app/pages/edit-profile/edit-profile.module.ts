@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AccordionModule } from 'ngx-bootstrap';
 
+import { SharedModule } from '../../shared/modules';
 import { EditProfileRoutingModule } from './edit-profile-routing.module';
 import { EditProfileComponent } from './edit-profile.component';
 import { EditProfilePasswordComponent } from './edit-profile-password/edit-profile-password.component';
@@ -13,12 +15,30 @@ import { SchInputRowComponent } from './sch-input-row/sch-input-row.component';
 import { SchDropdownComponent } from './sch-dropdown/sch-dropdown.component';
 import { SchDropdownRowComponent } from './sch-dropdown-row/sch-dropdown-row.component';
 
+import { ProfileService } from '../../core/services';
+
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SharedModule,
     AccordionModule.forRoot(),
     EditProfileRoutingModule
   ],
-  declarations: [EditProfileComponent, EditProfilePasswordComponent, EditTalentPhotosComponent, EditPersonalInfoComponent, EditTermsComponent, EditBillingInfoComponent, SchInputRowComponent, SchDropdownComponent, SchDropdownRowComponent]
+  declarations: [
+    EditProfileComponent,
+    EditProfilePasswordComponent,
+    EditTalentPhotosComponent,
+    EditPersonalInfoComponent,
+    EditTermsComponent,
+    EditBillingInfoComponent,
+    SchInputRowComponent,
+    SchDropdownComponent,
+    SchDropdownRowComponent
+  ],
+  providers: [
+    ProfileService
+  ]
 })
 export class EditProfileModule { }

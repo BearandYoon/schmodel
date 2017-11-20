@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
+import { ProfileService } from '../../core/services';
+
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
@@ -31,7 +33,13 @@ export class EditProfileComponent implements OnInit {
     }
   ]
 
-  constructor() { }
+  constructor(
+    private profileService: ProfileService
+  ) {
+    const photoWidth = 100;
+    const photoHeight = 100;
+    this.profileService.getProfileInfo(photoWidth, photoHeight);
+  }
 
   ngOnInit() {
   }

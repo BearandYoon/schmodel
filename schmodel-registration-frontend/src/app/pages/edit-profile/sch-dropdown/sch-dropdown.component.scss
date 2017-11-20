@@ -1,6 +1,5 @@
 select.select--countries,
 select.select--heights,
-select.select--chestSizes,
 select.select--waistSizes,
 select.select--weights,
 select.select--dressSizes,
@@ -9,7 +8,12 @@ select.select--eyeColors {
   width: 66%;
 }
 
-select.select--nationalities,
+select.select--chestCircSizes,
+select.select--chestCupSizes {
+  width: calc(33% - 2px);
+}
+
+select.select--citizenships,
 select.select--languages {
   width: calc(33% - 2px);
   // margin-bottom: 4px;
