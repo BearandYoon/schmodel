@@ -28,6 +28,11 @@ export class EditTalentPhotosComponent implements OnInit {
     );
   }
 
+  onClose(index: number) {
+    console.log(index);
+    this.photo_section_infor[index].flag = false;
+    this.photo_section_infor[index].url = "";
+  }
   trackByFn(index: any, item: any) {
     return index;
   }
