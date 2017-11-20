@@ -87,8 +87,16 @@ export class SignupComponent implements OnInit {
 
         this.authService.signUp(this.authUser).subscribe( res => {
           this.message = '';
+          if (!res.activationCodeValid) {
+            this.message = ValidationMessage.WRONG_ACTIVATION_CODE;
+            return;
+          }
           if (!res.emailValid) {
             this.message = ValidationMessage.INVALID_EMAIL;
+            return;
+          }
+          if (!res.passwordValid) {
+            this.message = ValidationMessage.INVALID_PASSWORD;
             return;
           }
           if (!res.emailAvailable) {
@@ -96,14 +104,6 @@ export class SignupComponent implements OnInit {
             return;
           }
 
-          if (!res.passwordValid) {
-            this.message = ValidationMessage.INVALID_PASSWORD;
-            return;
-          }
-          if (!res.activationCodeValid) {
-            this.message = ValidationMessage.WRONG_ACTIVATION_CODE;
-            return;
-          }
           this.sharedService.fromSignup = true;
           this.router.navigate(['']);
         }, err => {
