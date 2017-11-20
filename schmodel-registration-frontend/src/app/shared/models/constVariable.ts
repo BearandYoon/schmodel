@@ -17,11 +17,11 @@ export class ValidationMessage {
   public static BEFORE_COMPLETE_HOME_TITLE_ONCE_SIGNUP = `Your Schmodel account has been created!\nPlease complete your profile so you can start applying to jobs`;
   public static DECLINE_TERMS = 'Your Schmodel account can be created only if you agree to Terms & Conditions';
   public static LOGOUT = 'Are you sure you want to logout?';
-  public static TERMS_CONTENT = 'As required by Department of Employment regulations, Schmodel’s booking confirmation form, containi ' +
-                                'As required by Department of Employment regulations, Schmodel’s booking confirmation form, containing' +
+  public static TERMS_CONTENT = 'As required by Department of Employment regulations, Schmodel’s booking confirmation form, containing' +
                                 ' the specific terms of the booking, must be signed and returned by the client and the signed booking ' +
                                 'confirmation form together with these terms and conditions shall form the agreement between ' +
-                                'the parties relating to each booking. The failure to sign and/or return the booking confirmation ' +
+                                'the parties relating to each booking. \n\n' +
+                                'The failure to sign and/or return the booking confirmation ' +
                                 'form whilst proceeding with the booking will be deemed to be an acceptance by the client of these terms ' +
                                 ' and conditions and they shall apply to and govern the booking between Schmodel and the client. ' +
                                 ' Any amendment and/or variations made to the booking confirmation form by the client shall not be ' +
