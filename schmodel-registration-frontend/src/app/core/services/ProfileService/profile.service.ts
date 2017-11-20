@@ -48,6 +48,16 @@ export class ProfileService {
     );
   }
 
+  updateTerms(data) {
+    return this.http.post(
+      this.apiRoutingService.getProfileUpdateTermsInfoUrl(),
+      data,
+      false,
+      true,
+      null
+    );
+  }
+
   getProfileInfo(photoWidth, photoHeight) {
     return this.http.post(
       this.apiRoutingService.getProfileInfoUrl(),

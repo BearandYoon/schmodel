@@ -41,13 +41,15 @@ export class EditBillingInfoComponent implements OnInit {
       billingAddressState,
       billingAddressZipCode
     } = this.profileService.profileData;
+    const billingCompanyRegistrationCountryId = billingCompanyRegistrationCountry ? billingCompanyRegistrationCountry.id : null;
+    const billingAddressCountryId = billingAddressCountry ? billingAddressCountry.id : null;
     this.editBillingForm.setValue({
       companyName: billingCompanyName,
-      companyRegistrationCountryId: billingCompanyRegistrationCountry.id,
+      companyRegistrationCountryId: billingCompanyRegistrationCountryId,
       companyVatNumber: billingCompanyVatNumber,
       addressLine1: billingAddressLine1,
       addressLine2: billingAddressLine2,
-      addressCountryId: billingAddressCountry.id,
+      addressCountryId: billingAddressCountryId,
       addressCity: billingAddressCity,
       addressState: billingAddressState,
       addressZipCode: billingAddressZipCode

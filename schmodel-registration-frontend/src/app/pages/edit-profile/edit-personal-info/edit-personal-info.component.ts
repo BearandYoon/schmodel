@@ -67,7 +67,7 @@ export class EditPersonalInfoComponent implements OnInit {
       bodyWaist,
       bodyWeight,
       dressSize,
-      hairColor = null,
+      hairColor,
       eyeColor,
       twitterUsername,
       instagramUsername,
@@ -75,13 +75,23 @@ export class EditPersonalInfoComponent implements OnInit {
       linkedinUsername,
       biography
     } = this.profileService.profileData;
+    const dateOfBirthValue = this.toDateFormatValue(dateOfBirth);
     const citizenshipIds = citizenships.map(e => e.id).join('|');
     const languageIds = languages.map(e => e.id).join('|');
+    const residentialAddressCountryId = residentialAddressCountry ? residentialAddressCountry.id : null;
+    const bodyHeightId = bodyHeight ? bodyHeight.id : null;
+    const bodyChestCircumferenceId = bodyChestCircumference ? bodyChestCircumference.id : null;
+    const bodyChestCupSizeId = bodyChestCupSize ? bodyChestCupSize.id : null;
+    const bodyWaistId = bodyWaist ? bodyWaist.id : null;
+    const bodyWeightId = bodyWeight ? bodyWeight.id : null;
+    const dressSizeId = dressSize ? dressSize.id : null;
+    const hairColorId = hairColor ? hairColor.id : null;
+    const eyeColorId = eyeColor ? eyeColor.id : null;
     this.editPersonalForm.setValue({
       firstName,
       lastName,
-      dateOfBirth,
-      residentialAddressCountryId: residentialAddressCountry,
+      dateOfBirth: dateOfBirthValue,
+      residentialAddressCountryId,
       residentialAddressCity,
       residentialAddressState,
       residentialAddressLine1,
@@ -91,14 +101,14 @@ export class EditPersonalInfoComponent implements OnInit {
       phoneNumber,
       citizenshipIds,
       languageIds,
-      bodyHeightId: bodyHeight,
-      bodyChestCircumferenceId: bodyChestCircumference,
-      bodyChestCupSizeId: bodyChestCupSize,
-      bodyWaistId: bodyWaist,
-      bodyWeightId: bodyWeight,
-      dressSizeId: dressSize,
-      hairColorId: hairColor,
-      eyeColorId: eyeColor,
+      bodyHeightId,
+      bodyChestCircumferenceId,
+      bodyChestCupSizeId,
+      bodyWaistId,
+      bodyWeightId,
+      dressSizeId,
+      hairColorId,
+      eyeColorId,
       twitterUsername,
       instagramUsername,
       facebookUsername,
@@ -107,14 +117,20 @@ export class EditPersonalInfoComponent implements OnInit {
     });
   }
 
-  getDateOfBirth() {
+  toDateFormatString() {
     const parts = this.editPersonalForm.value.dateOfBirth.split('|');
     return `${parts[2]}-${parts[0]}-${parts[1]}`;
   }
 
+  toDateFormatValue(dateStr) {
+    if (!dateStr) return null;
+    const parts = dateStr.split('-');
+    return `${parts[1]}|${parts[2]}|${parts[0]}`;
+  }
+
   onSubmit() {
     const data = {...this.editPersonalForm.value};
-    data.dateOfBirth = this.getDateOfBirth();
+    data.dateOfBirth = this.toDateFormatString();
     data.citizenshipIds = data.citizenshipIds.split('|');
     data.languageIds = data.languageIds.split('|');
     console.log(data);

@@ -1,26 +1,26 @@
 <section>
-
-  <div class="input group row item" *ngFor="let content of tc_content; let i = index; trackBy:trackByFn" >
-    <span class="input-group-addon">{{tc_content[i].id}}.</span>
-    <input class="col-12 col-md-12" [ngModel]="tc_content[i].content" (ngModelChange)="valuechange(i, $event)" value=tc_content[i].content/>
-    <span class="icon-close" (click)="onClose(i)"></span>
-  </div>
-
-  <div class="item" (click)="onAddTC()">
-    <span class="icon-plus-circle"></span>
-    Add Personal Terms or Conditioins
-  </div>
-
-  <p class="disclaimer">
-    <b>Disclaimer:</b> Your additional terms are presented to the Client for <br />
-    acceptance and in no way override, modify or invalidate any part of the <br />
-    Schmodel <u>Terms and Conditions</u>
-  </p>
-
-  <div class="form-group form-group--submit">
-    <div class="row">
-      <button type="button" class="btn--save">SAVE</button>
-      <button type="button" class="btn--cancel">CANCEL</button>
+  <form [formGroup]="editTermsForm" (submit)="onSubmit()">
+    <div formArrayName="items" *ngFor="let item of editTermsForm.get('items').controls; let i = index;">
+      <div [formGroupName]="i" class="item">
+        <span>{{i+1}}.</span>
+        <input type="text" formControlName="term">
+        <span class="icon-close" (click)="onRemoveTerm(i)"></span>
+      </div>
     </div>
-  </div>
+    <div class="item" (click)="onAddTerm()">
+      <span class="icon-plus-circle"></span>
+      Add Personal Terms or Conditioins
+    </div>
+    <p class="disclaimer">
+      <b>Disclaimer:</b> Your additional terms are presented to the Client for <br />
+      acceptance and in no way override, modify or invalidate any part of the <br />
+      Schmodel <u>Terms and Conditions</u>
+    </p>
+    <div class="form-group form-group--submit">
+      <div class="row">
+        <button type="submit" class="btn btn--save" [disabled]="!editTermsForm.valid">SAVE</button>
+        <button type="button" class="btn btn--cancel">CANCEL</button>
+      </div>
+    </div>
+  </form>
 </section>

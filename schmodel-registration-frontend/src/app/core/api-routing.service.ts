@@ -38,6 +38,10 @@ export class ApiRoutingService {
     return this.baseUrl + '/talent/edit-personal-information';
   }
 
+  getProfileUpdateTermsInfoUrl(): string {
+    return this.baseUrl + '/talent/edit-terms';
+  }
+
   getProfileInfoUrl(): string {
     return this.baseUrl + '/talent/edit-my-profile';
   }
