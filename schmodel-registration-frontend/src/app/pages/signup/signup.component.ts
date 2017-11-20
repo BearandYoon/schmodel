@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router } from '@angular/router';
 import 'rxjs/add/operator/pairwise';
 import 'rxjs/add/operator/filter';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -11,7 +11,7 @@ import { routerTransition } from '../../router.animations';
 import { ValidationService, SharedService } from '../../shared/services';
 import { AuthenticationService } from '../../core/services';
 
-import { TermsModalComponent, MessageModalComponent } from '../../shared/modules';
+import { TermsModalComponent } from '../../shared/modules';
 import { AuthUser, TermsModalResponse, ValidationMessage } from '../../shared/models';
 
 @Component({
@@ -34,15 +34,6 @@ export class SignupComponent implements OnInit {
     ignoreBackdropClick: true
   };
 
-  messageModalRef: BsModalRef;
-  messageContent: string;
-  messageModalConfig = {
-    animated: true,
-    keyboard: true,
-    backdrop: true,
-    ignoreBackdropClick: false
-  };
-
   constructor(
     public router: Router,
     private formBuilder: FormBuilder,
@@ -63,13 +54,13 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
     this.termsContent = ValidationMessage.TERMS_CONTENT;
-    this.messageContent = '';
   }
 
   onSignUp() {
     if (this.signUpForm.value.password !== this.signUpForm.value.confirmPass) {
       this.message = ValidationMessage.NON_MATCHING_PASSWORD;
     } else {
+      this.message = '';
       this.showTermsAndConditions();
     }
   }
@@ -109,18 +100,7 @@ export class SignupComponent implements OnInit {
         }, err => {
           this.message = 'Something went wrong.';
         });
-      } else {
-        this.showSignUpDeclineMessage();
       }
     });
-  }
-
-  showSignUpDeclineMessage() {
-    this.messageContent = ValidationMessage.DECLINE_TERMS;
-    this.messageModalRef = this.modalService.show(MessageModalComponent, this.messageModalConfig);
-    this.messageModalRef.content.messageContent = this.messageContent;
-    this.messageModalRef.content.isBtnCancel = false;
-
-    this.messageModalRef.content.onCloseReason.subscribe(result => {});
   }
 }

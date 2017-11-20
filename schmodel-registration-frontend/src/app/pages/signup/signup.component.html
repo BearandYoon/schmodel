@@ -8,9 +8,6 @@
   <div class="content-wrapper">
     <div class="content-container">
       <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-4 form-wrapper">
-        <alert type="danger" *ngIf="message">
-          <strong>{{message}}</strong>
-        </alert>
         <form [formGroup]="signUpForm" (submit)="onSignUp()">
           <div class="form-content">
             <div class="form-group">
@@ -31,6 +28,9 @@
             </div>
           </div>
           <div class="action-container">
+            <alert type="danger" *ngIf="message">
+              <strong>{{message}}</strong>
+            </alert>
             <div class="btn-login-container">
               <button class="btn bordered-btn" type="submit" [disabled]="!signUpForm.valid"> Create Schmodel Account </button>
             </div>
