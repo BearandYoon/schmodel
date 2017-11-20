@@ -4,6 +4,7 @@ section {
   padding: 4px 0 18px;
 
   .item {
+    overflow: hidden;
     width: 33.33%;
     position: relative;
     color: white;
@@ -13,22 +14,22 @@ section {
       height: auto;
     }
 
+    button.btn-close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 5px 6px;
+      font-size: 13px;
+      color: white;
+    }
+
     .item-content {
       position: absolute;
       width: 100%;
       height: 100%;
       left: 0;
       top: 0;
-      text-align: center;
-
-      button.btn-close {
-        position: absolute;
-        top: 0;
-        right: 0;
-        padding: 5px 6px;
-        font-size: 13px;
-        color: white;
-      }
+      text-align: center;     
 
       .photo-type {
         position: absolute;
@@ -44,27 +45,11 @@ section {
           font-size: 30px;
         }
       }
-    }
+      
+      input {
+        display: none;
+      }
 
-    &.item--head .item-content {
-      background-image: url("/assets/images/ic_photo_head.svg");
-      background-size: 80% auto;
-      background-repeat: no-repeat;
-      background-position: 50% 100%;
-    }
-
-    &.item--body .item-content {
-      background-image: url("/assets/images/ic_photo_fullbody.svg");
-      background-size: 35% auto;
-      background-repeat: no-repeat;
-      background-position: 50% 50%;
-    }
-
-    &.item--profile .item-content {
-      background-image: url("/assets/images/ic_photo_profile.svg");
-      background-size: 65% auto;
-      background-repeat: no-repeat;
-      background-position: 50% 100%;
     }
   }
 }

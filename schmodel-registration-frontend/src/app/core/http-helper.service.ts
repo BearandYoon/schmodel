@@ -28,7 +28,6 @@ export class HttpHelperService {
     }
     return res;
   }
-
   /***
    * generate request options
    * @param isUrlEncoded
@@ -57,7 +56,6 @@ export class HttpHelperService {
         environment.localStorage.token
       );
       headers.append('Authorization', `${token}`);
-
     }
 
     if (customHeader) {
