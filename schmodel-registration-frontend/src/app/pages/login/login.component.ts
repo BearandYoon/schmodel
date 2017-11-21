@@ -44,7 +44,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.message = '';
-    this.termsContent = ValidationMessage.TERMS_CONTENT;
+    this.termsContent = ValidationMessage.TERMS_CONTENT + ValidationMessage.TERMS_CONTENT + ValidationMessage.TERMS_CONTENT
+      + ValidationMessage.TERMS_CONTENT + ValidationMessage.TERMS_CONTENT + ValidationMessage.TERMS_CONTENT + ValidationMessage.TERMS_CONTENT
+      + ValidationMessage.TERMS_CONTENT + ValidationMessage.TERMS_CONTENT + ValidationMessage.TERMS_CONTENT + ValidationMessage.TERMS_CONTENT;
   }
 
   onSignIn() {
