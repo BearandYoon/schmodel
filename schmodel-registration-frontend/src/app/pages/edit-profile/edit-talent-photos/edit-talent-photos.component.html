@@ -13,7 +13,9 @@
       </div>
     </div>
 
-    <img *ngIf="!val.flag" class="item-bg" src="/assets/images/bg_cell_gradient.png"/>
-    <img *ngIf="val.flag" class="item-bg" [src]="val.url"/>
+    <div class="item-bg">
+      <img *ngIf="!val.flag" src="/assets/images/bg_cell_gradient.png"/>
+      <img *ngIf="val.flag" [src]="val.url"/>
+    </div>
   </div>
 </section>
