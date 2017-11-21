@@ -7,12 +7,12 @@
       <div class="photo-type">
         <div>
           <i class="icon-plus-circle" (click)="onUploadFile(i)"></i>
-          <input #fileInput type="file" value="" (change)="valuechange($event)" accept="image/*"/>
+          <input #fileInput type="file" [(ngModel)]="myFile" value="myFile" (change)="valuechange($event)" accept="image/*"/>
         </div>
         <p>{{val.text}}</p>
       </div>
     </div>
-    
+
     <div class="item-bg">
       <img *ngIf="!val.flag" src="/assets/images/bg_cell_gradient.png"/>
       <img *ngIf="val.flag" [src]="val.photoUrl"/>
