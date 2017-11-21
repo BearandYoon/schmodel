@@ -49,4 +49,11 @@ export class ApiRoutingService {
   getProfileInfoUrl(): string {
     return this.baseUrl + '/talent/edit-my-profile';
   }
+
+  getUploadPhotoUrl(): string {
+    return this.baseUrl + '/talent/upload-photo';
+  }
+  getDeletePhotoUrl(): string {
+    return this.baseUrl + '/talent/delete-photo';
+  }
 }

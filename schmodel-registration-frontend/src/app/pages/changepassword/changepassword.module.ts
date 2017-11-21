@@ -24,4 +24,3 @@ import { SharedModule } from '../../shared/modules';
 })
 export class ChangepasswordModule {
 }
-

@@ -119,13 +119,13 @@ export class EditPersonalInfoComponent implements OnInit {
 
   toDateFormatString() {
     const parts = this.editPersonalForm.value.dateOfBirth.split('|');
-    return `${parts[2]}-${parts[0]}-${parts[1]}`;
+    return `${parts[2]}-${parts[1]}-${parts[0]}`;
   }
 
   toDateFormatValue(dateStr) {
     if (!dateStr) return null;
     const parts = dateStr.split('-');
-    return `${parts[1]}|${parts[2]}|${parts[0]}`;
+    return `${parts[2]}|${parts[1]}|${parts[0]}`;
   }
 
   onSubmit() {

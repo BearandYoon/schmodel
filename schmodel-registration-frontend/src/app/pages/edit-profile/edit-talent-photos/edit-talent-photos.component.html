@@ -1,19 +1,21 @@
 <section>
   <div *ngFor="let val of photo_section_infor; let i = index; trackBy:trackByFn" class="item">
-    <button *ngIf="val.flag" class="btn-close">
+    <button *ngIf="val.flag" class="btn-close" (click)="onClose(i)">
       <span class="icon-close"></span>
     </button>
     <div *ngIf="!val.flag" class="item-content" [ngStyle]="{'background-image':'url(' + val.backImg + ')', 'background-repeat':'no-repeat', 'background-size':val.backSize, 'background-position':val.backPos}">
       <div class="photo-type">
         <div>
           <i class="icon-plus-circle" (click)="onUploadFile(i)"></i>
-          <input #fileInput type="file" value="" (change)="valuechange($event)"/>
+          <input #fileInput type="file" [(ngModel)]="myFile" value="myFile" (change)="valuechange($event)" accept="image/*"/>
         </div>
         <p>{{val.text}}</p>
       </div>
     </div>
 
-    <img *ngIf="!val.flag" class="item-bg" src="/assets/images/bg_cell_gradient.png"/>
-    <img *ngIf="val.flag" class="item-bg" [src]="val.url"/>
+    <div class="item-bg">
+      <img *ngIf="!val.flag" src="/assets/images/bg_cell_gradient.png"/>
+      <img *ngIf="val.flag" [src]="val.photoUrl"/>
+    </div>
   </div>
 </section>

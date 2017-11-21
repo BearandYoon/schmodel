@@ -3,13 +3,13 @@
     <div formArrayName="items" *ngFor="let item of editTermsForm.get('items').controls; let i = index;">
       <div [formGroupName]="i" class="item">
         <span>{{i+1}}.</span>
-        <input type="text" formControlName="term">
+        <input type="text" formControlName="term" maxlength="300">
         <span class="icon-close" (click)="onRemoveTerm(i)"></span>
       </div>
     </div>
     <div class="item" (click)="onAddTerm()">
       <span class="icon-plus-circle"></span>
-      Add Personal Terms or Conditioins
+      Add Personal Terms or Conditions
     </div>
     <p class="disclaimer">
       <b>Disclaimer:</b> Your additional terms are presented to the Client for <br />

@@ -40,7 +40,8 @@ export class HttpHelperService {
     isUrlEncoded = false,
     requiredAuth = false,
     customHeader?: Headers,
-    customParam?: Object
+    customParam?: Object,
+    isMultipart = false
   ): RequestOptions {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     const search = new URLSearchParams();
@@ -49,6 +50,10 @@ export class HttpHelperService {
       headers = new Headers({
         'Content-Type': 'application/x-www-form-urlencoded',
       });
+    }
+
+    if (isMultipart) {
+      headers = new Headers();
     }
 
     if (requiredAuth) {
@@ -119,8 +124,13 @@ export class HttpHelperService {
       });
       body = urlSearchParams.toString();
     }
+
+    let requestOptions = this.generateReqOptions(isUrlEncoded, requiredAuth, headers);
+    if (body instanceof FormData) {
+      requestOptions = this.generateReqOptions(isUrlEncoded, requiredAuth, headers, null, true);
+    } 
     return this.http
-      .post( url, body, this.generateReqOptions(isUrlEncoded, requiredAuth, headers))
+      .post( url, body, requestOptions)
       .map((response: Response) => {
         return this.checkAuthHeader(response);
       })

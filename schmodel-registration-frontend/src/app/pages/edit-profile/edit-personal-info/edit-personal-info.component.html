@@ -1,20 +1,9 @@
 <section>
   <form [formGroup]="editPersonalForm" (submit)="onSubmit()">
     <div class="form-group form-group--personal">
-      <sch-input-row formControlName="firstName" label="First Name"></sch-input-row>
-      <sch-input-row formControlName="lastName" label="Last Name"></sch-input-row>
-      <sch-dropdown-row formControlName="dateOfBirth" label="Date of Birth" [items]="['months', 'days', 'years']"></sch-dropdown-row>
-      <sch-dropdown-row formControlName="residentialAddressCountryId" label="Country" [items]="['countries']"></sch-dropdown-row>
-      <sch-input-row formControlName="residentialAddressCity" label="City"></sch-input-row>
-      <sch-input-row formControlName="residentialAddressState" label="State/Province"></sch-input-row>
-      <sch-input-row formControlName="residentialAddressLine1" label="Address"></sch-input-row>
-      <sch-input-row formControlName="residentialAddressLine2" label="Address2"></sch-input-row>
-      <sch-input-row formControlName="residentialAddressZipCode" label="Post/Zip code"></sch-input-row>
-      <div class="row">
-        <label>Phone</label>
-        <sch-dropdown formControlName="phoneCountryCode" category="phonePrefixes"></sch-dropdown>
-        <input formControlName="phoneNumber">
-      </div>
+      <sch-input-row formControlName="firstName" label="First Name" maxlength="20"></sch-input-row>
+      <sch-input-row formControlName="lastName" label="Last Name" maxlength="20"></sch-input-row>
+      <sch-dropdown-row formControlName="dateOfBirth" label="Date of Birth" [items]="['days', 'months', 'years']"></sch-dropdown-row>
       <sch-dropdown-row formControlName="citizenshipIds" label="Citizenship" [allowAddCategory]="'citizenships'" [items]="[]"></sch-dropdown-row>
       <sch-dropdown-row formControlName="languageIds" label="Languages" description="(working proficiency)" [allowAddCategory]="'languages'" [items]="[]"></sch-dropdown-row>
     </div>
@@ -33,19 +22,36 @@
       <sch-dropdown-row formControlName="hairColorId" label="Hair Color" [items]="['hairColors']"></sch-dropdown-row>
       <sch-dropdown-row formControlName="eyeColorId" label="Eye Color" [items]="['eyeColors']"></sch-dropdown-row>
     </div>
-    <div class="form-group form-group--social">
-      <sch-input-row formControlName="twitterUsername" label="Twitter"></sch-input-row>
-      <sch-input-row formControlName="instagramUsername" label="Instagram"></sch-input-row>
-      <sch-input-row formControlName="facebookUsername" label="Facebook"></sch-input-row>
-      <sch-input-row formControlName="linkedinUsername" label="LinkedIn"></sch-input-row>
+    <div class="form-group form-group--location">
+      <p>
+        <b>USUAL RESIDENCE</b><br/>
+        <span>This address may be different from 'billing address'</span>
+      </p>
+      <sch-dropdown-row formControlName="residentialAddressCountryId" label="Country" [items]="['countries']"></sch-dropdown-row>
+      <sch-input-row formControlName="residentialAddressCity" label="City" maxlength="15"></sch-input-row>
+      <sch-input-row formControlName="residentialAddressState" label="State/Province" maxlength="20"></sch-input-row>
+      <sch-input-row formControlName="residentialAddressLine1" label="Address" maxlength="40"></sch-input-row>
+      <sch-input-row formControlName="residentialAddressLine2" label="Address2" maxlength="40"></sch-input-row>
+      <sch-input-row formControlName="residentialAddressZipCode" label="Post/Zip code" maxlength="10"></sch-input-row>
+      <div class="row">
+        <label>Phone number</label>
+        <sch-dropdown formControlName="phoneCountryCode" category="phonePrefixes"></sch-dropdown>
+        <input formControlName="phoneNumber">
+      </div>
     </div>
     <div class="edit-profile form-group form-group--bio">
       <div class="row row--valign-top">
-        <label>Biography<br/><span>(200 words max.)</span></label>
-        <textarea formControlName="biography">This is a test</textarea>
+        <label>Biography<br/><span>(2000 words max.)</span></label>
+        <textarea formControlName="biography" maxlength="2000">This is a test</textarea>
       </div>
     </div>
-    <div class="edit-profile form-group form-group--submit">
+    <div class="form-group form-group--social">
+      <sch-input-row formControlName="twitterUsername" label="Twitter" maxlength="50"></sch-input-row>
+      <sch-input-row formControlName="instagramUsername" label="Instagram" maxlength="50"></sch-input-row>
+      <sch-input-row formControlName="facebookUsername" label="Facebook" maxlength="50"></sch-input-row>
+      <sch-input-row formControlName="linkedinUsername" label="LinkedIn" maxlength="50"></sch-input-row>
+    </div>
+    <div class="form-group form-group--submit">
       <div class="row">
         <button type="submit" class="btn btn--save" [disabled]="!editPersonalForm.valid">SAVE</button>
         <button type="button" class="btn btn--cancel">CANCEL</button>

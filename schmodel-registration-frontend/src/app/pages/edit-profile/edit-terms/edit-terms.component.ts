@@ -32,13 +32,14 @@ export class EditTermsComponent implements OnInit {
   ngOnInit() {
     let clauses = this.profileService.profileData.clauses;
     if (!clauses || !clauses.length) {
-      clauses = [
-        {term: ''}
-      ];
+      clauses = [];
     } else {
       clauses = clauses.map(e => ({ term: e }));
     }
     this.items = this.editTermsForm.get('items') as FormArray;
+    if (!clauses.length) {
+      this.items.removeAt(0);
+    }
     while(this.items.length < clauses.length) {
       this.items.push(this.createItem());
     }
@@ -54,9 +55,7 @@ export class EditTermsComponent implements OnInit {
 
   onRemoveTerm(index) {
     this.items = this.editTermsForm.get('items') as FormArray;
-    if (this.items.length > 1) {
-      this.items.removeAt(index);
-    }
+    this.items.removeAt(index);
   }
 
   onSubmit() {
