@@ -1,25 +1,24 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ControlMessageComponent } from './control-message.component';
+import { ChangepasswordComponent } from './changepassword.component';
 
-describe('ControlMessageComponent', () => {
-  let component: ControlMessageComponent;
-  let fixture: ComponentFixture<ControlMessageComponent>;
+describe('ChangepasswordComponent', () => {
+  let component: ChangepasswordComponent;
+  let fixture: ComponentFixture<ChangepasswordComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ControlMessageComponent ]
+      declarations: [ ChangepasswordComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ControlMessageComponent);
+    fixture = TestBed.createComponent(ChangepasswordComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
- 
   it('should create', () => {
     expect(component).toBeTruthy();
   });

@@ -114,12 +114,10 @@ accordion-group {
     background: none;
     border: none;
     border-bottom: 1px solid $border-color;
-  
     &[type="password"] {
       letter-spacing: 2px;
     }
   }
-  
   textarea {
     flex: 1;
     height: 85px;

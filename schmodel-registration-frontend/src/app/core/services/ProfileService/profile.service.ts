@@ -74,5 +74,29 @@ export class ProfileService {
       console.log(error);
     });
   }
+  
+  uploadPhoto(file, photoTypeId, photoWidth, photoHeight) {
+    let fd = new FormData();
+    fd.append('file', file);
+    fd.append('photoTypeId', photoTypeId);
+    fd.append('photoWidth', photoWidth);
+    fd.append('photoHeight', photoHeight);
+    return this.http.post(
+      this.apiRoutingService.getUploadPhotoUrl(),
+      fd,
+      false,
+      true,
+      null
+    );
+  }
 
+  deletePhoto(photoId){
+    return this.http.post(
+      this.apiRoutingService.getDeletePhotoUrl(),
+      {photoId},
+      false,
+      true,
+      null
+    );
+  }
 }

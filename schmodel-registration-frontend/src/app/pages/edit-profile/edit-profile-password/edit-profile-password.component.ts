@@ -48,5 +48,4 @@ export class EditProfilePasswordComponent implements OnInit {
       console.log(error);
     });
   }
-
 }

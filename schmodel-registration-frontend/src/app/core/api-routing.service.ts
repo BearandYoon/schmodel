@@ -26,6 +26,10 @@ export class ApiRoutingService {
     return this.baseUrl + '/talent/is-profile-complete';
   }
 
+  getChangePwdAPIUrl(): string {
+    return this.baseUrl + '/talent/change-password';
+  }
+  
   getProfileUpdatePasswordUrl(): string {
     return this.baseUrl + '/talent/edit-password';
   }
@@ -44,5 +48,13 @@ export class ApiRoutingService {
 
   getProfileInfoUrl(): string {
     return this.baseUrl + '/talent/edit-my-profile';
+  }
+
+  getUploadPhotoUrl(): string {
+    return this.baseUrl + '/talent/upload-photo';
+  }
+
+  getDeletePhotoUrl(): string {
+    return this.baseUrl + '/talent/delete-photo';
   }
 }
