@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormArray, FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+
+import { ValidationService } from '../../../shared/services';
+import { ProfileService } from '../../../core/services';
 
 @Component({
   selector: 'edit-terms',
@@ -7,39 +11,67 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditTermsComponent implements OnInit {
 
-  public tc_content: Array<any> = [];
-  constructor() { }
+  editTermsForm: FormGroup;
+  items: any = [];
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private profileService: ProfileService
+  ) {
+    this.editTermsForm = formBuilder.group({
+      items: this.formBuilder.array([this.createItem()])
+    });
+  }
+
+  createItem() {
+    return this.formBuilder.group({
+      term: ['', [Validators.required]]
+    })
+  }
 
   ngOnInit() {
-    this.tc_content.push(
-      {id: 1, content:'I require qunioa and avocado twice a day.'},
-      {id: 2, content:'I require gluten free food options during my lunch break.'},
-      {id: 3, content:'All photos taken of me need my consent before public use.'},
-    );
+    let clauses = this.profileService.profileData.clauses;
+    if (!clauses || !clauses.length) {
+      clauses = [
+        {term: ''}
+      ];
+    } else {
+      clauses = clauses.map(e => ({ term: e }));
+    }
+    this.items = this.editTermsForm.get('items') as FormArray;
+    while(this.items.length < clauses.length) {
+      this.items.push(this.createItem());
+    }
+    this.editTermsForm.setValue({
+      items: clauses
+    });
   }
 
-  trackByFn(index: any, item: any) {
-    return index;
+  onAddTerm() {
+    this.items = this.editTermsForm.get('items') as FormArray;
+    this.items.push(this.createItem());
   }
 
-  onClose(i:number) {
-    this.tc_content = this.tc_content.filter(item => item.content != this.tc_content[i].content);
-    for(let id = 0; id < this.tc_content.length; id++) {
-      this.tc_content[id].id = id + 1;
+  onRemoveTerm(index) {
+    this.items = this.editTermsForm.get('items') as FormArray;
+    if (this.items.length > 1) {
+      this.items.removeAt(index);
     }
   }
 
-  onAddTC() {
-    this.tc_content.push({id: this.tc_content.length+1, content: ""});
-    for(let id = 0; id < this.tc_content.length; id++) {
-      this.tc_content[id].id = id + 1;
+  onSubmit() {
+    if (!this.editTermsForm.value) {
+      return;
     }
+
+    const data = {
+      clauses: this.editTermsForm.value.items.map(e => e.term)
+    };
+    console.log(data);
+    this.profileService.updateTerms(data).subscribe( res => {
+    }, error => {
+      console.log(error);
+    });
   }
 
-  valuechange(i:number, newValue) {
-    for(let id = 0; id < this.tc_content.length; id++) {
-      this.tc_content[id].id = id + 1;
-    }
-    this.tc_content[i].content = newValue;
-  }
 }

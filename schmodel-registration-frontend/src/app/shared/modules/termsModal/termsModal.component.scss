@@ -37,6 +37,7 @@
       padding: 10px;
       font-size: 14px;
       margin-bottom: 0;
+      white-space: pre-wrap;
     }
   }
 
@@ -52,6 +53,38 @@
       border-radius: 0;
       font-family: "Open Sans Bold";
       text-transform: uppercase;
+    }
+  }
+}
+
+@media (max-width: 321px) {
+  .modal-header {
+    .modal-title {
+      font-size: 20px;
+    }
+
+    .close {
+      font-size: 20px;
+    }
+  }
+
+  .modal-body {
+    padding: 10px;
+
+    .content-wrapper {
+      max-height: 300px;
+      overflow: auto;
+
+      .content {
+        font-size: 12px;
+      }
+    }
+
+    .action-wrapper {
+      button {
+        font-size: 14px;
+        padding: 5px 15px;
+      }
     }
   }
 }

@@ -11,17 +11,18 @@ const routes: Routes = [
   { path: 'reset-token', loadChildren: './pages/setpassword/setpassword.module#SetpasswordModule' },
   {
     path: '',
+    canActivate: [AuthGuard],
+    loadChildren: './pages/home/home.module#HomeModule',
+    data: { title: 'Home' }
+  },
+  {
+    path: '',
     component: LayoutComponent,
-    canActivate: [],//AuthGuard
+    canActivate: [AuthGuard],
     children: [
       {
-        path: '',
-        loadChildren: './pages/home/home.module#HomeModule',
-        data: {
-          title: 'Home'
-        }
-      }, {
         path: 'edit-profile',
+        canActivate: [AuthGuard],
         loadChildren: './pages/edit-profile/edit-profile.module#EditProfileModule',
         data: {
           title: 'Edit My Profile',
@@ -30,6 +31,7 @@ const routes: Routes = [
       }
     ]
   },
+  { path: 'change-password', loadChildren: './pages/changepassword/changepassword.module#ChangepasswordModule' },
   { path: '**', redirectTo: 'not-found' }
 ];
 

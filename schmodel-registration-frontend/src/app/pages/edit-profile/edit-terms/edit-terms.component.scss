@@ -2,15 +2,35 @@ section {
   padding: 25px 30px;
   color: white;
   .item {
+    display: flex;
     position: relative;
     margin-bottom: 8px;
     padding: 10px 12px;
     border: 1px solid #5B5C5E;
-    font-size: 14px;
-    background: transparent;
+    font-size: 11px;
+    align-items: center;
+
+    & > span {
+      margin-right: 3px;
+
+      &.icon-plus-circle {
+        margin-right: 6px;
+        margin-bottom: 2px;
+      }
+    }
+
+    input {
+      flex: 1;
+      height: 100%;
+      background: none;
+      border: none;
+      outline: none;
+      color: white;
+    }
 
     .icon-close {
       width: 12px;
+      margin: 0;
       line-height: 12px;
       text-align: center;
       font-size: 5px;

@@ -1,4 +1,4 @@
-<accordion>
+<accordion *ngIf="!!profileService.profileData">
   <accordion-group *ngFor="let panel of panels" [isOpen]="panel.isOpen">
     <header accordion-heading>
       <p class="title">

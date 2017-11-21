@@ -3,19 +3,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
-
 import { Ng2Webstorage } from 'ngx-webstorage';
 import { ModalModule, AlertModule } from 'ngx-bootstrap';
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { AuthGuard } from './shared';
 import { HttpHelperService } from './core/http-helper.service';
 import { ApiRoutingService } from './core/api-routing.service';
-import { ValidationService } from './shared/services';
+import { ValidationService, SharedService } from './shared/services';
 import { ValidTokenService } from './core/services';
-
 import { TermsModalComponent, MessageModalComponent } from './shared/modules';
 import { LayoutModule } from './pages/layout/layout.module';
 
@@ -28,6 +25,7 @@ import { LayoutModule } from './pages/layout/layout.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpModule,
     FormsModule,
     HttpModule,
     AppRoutingModule,
@@ -42,7 +40,8 @@ import { LayoutModule } from './pages/layout/layout.module';
     ApiRoutingService,
     AuthGuard,
     ValidationService,
-    ValidTokenService
+    ValidTokenService,
+    SharedService
   ],
   entryComponents: [
     TermsModalComponent,

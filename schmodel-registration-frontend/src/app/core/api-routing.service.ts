@@ -10,7 +10,6 @@ export class ApiRoutingService {
   getResetPwdAPIUrl(): string {
     return this.baseUrl + '/talent/reset-password';
   }
-  
   getValidTokenAPIUrl(): string {
     return this.baseUrl + '/talent/is-reset-password-token-valid';
   }
@@ -27,11 +26,31 @@ export class ApiRoutingService {
     return this.baseUrl + '/talent/is-profile-complete';
   }
 
+  getChangePwdAPIUrl(): string {
+    return this.baseUrl + '/talent/change-password';
+  }
+  
   getProfileUpdatePasswordUrl(): string {
     return this.baseUrl + '/talent/edit-password';
   }
 
   getProfileUpdateBillingInfoUrl(): string {
     return this.baseUrl + '/talent/edit-billing-information';
+  }
+
+  getProfileUpdatePersonalInfoUrl(): string {
+    return this.baseUrl + '/talent/edit-personal-information';
+  }
+
+  getProfileUpdateTermsInfoUrl(): string {
+    return this.baseUrl + '/talent/edit-terms';
+  }
+
+  getProfileInfoUrl(): string {
+    return this.baseUrl + '/talent/edit-my-profile';
+  }
+
+  getUploadPhotoUrl(): string {
+    return this.baseUrl + '/talent/upload-photo';
   }
 }

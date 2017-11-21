@@ -45,7 +45,6 @@ accordion-group {
       &.icon-minus-circle {
         display: none;
       }
-    
     }
   }
 
@@ -64,7 +63,7 @@ accordion-group {
   }
 }
 
-.form-group {
+.edit-profile.form-group {
   margin: 0;
   padding-top: 20px;
 
@@ -86,8 +85,13 @@ accordion-group {
   align-items: center;
   font-size: 11px;
 
-  &.row--valign-top {
+  &.row--valign-top,
+  &.row--multi {
     align-items: flex-start;
+  }
+
+  &.row--multi select {
+    margin-bottom: 4px;
   }
 
   label {
@@ -99,7 +103,6 @@ accordion-group {
       font-size: 8px;
     }
   }
-  
   input {
     flex: 1;
     height: $form-control-height;
@@ -109,12 +112,10 @@ accordion-group {
     background: none;
     border: none;
     border-bottom: 1px solid $border-color;
-  
     &[type="password"] {
       letter-spacing: 2px;
     }
   }
-  
   textarea {
     flex: 1;
     height: 85px;
