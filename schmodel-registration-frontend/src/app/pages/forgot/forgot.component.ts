@@ -32,7 +32,6 @@ export class ForgotComponent implements OnInit {
     this.isSubmitting = false;
   }
   onChangeInput() {
-    console.log('this is test message');
     this.message = '';
   }
 
