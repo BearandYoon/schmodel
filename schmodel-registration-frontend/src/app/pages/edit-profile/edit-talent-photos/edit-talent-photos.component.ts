@@ -12,29 +12,49 @@ import { ProfileService } from '../../../core/services';
 
 export class EditTalentPhotosComponent implements OnInit {
   @ViewChild('fileInput') fileInput:ElementRef;
-  public photoUploadForm: FormGroup;
 
   public photo_section_infor: Array<any> = [];
   public response: Array<any> = [];
   public no_tmp: number;
-  public height: number;
-  public width: number;
   private data: any;
 
-  constructor(private renderer:Renderer, 
-              private profileService: ProfileService) { }
+  constructor(private renderer:Renderer, private profileService: ProfileService) {
+  }
 
   ngOnInit() {
-    this.no_tmp = 0;
     this.photo_section_infor.push(
-      {text:"Headshot Photo",    url:"", flag: false, backImg:"/assets/images/ic_photo_head.svg", backSize: '80% auto', backPos: '50% 100%'},
-      {text:"Full Length Photo", url:"", flag: false, backImg:"/assets/images/ic_photo_fullbody.svg", backSize: '35% auto', backPos: '50% 50%'},
-      {text:"Profile Photo",     url:"", flag: false, backImg:"/assets/images/ic_photo_profile.svg", backSize: '65% auto', backPos: '50% 100%'},
-      {text:"Additional Photo",  url:"", flag: false, backImg:"", backSize: "", backPos: ""},
-      {text:"Additional Photo",  url:"", flag: false, backImg:"", backSize: "", backPos: ""},
-      {text:"Additional Photo",  url:"", flag: false, backImg:"", backSize: "", backPos: ""},
+      {text:"Headshot Photo",    photoUrl:"", photoId: 0, photoTypeId: 1, photoWidth:0, photoHeight:0,
+                            flag: false, backImg:"/assets/images/ic_photo_head.svg", backSize: '80% auto', backPos: '50% 100%'},
+      {text:"Full Length Photo", photoUrl:"", photoId: 0, photoTypeId: 2, photoWidth:0, photoHeight:0,
+                            flag: false, backImg:"/assets/images/ic_photo_fullbody.svg", backSize: '35% auto', backPos: '50% 50%'},
+      {text:"Profile Photo",     photoUrl:"", photoId: 0, photoTypeId: 3, photoWidth:0, photoHeight:0,
+                            flag: false, backImg:"/assets/images/ic_photo_profile.svg", backSize: '65% auto', backPos: '50% 100%'},
+      {text:"Additional Photo",  photoUrl:"", photoId: 0, photoTypeId: 4, photoWidth:0, photoHeight:0,
+                            flag: false, backImg:"", backSize: "", backPos: ""},
+      {text:"Additional Photo",  photoUrl:"", photoId: 0, photoTypeId: 4, photoWidth:0, photoHeight:0,
+                            flag: false, backImg:"", backSize: "", backPos: ""},
+      {text:"Additional Photo",  uphotoUrl:"", photoId: 0, photoTypeId: 4, photoWidth:0, photoHeight:0,
+                            flag: false, backImg:"", backSize: "", backPos: ""},
     );
-    this.data = {file: "", photoTypeId: 0, photoWidth: 100, photoHeight: 100};
+
+    let i_add = 3;
+    for(let i = 0; i < this.profileService.profileData.photos.length; i++) {
+      this.data = this.profileService.profileData.photos[i];
+      if (this.data.photoTypeId < 4) {
+        alert(this.data.url);
+        this.photo_section_infor[this.data.photoTypeId - 1].photoId = this.data.photoTypeId;
+        this.photo_section_infor[this.data.photoTypeId - 1].photoUrl = this.data.url;
+        this.photo_section_infor[this.data.photoTypeId - 1].flag = true;
+      } else if (this.data.photoTypeId == 4) {
+        this.photo_section_infor[i_add].photoId = this.data.photoTypeId;
+        this.photo_section_infor[i_add].photoUrl = this.data.url;
+        i_add ++;
+      } 
+    }
+    console.log(this.photo_section_infor);
+
+    this.no_tmp = 0;    
+    this.data = {file: "", photoTypeId: 0, photoWidth: 0, photoHeight: 0};
   }
 
   onClose(num: number) {
@@ -66,14 +86,17 @@ export class EditTalentPhotosComponent implements OnInit {
           this.photo_section_infor[this.no_tmp].flag = true;
           this.data.photoWidth = image.width;
           this.data.photoHeight = image.height;
-          if(this.photo_section_infor[this.no_tmp].text === "Headshot Photo")    this.data.photoTypeId = 1;
-          if(this.photo_section_infor[this.no_tmp].text === "Full Length Photo") this.data.photoTypeId = 2;
-          if(this.photo_section_infor[this.no_tmp].text === "Profile Photo")     this.data.photoTypeId = 3;
-          if(this.photo_section_infor[this.no_tmp].text === "Additional Photo")  this.data.photoTypeId = 4;
-  
-          this.profileService.uploadPhoto(this.data.file, this.data.photoTypeId, this.data.photoWidth, this.data.photoHeight).subscribe( res => {
-            console.log(res);
-            this.photo_section_infor[this.no_tmp].url = res.photoUrl;
+          this.data.photoTypeId = this.photo_section_infor[this.no_tmp].photoTypeId;
+
+          this.profileService.uploadPhoto(
+            this.data.file, 
+            this.data.photoTypeId, 
+            this.data.photoWidth, 
+            this.data.photoHeight).subscribe( res => {
+              console.log(res);
+              this.photo_section_infor[this.no_tmp].photoUrl = res.photoUrl;
+              this.photo_section_infor[this.no_tmp].photoId = res.photoId;
+              this.photo_section_infor[this.no_tmp].photo = res.photoUrl;
           }, error => {
             console.log(error);
           });
