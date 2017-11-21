@@ -7,7 +7,7 @@ import { Ng2Webstorage } from 'ngx-webstorage';
 import { ModalModule, AlertModule } from 'ngx-bootstrap';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { SharedModule } from './shared/shared.module';
+import { SharedModule } from './shared/modules';
 import { AuthGuard } from './shared';
 import { HttpHelperService } from './core/http-helper.service';
 import { ApiRoutingService } from './core/api-routing.service';

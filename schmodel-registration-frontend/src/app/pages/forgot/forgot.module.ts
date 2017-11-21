@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { ForgotRoutingModule } from './forgot-routing.module';
 import { ForgotComponent } from './forgot.component';
-import { SharedModule } from '../../shared/shared.module';
+import { SharedModule } from '../../shared/modules';
 import { ResetPasswordService } from '../../core/services';
 
 @NgModule({
@@ -12,8 +12,8 @@ import { ResetPasswordService } from '../../core/services';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    ForgotRoutingModule,
     SharedModule,
+    ForgotRoutingModule,
   ],
   declarations: [ForgotComponent],
   providers: [
