@@ -39,7 +39,6 @@ export class ChangepasswordComponent implements OnInit {
     });
   }
   onChangeInput() {
-    console.log('thischange');
     this.missMatchPass = '';
     this.message = '';
   }

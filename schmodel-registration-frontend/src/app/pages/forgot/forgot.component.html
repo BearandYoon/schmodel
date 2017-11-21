@@ -13,9 +13,9 @@
         <form [formGroup]="forgotForm" (submit)="onReset()">
           <div class="form-content">
             <div class="form-group">
-              <input type="email" class="form-control input-underline input-lg" formControlName="email" id="email" placeholder="ENTER YOUR EMAIL">
+              <input type="email" class="form-control input-underline input-lg" formControlName="email" id="email" placeholder="ENTER YOUR EMAIL" (change)="onChangeInput()">
               <app-control-messages  [control]="forgotForm.controls.email"></app-control-messages>
-               <div>{{message}}</div>
+               <div class="alert">{{message}}</div>
             </div>
           </div>
           <div class="action-container">

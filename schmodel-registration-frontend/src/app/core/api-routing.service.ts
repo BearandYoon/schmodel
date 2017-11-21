@@ -29,7 +29,7 @@ export class ApiRoutingService {
   getChangePwdAPIUrl(): string {
     return this.baseUrl + '/talent/change-password';
   }
-  
+
   getProfileUpdatePasswordUrl(): string {
     return this.baseUrl + '/talent/edit-password';
   }
