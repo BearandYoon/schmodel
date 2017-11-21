@@ -53,4 +53,8 @@ export class ApiRoutingService {
   getUploadPhotoUrl(): string {
     return this.baseUrl + '/talent/upload-photo';
   }
+
+  getDeletePhotoUrl(): string {
+    return this.baseUrl + '/talent/delete-photo';
+  }
 }

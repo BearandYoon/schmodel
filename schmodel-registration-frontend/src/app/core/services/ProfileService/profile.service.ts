@@ -89,4 +89,14 @@ export class ProfileService {
       null
     );
   }
+
+  deletePhoto(photoId){
+    return this.http.post(
+      this.apiRoutingService.getDeletePhotoUrl(),
+      {photoId},
+      false,
+      true,
+      null
+    );
+  }
 }

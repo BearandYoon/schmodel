@@ -41,13 +41,13 @@ export class EditTalentPhotosComponent implements OnInit {
     for(let i = 0; i < this.profileService.profileData.photos.length; i++) {
       this.data = this.profileService.profileData.photos[i];
       if (this.data.photoTypeId < 4) {
-        alert(this.data.url);
-        this.photo_section_infor[this.data.photoTypeId - 1].photoId = this.data.photoTypeId;
+        this.photo_section_infor[this.data.photoTypeId - 1].photoId = this.data.id;
         this.photo_section_infor[this.data.photoTypeId - 1].photoUrl = this.data.url;
         this.photo_section_infor[this.data.photoTypeId - 1].flag = true;
       } else if (this.data.photoTypeId == 4) {
-        this.photo_section_infor[i_add].photoId = this.data.photoTypeId;
+        this.photo_section_infor[i_add].photoId = this.data.id;
         this.photo_section_infor[i_add].photoUrl = this.data.url;
+        this.photo_section_infor[i_add].flag = true;
         i_add ++;
       } 
     }
@@ -59,7 +59,12 @@ export class EditTalentPhotosComponent implements OnInit {
 
   onClose(num: number) {
     this.photo_section_infor[num].flag = false;
-    this.photo_section_infor[num].url = "";
+    this.photo_section_infor[num].photoUrl = "";
+    this.profileService.deletePhoto(this.photo_section_infor[num].photoId).subscribe( res => {
+      console.log(res);
+    }, error => {
+      console.log(error);
+    });
   }
 
   trackByFn(index: any, item: any) {
