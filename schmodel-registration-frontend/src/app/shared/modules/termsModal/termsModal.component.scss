@@ -32,6 +32,7 @@
   .content-wrapper {
     max-height: 300px;
     overflow: auto;
+    -webkit-overflow-scrolling: touch;
 
     .content {
       padding: 10px;
