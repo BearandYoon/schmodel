@@ -1,5 +1,5 @@
 const months = {
-  placeholder: 'MM',
+  placeholder: 'Month',
   options: [
     {
       value: '01',
@@ -53,7 +53,7 @@ const months = {
 };
 
 const days = {
-  placeholder: 'DD',
+  placeholder: 'Day',
   options: []
 };
 
@@ -65,7 +65,7 @@ for (let i = 1; i <= 31; i ++) {
 }
 
 const years = {
-  placeholder: 'YYYY',
+  placeholder: 'Year',
   options: []
 };
 
