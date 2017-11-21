@@ -5,18 +5,18 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChangepasswordRoutingModule } from './changepassword-routing.module';
 import { ChangepasswordComponent } from './changepassword.component';
 import { ChangePasswordService } from '../../core/services';
-import { ControlMessagesComponent } from '../../shared/modules';
+import { SharedModule } from '../../shared/modules';
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
+        SharedModule,
         ChangepasswordRoutingModule
     ],
     declarations: [
-        ChangepasswordComponent,
-        ControlMessagesComponent
+        ChangepasswordComponent
     ],
     providers: [
         ChangePasswordService
@@ -24,4 +24,3 @@ import { ControlMessagesComponent } from '../../shared/modules';
 })
 export class ChangepasswordModule {
 }
-

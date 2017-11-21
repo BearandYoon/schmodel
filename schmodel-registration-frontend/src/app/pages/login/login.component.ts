@@ -9,7 +9,7 @@ import { AuthenticationService } from '../../core/services';
 import { routerTransition } from '../../router.animations';
 import { ValidationService } from '../../shared/services';
 import { TermsModalComponent } from '../../shared/modules/termsModal/termsModal.component';
-import { AuthUser, TermsModalResponse, ValidationMessage } from '../../shared/models';
+import { AuthUser, ValidationMessage } from '../../shared/models';
 
 @Component({
     selector: 'app-login',
@@ -44,7 +44,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.message = '';
-    this.termsContent = ValidationMessage.TERMS_CONTENT;
+    this.termsContent = ValidationMessage.TERMS_CONTENT + ValidationMessage.TERMS_CONTENT + ValidationMessage.TERMS_CONTENT
+      + ValidationMessage.TERMS_CONTENT + ValidationMessage.TERMS_CONTENT + ValidationMessage.TERMS_CONTENT + ValidationMessage.TERMS_CONTENT
+      + ValidationMessage.TERMS_CONTENT + ValidationMessage.TERMS_CONTENT + ValidationMessage.TERMS_CONTENT + ValidationMessage.TERMS_CONTENT;
   }
 
   onSignIn() {

@@ -13,14 +13,14 @@
         <form [formGroup]="forgotForm" (submit)="onReset()">
           <div class="form-content">
             <div class="form-group">
-              <input type="email" class="form-control input-underline input-lg" formControlName="email" id="email" placeholder="ENTER YOUR EMAIL">
-              <app-control-message  [control]="forgotForm.controls.email"></app-control-message>
-               <div>{{message}}</div>
+              <input type="email" class="form-control input-underline input-lg" formControlName="email" id="email" placeholder="ENTER YOUR EMAIL" (change)="onChangeInput()">
+              <app-control-messages  [control]="forgotForm.controls.email"></app-control-messages>
+               <div class="alert">{{message}}</div>
             </div>
           </div>
           <div class="action-container">
             <div class="btn-submit-container">
-              <button class="btn bordered-btn" type="submit" [disabled]="!forgotForm.valid"> SUBMIT </button>
+              <button class="btn bordered-btn" type="submit" [disabled]="!forgotForm.valid || isSubmitting"> SUBMIT </button>
             </div>
           </div>
         </form>

@@ -29,7 +29,7 @@ export class ApiRoutingService {
   getChangePwdAPIUrl(): string {
     return this.baseUrl + '/talent/change-password';
   }
-  
+
   getProfileUpdatePasswordUrl(): string {
     return this.baseUrl + '/talent/edit-password';
   }
@@ -53,7 +53,6 @@ export class ApiRoutingService {
   getUploadPhotoUrl(): string {
     return this.baseUrl + '/talent/upload-photo';
   }
-
   getDeletePhotoUrl(): string {
     return this.baseUrl + '/talent/delete-photo';
   }
