@@ -4,6 +4,7 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { LocalStorageService } from 'ngx-webstorage';
 
+import { routerTransition } from '../../router.animations';
 import { ProfileService } from '../../core/services';
 import { SharedService } from '../../shared/services';
 import { ValidationMessage } from '../../shared/models';
@@ -13,7 +14,8 @@ import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  animations: [routerTransition()]
 })
 
 export class HomeComponent implements OnInit {
