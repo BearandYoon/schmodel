@@ -10,3 +10,5 @@ section {
     margin-bottom: 5px;
   }
 }
+
+ .required:before { content:" *"; }
