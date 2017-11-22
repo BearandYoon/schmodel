@@ -113,8 +113,8 @@ export class EditTalentPhotosComponent implements OnInit {
             this.messageModalRef.content.onCloseReason.subscribe(result => {});
           } else {
             this.photo_section_infor[this.no_tmp].flag = true;
-            this.data.photoWidth = window.innerWidth/3;
-            this.data.photoHeight = window.innerWidth/3;
+            this.data.photoWidth = Math.round(window.innerWidth/3);
+            this.data.photoHeight = Math.round(window.innerWidth/3);
             this.data.photoTypeId = this.photo_section_infor[this.no_tmp].photoTypeId;
 
             this.profileService.uploadPhoto(
