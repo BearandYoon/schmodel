@@ -128,7 +128,7 @@ export class HttpHelperService {
     let requestOptions = this.generateReqOptions(isUrlEncoded, requiredAuth, headers);
     if (body instanceof FormData) {
       requestOptions = this.generateReqOptions(isUrlEncoded, requiredAuth, headers, null, true);
-    } 
+    }
     return this.http
       .post( url, body, requestOptions)
       .map((response: Response) => {
@@ -228,7 +228,6 @@ export class HttpHelperService {
    */
   private handleError(error: Response | any) {
     if (error.status === 500) {
-      console.log('handleError = ', error.json());
       const body = error.json() || '';
       if (body.exception && body.exception === ErrorResponse.TOKEN_EXPIRE) {
         this.router.navigate(['login']);

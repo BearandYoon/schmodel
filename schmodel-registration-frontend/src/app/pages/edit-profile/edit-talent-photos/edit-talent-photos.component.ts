@@ -4,6 +4,7 @@ import { FormGroup } from '@angular/forms';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 
+import { MessageModalComponent } from '../../../shared/modules/messageModal/messageModal.component';
 import { ProfileService } from '../../../core/services';
 
 @Component({
@@ -106,7 +107,7 @@ export class EditTalentPhotosComponent implements OnInit {
         image.src = event.target.result;
         image.onload = function () {
           if(this.data.file.size >= 5*1024*1024) {
-            // this.messageModalRef = this.dlgService.show(MessageModalComponent, this.messageModalConfig);
+            this.messageModalRef = this.dlgService.show(MessageModalComponent, this.messageModalConfig);
             this.messageModalRef.content.messageContent = this.messageContent;
             this.messageModalRef.content.isBtnCancel = false;        
             this.messageModalRef.content.onCloseReason.subscribe(result => {});

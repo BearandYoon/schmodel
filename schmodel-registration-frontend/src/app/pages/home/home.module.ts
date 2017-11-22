@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
-import { UserService } from '../../core/services';
+import { ProfileService } from '../../core/services';
 
 @NgModule({
   imports: [
@@ -12,7 +12,7 @@ import { UserService } from '../../core/services';
   ],
   declarations: [HomeComponent],
   providers: [
-    UserService
+    ProfileService
   ]
 })
 export class HomeModule {

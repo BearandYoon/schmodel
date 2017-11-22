@@ -13,6 +13,10 @@ export class ProfileService {
     private apiRoutingService: ApiRoutingService
   ) { }
 
+  isProfileComplete() {
+    return this.http.get(this.apiRoutingService.getIsProfileCompleteAPIUrl(), {}, true, null);
+  }
+
   updatePassword(oldPassword, newPassword) {
     const body = {
       oldPassword,
@@ -74,9 +78,9 @@ export class ProfileService {
       console.log(error);
     });
   }
-  
+
   uploadPhoto(file, photoTypeId, photoWidth, photoHeight) {
-    let fd = new FormData();
+    const fd = new FormData();
     fd.append('file', file);
     fd.append('photoTypeId', photoTypeId);
     fd.append('photoWidth', photoWidth);
