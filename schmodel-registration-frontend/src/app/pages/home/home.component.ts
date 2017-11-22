@@ -4,7 +4,7 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { LocalStorageService } from 'ngx-webstorage';
 
-import { UserService } from '../../core/services';
+import { ProfileService } from '../../core/services';
 import { SharedService } from '../../shared/services';
 import { ValidationMessage } from '../../shared/models';
 import { TermsModalComponent } from '../../shared/modules';
@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
     public router: Router,
     private localStorage: LocalStorageService,
     private modalService: BsModalService,
-    private userService: UserService,
+    private profileService: ProfileService,
     private sharedService: SharedService
   ) {}
 
@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit {
       this.beforeTitle = ValidationMessage.BEFORE_COMPLETE_HOME_TITLE;
     }
 
-    this.userService.isProfileComplete().subscribe(res => {
+    this.profileService.isProfileComplete().subscribe(res => {
       this.isCompletedProfile = res.profileComplete;
     });
   }

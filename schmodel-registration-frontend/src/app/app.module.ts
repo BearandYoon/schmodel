@@ -12,7 +12,6 @@ import { AuthGuard } from './shared';
 import { HttpHelperService } from './core/http-helper.service';
 import { ApiRoutingService } from './core/api-routing.service';
 import { ValidationService, SharedService } from './shared/services';
-import { ValidTokenService } from './core/services';
 import { TermsModalComponent } from './shared/modules';
 import { LayoutModule } from './pages/layout/layout.module';
 
@@ -39,7 +38,6 @@ import { LayoutModule } from './pages/layout/layout.module';
     ApiRoutingService,
     AuthGuard,
     ValidationService,
-    ValidTokenService,
     SharedService
   ],
   entryComponents: [

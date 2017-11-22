@@ -5,7 +5,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { routerTransition } from '../../router.animations';
 import { ValidationService } from '../../shared/services';
 
-import { ResetPasswordService } from '../../core/services';
+import { AuthenticationService } from '../../core/services';
 import { ResetUser } from '../../shared/models';
 
 @Component({
@@ -24,7 +24,7 @@ export class ForgotComponent implements OnInit {
   constructor(
     public router: Router,
     private formBuilder: FormBuilder,
-    private resetPwdService: ResetPasswordService
+    private authService: AuthenticationService
   ) {
     this.forgotForm = this.formBuilder.group({
       'email': ['', [Validators.required, ValidationService.emailValidator]],
@@ -41,7 +41,7 @@ export class ForgotComponent implements OnInit {
     onReset() {
       this.resetUser.email = this.forgotForm.value.email;
       this.isSubmitting = true;
-      this.resetPwdService.resetPwd(this.resetUser).subscribe( res => {
+      this.authService.resetPwd(this.resetUser).subscribe( res => {
         if (!res.emailValid) {
           this.message = 'Enter your registered email address';
           return;
@@ -49,7 +49,6 @@ export class ForgotComponent implements OnInit {
           this.message = 'Please check your email to reset password';
           return;
         }
-        // this.router.navigate(['']);
       }, err => {
         console.log('resetPassword Error = ', err);
         this.message = 'Something went wrong.';

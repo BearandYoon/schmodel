@@ -4,7 +4,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 
 import { routerTransition } from '../../router.animations';
 import { ValidationService } from '../../shared/services';
-import { ChangePasswordService } from '../../core/services';
+import { AuthenticationService } from '../../core/services';
 import { NewPassword } from '../../shared/models';
 
 @Component({
@@ -23,7 +23,7 @@ export class ChangepasswordComponent implements OnInit {
     public router: Router,
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private changePwdService: ChangePasswordService
+    private authService: AuthenticationService
   ) {
     this.changePwdForm = this.formBuilder.group({
       'password': ['', [Validators.required, ValidationService.passwordValidator]],
@@ -49,7 +49,7 @@ export class ChangepasswordComponent implements OnInit {
     } else {
       this.user.newPassword = this.changePwdForm.value.password;
       this.user.token = this.token;
-      this.changePwdService.changePwd(this.user).subscribe( res => {
+      this.authService.changePwd(this.user).subscribe( res => {
         if (res.tokenValid === true && res.newPasswordValid === true) {
           this.router.navigate(['/']);
         } else {

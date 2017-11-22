@@ -1,7 +1,7 @@
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
-import { ValidTokenService } from '../../core/services';
+import { AuthenticationService } from '../../core/services';
 import { TokenUser } from '../../shared/models';
 
 @Component({
@@ -17,7 +17,7 @@ export class SetpasswordComponent implements OnInit {
   constructor(
     public router: Router,
     private activatedRoute: ActivatedRoute,
-    private validTokenService: ValidTokenService
+    private authService: AuthenticationService
   ) {
   }
 
@@ -28,7 +28,7 @@ export class SetpasswordComponent implements OnInit {
       const token = params['token'];
       this.tokenUser.token = token;
 
-      this.validTokenService.validateToken(this.tokenUser).subscribe( res => {
+      this.authService.validateToken(this.tokenUser).subscribe( res => {
         if (res.tokenValid === true) {
           this.router.navigate(['/change-password'], { queryParams: { token: token }});
         } else {

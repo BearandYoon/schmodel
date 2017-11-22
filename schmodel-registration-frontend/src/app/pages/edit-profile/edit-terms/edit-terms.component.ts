@@ -26,7 +26,7 @@ export class EditTermsComponent implements OnInit {
   createItem() {
     return this.formBuilder.group({
       term: ['', [Validators.required]]
-    })
+    });
   }
 
   ngOnInit() {
