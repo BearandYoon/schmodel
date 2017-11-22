@@ -38,6 +38,7 @@ export class EditProfileComponent implements OnInit {
   ) {
     const photoWidth = 400;
     const photoHeight = 400;
+    this.profileService.profileData = null;
     this.profileService.getProfileInfo(photoWidth, photoHeight);
   }
 
