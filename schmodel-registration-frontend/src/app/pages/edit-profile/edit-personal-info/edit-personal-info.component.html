@@ -35,11 +35,11 @@
       <sch-input-row formControlName="residentialAddressZipCode" label="Post/Zip code" maxlength="10"></sch-input-row>
       <div class="row">
         <label>Phone number</label>
-        <sch-dropdown formControlName="phoneCountryCode" category="phonePrefixes"></sch-dropdown>
+        <phone-code-select formControlName="phoneCountryCode" [preferredCountries]="['us', 'gb']"></phone-code-select>
         <input formControlName="phoneNumber">
       </div>
     </div>
-    <div class="edit-profile form-group form-group--bio">
+    <div class="form-group form-group--bio">
       <div class="row row--valign-top">
         <label>Biography<br/><span>(2000 words max.)</span></label>
         <textarea formControlName="biography" maxlength="2000">This is a test</textarea>

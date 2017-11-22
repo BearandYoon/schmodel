@@ -1,0 +1,26 @@
+<div class="phone-input allow-dropdown">
+  <div class="flag-container" dropdown>
+    <div class="selected-flag dropdown-toggle" dropdownToggle>
+      <div class="pi-arrow"></div>
+      <div>+ {{selectedCountry.dialCode}}</div>
+      <!-- <div class="pi-flag" [ngClass]="selectedCountry.flagClass"></div> -->
+    </div>
+    <ul class="country-list dropdown-menu" *dropdownMenu>
+      <li class="country" *ngFor="let country of preferredCountriesInDropDown" (click)="onCountrySelect(country, focusable)">
+        <div class="flag-box">
+          <div class="pi-flag" [ngClass]="country.flagClass"></div>
+        </div>
+        <span class="country-name">{{country.name}}</span>
+        <span class="dial-code">+{{country.dialCode}}</span>
+      </li>
+      <li class="divider"></li>
+      <li class="country" *ngFor="let country of allCountries" (click)="onCountrySelect(country, focusable)">
+        <div class="flag-box">
+          <div class="pi-flag" [ngClass]="country.flagClass"></div>
+        </div>
+        <span class="country-name">{{country.name}}</span>
+        <span class="dial-code">+{{country.dialCode}}</span>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -3,6 +3,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AccordionModule } from 'ngx-bootstrap';
 
+import { ComponentsModule } from '../../shared/components/components.module';
 import { SharedModule } from '../../shared/modules';
 import { EditProfileRoutingModule } from './edit-profile-routing.module';
 import { EditProfileComponent } from './edit-profile.component';
@@ -22,6 +23,7 @@ import { ProfileService } from '../../core/services';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    ComponentsModule,
     SharedModule,
     AccordionModule.forRoot(),
     EditProfileRoutingModule
