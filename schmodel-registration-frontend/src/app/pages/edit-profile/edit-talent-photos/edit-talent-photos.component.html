@@ -7,7 +7,7 @@
       <div class="photo-type">
         <div>
           <i class="icon-plus-circle" (click)="onUploadFile(i)"></i>
-          <input #fileInput type="file" [(ngModel)]="myFile" value="myFile" (change)="valuechange($event)" accept="image/*"/>
+          <input #fileInput type="file" [(ngModel)]="myFile" value="myFile" (change)="valuechange($event)" accept="image/gif, image/jpg, image/jpeg, image/png"/>
         </div>
         <p>{{val.text}}</p>
       </div>

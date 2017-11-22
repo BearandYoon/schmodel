@@ -13,12 +13,14 @@ import { HttpHelperService } from './core/http-helper.service';
 import { ApiRoutingService } from './core/api-routing.service';
 import { ValidationService, SharedService } from './shared/services';
 import { TermsModalComponent } from './shared/modules';
+import { MessageModalComponent } from './shared/modules';
 import { LayoutModule } from './pages/layout/layout.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TermsModalComponent
+    TermsModalComponent,
+    MessageModalComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,8 @@ import { LayoutModule } from './pages/layout/layout.module';
     SharedService
   ],
   entryComponents: [
-    TermsModalComponent
+    TermsModalComponent,
+    MessageModalComponent
   ],
   bootstrap: [AppComponent]
 })
