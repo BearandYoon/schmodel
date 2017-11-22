@@ -103,7 +103,7 @@ export class EditTalentPhotosComponent implements OnInit {
       this.data.file = event.target.files[0];
 
       reader.onload = (event:any) => {
-        let imgWidth, imgHeight, image = new Image();
+        let image = new Image();
         image.src = event.target.result;
         image.onload = function () {
           if(this.data.file.size >= 5*1024*1024) {
@@ -113,8 +113,8 @@ export class EditTalentPhotosComponent implements OnInit {
             this.messageModalRef.content.onCloseReason.subscribe(result => {});
           } else {
             this.photo_section_infor[this.no_tmp].flag = true;
-            this.data.photoWidth = image.width;
-            this.data.photoHeight = image.height;
+            this.data.photoWidth = window.innerWidth/3;
+            this.data.photoHeight = window.innerWidth/3;
             this.data.photoTypeId = this.photo_section_infor[this.no_tmp].photoTypeId;
 
             this.profileService.uploadPhoto(
