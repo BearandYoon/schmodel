@@ -40,7 +40,7 @@ export class EditTermsComponent implements OnInit {
     if (!clauses.length) {
       this.items.removeAt(0);
     }
-    while(this.items.length < clauses.length) {
+    while (this.items.length < clauses.length) {
       this.items.push(this.createItem());
     }
     this.editTermsForm.setValue({
@@ -50,6 +50,11 @@ export class EditTermsComponent implements OnInit {
 
   onAddTerm() {
     this.items = this.editTermsForm.get('items') as FormArray;
+    const itemsLength = this.items.length;
+    if (itemsLength && this.items._value[itemsLength - 1].term === '') {
+      return;
+    }
+
     this.items.push(this.createItem());
   }
 
