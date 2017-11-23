@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { ValidationService } from '../../../shared/services';
 import { ProfileService } from '../../../core/services';
@@ -11,6 +11,7 @@ import { ProfileService } from '../../../core/services';
 })
 export class EditProfilePasswordComponent implements OnInit {
 
+  @Output() collapseSection: EventEmitter<any> = new EventEmitter();
   editPasswordForm: FormGroup;
 
   constructor(
@@ -47,5 +48,9 @@ export class EditProfilePasswordComponent implements OnInit {
     }, error => {
       console.log(error);
     });
+  }
+
+  onCancel() {
+    this.collapseSection.emit();
   }
 }

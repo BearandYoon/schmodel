@@ -8,10 +8,10 @@
       <sch-dropdown-row  formControlName="languageIds" label="Languages *" description="(working proficiency)" [allowAddCategory]="'languages'" [items]="[]"></sch-dropdown-row>
     </div>
     <div class="form-group form-group--body">
-      <sch-dropdown-row  formControlName="bodyHeightId" label="Height *" [items]="['heights']"></sch-dropdown-row>
+      <sch-dropdown-row formControlName="bodyHeightId" label="Height *" [items]="['heights']"></sch-dropdown-row>
       <div class="row">
         <label>Bust/Chest *</label>
-        <div  class="flex-full">
+        <div class="flex-full">
           <sch-dropdown formControlName="bodyChestCircumferenceId" category="chestCircSizes"></sch-dropdown>
           <sch-dropdown formControlName="bodyChestCupSizeId" category="chestCupSizes"></sch-dropdown>
         </div>
@@ -41,7 +41,7 @@
     </div>
     <div class="form-group form-group--bio">
       <div class="row row--valign-top">
-        <label   >Biography<br/><span>(2000 words max.) *</span></label>
+        <label>Biography</label>
         <textarea formControlName="biography" maxlength="2000">This is a test</textarea>
       </div>
     </div>
@@ -56,7 +56,7 @@
     <div class="form-group form-group--submit">
       <div class="row">
         <button type="submit" class="btn btn--save" [disabled]="!editPersonalForm.valid">SAVE</button>
-        <button type="button" class="btn btn--cancel">CANCEL</button>
+        <button type="button" class="btn btn--cancel" (click)="onCancel()">CANCEL</button>
       </div>
     </div>
   </form>

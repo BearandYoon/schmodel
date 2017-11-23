@@ -1,5 +1,5 @@
 <accordion class="edit-profile" *ngIf="!!profileService.profileData" [closeOthers]="true">
-  <accordion-group *ngFor="let panel of panels" [isOpen]="panel.isOpen">
+  <accordion-group *ngFor="let panel of panels" [isOpen]="panel.isOpen" #sectionTemplate>
     <header accordion-heading>
       <p class="title">
         {{ panel.title }}
@@ -7,10 +7,10 @@
       <span class="icon icon-plus-circle"></span>
       <span class="icon icon-minus-circle"></span>
     </header>
-    <edit-profile-password *ngIf="panel.component=='edit-profile-password'"></edit-profile-password>
-    <edit-talent-photos *ngIf="panel.component=='edit-talent-photos'"></edit-talent-photos>
-    <edit-personal-info *ngIf="panel.component=='edit-personal-info'"></edit-personal-info>
-    <edit-terms *ngIf="panel.component=='edit-terms'"></edit-terms>
-    <edit-billing-info *ngIf="panel.component=='edit-billing-info'"></edit-billing-info>
+    <edit-profile-password *ngIf="panel.component=='edit-profile-password'" (collapseSection)="onCollapseSection(sectionTemplate)"></edit-profile-password>
+    <edit-talent-photos *ngIf="panel.component=='edit-talent-photos'" (collapseSection)="onCollapseSection(sectionTemplate)"></edit-talent-photos>
+    <edit-personal-info *ngIf="panel.component=='edit-personal-info'" (collapseSection)="onCollapseSection(sectionTemplate)"></edit-personal-info>
+    <edit-terms *ngIf="panel.component=='edit-terms'" (collapseSection)="onCollapseSection(sectionTemplate)"></edit-terms>
+    <edit-billing-info *ngIf="panel.component=='edit-billing-info'" (collapseSection)="onCollapseSection(sectionTemplate)"></edit-billing-info>
   </accordion-group>
 </accordion>

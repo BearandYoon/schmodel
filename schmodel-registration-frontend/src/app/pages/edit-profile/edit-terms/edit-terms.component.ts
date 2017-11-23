@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormArray, FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormArray, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { ValidationService } from '../../../shared/services';
 import { ProfileService } from '../../../core/services';
 
 @Component({
@@ -10,6 +9,7 @@ import { ProfileService } from '../../../core/services';
   styleUrls: ['./edit-terms.component.scss']
 })
 export class EditTermsComponent implements OnInit {
+  @Output() collapseSection: EventEmitter<any> = new EventEmitter();
 
   editTermsForm: FormGroup;
   items: any = [];
@@ -40,7 +40,7 @@ export class EditTermsComponent implements OnInit {
     if (!clauses.length) {
       this.items.removeAt(0);
     }
-    while(this.items.length < clauses.length) {
+    while (this.items.length < clauses.length) {
       this.items.push(this.createItem());
     }
     this.editTermsForm.setValue({
@@ -50,6 +50,11 @@ export class EditTermsComponent implements OnInit {
 
   onAddTerm() {
     this.items = this.editTermsForm.get('items') as FormArray;
+    const itemsLength = this.items.length;
+    if (itemsLength && this.items._value[itemsLength - 1].term === '') {
+      return;
+    }
+
     this.items.push(this.createItem());
   }
 
@@ -72,4 +77,7 @@ export class EditTermsComponent implements OnInit {
     });
   }
 
+  onCancel() {
+    this.collapseSection.emit();
+  }
 }

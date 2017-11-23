@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { ProfileService } from '../../../core/services';
 
@@ -10,6 +10,7 @@ import { ProfileService } from '../../../core/services';
 })
 export class EditBillingInfoComponent implements OnInit {
 
+  @Output() collapseSection: EventEmitter<any> = new EventEmitter();
   editBillingForm: FormGroup;
 
   constructor(
@@ -65,4 +66,7 @@ export class EditBillingInfoComponent implements OnInit {
     });
   }
 
+  onCancel() {
+    this.collapseSection.emit();
+  }
 }
