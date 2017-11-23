@@ -50,7 +50,7 @@ export class ForgotComponent implements OnInit {
         // this.router.navigate(['']);
       }, err => {
         this.emailValid = false;
-        console.log(err.json());
+        this.message = 'Something went wrong.';
       });
     }
 }
