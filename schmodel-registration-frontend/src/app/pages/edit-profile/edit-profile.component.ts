@@ -46,8 +46,5 @@ export class EditProfileComponent implements OnInit {
 
   onCollapseSection(sectionTemplate: TemplateRef<any>): void {
     sectionTemplate['isOpen'] = false;
-    const photoWidth = Math.round(window.innerWidth / 3);
-    const photoHeight = Math.round(window.innerWidth / 3);
-    this.profileService.getProfileInfo(photoWidth, photoHeight);
   }
 }
