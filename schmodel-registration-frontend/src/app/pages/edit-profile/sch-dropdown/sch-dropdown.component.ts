@@ -19,6 +19,7 @@ import { ProfileService } from '../../../core/services';
 export class SchDropdownComponent implements OnInit, ControlValueAccessor {
 
   @Input() category: string = '';
+  @Input() excludedValues: any = [];
   @Input('value') _value = '';
   onChange: any = () => { };
   onTouched: any = () => { };

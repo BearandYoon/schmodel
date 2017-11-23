@@ -4,6 +4,7 @@ export class ValidationService {
   static getValidatorErrorMessage(validatorName: string, validatorValue?: any) {
     const config = {
       'required': 'Required',
+      'emptyFields': 'Please complete the mandatory fields to Change password',
       'invalidEmailAddress': ValidationMessage.INVALID_EMAIL,
       'invalidPassword': ValidationMessage.INVALID_PASSWORD,
       'minlength': `Minimum length ${validatorValue.requiredLength}`

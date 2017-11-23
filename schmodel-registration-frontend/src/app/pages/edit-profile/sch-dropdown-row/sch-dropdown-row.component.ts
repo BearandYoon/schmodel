@@ -23,6 +23,7 @@ export class SchDropdownRowComponent implements ControlValueAccessor {
   onChange: any = () => { };
   onTouched: any = () => { };
   values: any = [];
+  excludedValues: any = [];
 
   get value() {
     return this._value;
@@ -68,12 +69,31 @@ export class SchDropdownRowComponent implements ControlValueAccessor {
     }
   }
 
+  adjustLists() {
+    if (!this.allowAddCategory) {
+      return;
+    }
+
+    const excludedValues = [];
+    for (let i = 0; i < this.items.length; i ++) {
+      const newValues = this.values.slice();
+      if (i < newValues.length) {
+        newValues.splice(i, 1);
+      }
+      excludedValues.push(newValues);
+    }
+
+    this.excludedValues = excludedValues;
+  }
+
   onValueChange(value, index) {
     while (this.values.length <= index) {
       this.values.push('');
     }
     this.values[index] = value;
     this.value = this.values.join('|');
+
+    this.adjustLists();
   }
 
   onClickAdd() {
@@ -83,5 +103,6 @@ export class SchDropdownRowComponent implements ControlValueAccessor {
     const newArray = this.items.slice();
     newArray.push(this.allowAddCategory);
     this.items = newArray;
+    this.adjustLists();
   }
 }
