@@ -1,4 +1,4 @@
 <select class="{{'select--'+category}}" [(ngModel)]="value">
   <option value="" disabled selected hidden>{{data.placeholder}}</option>
-  <option *ngFor="let option of data.options" [attr.value]="option.value">{{option.text}}</option>
+  <option *ngFor="let option of data.options" [attr.value]="option.value" [ngClass]="{'hidden': excludedValues?.indexOf(''+option.value) >= 0}">{{option.text}}</option>
 </select>
