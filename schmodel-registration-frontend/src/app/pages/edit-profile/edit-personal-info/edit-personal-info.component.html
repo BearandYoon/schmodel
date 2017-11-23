@@ -34,20 +34,25 @@
       <sch-input-row formControlName="residentialAddressLine2" label="Address2" maxlength="40"></sch-input-row>
       <sch-input-row  formControlName="residentialAddressZipCode" label="Post/Zip code *" maxlength="10"></sch-input-row>
       <div class="row  ">
-        <label   >Phone number *</label>
+        <label>Phone number *</label>
         <phone-code-select formControlName="phoneCountryCode" [preferredCountries]="['us', 'gb']"></phone-code-select>
         <input formControlName="phoneNumber">
       </div>
     </div>
     <div class="form-group form-group--bio">
       <div class="row row--valign-top">
-        <label>Biography</label>
+        <label>Biography *</label>
         <textarea formControlName="biography" maxlength="2000">This is a test</textarea>
       </div>
     </div>
     <div class="form-group form-group--social">
 
-      <label   ><span> * At least 2 of the following 4 are required</span></label>
+      <div class=" form-group--location">
+      <p>
+        <span>* At least 2 of the following 4 are required'</span>
+      </p>
+      </div>
+
       <sch-input-row formControlName="twitterUsername" label="Twitter" maxlength="50"></sch-input-row>
       <sch-input-row formControlName="instagramUsername" label="Instagram" maxlength="50"></sch-input-row>
       <sch-input-row formControlName="facebookUsername" label="Facebook" maxlength="50"></sch-input-row>
