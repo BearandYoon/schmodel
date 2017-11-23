@@ -1,12 +1,17 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { CountryCode } from '../../../shared/components/phone-code-select/country-code';
+import * as _ from 'google-libphonenumber';
 
 import { ProfileService } from '../../../core/services';
 
 @Component({
   selector: 'edit-personal-info',
   templateUrl: './edit-personal-info.component.html',
-  styleUrls: ['./edit-personal-info.component.scss']
+  styleUrls: ['./edit-personal-info.component.scss'],
+  providers: [
+    CountryCode
+  ]
 })
 export class EditPersonalInfoComponent implements OnInit {
   @Output() collapseSection: EventEmitter<any> = new EventEmitter();
@@ -17,7 +22,8 @@ export class EditPersonalInfoComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private profileService: ProfileService
+    private profileService: ProfileService,
+    private countryCodeData: CountryCode
   ) {
     this.editPersonalForm = formBuilder.group({
       'firstName': ['', [Validators.required]],
@@ -51,6 +57,24 @@ export class EditPersonalInfoComponent implements OnInit {
 
   ngOnInit() {
     this.initializePersonalForm();
+  }
+
+  getPhoneNumberPlaceHolder(countryCode: string): string {
+    for (const country of this.countryCodeData.allCountries) {
+      if (country[2].toString() === countryCode) {
+        countryCode = country[1].toString();
+      }
+    }
+
+    const defaultNumber = '1234567890';
+    const phoneUtil = _.PhoneNumberUtil.getInstance();
+    const pnf = _.PhoneNumberFormat;
+    try {
+      const phoneNumber = phoneUtil.parse(defaultNumber, countryCode);
+      return phoneUtil.format(phoneNumber, pnf.INTERNATIONAL);
+    } catch (e) {
+      return defaultNumber;
+    }
   }
 
   toDateFormatString() {
@@ -115,7 +139,7 @@ export class EditPersonalInfoComponent implements OnInit {
       residentialAddressLine1,
       residentialAddressLine2,
       residentialAddressZipCode,
-      phoneCountryCode,
+      phoneCountryCode: phoneCountryCode || '1',
       phoneNumber,
       citizenshipIds,
       languageIds,

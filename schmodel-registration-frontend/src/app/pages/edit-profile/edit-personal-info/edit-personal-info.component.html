@@ -1,76 +1,76 @@
 <section>
-    <form [formGroup]="editPersonalForm" (submit)="onSubmit()" (change)="onChange($event)" (keypress)="onChange($event)">
-    <div class="form-group form-group--personal">
-      <sch-input-row  formControlName="firstName" label="First Name *" maxlength="20"></sch-input-row>
-      <sch-input-row  formControlName="lastName" label="Last Name *" maxlength="20"></sch-input-row>
-      <sch-dropdown-row  formControlName="dateOfBirth" label="Date of Birth *" [items]="['days', 'months', 'years']"></sch-dropdown-row>
-      <sch-dropdown-row  formControlName="citizenshipIds" label="Citizenship *" [allowAddCategory]="'citizenships'" [items]="[]"></sch-dropdown-row>
-      <sch-dropdown-row  formControlName="languageIds" label="Languages *" description="(working proficiency)" [allowAddCategory]="'languages'" [items]="[]"></sch-dropdown-row>
-    </div>
-    <div class="form-group form-group--body">
-      <sch-dropdown-row formControlName="bodyHeightId" label="Height *" [items]="['heights']"></sch-dropdown-row>
-      <div class="row">
-        <label>Bust/Chest *</label>
-        <div class="flex-full">
-          <sch-dropdown formControlName="bodyChestCircumferenceId" category="chestCircSizes"></sch-dropdown>
-          <sch-dropdown formControlName="bodyChestCupSizeId" category="chestCupSizes"></sch-dropdown>
-        </div>
-      </div>
-      <sch-dropdown-row  formControlName="bodyWaistId" label="Waist *" [items]="['waistSizes']"></sch-dropdown-row>
-      <sch-dropdown-row  formControlName="bodyWeightId" label="Weight *" [items]="['weights']"></sch-dropdown-row>
-      <sch-dropdown-row  formControlName="dressSizeId" label="Dress Size *" [items]="['dressSizes']"></sch-dropdown-row>
-      <sch-dropdown-row  formControlName="hairColorId" label="Hair Color *" [items]="['hairColors']"></sch-dropdown-row>
-      <sch-dropdown-row  formControlName="eyeColorId" label="Eye Color *" [items]="['eyeColors']"></sch-dropdown-row>
-    </div>
-    <div class="form-group form-group--location">
-      <p>
-        <b>USUAL RESIDENCE</b><br/>
-        <span>This address may be different from 'billing address'</span>
-      </p>
-      <sch-dropdown-row  formControlName="residentialAddressCountryId" label="Country *" [items]="['countries']"></sch-dropdown-row>
-      <sch-input-row   formControlName="residentialAddressCity" label="City *" maxlength="15"></sch-input-row>
-      <sch-input-row  formControlName="residentialAddressState" label="State/Province *" maxlength="20"></sch-input-row>
-      <sch-input-row  formControlName="residentialAddressLine1" label="Address *" maxlength="40"></sch-input-row>
-      <sch-input-row formControlName="residentialAddressLine2" label="Address2" maxlength="40"></sch-input-row>
-      <sch-input-row  formControlName="residentialAddressZipCode" label="Post/Zip code *" maxlength="10"></sch-input-row>
-      <div class="row  ">
-        <label>Phone number *</label>
-        <phone-code-select formControlName="phoneCountryCode" [preferredCountries]="['us', 'gb']"></phone-code-select>
-        <input formControlName="phoneNumber">
+  <form [formGroup]="editPersonalForm" (submit)="onSubmit()" (change)="onChange($event)" (keypress)="onChange($event)">
+  <div class="form-group form-group--personal">
+    <sch-input-row  formControlName="firstName" label="First Name *" maxlength="20"></sch-input-row>
+    <sch-input-row  formControlName="lastName" label="Last Name *" maxlength="20"></sch-input-row>
+    <sch-dropdown-row  formControlName="dateOfBirth" label="Date of Birth *" [items]="['days', 'months', 'years']"></sch-dropdown-row>
+    <sch-dropdown-row  formControlName="citizenshipIds" label="Citizenship *" [allowAddCategory]="'citizenships'" [items]="[]"></sch-dropdown-row>
+    <sch-dropdown-row  formControlName="languageIds" label="Languages *" description="(working proficiency)" [allowAddCategory]="'languages'" [items]="[]"></sch-dropdown-row>
+  </div>
+  <div class="form-group form-group--body">
+    <sch-dropdown-row formControlName="bodyHeightId" label="Height *" [items]="['heights']"></sch-dropdown-row>
+    <div class="row">
+      <label>Bust/Chest *</label>
+      <div class="flex-full">
+        <sch-dropdown formControlName="bodyChestCircumferenceId" category="chestCircSizes"></sch-dropdown>
+        <sch-dropdown formControlName="bodyChestCupSizeId" category="chestCupSizes"></sch-dropdown>
       </div>
     </div>
-    <div class="form-group form-group--bio">
-      <div class="row row--valign-top">
-        <label>Biography *</label>
-        <textarea formControlName="biography" maxlength="2000">This is a test</textarea>
-      </div>
+    <sch-dropdown-row  formControlName="bodyWaistId" label="Waist *" [items]="['waistSizes']"></sch-dropdown-row>
+    <sch-dropdown-row  formControlName="bodyWeightId" label="Weight *" [items]="['weights']"></sch-dropdown-row>
+    <sch-dropdown-row  formControlName="dressSizeId" label="Dress Size *" [items]="['dressSizes']"></sch-dropdown-row>
+    <sch-dropdown-row  formControlName="hairColorId" label="Hair Color *" [items]="['hairColors']"></sch-dropdown-row>
+    <sch-dropdown-row  formControlName="eyeColorId" label="Eye Color *" [items]="['eyeColors']"></sch-dropdown-row>
+  </div>
+  <div class="form-group form-group--location">
+    <p>
+      <b>USUAL RESIDENCE</b><br/>
+      <span>This address may be different from 'billing address'</span>
+    </p>
+    <sch-dropdown-row  formControlName="residentialAddressCountryId" label="Country *" [items]="['countries']"></sch-dropdown-row>
+    <sch-input-row   formControlName="residentialAddressCity" label="City *" maxlength="15"></sch-input-row>
+    <sch-input-row  formControlName="residentialAddressState" label="State/Province *" maxlength="20"></sch-input-row>
+    <sch-input-row  formControlName="residentialAddressLine1" label="Address *" maxlength="40"></sch-input-row>
+    <sch-input-row formControlName="residentialAddressLine2" label="Address2" maxlength="40"></sch-input-row>
+    <sch-input-row  formControlName="residentialAddressZipCode" label="Post/Zip code *" maxlength="10"></sch-input-row>
+    <div class="row  ">
+      <label>Phone number *</label>
+      <phone-code-select formControlName="phoneCountryCode" [preferredCountries]="['us', 'gb']"></phone-code-select>
+      <input [attr.placeholder]="getPhoneNumberPlaceHolder(editPersonalForm.value.phoneCountryCode)" maxLength="10" formControlName="phoneNumber">
     </div>
-    <div class="form-group form-group--social">
+  </div>
+  <div class="form-group form-group--bio">
+    <div class="row row--valign-top">
+      <label>Biography *</label>
+      <textarea formControlName="biography" maxlength="2000">This is a test</textarea>
+    </div>
+  </div>
+  <div class="form-group form-group--social">
 
-      <div class=" form-group--location">
-        <p>
-          <span>* At least 2 of the following 4 are required'</span>
-        </p>
-        </div>
-
-        <sch-input-row formControlName="twitterUsername" label="Twitter" maxlength="50"></sch-input-row>
-      <sch-input-row formControlName="instagramUsername" label="Instagram" maxlength="50"></sch-input-row>
-      <sch-input-row formControlName="facebookUsername" label="Facebook" maxlength="50"></sch-input-row>
-      <sch-input-row formControlName="linkedinUsername" label="LinkedIn" maxlength="50"></sch-input-row>
-      <p *ngIf="socialInvalid" class="validation-error">Please provide the details of at least two social media accounts</p>
+    <div class=" form-group--location">
+    <p>
+      <span>* At least 2 of the following 4 are required'</span>
+    </p>
     </div>
-    <div class="form-group form-group--submit">
-      <div class="row">
-        <div>
-          <p *ngIf="btnSave">SAVED!</p>
-          <p *ngIf="!btnSave">&nbsp;</p>
-          <button type="submit" class="btn btn--save" [disabled]="!editPersonalForm.valid">SAVE</button>
-        </div>
-        <div>
-          <p> &nbsp;</p>
-          <button type="button" class="btn btn--cancel" (click)="onCancel()">CANCEL</button>
-        </div>
+
+    <sch-input-row formControlName="twitterUsername" label="Twitter" maxlength="50"></sch-input-row>
+    <sch-input-row formControlName="instagramUsername" label="Instagram" maxlength="50"></sch-input-row>
+    <sch-input-row formControlName="facebookUsername" label="Facebook" maxlength="50"></sch-input-row>
+    <sch-input-row formControlName="linkedinUsername" label="LinkedIn" maxlength="50"></sch-input-row>
+    <p *ngIf="socialInvalid" class="validation-error">Please provide the details of at least two social media accounts</p>
+  </div>
+  <div class="form-group form-group--submit">
+    <div class="row">
+      <div>
+        <p *ngIf="btnSave">SAVED!</p>
+        <p *ngIf="!btnSave">&nbsp;</p>
+        <button type="submit" class="btn btn--save" [disabled]="!editPersonalForm.valid">SAVE</button>
+      </div>
+      <div>
+        <p> &nbsp;</p>
+        <button type="button" class="btn btn--cancel" (click)="onCancel()">CANCEL</button>
       </div>
     </div>
-  </form>
+  </div>
+</form>
 </section>
