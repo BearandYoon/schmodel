@@ -144,10 +144,12 @@
   }
   .page-footer {
     width: 100%;
-    position: absolute;
+    position: relative;
     bottom: 0;
     text-align: center;
     color: #ffffff;
+    margin-top: 10vh;
+
 
     .logout-text {
        font-weight: 700;
@@ -202,4 +204,22 @@
   }
 }
 
+@media (min-width:768px ) and ( max-width: 800px){
+  .page-container {
+  
+  .page-footer {
+      width: 100%;
+      position: relative;
+      text-align: center;
+      color: #ffffff;
+      margin-top: 45vh;
+
+      .terms-condition {
+        font-weight: 200;
+        font-size: 12px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
 
