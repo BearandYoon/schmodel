@@ -71,8 +71,8 @@ export class EditPersonalInfoComponent implements OnInit {
     data.dateOfBirth = this.toDateFormatString();
     data.citizenshipIds = data.citizenshipIds.split('|');
     data.languageIds = data.languageIds.split('|');
-    console.log(data);
     this.profileService.updatePersonalInfo(data).subscribe( res => {
+      console.log(res);
       this.btnSave = true;
     }, error => {
       console.log(error);
@@ -152,6 +152,7 @@ export class EditPersonalInfoComponent implements OnInit {
 
   onCancel() {
     this.initializePersonalForm();
+    this.btnSave = false;
     this.collapseSection.emit();
   }
 }

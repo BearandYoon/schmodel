@@ -109,6 +109,7 @@ export class EditTermsComponent implements OnInit {
   }
 
   onCancel() {
+    this.btnSave = false;
     this.collapseSection.emit();
   }
 }
