@@ -67,7 +67,6 @@ export class EditTalentPhotosComponent implements OnInit {
         i_add ++;
       } 
     }
-    console.log(this.photo_section_infor);
     this.messageContent = "We can only accept photos smaller than 5MB. Please select another photo and try again.";
     this.no_tmp = -1;    
     this.data = {file: "", photoTypeId: 0, photoWidth: 0, photoHeight: 0};
