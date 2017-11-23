@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, TemplateRef } from '@angular/core';
 
 import { ProfileService } from '../../core/services';
 
@@ -9,7 +9,6 @@ import { ProfileService } from '../../core/services';
   encapsulation: ViewEncapsulation.None
 })
 export class EditProfileComponent implements OnInit {
-
   panels: any[] = [
     {
       component: 'edit-profile-password',
@@ -31,13 +30,13 @@ export class EditProfileComponent implements OnInit {
       component: 'edit-billing-info',
       title: 'BILLING INFORMATION'
     }
-  ]
+  ];
 
   constructor(
     private profileService: ProfileService
   ) {
-    const photoWidth = 400;
-    const photoHeight = 400;
+    const photoWidth = Math.round(window.innerWidth / 3);
+    const photoHeight = Math.round(window.innerWidth / 3);
     this.profileService.profileData = null;
     this.profileService.getProfileInfo(photoWidth, photoHeight);
   }
@@ -45,4 +44,10 @@ export class EditProfileComponent implements OnInit {
   ngOnInit() {
   }
 
+  onCollapseSection(sectionTemplate: TemplateRef<any>): void {
+    sectionTemplate['isOpen'] = false;
+    const photoWidth = Math.round(window.innerWidth / 3);
+    const photoHeight = Math.round(window.innerWidth / 3);
+    this.profileService.getProfileInfo(photoWidth, photoHeight);
+  }
 }

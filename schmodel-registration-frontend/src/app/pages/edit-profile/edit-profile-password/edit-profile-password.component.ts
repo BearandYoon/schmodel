@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { ValidationService } from '../../../shared/services';
 import { ProfileService } from '../../../core/services';
@@ -11,7 +11,9 @@ import { ProfileService } from '../../../core/services';
 })
 export class EditProfilePasswordComponent implements OnInit {
 
+  @Output() collapseSection: EventEmitter<any> = new EventEmitter();
   editPasswordForm: FormGroup;
+  btnSave: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -24,6 +26,10 @@ export class EditProfilePasswordComponent implements OnInit {
     }, {validator: this.areEqual});
   }
 
+  onChange(event: any) {
+    this.btnSave = false;
+  }
+  
   ngOnInit() {
     this.editPasswordForm.setValue({
       oldPassword: '',
@@ -44,8 +50,15 @@ export class EditProfilePasswordComponent implements OnInit {
   onSubmit() {
     const { oldPassword, newPassword } = this.editPasswordForm.value;
     this.profileService.updatePassword(oldPassword, newPassword).subscribe( res => {
+      if(res.oldPasswordValid && res.newPasswordValid) {
+        this.btnSave = true;
+      }
     }, error => {
       console.log(error);
     });
+  }
+
+  onCancel() {
+    this.collapseSection.emit();
   }
 }

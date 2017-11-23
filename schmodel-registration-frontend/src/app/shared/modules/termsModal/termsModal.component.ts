@@ -12,6 +12,7 @@ export class TermsModalComponent implements OnInit {
   termsContent: String;
   isBtnAgree: boolean;
   isScrollBottom: boolean;
+  isOnlyCancel: boolean;
   public onCloseReason: Subject<string>;
 
   constructor(
@@ -21,6 +22,7 @@ export class TermsModalComponent implements OnInit {
   ngOnInit() {
     this.onCloseReason = new Subject();
     this.isScrollBottom = false;
+    this.isOnlyCancel = false;
   }
 
   onScroll(event) {

@@ -58,6 +58,55 @@
     margin-bottom: 50px;
   }
 
+  .form-group {
+    input::-webkit-input-placeholder {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    input:-moz-placeholder { /* Firefox 18- */
+      color: rgba(255, 255, 255, 0.6) !important;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    input::-moz-placeholder { /* Firefox 19+ */
+      color: rgba(255, 255, 255, 0.6) !important;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    input:-ms-input-placeholder {
+      color: rgba(255, 255, 255, 0.6) !important;
+      font-family: 'Open Sans', sans-serif;
+      
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+   
+    .danger {
+      height:22px;
+      padding: 0px;
+      font-size: 14px;
+      background-color: transparent;
+      margin-top: 13px;
+      margin-bottom: 35px;
+      
+      .errormessage {
+        color: rgba(255, 4, 0, 0.52);
+      }
+      .validmessage {
+        color: rgb(255, 255, 255);
+      }
+    }
+  }
+  
   .action-container {
     text-transform: uppercase;
     font-family: 'Open Sans', sans-serif;

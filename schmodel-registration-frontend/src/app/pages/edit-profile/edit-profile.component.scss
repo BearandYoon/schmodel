@@ -16,6 +16,16 @@ accordion.edit-profile {
       border-radius: 0 !important;
       background-color: transparent;
     }
+    section {      
+      .row p {
+        font-family: 'Open Sans', sans-serif;
+        font-weight: bold;
+        font-size: 9px;
+        margin-bottom: 0;
+        margin-right: 13px;
+        text-align: center;
+      }
+    }
 
     header {
       width: 100%;

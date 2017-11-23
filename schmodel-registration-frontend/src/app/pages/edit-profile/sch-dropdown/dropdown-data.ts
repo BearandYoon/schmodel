@@ -61,7 +61,7 @@ for (let i = 1; i <= 31; i ++) {
   days.options.push({
     value: ('0' + i).slice(-2),
     text: i
-  })
+  });
 }
 
 const years = {
@@ -73,7 +73,7 @@ for (let i = 1970; i <= 2000; i ++) {
   years.options.push({
     value: i,
     text: i
-  })
+  });
 }
 
 const phonePrefixes = {

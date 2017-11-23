@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { ProfileService } from '../../../core/services';
 
@@ -10,7 +10,9 @@ import { ProfileService } from '../../../core/services';
 })
 export class EditBillingInfoComponent implements OnInit {
 
+  @Output() collapseSection: EventEmitter<any> = new EventEmitter();
   editBillingForm: FormGroup;
+  btnSave: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -56,13 +58,21 @@ export class EditBillingInfoComponent implements OnInit {
     });
   }
 
+  onChange(event: any) {
+    this.btnSave = false;
+  }
+
   onSubmit() {
     const data = {...this.editBillingForm.value};
     console.log(data);
     this.profileService.updateBillingInfo(data).subscribe( res => {
+      this.btnSave = true;
     }, error => {
       console.log(error);
     });
   }
 
+  onCancel() {
+    this.collapseSection.emit();
+  }
 }

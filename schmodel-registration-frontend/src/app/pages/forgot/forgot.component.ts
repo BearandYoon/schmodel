@@ -16,23 +16,25 @@ import { ResetUser } from '../../shared/models';
 })
 export class ForgotComponent implements OnInit {
   forgotForm: any;
-  missMatchPass: string;
   resetUser: ResetUser = new ResetUser();
   message: string;
   isSubmitting: boolean;
+  emailValid: boolean;
 
   constructor(
     public router: Router,
     private formBuilder: FormBuilder,
-    private authService: AuthenticationService
+    private resetPwdService: AuthenticationService
   ) {
     this.forgotForm = this.formBuilder.group({
       'email': ['', [Validators.required, ValidationService.emailValidator]],
     });
+    this.emailValid = false;
     this.isSubmitting = false;
   }
   onChangeInput() {
     this.message = '';
+    this.isSubmitting = false;
   }
 
   ngOnInit() {
@@ -41,16 +43,13 @@ export class ForgotComponent implements OnInit {
     onReset() {
       this.resetUser.email = this.forgotForm.value.email;
       this.isSubmitting = true;
-      this.authService.resetPwd(this.resetUser).subscribe( res => {
-        if (!res.emailValid) {
-          this.message = 'Enter your registered email address';
+      this.resetPwdService.resetPwd(this.resetUser).subscribe( res => {
+          this.emailValid = true;
+          this.message = 'If we found your email address in our database, we just sent you an email with instructions on how to reset your password';
           return;
-        }else {
-          this.message = 'Please check your email to reset password';
-          return;
-        }
+        // this.router.navigate(['']);
       }, err => {
-        console.log('resetPassword Error = ', err);
+        this.emailValid = false;
         this.message = 'Something went wrong.';
       });
     }

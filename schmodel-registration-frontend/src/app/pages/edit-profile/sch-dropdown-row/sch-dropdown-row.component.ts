@@ -96,10 +96,10 @@ export class SchDropdownRowComponent implements ControlValueAccessor {
 
   onClickAdd() {
     const newArray = this.items.slice();
-    newArray.push(this.allowAddCategory);
-    this.items = newArray;
-
-    this.adjustLists();
+    if (newArray.length === this.values.length) {
+      newArray.push(this.allowAddCategory);
+      this.items = newArray;
+      this.adjustLists();
+    }
   }
-
 }

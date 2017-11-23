@@ -3,6 +3,14 @@ section {
   flex-wrap: wrap;
   padding: 4px 0 18px;
 
+  p {
+    font-size: 8px;
+    width: 100%;
+    color: white;
+    margin-bottom: 6px;
+    margin-top: 6px;
+  }
+
   .item {
     width: 33.33%;
     position: relative;

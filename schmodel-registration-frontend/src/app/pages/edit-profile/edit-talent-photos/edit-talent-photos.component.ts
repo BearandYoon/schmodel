@@ -67,7 +67,6 @@ export class EditTalentPhotosComponent implements OnInit {
         i_add ++;
       } 
     }
-    console.log(this.photo_section_infor);
     this.messageContent = "We can only accept photos smaller than 5MB. Please select another photo and try again.";
     this.no_tmp = -1;    
     this.data = {file: "", photoTypeId: 0, photoWidth: 0, photoHeight: 0};
@@ -103,7 +102,7 @@ export class EditTalentPhotosComponent implements OnInit {
       this.data.file = event.target.files[0];
 
       reader.onload = (event:any) => {
-        let imgWidth, imgHeight, image = new Image();
+        let image = new Image();
         image.src = event.target.result;
         image.onload = function () {
           if(this.data.file.size >= 5*1024*1024) {
@@ -113,8 +112,8 @@ export class EditTalentPhotosComponent implements OnInit {
             this.messageModalRef.content.onCloseReason.subscribe(result => {});
           } else {
             this.photo_section_infor[this.no_tmp].flag = true;
-            this.data.photoWidth = image.width;
-            this.data.photoHeight = image.height;
+            this.data.photoWidth = Math.round(window.innerWidth/3);
+            this.data.photoHeight = Math.round(window.innerWidth/3);
             this.data.photoTypeId = this.photo_section_infor[this.no_tmp].photoTypeId;
 
             this.profileService.uploadPhoto(
