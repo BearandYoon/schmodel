@@ -13,6 +13,7 @@ export class EditProfilePasswordComponent implements OnInit {
 
   @Output() collapseSection: EventEmitter<any> = new EventEmitter();
   editPasswordForm: FormGroup;
+  btnSave: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -25,6 +26,10 @@ export class EditProfilePasswordComponent implements OnInit {
     }, {validator: this.areEqual});
   }
 
+  onChange(event: any) {
+    this.btnSave = false;
+  }
+  
   ngOnInit() {
     this.editPasswordForm.setValue({
       oldPassword: '',
@@ -45,6 +50,9 @@ export class EditProfilePasswordComponent implements OnInit {
   onSubmit() {
     const { oldPassword, newPassword } = this.editPasswordForm.value;
     this.profileService.updatePassword(oldPassword, newPassword).subscribe( res => {
+      if(res.oldPasswordValid && res.newPasswordValid) {
+        this.btnSave = true;
+      }
     }, error => {
       console.log(error);
     });

@@ -1,5 +1,5 @@
 <section>
-  <form [formGroup]="editPersonalForm" (submit)="onSubmit()">
+    <form [formGroup]="editPersonalForm" (submit)="onSubmit()" (change)="onChange($event)" (keypress)="onChange($event)">
     <div class="form-group form-group--personal">
       <sch-input-row  formControlName="firstName" label="First Name *" maxlength="20"></sch-input-row>
       <sch-input-row  formControlName="lastName" label="Last Name *" maxlength="20"></sch-input-row>
@@ -55,8 +55,15 @@
     </div>
     <div class="form-group form-group--submit">
       <div class="row">
-        <button type="submit" class="btn btn--save" [disabled]="!editPersonalForm.valid">SAVE</button>
-        <button type="button" class="btn btn--cancel" (click)="onCancel()">CANCEL</button>
+        <div>
+          <p *ngIf="btnSave">SAVED!</p>
+          <p *ngIf="!btnSave">&nbsp;</p>
+          <button type="submit" class="btn btn--save" [disabled]="!editPersonalForm.valid">SAVE</button>
+        </div>
+        <div>
+          <p> &nbsp;</p>
+          <button type="button" class="btn btn--cancel">CANCEL</button>
+        </div>
       </div>
     </div>
   </form>

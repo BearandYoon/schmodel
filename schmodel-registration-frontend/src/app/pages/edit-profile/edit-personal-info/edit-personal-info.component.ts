@@ -12,7 +12,7 @@ export class EditPersonalInfoComponent implements OnInit {
   @Output() collapseSection: EventEmitter<any> = new EventEmitter();
 
   editPersonalForm: FormGroup;
-
+  btnSave: boolean;
   constructor(
     private formBuilder: FormBuilder,
     private profileService: ProfileService
@@ -129,6 +129,10 @@ export class EditPersonalInfoComponent implements OnInit {
     return `${parts[2]}|${parts[1]}|${parts[0]}`;
   }
 
+  onChange(event: any) {
+    this.btnSave = false;
+  }
+
   onSubmit() {
     const data = {...this.editPersonalForm.value};
     data.dateOfBirth = this.toDateFormatString();
@@ -136,6 +140,7 @@ export class EditPersonalInfoComponent implements OnInit {
     data.languageIds = data.languageIds.split('|');
     console.log(data);
     this.profileService.updatePersonalInfo(data).subscribe( res => {
+      this.btnSave = true;
     }, error => {
       console.log(error);
     });

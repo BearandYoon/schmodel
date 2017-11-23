@@ -1,5 +1,5 @@
 <section>
-  <form [formGroup]="editTermsForm" (submit)="onSubmit()">
+    <form [formGroup]="editTermsForm" (submit)="onSubmit()" (change)="onChange($event)" (keypress)="onChange($event)">
     <div formArrayName="items" *ngFor="let item of editTermsForm.get('items').controls; let i = index;">
       <div [formGroupName]="i" class="item">
         <span>{{i+1}}.</span>
@@ -18,8 +18,15 @@
     </p>
     <div class="form-group form-group--submit">
       <div class="row">
-        <button type="submit" class="btn btn--save" [disabled]="!editTermsForm.valid">SAVE</button>
-        <button type="button" class="btn btn--cancel" (click)="onCancel()">CANCEL</button>
+        <div>
+          <p *ngIf="btnSave">SAVED!</p>
+          <p *ngIf="!btnSave">&nbsp;</p>
+          <button type="submit" class="btn btn--save" [disabled]="!editTermsForm.valid">SAVE</button>
+        </div>
+        <div>
+          <p> &nbsp;</p>
+          <button type="button" class="btn btn--cancel">CANCEL</button>
+        </div>
       </div>
     </div>
   </form>
