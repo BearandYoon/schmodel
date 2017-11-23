@@ -74,8 +74,11 @@ export class EditTermsComponent implements OnInit {
   }
 
   onAddTerm() {
-    this.btnSave = false;
     this.items = this.editTermsForm.get('items') as FormArray;
+    const itemsLength = this.items.length;
+    if (itemsLength && this.items._value[itemsLength - 1].term === '') {
+      return;
+    }
     this.items.push(this.createItem());
   }
 
@@ -102,5 +105,9 @@ export class EditTermsComponent implements OnInit {
     }, error => {
       console.log(error);
     });
+  }
+
+  onCancel() {
+    this.collapseSection.emit();
   }
 }
