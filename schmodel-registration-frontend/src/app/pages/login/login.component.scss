@@ -211,3 +211,5 @@ $topnav-background-color: #222;
     }
   }
 }
+
+.required:before { content:" *"; }

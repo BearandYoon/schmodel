@@ -71,7 +71,6 @@ export class EditTermsComponent implements OnInit {
     const data = {
       clauses: this.editTermsForm.value.items.map(e => e.term)
     };
-    console.log(data);
     this.profileService.updateTerms(data).subscribe( res => {
     }, error => {
       console.log(error);
