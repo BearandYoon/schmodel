@@ -1,4 +1,4 @@
-import { Component, Input, forwardRef } from '@angular/core';
+import { Component, OnInit, Input, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import * as dropdownData from './dropdown-data';
 
@@ -16,7 +16,7 @@ import { ProfileService } from '../../../core/services';
     }
   ]
 })
-export class SchDropdownComponent implements ControlValueAccessor {
+export class SchDropdownComponent implements OnInit, ControlValueAccessor {
 
   @Input() category: string = '';
   @Input() excludedValues: any = [];
@@ -48,18 +48,16 @@ export class SchDropdownComponent implements ControlValueAccessor {
   }
 
   writeValue(value) {
-    if (value) {
-      this.value = value;
-    }
+    this.value = value;
   }
 
   ngOnInit() {
-    let placeholder = '';
+    const placeholder = '';
     const options = [];
     if (this.category === 'countries') {
       const data = this.profileService.profileData.allCountries;
       if (data) {
-        for (let item of data) {
+        for (const item of data) {
           options.push({
             value: item.id,
             text: item.name
@@ -69,7 +67,7 @@ export class SchDropdownComponent implements ControlValueAccessor {
     } else if (this.category === 'citizenships') {
       const data = this.profileService.profileData.allCitizenships;
       if (data) {
-        for (let item of data) {
+        for (const item of data) {
           options.push({
             value: item.id,
             text: item.name
@@ -79,7 +77,7 @@ export class SchDropdownComponent implements ControlValueAccessor {
     } else if (this.category === 'languages') {
       const data = this.profileService.profileData.allLanguages;
       if (data) {
-        for (let item of data) {
+        for (const item of data) {
           options.push({
             value: item.id,
             text: item.name
@@ -89,7 +87,7 @@ export class SchDropdownComponent implements ControlValueAccessor {
     } else if (this.category === 'eyeColors') {
       const data = this.profileService.profileData.allEyeColors;
       if (data) {
-        for (let item of data) {
+        for (const item of data) {
           options.push({
             value: item.id,
             text: item.name
@@ -99,7 +97,7 @@ export class SchDropdownComponent implements ControlValueAccessor {
     } else if (this.category === 'hairColors') {
       const data = this.profileService.profileData.allHairColors;
       if (data) {
-        for (let item of data) {
+        for (const item of data) {
           options.push({
             value: item.id,
             text: item.name
@@ -109,7 +107,7 @@ export class SchDropdownComponent implements ControlValueAccessor {
     } else if (this.category === 'dressSizes') {
       const data = this.profileService.profileData.allDressSizes;
       if (data) {
-        for (let item of data) {
+        for (const item of data) {
           options.push({
             value: item.id,
             text: `UK ${item.ukValue} / EU ${item.euValue} / US ${item.usValue}`
@@ -119,7 +117,7 @@ export class SchDropdownComponent implements ControlValueAccessor {
     } else if (this.category === 'heights') {
       const data = this.profileService.profileData.allBodyHeights;
       if (data) {
-        for (let item of data) {
+        for (const item of data) {
           options.push({
             value: item.id,
             text: `${Math.floor(item.valueInch / 12)}'${item.valueInch % 12}" / ${item.valueCm}cm`
@@ -129,7 +127,7 @@ export class SchDropdownComponent implements ControlValueAccessor {
     } else if (this.category === 'waistSizes') {
       const data = this.profileService.profileData.allBodyWaists;
       if (data) {
-        for (let item of data) {
+        for (const item of data) {
           options.push({
             value: item.id,
             text: `${item.valueDeciInch / 10}" / ${item.valueCm}cm`
@@ -139,7 +137,7 @@ export class SchDropdownComponent implements ControlValueAccessor {
     } else if (this.category === 'weights') {
       const data = this.profileService.profileData.allBodyWeights;
       if (data) {
-        for (let item of data) {
+        for (const item of data) {
           options.push({
             value: item.id,
             text: `${item.valueLb}lbs / ${item.valueHg / 10}kg`
@@ -149,7 +147,7 @@ export class SchDropdownComponent implements ControlValueAccessor {
     } else if (this.category === 'chestCircSizes') {
       const data = this.profileService.profileData.allBodyChestCircumferences;
       if (data) {
-        for (let item of data) {
+        for (const item of data) {
           options.push({
             value: item.id,
             text: `UK ${item.ukValue} / EU ${item.euValue} / US ${item.usValue}`
@@ -159,7 +157,7 @@ export class SchDropdownComponent implements ControlValueAccessor {
     } else if (this.category === 'chestCupSizes') {
       const data = this.profileService.profileData.allBodyChestCupSizes;
       if (data) {
-        for (let item of data) {
+        for (const item of data) {
           options.push({
             value: item.id,
             text: `UK ${item.ukValue} / EU ${item.euValue} / US ${item.usValue}`

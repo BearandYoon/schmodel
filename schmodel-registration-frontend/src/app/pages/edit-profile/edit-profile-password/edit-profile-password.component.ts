@@ -29,7 +29,7 @@ export class EditProfilePasswordComponent implements OnInit {
   onChange(event: any) {
     this.btnSave = false;
   }
-  
+
   ngOnInit() {
     this.editPasswordForm.setValue({
       oldPassword: '',
@@ -59,6 +59,7 @@ export class EditProfilePasswordComponent implements OnInit {
   }
 
   onCancel() {
+    this.btnSave = false;
     this.collapseSection.emit();
   }
 }

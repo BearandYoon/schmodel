@@ -62,8 +62,10 @@ export class SchDropdownRowComponent implements ControlValueAccessor {
   }
 
   writeValue(value) {
-    if (value) {
-      this.value = value;
+    this.value = value;
+    if (this.allowAddCategory) {
+      this.items = [];
+      this.values.map(x => this.items.push(this.allowAddCategory));
     }
   }
 
@@ -95,11 +97,12 @@ export class SchDropdownRowComponent implements ControlValueAccessor {
   }
 
   onClickAdd() {
-    const newArray = this.items.slice();
-    if (newArray.length === this.values.length) {
-      newArray.push(this.allowAddCategory);
-      this.items = newArray;
-      this.adjustLists();
+    if (this.values.length && this.values[this.values.length - 1] === '') {
+      return;
     }
+    const newArray = this.items.slice();
+    newArray.push(this.allowAddCategory);
+    this.items = newArray;
+    this.adjustLists();
   }
 }

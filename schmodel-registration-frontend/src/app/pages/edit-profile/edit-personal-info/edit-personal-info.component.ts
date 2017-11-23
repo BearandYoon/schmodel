@@ -50,6 +50,21 @@ export class EditPersonalInfoComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.initializePersonalForm();
+  }
+
+  toDateFormatString() {
+    const parts = this.editPersonalForm.value.dateOfBirth.split('|');
+    return `${parts[2]}-${parts[1]}-${parts[0]}`;
+  }
+
+  toDateFormatValue(dateStr) {
+    if (!dateStr) return null;
+    const parts = dateStr.split('-');
+    return `${parts[2]}|${parts[1]}|${parts[0]}`;
+  }
+
+  initializePersonalForm() {
     const {
       firstName,
       lastName,
@@ -120,17 +135,6 @@ export class EditPersonalInfoComponent implements OnInit {
     });
   }
 
-  toDateFormatString() {
-    const parts = this.editPersonalForm.value.dateOfBirth.split('|');
-    return `${parts[2]}-${parts[1]}-${parts[0]}`;
-  }
-
-  toDateFormatValue(dateStr) {
-    if (!dateStr) return null;
-    const parts = dateStr.split('-');
-    return `${parts[2]}|${parts[1]}|${parts[0]}`;
-  }
-
   validateSocialAccounts = (f: FormGroup) => {
     const data = f.value;
     let filledCount = 0;
@@ -174,8 +178,8 @@ export class EditPersonalInfoComponent implements OnInit {
     data.dateOfBirth = this.toDateFormatString();
     data.citizenshipIds = data.citizenshipIds.split('|');
     data.languageIds = data.languageIds.split('|');
-    console.log(data);
     this.profileService.updatePersonalInfo(data).subscribe( res => {
+      console.log(res);
       this.btnSave = true;
     }, error => {
       console.log(error);
@@ -183,6 +187,8 @@ export class EditPersonalInfoComponent implements OnInit {
   }
 
   onCancel() {
+    this.initializePersonalForm();
+    this.btnSave = false;
     this.collapseSection.emit();
   }
 }
