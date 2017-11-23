@@ -13,6 +13,8 @@ export class EditPersonalInfoComponent implements OnInit {
 
   editPersonalForm: FormGroup;
   btnSave: boolean;
+  socialInvalid: boolean = false;
+
   constructor(
     private formBuilder: FormBuilder,
     private profileService: ProfileService
@@ -39,12 +41,12 @@ export class EditPersonalInfoComponent implements OnInit {
       'dressSizeId': ['', [Validators.required]],
       'hairColorId': ['', [Validators.required]],
       'eyeColorId': ['', [Validators.required]],
-      'twitterUsername': ['', [Validators.required]],
-      'instagramUsername': ['', [Validators.required]],
-      'facebookUsername': ['', [Validators.required]],
-      'linkedinUsername': ['', [Validators.required]],
+      'twitterUsername': ['', []],
+      'instagramUsername': ['', []],
+      'facebookUsername': ['', []],
+      'linkedinUsername': ['', []],
       'biography': ['', [Validators.required]]
-    });
+    }, {validator: this.validateSocialAccounts});
   }
 
   ngOnInit() {
@@ -127,6 +129,40 @@ export class EditPersonalInfoComponent implements OnInit {
     if (!dateStr) return null;
     const parts = dateStr.split('-');
     return `${parts[2]}|${parts[1]}|${parts[0]}`;
+  }
+
+  validateSocialAccounts = (f: FormGroup) => {
+    const data = f.value;
+    let filledCount = 0;
+    if (data.twitterUsername && data.twitterUsername.length) {
+      filledCount ++;
+    }
+    if (data.facebookUsername && data.facebookUsername.length) {
+      filledCount ++;
+    }
+    if (data.instagramUsername && data.instagramUsername.length) {
+      filledCount ++;
+    }
+    if (data.linkedinUsername && data.linkedinUsername.length) {
+      filledCount ++;
+    }
+
+    if (filledCount < 2) {
+      const touched = f.controls &&
+                      (f.controls.twitterUsername.touched
+                      || f.controls.facebookUsername.touched
+                      || f.controls.instagramUsername.touched
+                      || f.controls.linkedinUsername.touched);
+      if (touched) {
+        this.socialInvalid = true;
+      }
+
+      return { socialInvalid: true };
+    } else {
+      this.socialInvalid = false;
+    }
+
+    return null;
   }
 
   onChange(event: any) {
