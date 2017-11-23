@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormArray, FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormArray, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { ValidationService } from '../../../shared/services';
 import { ProfileService } from '../../../core/services';
 
 @Component({
@@ -10,6 +9,7 @@ import { ProfileService } from '../../../core/services';
   styleUrls: ['./edit-terms.component.scss']
 })
 export class EditTermsComponent implements OnInit {
+  @Output() collapseSection: EventEmitter<any> = new EventEmitter();
 
   editTermsForm: FormGroup;
   items: any = [];
@@ -73,4 +73,7 @@ export class EditTermsComponent implements OnInit {
     });
   }
 
+  onCancel() {
+    this.collapseSection.emit();
+  }
 }

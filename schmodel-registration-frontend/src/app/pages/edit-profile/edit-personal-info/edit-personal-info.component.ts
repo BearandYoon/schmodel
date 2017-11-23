@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 
 import { ProfileService } from '../../../core/services';
@@ -9,6 +9,7 @@ import { ProfileService } from '../../../core/services';
   styleUrls: ['./edit-personal-info.component.scss']
 })
 export class EditPersonalInfoComponent implements OnInit {
+  @Output() collapseSection: EventEmitter<any> = new EventEmitter();
 
   editPersonalForm: FormGroup;
 
@@ -140,4 +141,7 @@ export class EditPersonalInfoComponent implements OnInit {
     });
   }
 
+  onCancel() {
+    this.collapseSection.emit();
+  }
 }
