@@ -46,6 +46,18 @@ export class EditTermsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.initializeEditTermsForm();
+    this.termsContent = ValidationMessage.TERMS_CONTENT;
+    this.btnSave = false;
+  }
+
+  initializeEditTermsForm() {
+    this.editTermsForm = null;
+    this.items = [];
+    this.editTermsForm = this.formBuilder.group({
+      items: this.formBuilder.array([this.createItem()])
+    });
+
     let clauses = this.profileService.profileData.clauses;
     if (!clauses || !clauses.length) {
       clauses = [];
@@ -56,14 +68,12 @@ export class EditTermsComponent implements OnInit {
     if (!clauses.length) {
       this.items.removeAt(0);
     }
-    while(this.items.length < clauses.length) {
+    while (this.items.length < clauses.length) {
       this.items.push(this.createItem());
     }
     this.editTermsForm.setValue({
       items: clauses
     });
-    this.termsContent = ValidationMessage.TERMS_CONTENT;
-    this.btnSave = false;
   }
 
   onTC() {
@@ -110,6 +120,7 @@ export class EditTermsComponent implements OnInit {
   }
 
   onCancel() {
+    this.initializeEditTermsForm();
     this.btnSave = false;
     this.collapseSection.emit();
   }
