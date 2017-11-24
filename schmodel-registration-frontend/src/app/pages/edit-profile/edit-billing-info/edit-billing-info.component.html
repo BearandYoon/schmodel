@@ -16,6 +16,7 @@
     <div class="form-group form-group--submit">
       <div class="row">
         <div>
+          <p class="validation-error" *ngIf="!editBillingForm.valid">Please complete all the mandatory fields</p>
           <p *ngIf="btnSave">SAVED!</p>
           <p *ngIf="!btnSave">&nbsp;</p>
           <button type="submit" class="btn btn--save" [disabled]="!editBillingForm.valid">SAVE</button>
