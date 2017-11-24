@@ -1,4 +1,4 @@
-import { Component, Input, forwardRef, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input, forwardRef, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { CountryCode } from './country-code';
 import { Country } from './country.model';
@@ -37,7 +37,7 @@ export class PhoneCodeSelectComponent implements ControlValueAccessor {
   ngOnInit() {
     if (this.preferredCountries.length) {
       this.preferredCountries.forEach(iso2 => {
-        let preferredCountry = this.allCountries.filter((c) => {
+        const preferredCountry = this.allCountries.filter((c) => {
           return c.iso2 === iso2;
         });
         this.preferredCountriesInDropDown.push(preferredCountry[0]);
@@ -56,8 +56,8 @@ export class PhoneCodeSelectComponent implements ControlValueAccessor {
 
   set value(val) {
     this._value = val;
-    for (let country of this.allCountries) {
-      if (val == country.dialCode) {
+    for (const country of this.allCountries) {
+      if (val === country.dialCode) {
         this.selectedCountry = country;
         break;
       }
@@ -87,7 +87,7 @@ export class PhoneCodeSelectComponent implements ControlValueAccessor {
 
   protected fetchCountryData(): void {
     this.countryCodeData.allCountries.forEach(c => {
-      let country = new Country();
+      const country = new Country();
       country.name = c[0].toString();
       country.iso2 = c[1].toString();
       country.dialCode = c[2].toString();
@@ -98,5 +98,4 @@ export class PhoneCodeSelectComponent implements ControlValueAccessor {
       this.allCountries.push(country);
     });
   }
-
 }

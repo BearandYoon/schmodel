@@ -98,7 +98,9 @@ export class HttpHelperService {
       .map((response: Response) => {
         return this.checkAuthHeader(response);
       })
-      .catch( error => {return this.handleError(error)});
+      .catch( error => {
+        return this.handleError(error);
+      });
   }
 
   /***
@@ -134,7 +136,9 @@ export class HttpHelperService {
       .map((response: Response) => {
         return this.checkAuthHeader(response);
       })
-      .catch( error => {return this.handleError(error)});
+      .catch( error => {
+        return this.handleError(error);
+      });
   }
 
   /***
@@ -165,7 +169,9 @@ export class HttpHelperService {
       .map((response: Response) => {
         return this.checkAuthHeader(response);
       })
-      .catch( error => {return this.handleError(error)});
+      .catch( error => {
+        return this.handleError(error);
+      });
   }
 
   /***
@@ -196,7 +202,9 @@ export class HttpHelperService {
       .map((response: Response) => {
         return this.checkAuthHeader(response);
       })
-      .catch( error => {return this.handleError(error)});
+      .catch( error => {
+        return this.handleError(error);
+      });
   }
 
   /***
@@ -218,7 +226,9 @@ export class HttpHelperService {
       .map((response: Response) => {
         return this.checkAuthHeader(response);
       })
-      .catch( error => {return this.handleError(error)});
+      .catch( error => {
+        return this.handleError(error)
+      });
   }
 
   /***
