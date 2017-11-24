@@ -32,6 +32,10 @@ export class EditBillingInfoComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.initializeBillInfo();
+  }
+
+  initializeBillInfo() {
     const {
       billingCompanyName,
       billingCompanyRegistrationCountry,
@@ -74,6 +78,7 @@ export class EditBillingInfoComponent implements OnInit {
   }
 
   onCancel() {
+    this.initializeBillInfo();
     this.btnSave = false;
     this.collapseSection.emit();
   }

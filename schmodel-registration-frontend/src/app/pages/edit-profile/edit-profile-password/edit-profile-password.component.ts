@@ -22,7 +22,7 @@ export class EditProfilePasswordComponent implements OnInit {
     this.editPasswordForm = formBuilder.group({
       'oldPassword': ['', [ValidationService.passwordValidator]],
       'newPassword': [''],
-      'confirmPassword':{validator: this.areEqual}
+      'confirmPassword': {validator: this.areEqual}
     }, {validator: this.areEqual.bind(this)});
   }
 
@@ -31,6 +31,10 @@ export class EditProfilePasswordComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.initializePasswordForm();
+  }
+
+  initializePasswordForm() {
     this.editPasswordForm.setValue({
       oldPassword: '',
       newPassword: '',
@@ -40,16 +44,16 @@ export class EditProfilePasswordComponent implements OnInit {
 
   areEqual(fg: FormGroup) {
     const { oldPassword, newPassword, confirmPassword } = fg.controls;
-    const confirmString = confirmPassword.value as string + "";
-    const newString = newPassword.value as string + "";
+    const confirmString = confirmPassword.value as string + '';
+    const newString = newPassword.value as string + '';
     if ( !confirmString.match(/^[a-zA-Z0-9!@#$%^&*]{6,100}$/) || !newString.match(/^[a-zA-Z0-9!@#$%^&*]{6,100}$/)) {
-      confirmPassword.setErrors({'invalidPassword':true});
+      confirmPassword.setErrors({'invalidPassword': true});
       return { 'invalidPassword': true };
     }
 
-    if(newPassword.value != confirmPassword.value) {
-      confirmPassword.setErrors({'notMatchingPassword':true});
-      return { 'notMatchingPassword': true };      
+    if (newPassword.value !== confirmPassword.value) {
+      confirmPassword.setErrors({'notMatchingPassword': true});
+      return { 'notMatchingPassword': true };
     }
   }
 
@@ -71,6 +75,10 @@ export class EditProfilePasswordComponent implements OnInit {
   }
 
   onCancel() {
+    this.initializePasswordForm();
+    this.editPasswordForm.get('oldPassword').setErrors(null);
+    this.editPasswordForm.get('newPassword').setErrors(null);
+    this.editPasswordForm.get('confirmPassword').setErrors(null);
     this.btnSave = false;
     this.collapseSection.emit();
   }
