@@ -20,10 +20,10 @@ export class EditProfilePasswordComponent implements OnInit {
     private profileService: ProfileService
   ) {
     this.editPasswordForm = formBuilder.group({
-      'oldPassword': ['', [Validators.required, ValidationService.passwordValidator]],
-      'newPassword': ['', [Validators.required, ValidationService.passwordValidator]],
-      'confirmPassword': ['', [Validators.required, ValidationService.passwordValidator]]
-    }, {validator: this.areEqual});
+      'oldPassword': ['', [ValidationService.passwordValidator]],
+      'newPassword': [''],
+      'confirmPassword':{validator: this.areEqual}
+    }, {validator: this.areEqual.bind(this)});
   }
 
   onChange(event: any) {
@@ -39,11 +39,17 @@ export class EditProfilePasswordComponent implements OnInit {
   }
 
   areEqual(fg: FormGroup) {
-    const { newPassword, confirmPassword } = fg.controls;
-    if (newPassword.value === confirmPassword.value) {
-      return null;
-    } else {
-      return { 'passwordNotMatch': true };
+    const { oldPassword, newPassword, confirmPassword } = fg.controls;
+    const confirmString = confirmPassword.value as string + "";
+    const newString = newPassword.value as string + "";
+    if ( !confirmString.match(/^[a-zA-Z0-9!@#$%^&*]{6,100}$/) || !newString.match(/^[a-zA-Z0-9!@#$%^&*]{6,100}$/)) {
+      confirmPassword.setErrors({'invalidPassword':true});
+      return { 'invalidPassword': true };
+    }
+
+    if(newPassword.value != confirmPassword.value) {
+      confirmPassword.setErrors({'notMatchingPassword':true});
+      return { 'notMatchingPassword': true };      
     }
   }
 
