@@ -68,6 +68,7 @@ export class EditBillingInfoComponent implements OnInit {
 
   onSubmit() {
     const data = {...this.editBillingForm.value};
+    data.billingAddressLine2 = null;
     console.log(data);
     this.profileService.updateBillingInfo(data).subscribe( res => {
       this.btnSave = true;
