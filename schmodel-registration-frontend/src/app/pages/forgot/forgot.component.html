@@ -9,22 +9,24 @@
             Forgot your password?<br>
             No problem, just enter your email below and we'll send you a link to reset your password
         </p>
-        <form [formGroup]="forgotForm" (submit)="onReset()">
-          <div class="form-content">
-            <div class="form-group">
-              <input type="email" class="form-control input-underline input-lg" formControlName="email" id="email" placeholder="ENTER YOUR EMAIL" (keypress)="onChangeInput()">
-              <app-control-messages  [control]="forgotForm.controls.email"></app-control-messages>
-              <div class="danger">
-                  <span [ngClass]="{errormessage:!emailValid, validmessage:emailValid}" class="message">{{message}}</span>
+        <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-3 form-wrapper">
+          <form [formGroup]="forgotForm" (submit)="onReset()">
+            <div class="form-content">
+              <div class="form-group">
+                <input type="email" class="form-control input-underline input-lg" formControlName="email" id="email" placeholder="ENTER YOUR EMAIL" (keypress)="onChangeInput()">
+                <app-control-messages  [control]="forgotForm.controls.email"></app-control-messages>
+                <div class="danger">
+                    <span [ngClass]="{errormessage:!emailValid, validmessage:emailValid}" class="message">{{message}}</span>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="action-container">
-            <div class="btn-submit-container">
-              <button class="btn bordered-btn" type="submit" [disabled]="!forgotForm.valid || isSubmitting"> SUBMIT </button>
+            <div class="action-container">
+              <div class="btn-submit-container">
+                <button class="btn bordered-btn" type="submit" [disabled]="!forgotForm.valid || isSubmitting"> SUBMIT </button>
+              </div>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
   </div>
