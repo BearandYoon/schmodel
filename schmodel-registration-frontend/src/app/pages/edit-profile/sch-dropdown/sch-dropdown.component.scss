@@ -8,6 +8,11 @@ select.select--eyeColors {
   width: 66%;
 }
 
+select {
+  display: inline-block;
+  vertical-align: top;
+}
+
 select.select--chestCircSizes,
 select.select--chestCupSizes {
   width: calc(33% - 2px);
@@ -16,7 +21,6 @@ select.select--chestCupSizes {
 select.select--citizenships,
 select.select--languages {
   width: calc(33% - 2px);
-  // margin-bottom: 4px;
 
   &:last-child {
     margin-right: -1px;
