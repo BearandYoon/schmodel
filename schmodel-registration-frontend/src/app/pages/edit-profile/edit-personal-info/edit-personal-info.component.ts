@@ -191,7 +191,7 @@ export class EditPersonalInfoComponent implements OnInit {
     }
 
     return null;
-  }
+  };
 
   onChange(event: any) {
     this.btnSave = false;
@@ -203,7 +203,7 @@ export class EditPersonalInfoComponent implements OnInit {
     data.citizenshipIds = data.citizenshipIds.split('|');
     data.languageIds = data.languageIds.split('|');
     this.profileService.updatePersonalInfo(data).subscribe( res => {
-      console.log(res);
+      this.profileService.getProfileInfo();
       this.btnSave = true;
     }, error => {
       console.log(error);

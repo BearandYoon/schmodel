@@ -62,7 +62,9 @@ export class ProfileService {
     );
   }
 
-  getProfileInfo(photoWidth, photoHeight) {
+  getProfileInfo() {
+    const photoWidth = Math.round(window.innerWidth / 3);
+    const photoHeight = Math.round(window.innerWidth / 3);
     return this.http.post(
       this.apiRoutingService.getProfileInfoUrl(),
       {

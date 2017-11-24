@@ -67,6 +67,7 @@ export class EditBillingInfoComponent implements OnInit {
     console.log(data);
     this.profileService.updateBillingInfo(data).subscribe( res => {
       this.btnSave = true;
+      this.profileService.getProfileInfo();
     }, error => {
       console.log(error);
     });
