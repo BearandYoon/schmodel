@@ -1,21 +1,29 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { CountryCode } from '../../../shared/components/phone-code-select/country-code';
+import * as _ from 'google-libphonenumber';
 
 import { ProfileService } from '../../../core/services';
 
 @Component({
   selector: 'edit-personal-info',
   templateUrl: './edit-personal-info.component.html',
-  styleUrls: ['./edit-personal-info.component.scss']
+  styleUrls: ['./edit-personal-info.component.scss'],
+  providers: [
+    CountryCode
+  ]
 })
 export class EditPersonalInfoComponent implements OnInit {
   @Output() collapseSection: EventEmitter<any> = new EventEmitter();
 
   editPersonalForm: FormGroup;
   btnSave: boolean;
+  socialInvalid: boolean = false;
+
   constructor(
     private formBuilder: FormBuilder,
-    private profileService: ProfileService
+    private profileService: ProfileService,
+    private countryCodeData: CountryCode
   ) {
     this.editPersonalForm = formBuilder.group({
       'firstName': ['', [Validators.required]],
@@ -39,16 +47,34 @@ export class EditPersonalInfoComponent implements OnInit {
       'dressSizeId': ['', [Validators.required]],
       'hairColorId': ['', [Validators.required]],
       'eyeColorId': ['', [Validators.required]],
-      'twitterUsername': ['', [Validators.required]],
-      'instagramUsername': ['', [Validators.required]],
-      'facebookUsername': ['', [Validators.required]],
-      'linkedinUsername': ['', [Validators.required]],
+      'twitterUsername': ['', []],
+      'instagramUsername': ['', []],
+      'facebookUsername': ['', []],
+      'linkedinUsername': ['', []],
       'biography': ['', [Validators.required]]
-    });
+    }, {validator: this.validateSocialAccounts});
   }
 
   ngOnInit() {
     this.initializePersonalForm();
+  }
+
+  getPhoneNumberPlaceHolder(countryCode: string): string {
+    for (const country of this.countryCodeData.allCountries) {
+      if (country[2].toString() === countryCode) {
+        countryCode = country[1].toString();
+      }
+    }
+
+    const defaultNumber = '1234567890';
+    const phoneUtil = _.PhoneNumberUtil.getInstance();
+    const pnf = _.PhoneNumberFormat;
+    try {
+      const phoneNumber = phoneUtil.parse(defaultNumber, countryCode);
+      return phoneUtil.format(phoneNumber, pnf.INTERNATIONAL);
+    } catch (e) {
+      return defaultNumber;
+    }
   }
 
   toDateFormatString() {
@@ -60,23 +86,6 @@ export class EditPersonalInfoComponent implements OnInit {
     if (!dateStr) return null;
     const parts = dateStr.split('-');
     return `${parts[2]}|${parts[1]}|${parts[0]}`;
-  }
-
-  onChange(event: any) {
-    this.btnSave = false;
-  }
-
-  onSubmit() {
-    const data = {...this.editPersonalForm.value};
-    data.dateOfBirth = this.toDateFormatString();
-    data.citizenshipIds = data.citizenshipIds.split('|');
-    data.languageIds = data.languageIds.split('|');
-    this.profileService.updatePersonalInfo(data).subscribe( res => {
-      console.log(res);
-      this.btnSave = true;
-    }, error => {
-      console.log(error);
-    });
   }
 
   initializePersonalForm() {
@@ -130,7 +139,7 @@ export class EditPersonalInfoComponent implements OnInit {
       residentialAddressLine1,
       residentialAddressLine2,
       residentialAddressZipCode,
-      phoneCountryCode,
+      phoneCountryCode: phoneCountryCode || '1',
       phoneNumber,
       citizenshipIds,
       languageIds,
@@ -147,6 +156,57 @@ export class EditPersonalInfoComponent implements OnInit {
       facebookUsername,
       linkedinUsername,
       biography
+    });
+  }
+
+  validateSocialAccounts = (f: FormGroup) => {
+    const data = f.value;
+    let filledCount = 0;
+    if (data.twitterUsername && data.twitterUsername.length) {
+      filledCount ++;
+    }
+    if (data.facebookUsername && data.facebookUsername.length) {
+      filledCount ++;
+    }
+    if (data.instagramUsername && data.instagramUsername.length) {
+      filledCount ++;
+    }
+    if (data.linkedinUsername && data.linkedinUsername.length) {
+      filledCount ++;
+    }
+
+    if (filledCount < 2) {
+      const touched = f.controls &&
+                      (f.controls.twitterUsername.touched
+                      || f.controls.facebookUsername.touched
+                      || f.controls.instagramUsername.touched
+                      || f.controls.linkedinUsername.touched);
+      if (touched) {
+        this.socialInvalid = true;
+      }
+
+      return { socialInvalid: true };
+    } else {
+      this.socialInvalid = false;
+    }
+
+    return null;
+  }
+
+  onChange(event: any) {
+    this.btnSave = false;
+  }
+
+  onSubmit() {
+    const data = {...this.editPersonalForm.value};
+    data.dateOfBirth = this.toDateFormatString();
+    data.citizenshipIds = data.citizenshipIds.split('|');
+    data.languageIds = data.languageIds.split('|');
+    this.profileService.updatePersonalInfo(data).subscribe( res => {
+      console.log(res);
+      this.btnSave = true;
+    }, error => {
+      console.log(error);
     });
   }
 
