@@ -138,14 +138,71 @@
 
 @media (min-width: 426px) {
   .page-container {
+    padding: 50px 50px 0;
+    
+    .page-container {
+      .img-logo {
+        width: 35%;
+      }
+
+      .content-container {
+        p.comment {
+          font-size: 35px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .page-container {
+    
     .img-logo {
       width: 35%;
     }
 
-    .content-container {
-      p.comment {
-        font-size: 35px;
+    .input-lg {
+      font-size: 15px;
+    }
+
+    p {
+      font-size: 15px;
+    }
+
+    .form-group {
+      input::-webkit-input-placeholder {
+        font-size: 15px;
       }
+
+      input:-moz-placeholder { /* Firefox 18- */
+        font-size: 15px;
+      }
+
+      input::-moz-placeholder { /* Firefox 19+ */
+        font-size: 15px;
+      }
+
+      input:-ms-input-placeholder {
+        font-size: 15px;
+      }
+    }
+
+    .action-container {
+      .bordered-btn {
+        font-size: 18px;
+      }
+
+      .btn-register-container a {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-container {
+    .img-logo {
+      width: 300px;
     }
   }
 }
