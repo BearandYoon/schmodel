@@ -7,6 +7,7 @@ export class ValidationService {
       'notMatchingPassword': ValidationMessage.NON_MATCHING_PASSWORD,
       'invalidEmailAddress': ValidationMessage.INVALID_EMAIL,
       'invalidPassword': ValidationMessage.INVALID_PASSWORD,
+      'currentPasswordNotMatching':'The current password you entered does not match our records',
       'minlength': `Minimum length ${validatorValue.requiredLength}`
     };
     return config[validatorName];
