@@ -156,7 +156,14 @@
 
 @media (min-width: 768px) {
   .page-container {
-    
+    .comment {
+      font-size: 18px;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 200;
+      max-width: 42%;
+      display: inline-block;
+    }
+
     .img-logo {
       width: 35%;
     }
@@ -201,6 +208,14 @@
 
 @media (min-width: 1024px) {
   .page-container {
+
+    .comment {
+      font-size: 18px;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 200;
+      max-width: 42%;
+      display: inline-block;
+    }
     .img-logo {
       width: 300px;
     }
