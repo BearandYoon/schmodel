@@ -35,10 +35,8 @@ export class EditProfileComponent implements OnInit {
   constructor(
     private profileService: ProfileService
   ) {
-    const photoWidth = Math.round(window.innerWidth / 3);
-    const photoHeight = Math.round(window.innerWidth / 3);
     this.profileService.profileData = null;
-    this.profileService.getProfileInfo(photoWidth, photoHeight);
+    this.profileService.getProfileInfo();
   }
 
   ngOnInit() {
