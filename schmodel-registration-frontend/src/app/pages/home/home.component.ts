@@ -7,8 +7,8 @@ import { LocalStorageService } from 'ngx-webstorage';
 import { routerTransition } from '../../router.animations';
 import { ProfileService } from '../../core/services';
 import { SharedService } from '../../shared/services';
-import { ValidationMessage } from '../../shared/models';
-import { TermsModalComponent } from '../../shared/modules';
+import { ValidationMessage, TermsModalResponse } from '../../shared/models';
+import { TermsModalComponent, MessageModalComponent } from '../../shared/modules';
 import { environment } from '../../../environments/environment';
 
 @Component({
@@ -21,10 +21,18 @@ import { environment } from '../../../environments/environment';
 export class HomeComponent implements OnInit {
   isCompletedProfile: boolean;
   beforeTitle: string;
-  beforeTitle1: string;
   termsModalRef: BsModalRef;
   termsContent: string;
   termsModalConfig = {
+    animated: true,
+    keyboard: true,
+    backdrop: true,
+    ignoreBackdropClick: false
+  };
+
+  messageModalRef: BsModalRef;
+  messageContent: string;
+  messageModalConfig = {
     animated: true,
     keyboard: true,
     backdrop: true,
@@ -42,7 +50,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.isCompletedProfile = false;
     this.termsContent = ValidationMessage.TERMS_CONTENT;
-    this.beforeTitle1 = null;
     if (this.sharedService.fromSignup) {
       this.beforeTitle = ValidationMessage.BEFORE_COMPLETE_HOME_TITLE_ONCE_SIGNUP;
     } else {
@@ -55,6 +62,7 @@ export class HomeComponent implements OnInit {
   }
 
   logout() {
+    // this.showLogOutMessage();
     this.localStorage.clear(environment.localStorage.token);
     this.router.navigate(['login']);
   }
@@ -70,6 +78,21 @@ export class HomeComponent implements OnInit {
 
     this.termsModalRef.content.onCloseReason.subscribe(result => {
       console.log('Terms Modal Close Reason = ', result);
+    });
+  }
+
+  showLogOutMessage() {
+    this.messageContent = ValidationMessage.LOGOUT;
+    this.messageModalRef = this.modalService.show(MessageModalComponent, this.messageModalConfig);
+    this.messageModalRef.content.messageContent = this.messageContent;
+    this.messageModalRef.content.isBtnCancel = true;
+
+    this.messageModalRef.content.onCloseReason.subscribe(result => {
+      console.log('Terms Modal Close Reason = ', result);
+      if (result === TermsModalResponse.AGREE) {
+        // this.localStorage.clear(environment.localStorage.token);
+        // this.router.navigate(['login']);
+      }
     });
   }
 }
