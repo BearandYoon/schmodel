@@ -19,9 +19,9 @@ export class EditBillingInfoComponent implements OnInit {
     private profileService: ProfileService
   ) {
     this.editBillingForm = formBuilder.group({
-      'companyName': [''],
-      'companyRegistrationCountryId': [''],
-      'companyVatNumber': [''],
+      'companyName': ['', [Validators.required]],
+      'companyRegistrationCountryId': ['', [Validators.required]],
+      'companyVatNumber': ['', [Validators.required]],
       'addressLine1': ['', [Validators.required]],
       'addressLine2': [''],
       'addressCountryId': ['', [Validators.required]],

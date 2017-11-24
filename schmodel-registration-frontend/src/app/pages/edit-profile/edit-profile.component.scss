@@ -138,6 +138,8 @@ accordion.edit-profile {
       background: none !important;
       border: none;
       border-bottom: 1px solid $border-color;
+      border-radius: 0;
+      box-shadow: none;
       &[type="password"] {
         letter-spacing: 2px;
       }
