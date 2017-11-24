@@ -71,7 +71,7 @@ export class EditPersonalInfoComponent implements OnInit {
     const pnf = _.PhoneNumberFormat;
     try {
       const phoneNumber = phoneUtil.parse(defaultNumber, countryCode);
-      return phoneUtil.format(phoneNumber, pnf.INTERNATIONAL);
+      return phoneUtil.format(phoneNumber);
     } catch (e) {
       return defaultNumber;
     }
