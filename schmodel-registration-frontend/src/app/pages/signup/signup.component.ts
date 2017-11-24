@@ -100,6 +100,9 @@ export class SignupComponent implements OnInit {
         }, err => {
           this.message = 'Something went wrong.';
         });
+      } else {
+        this.message = ValidationMessage.TERMS_CONDITIONS_DECLINE;
+        return;
       }
     });
   }

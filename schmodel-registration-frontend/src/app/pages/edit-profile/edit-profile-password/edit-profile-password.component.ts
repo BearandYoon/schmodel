@@ -65,8 +65,6 @@ export class EditProfilePasswordComponent implements OnInit {
       if (!res.oldPasswordValid) {
         this.editPasswordForm.get('oldPassword').setErrors({'currentPasswordNotMatching': true});
       }
-
-
     }, error => {
       console.log(error);
     });
