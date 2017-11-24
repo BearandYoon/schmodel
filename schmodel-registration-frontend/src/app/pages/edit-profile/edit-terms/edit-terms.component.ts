@@ -103,6 +103,7 @@ export class EditTermsComponent implements OnInit {
     };
     this.profileService.updateTerms(data).subscribe( res => {
       this.btnSave = true;
+      this.profileService.getProfileInfo();
     }, error => {
       console.log(error);
     });
