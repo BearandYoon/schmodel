@@ -195,7 +195,7 @@ export class EditPersonalInfoComponent implements OnInit {
     }
 
     return null;
-  };
+  }
 
   onChange(event: any) {
     this.btnSave = false;

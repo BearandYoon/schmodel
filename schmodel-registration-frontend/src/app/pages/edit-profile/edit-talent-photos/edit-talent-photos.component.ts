@@ -20,6 +20,7 @@ export class EditTalentPhotosComponent implements OnInit {
   public no_tmp: number;
   public myFile: number;
   private data: any;
+  message: string;
 
   messageModalRef: BsModalRef;
   messageContent: string;
@@ -36,6 +37,7 @@ export class EditTalentPhotosComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.message = '';
     this.photo_section_infor.push(
       {
         text: 'Headshot Photo',
@@ -106,7 +108,7 @@ export class EditTalentPhotosComponent implements OnInit {
     );
 
     let i_add = 3;
-    for(let i = 0; i < this.profileService.profileData.photos.length; i++) {
+    for (let i = 0; i < this.profileService.profileData.photos.length; i++) {
       this.data = this.profileService.profileData.photos[i];
       if (this.data.photoTypeId < 4) {
         this.photo_section_infor[this.data.photoTypeId - 1].photoId = this.data.id;
@@ -130,12 +132,12 @@ export class EditTalentPhotosComponent implements OnInit {
   }
 
   onClose(num: number) {
-    this.photo_section_infor[num].flag = false;
-    this.photo_section_infor[num].photoUrl = '';
+    this.message = '';
     this.profileService.deletePhoto(this.photo_section_infor[num].photoId).subscribe( res => {
-      console.log(res);
+      this.photo_section_infor[num].flag = false;
+      this.photo_section_infor[num].photoUrl = '';
     }, error => {
-      console.log(error);
+      this.message = ValidationMessage.GENERIC_ERROR_MESSAGE;
     });
   }
 
@@ -144,6 +146,7 @@ export class EditTalentPhotosComponent implements OnInit {
   }
 
   onUploadFile(num: number) {
+    this.message = '';
     const event = new MouseEvent('click', {bubbles: true});
     this.no_tmp = num;
     this.myFile = null;
@@ -178,16 +181,15 @@ export class EditTalentPhotosComponent implements OnInit {
               this.data.photoTypeId,
               this.data.photoWidth,
               this.data.photoHeight).subscribe( res => {
-                console.log(res);
                 this.photo_section_infor[this.no_tmp].photoUrl = res.photoUrl;
                 this.photo_section_infor[this.no_tmp].photoId = res.photoId;
                 this.photo_section_infor[this.no_tmp].photo = res.photoUrl;
             }, error => {
-              console.log(error);
+              this.message = ValidationMessage.GENERIC_ERROR_MESSAGE;
             });
           }
         }.bind(this);
-      }
+      };
       reader.readAsDataURL(event.target.files[0]);
     }
   }

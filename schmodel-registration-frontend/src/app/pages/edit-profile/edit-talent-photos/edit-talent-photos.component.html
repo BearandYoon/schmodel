@@ -1,4 +1,9 @@
 <section>
+  <div class="alert-wrapper">
+    <alert type="danger" *ngIf="message">
+      <strong>{{message}}</strong>
+    </alert>
+  </div>
   <p>Please upload your head shot, full length and profile photos to complete your profile.</p>
   <div *ngFor="let val of photo_section_infor; let i = index; trackBy:trackByFn" class="item">
     <button *ngIf="val.flag" class="btn-close" (click)="onClose(i)">
