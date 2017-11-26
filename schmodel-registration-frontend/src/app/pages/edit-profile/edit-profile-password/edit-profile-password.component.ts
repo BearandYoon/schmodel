@@ -1,8 +1,9 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { ValidationService } from '../../../shared/services';
 import { ProfileService } from '../../../core/services';
+import { ValidationMessage } from '../../../shared/models';
 
 @Component({
   selector: 'edit-profile-password',
@@ -14,6 +15,7 @@ export class EditProfilePasswordComponent implements OnInit {
   @Output() collapseSection: EventEmitter<any> = new EventEmitter();
   editPasswordForm: FormGroup;
   btnSave: boolean;
+  message: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -35,6 +37,7 @@ export class EditProfilePasswordComponent implements OnInit {
   }
 
   initializePasswordForm() {
+    this.message = '';
     this.editPasswordForm.setValue({
       oldPassword: '',
       newPassword: '',
@@ -58,6 +61,7 @@ export class EditProfilePasswordComponent implements OnInit {
   }
 
   onSubmit() {
+    this.message = '';
     const { oldPassword, newPassword } = this.editPasswordForm.value;
     this.profileService.updatePassword(oldPassword, newPassword).subscribe( res => {
       console.log(res);
@@ -70,6 +74,7 @@ export class EditProfilePasswordComponent implements OnInit {
         this.editPasswordForm.get('oldPassword').setErrors({'currentPasswordNotMatching': true});
       }
     }, error => {
+      this.message = ValidationMessage.GENERIC_ERROR_MESSAGE;
       console.log(error);
     });
   }

@@ -98,7 +98,7 @@ export class SignupComponent implements OnInit {
           this.sharedService.fromSignup = true;
           this.router.navigate(['']);
         }, err => {
-          this.message = 'Something went wrong.';
+          this.message = ValidationMessage.GENERIC_ERROR_MESSAGE;
         });
       } else {
         this.message = ValidationMessage.TERMS_CONDITIONS_DECLINE;

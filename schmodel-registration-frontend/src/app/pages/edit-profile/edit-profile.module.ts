@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { AccordionModule } from 'ngx-bootstrap';
+import { AccordionModule, AlertModule } from 'ngx-bootstrap';
 
 import { ComponentsModule } from '../../shared/components/components.module';
 import { SharedModule } from '../../shared/modules';
@@ -26,7 +26,8 @@ import { ProfileService } from '../../core/services';
     ComponentsModule,
     SharedModule,
     AccordionModule.forRoot(),
-    EditProfileRoutingModule
+    EditProfileRoutingModule,
+    AlertModule
   ],
   declarations: [
     EditProfileComponent,

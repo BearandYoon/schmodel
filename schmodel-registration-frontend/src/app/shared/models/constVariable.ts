@@ -5,6 +5,7 @@ export class TermsModalResponse {
 }
 
 export class ValidationMessage {
+  public static GENERIC_ERROR_MESSAGE = 'Something went wrong.';
   public static INVALID_EMAIL = 'Enter a valid email address';
   public static INVALID_PASSWORD_1 = 'Enter a valid password';
   public static INVALID_CREDENTIALS = 'Invalid Credentials';
