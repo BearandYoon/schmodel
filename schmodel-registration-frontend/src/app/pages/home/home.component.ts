@@ -52,8 +52,6 @@ export class HomeComponent implements OnInit {
     this.termsContent = ValidationMessage.TERMS_CONTENT;
     if (this.sharedService.fromSignup) {
       this.beforeTitle = ValidationMessage.BEFORE_COMPLETE_HOME_TITLE_ONCE_SIGNUP;
-    } else {
-      this.beforeTitle = ValidationMessage.BEFORE_COMPLETE_HOME_TITLE;
     }
 
     this.profileService.isProfileComplete().subscribe(res => {
