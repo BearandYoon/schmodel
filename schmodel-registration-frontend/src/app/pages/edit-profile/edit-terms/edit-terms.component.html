@@ -17,6 +17,9 @@
       Schmodel <u (click)="onTC()">Terms and Conditions</u>
     </p>
     <div class="form-group form-group--submit">
+      <alert type="danger" *ngIf="!!message">
+        <strong>{{message}}</strong>
+      </alert>
       <div class="row">
         <div>
           <p *ngIf="btnSave">SAVED!</p>

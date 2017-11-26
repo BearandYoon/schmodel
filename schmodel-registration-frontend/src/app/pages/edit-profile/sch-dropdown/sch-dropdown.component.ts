@@ -167,9 +167,11 @@ export class SchDropdownComponent implements OnInit, ControlValueAccessor {
       }
     } else {
       this.data = dropdownData[this.category];
+      this.options = this.data.options;
       return;
     }
 
+    this.options = options;
     this.data = {
       placeholder,
       options

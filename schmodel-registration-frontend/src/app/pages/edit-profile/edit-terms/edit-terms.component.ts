@@ -22,6 +22,7 @@ export class EditTermsComponent implements OnInit {
   items: any = [];
   termsModalRef: BsModalRef;
   termsContent: string;
+  message: string = null;
   termsModalConfig = {
     animated: true,
     keyboard: false,
@@ -104,6 +105,8 @@ export class EditTermsComponent implements OnInit {
   }
 
   onSubmit() {
+    this.message = null;
+
     if (!this.editTermsForm.value) {
       return;
     }
@@ -115,7 +118,7 @@ export class EditTermsComponent implements OnInit {
       this.btnSave = true;
       this.profileService.getProfileInfo();
     }, error => {
-      console.log(error);
+      this.message = ValidationMessage.GENERIC_ERROR_MESSAGE;
     });
   }
 
