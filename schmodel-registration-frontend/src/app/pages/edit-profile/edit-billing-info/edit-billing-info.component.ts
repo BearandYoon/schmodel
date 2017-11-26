@@ -19,11 +19,11 @@ export class EditBillingInfoComponent implements OnInit {
     private profileService: ProfileService
   ) {
     this.editBillingForm = formBuilder.group({
-      'companyName': [''],
-      'companyRegistrationCountryId': [''],
-      'companyVatNumber': [''],
+      'companyName': ['', []],
+      'companyRegistrationCountryId': ['', []],
+      'companyVatNumber': ['', []],
       'addressLine1': ['', [Validators.required]],
-      'addressLine2': [''],
+      'addressLine2': ['', []],
       'addressCountryId': ['', [Validators.required]],
       'addressCity': ['', [Validators.required]],
       'addressState': ['', [Validators.required]],
@@ -68,6 +68,7 @@ export class EditBillingInfoComponent implements OnInit {
 
   onSubmit() {
     const data = {...this.editBillingForm.value};
+    data.billingAddressLine2 = null;
     console.log(data);
     this.profileService.updateBillingInfo(data).subscribe( res => {
       this.btnSave = true;

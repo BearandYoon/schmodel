@@ -24,6 +24,7 @@ export class SchDropdownComponent implements OnInit, ControlValueAccessor {
   onChange: any = () => { };
   onTouched: any = () => { };
   private data: any = {};
+  private options: any = [];
 
   get value() {
     return this._value;
@@ -173,6 +174,12 @@ export class SchDropdownComponent implements OnInit, ControlValueAccessor {
       placeholder,
       options
     };
+  }
+
+  ngOnChanges(changes) {
+    if (changes['excludedValues'] && this.excludedValues && this.data.options) {
+      this.options = this.data.options.filter(option => this.excludedValues.indexOf('' + option.value) < 0);
+    }
   }
 
 }

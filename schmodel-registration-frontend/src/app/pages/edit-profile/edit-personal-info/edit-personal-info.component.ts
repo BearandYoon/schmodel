@@ -129,6 +129,7 @@ export class EditPersonalInfoComponent implements OnInit {
     const dressSizeId = dressSize ? dressSize.id : null;
     const hairColorId = hairColor ? hairColor.id : null;
     const eyeColorId = eyeColor ? eyeColor.id : null;
+    
     this.editPersonalForm.setValue({
       firstName,
       lastName,
@@ -202,6 +203,7 @@ export class EditPersonalInfoComponent implements OnInit {
     data.dateOfBirth = this.toDateFormatString();
     data.citizenshipIds = data.citizenshipIds.split('|');
     data.languageIds = data.languageIds.split('|');
+    console.log(data);
     this.profileService.updatePersonalInfo(data).subscribe( res => {
       this.profileService.getProfileInfo();
       this.btnSave = true;
