@@ -202,6 +202,7 @@ export class EditPersonalInfoComponent implements OnInit {
   }
 
   onSubmit() {
+    this.message = '';
     const data = {...this.editPersonalForm.value};
     data.dateOfBirth = this.toDateFormatString();
     data.citizenshipIds = data.citizenshipIds.split('|');
