@@ -60,6 +60,9 @@
     <p *ngIf="socialInvalid" class="validation-error">Please provide the details of at least two social media accounts</p>
   </div>
   <div class="form-group form-group--submit">
+    <alert type="danger" *ngIf="message">
+      <strong>{{message}}</strong>
+    </alert>
     <div class="row">
       <div>
         <p *ngIf="btnSave">SAVED!</p>

@@ -1,9 +1,10 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CountryCode } from '../../../shared/components/phone-code-select/country-code';
 import * as _ from 'google-libphonenumber';
 
 import { ProfileService } from '../../../core/services';
+import { ValidationMessage } from '../../../shared/models';
 
 @Component({
   selector: 'edit-personal-info',
@@ -19,6 +20,7 @@ export class EditPersonalInfoComponent implements OnInit {
   editPersonalForm: FormGroup;
   btnSave: boolean;
   socialInvalid: boolean = false;
+  message: string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -89,6 +91,7 @@ export class EditPersonalInfoComponent implements OnInit {
   }
 
   initializePersonalForm() {
+    this.message = '';
     const {
       firstName,
       lastName,
@@ -129,7 +132,7 @@ export class EditPersonalInfoComponent implements OnInit {
     const dressSizeId = dressSize ? dressSize.id : null;
     const hairColorId = hairColor ? hairColor.id : null;
     const eyeColorId = eyeColor ? eyeColor.id : null;
-    
+
     this.editPersonalForm.setValue({
       firstName,
       lastName,
@@ -208,6 +211,7 @@ export class EditPersonalInfoComponent implements OnInit {
       this.profileService.getProfileInfo();
       this.btnSave = true;
     }, error => {
+      this.message = ValidationMessage.GENERIC_ERROR_MESSAGE;
       console.log(error);
     });
   }
