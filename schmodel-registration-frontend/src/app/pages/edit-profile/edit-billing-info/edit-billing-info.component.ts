@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { ProfileService } from '../../../core/services';
+import { ValidationMessage } from '../../../shared/models';
 
 @Component({
   selector: 'edit-billing-info',
@@ -13,7 +14,7 @@ export class EditBillingInfoComponent implements OnInit {
   @Output() collapseSection: EventEmitter<any> = new EventEmitter();
   editBillingForm: FormGroup;
   btnSave: boolean;
-
+  message: string = '';
   constructor(
     private formBuilder: FormBuilder,
     private profileService: ProfileService
@@ -67,6 +68,7 @@ export class EditBillingInfoComponent implements OnInit {
   }
 
   onSubmit() {
+    this.message = '';
     const data = {...this.editBillingForm.value};
     data.billingAddressLine2 = null;
     console.log(data);
@@ -74,7 +76,7 @@ export class EditBillingInfoComponent implements OnInit {
       this.btnSave = true;
       this.profileService.getProfileInfo();
     }, error => {
-      console.log(error);
+      this.message = ValidationMessage.GENERIC_ERROR_MESSAGE;
     });
   }
 

@@ -14,6 +14,9 @@
       <sch-input-row formControlName="addressZipCode" label="Zip/Post code *" maxlength="10"></sch-input-row>
     </div>
     <div class="form-group form-group--submit">
+      <alert type="danger" *ngIf="!!message">
+        <strong>{{message}}</strong>
+      </alert>
       <div class="row">
         <div>
           <p class="validation-error" *ngIf="!editBillingForm.valid">Please complete all the mandatory fields</p>
