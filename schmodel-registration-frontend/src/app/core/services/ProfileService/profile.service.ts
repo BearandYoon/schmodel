@@ -17,6 +17,15 @@ export class ProfileService {
     return this.http.get(this.apiRoutingService.getIsProfileCompleteAPIUrl(), {}, true, null);
   }
 
+  getAfterProfile() {
+    return this.http.get(
+      this.apiRoutingService.getAfterProfileInfoAPIUrl(),
+      {},
+      false,
+      null
+    );
+  }
+
   updatePassword(oldPassword, newPassword) {
     const body = {
       oldPassword,
@@ -102,7 +111,7 @@ export class ProfileService {
     );
   }
 
-  deletePhoto(photoId){
+  deletePhoto(photoId) {
     return this.http.post(
       this.apiRoutingService.getDeletePhotoUrl(),
       {photoId},

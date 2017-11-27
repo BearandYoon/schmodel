@@ -7,7 +7,7 @@ import { LocalStorageService } from 'ngx-webstorage';
 import { routerTransition } from '../../router.animations';
 import { ProfileService } from '../../core/services';
 import { SharedService } from '../../shared/services';
-import { ValidationMessage, TermsModalResponse, AfterProfile } from '../../shared/models';
+import { ValidationMessage, TermsModalResponse } from '../../shared/models';
 import { TermsModalComponent, MessageModalComponent } from '../../shared/modules';
 import { environment } from '../../../environments/environment';
 
@@ -39,13 +39,25 @@ export class HomeComponent implements OnInit {
     ignoreBackdropClick: false
   };
 
+  firstName: string;
+  lastName: string;
+  applications: number;
+  upcoming: number;
+  photos: string;
+
   constructor(
     public router: Router,
     private localStorage: LocalStorageService,
     private modalService: BsModalService,
     private profileService: ProfileService,
     private sharedService: SharedService
-  ) {}
+  ) {
+    this.firstName = '';
+    this.lastName = '';
+    this.applications = 0;
+    this.upcoming = 0;
+    this.photos = '';
+  }
 
   ngOnInit() {
     this.isCompletedProfile = false;
@@ -55,7 +67,17 @@ export class HomeComponent implements OnInit {
     }
     this.profileService.isProfileComplete().subscribe(res => {
       this.isCompletedProfile = res.profileComplete;
-       // this.isCompletedProfile = true;
+       //this.isCompletedProfile = true;
+    });
+
+    this.profileService.getAfterProfile().subscribe(res => {
+      if (res !== null) {
+        this.firstName = res.fristName;
+        this.lastName = res.lastName;
+        this.applications = res.applications;
+        this.upcoming = res.upcoming;
+        this.photos = res.photos;
+      }
     });
   }
 
