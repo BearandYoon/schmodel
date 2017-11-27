@@ -7,7 +7,7 @@ import { LocalStorageService } from 'ngx-webstorage';
 import { routerTransition } from '../../router.animations';
 import { ProfileService } from '../../core/services';
 import { SharedService } from '../../shared/services';
-import { ValidationMessage, TermsModalResponse } from '../../shared/models';
+import { ValidationMessage, TermsModalResponse, AfterProfile } from '../../shared/models';
 import { TermsModalComponent, MessageModalComponent } from '../../shared/modules';
 import { environment } from '../../../environments/environment';
 
