@@ -24,7 +24,7 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         loadChildren: './pages/edit-profile/edit-profile.module#EditProfileModule',
         data: {
-          title: 'Edit My Profile',
+          title: 'Edit My Profile',       
           navLeft: 'back'
         }
       }

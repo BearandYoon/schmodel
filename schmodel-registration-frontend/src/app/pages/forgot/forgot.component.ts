@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 
 import { routerTransition } from '../../router.animations';
@@ -20,9 +20,11 @@ export class ForgotComponent implements OnInit {
   message: string;
   isSubmitting: boolean;
   emailValid: boolean;
+  tokenValid: boolean;
 
   constructor(
     public router: Router,
+    private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
     private resetPwdService: AuthenticationService
   ) {
@@ -31,6 +33,7 @@ export class ForgotComponent implements OnInit {
     });
     this.emailValid = false;
     this.isSubmitting = false;
+    this.tokenValid = false;
   }
   onChangeInput() {
     this.message = '';
@@ -38,6 +41,11 @@ export class ForgotComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.activatedRoute.queryParams.subscribe((params: Params) => {
+      const token = params['token'];
+      if(token != null)
+        this.tokenValid = true;
+    });
   }
     // reset password feature
     onReset() {

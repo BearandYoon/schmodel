@@ -29,6 +29,13 @@
       font-family: 'Open Sans', sans-serif;
       font-weight: 200;
     }
+
+    .alert {
+      font-size: 18px;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 200;
+      color: rgba(255, 4, 0, 0.52);
+    }
   }
 
   .input-lg {
@@ -136,6 +143,30 @@
   }
 }
 
+@media (max-width: 320px) {
+  .page-container {
+
+    .content-container {
+      text-align: center;
+      color: white;
+      width: 100%;
+  
+      .comment {
+        font-size: 14px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 200;
+      }
+  
+      .alert {
+        font-size: 14px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 200;
+        color: rgba(255, 4, 0, 0.52);
+      }
+    }
+  }
+}
+
 @media (min-width: 426px) {
   .page-container {
     padding: 50px 50px 0;
@@ -149,6 +180,9 @@
         p.comment {
           font-size: 35px;
         }
+        p.alert {
+          font-size: 35px;
+        }        
       }
     }
   }
@@ -213,8 +247,15 @@
       font-size: 18px;
       font-family: 'Open Sans', sans-serif;
       font-weight: 200;
-      max-width: 42%;
+      max-width: 70%;
       display: inline-block;
+    }
+    .alert {
+      font-size: 30px;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 200;
+      display: inline-block;
+      color: rgba(255, 4, 0, 0.52);
     }
     .img-logo {
       width: 300px;
