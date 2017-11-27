@@ -53,9 +53,9 @@ export class HomeComponent implements OnInit {
     if (this.sharedService.fromSignup) {
       this.beforeTitle = ValidationMessage.BEFORE_COMPLETE_HOME_TITLE_ONCE_SIGNUP;
     }
-
     this.profileService.isProfileComplete().subscribe(res => {
       this.isCompletedProfile = res.profileComplete;
+       // this.isCompletedProfile = true;
     });
   }
 
@@ -67,6 +67,10 @@ export class HomeComponent implements OnInit {
 
   onEdit() {
     this.router.navigate(['edit-profile']);
+  }
+
+  onView() {
+    this.router.navigate(['profile']);
   }
 
   showTermsAndConditions() {

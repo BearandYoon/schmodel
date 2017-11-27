@@ -2,7 +2,8 @@
   <div class="logo-container">
     <img class="img-logo" src="assets/img/img_logo.png">
   </div>
-  <p class="title">{{beforeTitle}}</p>
+  <p class="title" *ngIf="!isCompletedProfile">Complete Your Profile</p>
+  <p class="title" *ngIf="isCompletedProfile">Welcome back {{firstName}}-{{lastName}}</p>
   <div class="content-wrapper">
     <div class="profile-content" *ngIf="isCompletedProfile">
       <div class="profile-image">
@@ -24,11 +25,15 @@
         </div>
       </div>
     </div>
-    <div class="btn-edit-profile common-pattern" (click)="onEdit()">
+    <div class="btn-edit-profile common-pattern" (click)="onEdit()" *ngIf="!isCompletedProfile">
       <div class="btn-text"><span>Edit My Profile</span></div>
       <div class="btn-icon"><img src="assets/img/ic_app_jobs.png" /></div>
     </div>
-    <div class="btn-apply-job common-pattern" [class.unCompleted]="!isCompletedProfile">
+    <div class="btn-edit-profile common-pattern" (click)="onView()" *ngIf="isCompletedProfile">
+      <div class="btn-text"><span>My Profile</span></div>
+      <div class="btn-icon"><img src="assets/img/ic_app_jobs.png" /></div>
+    </div>
+    <div class="btn-apply-job common-pattern" [ngClass]="isCompletedProfile ? '' : 'unCompleted'">
       <div class="btn-text"><span>Apply for Jobs</span></div>
       <div class="btn-icon"><img src="assets/img/ic_edit_jobs.png" /></div>
     </div>
