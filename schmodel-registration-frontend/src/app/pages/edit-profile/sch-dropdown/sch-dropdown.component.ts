@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, forwardRef } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import * as dropdownData from './dropdown-data';
 
@@ -21,6 +21,8 @@ export class SchDropdownComponent implements OnInit, ControlValueAccessor {
   @Input() category: string = '';
   @Input() excludedValues: any = [];
   @Input('value') _value = '';
+  @Input() allowRemove: boolean = false;
+  @Output() onRemove = new EventEmitter();
   onChange: any = () => { };
   onTouched: any = () => { };
   private data: any = {};
@@ -50,6 +52,10 @@ export class SchDropdownComponent implements OnInit, ControlValueAccessor {
 
   writeValue(value) {
     this.value = value;
+  }
+
+  onRemoveClick() {
+    this.onRemove.emit();
   }
 
   ngOnInit() {
@@ -183,5 +189,5 @@ export class SchDropdownComponent implements OnInit, ControlValueAccessor {
       this.options = this.data.options.filter(option => this.excludedValues.indexOf('' + option.value) < 0);
     }
   }
-
+  
 }

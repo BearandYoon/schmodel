@@ -105,4 +105,13 @@ export class SchDropdownRowComponent implements ControlValueAccessor {
     this.items = newArray;
     this.adjustLists();
   }
+
+  onRemoveDropdown(index) {
+    const newArray = this.items.slice();
+    this.values.splice(index, 1);
+    newArray.splice(index, 1);
+    this.items = newArray;
+    this.adjustLists();
+  }
+
 }
