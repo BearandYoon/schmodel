@@ -9,6 +9,8 @@ import { ProfileService } from '../../core/services';
   encapsulation: ViewEncapsulation.None
 })
 export class EditProfileComponent implements OnInit {
+
+  hasError: boolean = false;
   panels: any[] = [
     {
       component: 'edit-profile-password',
@@ -36,7 +38,9 @@ export class EditProfileComponent implements OnInit {
     private profileService: ProfileService
   ) {
     this.profileService.profileData = null;
-    this.profileService.getProfileInfo();
+    this.profileService.getProfileInfo(success => {
+      this.hasError = !success;
+    });
   }
 
   ngOnInit() {

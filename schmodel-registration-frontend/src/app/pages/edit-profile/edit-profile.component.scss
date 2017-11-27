@@ -7,6 +7,12 @@ accordion.edit-profile {
   accordion-group {
     margin-top: 4px;
     font-family: 'AkzidenzGroteskBE', Arial, sans-serif;
+
+    &[ng-reflect-is-disabled="true"] {
+      header {
+        opacity: 0.5;
+      }
+    }
   
     .form-group--password .row {
       padding-top: 10px;
@@ -231,4 +237,8 @@ accordion.edit-profile {
       }
     }
   }  
+}
+
+.alert-wrapper {
+  padding: 8px;
 }

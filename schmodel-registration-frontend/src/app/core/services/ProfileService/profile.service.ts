@@ -62,7 +62,7 @@ export class ProfileService {
     );
   }
 
-  getProfileInfo() {
+  getProfileInfo(callback = undefined) {
     const photoWidth = Math.round(window.innerWidth / 3);
     const photoHeight = Math.round(window.innerWidth / 3);
     return this.http.post(
@@ -76,8 +76,14 @@ export class ProfileService {
       null
     ).subscribe( res => {
       this.profileData = res;
+      if (callback) {
+        callback(true);
+      }
     }, error => {
       console.log(error);
+      if (callback) {
+        callback(false);
+      }
     });
   }
 
