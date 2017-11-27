@@ -5,7 +5,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { routerTransition } from '../../router.animations';
 import { ValidationService } from '../../shared/services';
 import { AuthenticationService } from '../../core/services';
-import { NewPassword } from '../../shared/models';
+import { NewPassword, TokenUser } from '../../shared/models';
 
 @Component({
   selector: 'app-changepassword',
@@ -18,6 +18,7 @@ export class ChangepasswordComponent implements OnInit {
   user: NewPassword = new NewPassword();
   missMatchPass: string;
   token: string;
+  tokenUser: TokenUser = new TokenUser();
 
   constructor(
     public router: Router,
@@ -35,7 +36,19 @@ export class ChangepasswordComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe((params: Params) => {
-      this.token = params['token'];
+      const token = params['token'];
+      this.tokenUser.token = token;
+
+      this.authService.validateToken(this.tokenUser).subscribe( res => {
+       if (res.tokenValid === true) {
+          this.router.navigate(['/change-password'], { queryParams: { token: token }});
+        } else if (res.tokenValid !== true) {
+          this.router.navigate(['/forgot'], { queryParams: { token: token }});
+        }
+      }, err => {
+        console.log('resetPassword Error = ', err);
+        this.router.navigate(['/not-found']);
+      });
     });
   }
   onChangeInput() {
