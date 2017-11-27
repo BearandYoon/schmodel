@@ -19,7 +19,9 @@
               <app-control-messages [control]="signInForm.controls.password"></app-control-messages>
             </div>
           </div>
-          <p class="forgot-pass" [routerLink]="['/forgot']">Forgot Password?</p>
+          <div class="forgot-pass-wrapper">
+            <p class="forgot-pass" [routerLink]="['/forgot']">Forgot Password?</p>
+          </div>
           <div class="action-container">
             <alert type="danger" *ngIf="message">
               <strong>{{message}}</strong>

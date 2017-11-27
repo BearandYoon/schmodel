@@ -42,8 +42,12 @@ $topnav-background-color: #222;
     }
   }
 
-  .forgot-pass {
-    text-align: left;
+  .forgot-pass-wrapper {
+    display: flex;
+
+    .forgot-pass {
+      text-align: left;
+    }
   }
 
   .input-lg {
