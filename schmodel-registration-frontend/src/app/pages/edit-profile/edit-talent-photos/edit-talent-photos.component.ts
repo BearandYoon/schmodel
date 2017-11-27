@@ -165,7 +165,8 @@ export class EditTalentPhotosComponent implements OnInit {
         const image = new Image();
         image.src = event.target.result;
         image.onload = function () {
-          if(this.data.file.size >= 5 * 1024 * 1024) {
+          this.message = '';
+          if (this.data.file.size >= 5 * 1024 * 1024) {
             this.messageModalRef = this.dlgService.show(MessageModalComponent, this.messageModalConfig);
             this.messageModalRef.content.messageContent = this.messageContent;
             this.messageModalRef.content.isBtnCancel = false;
