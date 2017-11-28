@@ -6,18 +6,18 @@ import { LayoutComponent } from './pages/layout';
 const routes: Routes = [
   {
     path: '',
-    canActivate: [],
+    canActivate: [AuthGuard],
     loadChildren: './pages/home/home.module#HomeModule'
   },
   {
     path: '',
     component: LayoutComponent,
-    canActivate: [],
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'apply-for-jobs',
-        canActivate: [],
-        loadChildren: './pages/apply-for-jobs/my-jobs.module#MyJobsModule',
+        canActivate: [AuthGuard],
+        loadChildren: './pages/apply-for-jobs/apply-for-jobs.module#ApplyForJobsModule',
         data: {
           title: 'Apply for Jobs',
           navLeft: 'back'

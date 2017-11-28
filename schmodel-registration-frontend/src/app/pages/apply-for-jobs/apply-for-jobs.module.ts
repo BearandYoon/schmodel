@@ -1,22 +1,22 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, DecimalPipe} from '@angular/common';
+import { CommonModule } from '@angular/common';
 
-import { MyJobsRoutingModule } from './my-jobs-routing.module';
-import { MyJobsComponent } from './my-jobs.component';
+import { ApplyForJobsRoutingModule } from './apply-for-jobs-routing.module';
+import { ApplyForJobsComponent } from './apply-for-jobs.component';
 import { EventRoleComponent } from './components/event-role/event-role.component';
 import { EventComponent } from './components/event/event.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    MyJobsRoutingModule
+    ApplyForJobsRoutingModule
   ],
   declarations: [
-    MyJobsComponent,
+    ApplyForJobsComponent,
     EventRoleComponent,
     EventComponent
   ],
   providers: []
 
 })
-export class MyJobsModule { }
+export class ApplyForJobsModule { }

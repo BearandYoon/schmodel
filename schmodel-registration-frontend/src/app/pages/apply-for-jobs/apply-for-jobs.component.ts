@@ -8,13 +8,13 @@ import { routerTransition } from '../../router.animations';
 import { DialogDetailComponent } from './components/dialog-detail/dialog-detail..component';
 
 @Component({
-  selector: 'app-my-jobs',
-  templateUrl: './my-jobs.component.html',
-  styleUrls: ['./my-jobs.component.scss'],
+  selector: 'app-apply-for-jobs',
+  templateUrl: './apply-for-jobs.component.html',
+  styleUrls: ['./apply-for-jobs.component.scss'],
   animations: [routerTransition()]
 })
 
-export class MyJobsComponent implements OnInit {
+export class ApplyForJobsComponent implements OnInit {
   public showDialog = false;
   public style_height: Array<any> = [];
   public role_title: string [];
