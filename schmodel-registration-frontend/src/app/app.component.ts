@@ -18,21 +18,21 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
-    // this.http.
+    // // this.http.
 
-    // let headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
-    // headers.append('Access-Control-Allow-Origin', 'http://localhost:4200');
-    // headers.append('Access-Control-Allow-Credentials', 'true');
+    // // let headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+    // // headers.append('Access-Control-Allow-Origin', 'http://localhost:4200');
+    // // headers.append('Access-Control-Allow-Credentials', 'true');
                    
-    this.http.get('http://localhost:8080/my-jobs').subscribe(data => {
-      console.log(data);
-    });
-    // this.http.get('https://api.github.com/users/seeschweiler').subscribe(data => {
+    // this.http.get('http://localhost:8080/my-jobs').subscribe(data => {
     //   console.log(data);
     // });
-    // this.http.get("https://api.github.com/users/seeschweiler", {}, true, null).subscribe(data => {
-    //   console.log(data);
-    // });
+    // // this.http.get('https://api.github.com/users/seeschweiler').subscribe(data => {
+    // //   console.log(data);
+    // // });
+    // // this.http.get("https://api.github.com/users/seeschweiler", {}, true, null).subscribe(data => {
+    // //   console.log(data);
+    // // });
     
   }
 }

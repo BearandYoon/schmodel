@@ -6,17 +6,17 @@ import { LayoutComponent } from './pages/layout';
 const routes: Routes = [
   {
     path: '',
+    canActivate: [],
+    loadChildren: './pages/home/home.module#HomeModule'
+  },
+  {
+    path: '',
     component: LayoutComponent,
-    canActivate: [AuthGuard],
+    canActivate: [],
     children: [
       {
-        path: '',
-        loadChildren: './pages/my-jobs/my-jobs.module#MyJobsModule',
-        data: {
-          title: 'Apply for Jobs'
-        }
-      }, {
-        path: 'my-jobs',
+        path: 'apply-for-jobs',
+        canActivate: [],
         loadChildren: './pages/my-jobs/my-jobs.module#MyJobsModule',
         data: {
           title: 'Apply for Jobs',
@@ -25,10 +25,10 @@ const routes: Routes = [
       }
     ]
   },
-    { path: 'login', loadChildren: './pages/login/login.module#LoginModule' },
-    { path: 'signup', loadChildren: './pages/signup/signup.module#SignupModule' },
-    { path: 'not-found', loadChildren: './pages/not-found/not-found.module#NotFoundModule' },
-    { path: '**', redirectTo: 'not-found' }
+  { path: 'login', loadChildren: './pages/login/login.module#LoginModule' },
+  { path: 'signup', loadChildren: './pages/signup/signup.module#SignupModule' },
+  { path: 'not-found', loadChildren: './pages/not-found/not-found.module#NotFoundModule' },
+  { path: '**', redirectTo: 'not-found' }
 ];
 
 @NgModule({
