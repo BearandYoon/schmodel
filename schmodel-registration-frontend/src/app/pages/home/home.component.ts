@@ -39,11 +39,11 @@ export class HomeComponent implements OnInit {
     ignoreBackdropClick: false
   };
 
-  firstName: string;
-  lastName: string;
-  applications: number;
-  upcoming: number;
-  photos: string;
+  public firstName: string;
+  public lastName: string;
+  public applications: number;
+  public upcoming: number;
+  public photo_url: string;
 
   constructor(
     public router: Router,
@@ -56,7 +56,7 @@ export class HomeComponent implements OnInit {
     this.lastName = '';
     this.applications = 0;
     this.upcoming = 0;
-    this.photos = '';
+    this.photo_url = '';
   }
 
   ngOnInit() {
@@ -67,16 +67,16 @@ export class HomeComponent implements OnInit {
     }
     this.profileService.isProfileComplete().subscribe(res => {
       this.isCompletedProfile = res.profileComplete;
-      // this.isCompletedProfile = true;
     });
 
     this.profileService.getAfterProfile().subscribe(res => {
+      console.log(res);
       if (res !== null) {
         this.firstName = res.firstName;
         this.lastName = res.lastName;
         this.applications = res.applications;
         this.upcoming = res.upcoming;
-        this.photos = res.photos;
+        this.photo_url = res.photoUrl;
       }
     });
   }
