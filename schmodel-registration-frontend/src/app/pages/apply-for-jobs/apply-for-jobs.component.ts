@@ -866,7 +866,7 @@ export class ApplyForJobsComponent implements OnInit {
   ) {
     this.style_height.push(
       {
-        boardHeight: '100vh',
+        boardHeight: '90vh',
       }, {
         boardHeight: '100%',
       },

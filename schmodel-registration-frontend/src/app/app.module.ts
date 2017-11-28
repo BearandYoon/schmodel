@@ -13,15 +13,13 @@ import { LayoutModule } from './pages/layout/layout.module';
 import { DialogDetailComponent } from './pages/apply-for-jobs/components/dialog-detail/dialog-detail..component';
 import { DialogJobApplyComponent } from './pages/apply-for-jobs/components/dialog-job-apply/dialog-job-apply.component';
 import { DialogWithdrawComponent } from './pages/apply-for-jobs/components/dialog-withdraw/dialog-withdraw.component';
-import { MyJobsComponent } from './pages/my-jobs/my-jobs.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DialogDetailComponent,
     DialogJobApplyComponent,
-    DialogWithdrawComponent,
-    MyJobsComponent
+    DialogWithdrawComponent
   ],
   imports: [
     BrowserModule,

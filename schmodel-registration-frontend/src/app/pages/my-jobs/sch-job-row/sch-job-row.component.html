@@ -1,0 +1,13 @@
+<accordion>
+  <header accordion-heading (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">
+    <p class="title">
+      Title
+    </p>
+    <span *ngIf="!isCollapsed" class="icon icon-plus-circle"></span>
+    <span *ngIf="isCollapsed" class="icon icon-minus-circle"></span>
+  </header>
+  
+  <div *ngIf="isCollapsed">
+    <p> sdfasdfasdf asdfsdf</p>
+  </div>
+</accordion>
