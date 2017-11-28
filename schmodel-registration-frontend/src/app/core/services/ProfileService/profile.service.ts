@@ -21,7 +21,7 @@ export class ProfileService {
     return this.http.get(
       this.apiRoutingService.getAfterProfileInfoAPIUrl(),
       {},
-      false,
+      true,
       null
     );
   }
