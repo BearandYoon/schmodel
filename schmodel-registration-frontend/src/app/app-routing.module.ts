@@ -22,6 +22,14 @@ const routes: Routes = [
           title: 'Apply for Jobs',
           navLeft: 'back'
         }
+      }, {
+        path: 'my-jobs',
+        canActivate: [AuthGuard],
+        loadChildren: './pages/my-jobs/my-jobs.module#MyJobsModule',
+        data: {
+          title: 'Upcoming / Previous Jobs',
+          navLeft: 'back'
+        }
       }
     ]
   },
