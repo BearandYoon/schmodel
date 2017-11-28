@@ -5,6 +5,7 @@ import { LayoutComponent } from './pages/layout';
 
 const routes: Routes = [
   { path: 'login', loadChildren: './pages/login/login.module#LoginModule' },
+  { path: 'client-login', loadChildren: './pages/client-login/client-login.module#ClientLoginModule' },
   { path: 'signup', loadChildren: './pages/signup/signup.module#SignupModule' },
   { path: 'not-found', loadChildren: './pages/not-found/not-found.module#NotFoundModule' },
   { path: 'forgot', loadChildren: './pages/forgot/forgot.module#ForgotModule' },
