@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { routerTransition } from '../../../router.animations';
 
@@ -10,11 +10,12 @@ import { routerTransition } from '../../../router.animations';
 })
 export class SchJobRowComponent implements OnInit {
 
+  @Input() event_role: any;
+
   public isCollapsed = false;
 
   constructor() { }
 
   ngOnInit() {
   }
-
 }
