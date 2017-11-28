@@ -72,7 +72,7 @@ export class HomeComponent implements OnInit {
 
     this.profileService.getAfterProfile().subscribe(res => {
       if (res !== null) {
-        this.firstName = res.fristName;
+        this.firstName = res.firstName;
         this.lastName = res.lastName;
         this.applications = res.applications;
         this.upcoming = res.upcoming;
