@@ -17,7 +17,7 @@ const routes: Routes = [
       {
         path: 'apply-for-jobs',
         canActivate: [],
-        loadChildren: './pages/my-jobs/my-jobs.module#MyJobsModule',
+        loadChildren: './pages/apply-for-jobs/my-jobs.module#MyJobsModule',
         data: {
           title: 'Apply for Jobs',
           navLeft: 'back'
