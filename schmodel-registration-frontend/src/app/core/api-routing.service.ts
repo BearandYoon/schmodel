@@ -27,7 +27,7 @@ export class ApiRoutingService {
   }
 
   getAfterProfileInfoAPIUrl(): string {
-    return this.baseUrl + 'talent/home';
+    return this.baseUrl + '/talent/home';
   }
 
   getChangePwdAPIUrl(): string {
