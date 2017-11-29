@@ -1,40 +1,42 @@
 <accordion>
-  <header accordion-heading (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">
-    <div>
-      <h1> {{event_role.name}} </h1>
-      <time> {{event_role.startDate | date: 'yMMMMd' }}</time>
-      <p> <strong>{{event_role.city}},</strong> {{event_role.country}}</p>
-    </div>
-    <span *ngIf="!isCollapsed" class="icon icon-plus-circle"></span>
-    <span *ngIf="isCollapsed" class="icon icon-minus-circle"></span>
-  </header>
-  
-  <div class="job-body" *ngIf="isCollapsed">
-    <div class="job-role-content col-md-12 col-12 text-left">
-      <p class="job-title">JOB:</p>
-      <p class="custom-border-bottom"><strong>{{event_role.role.name}}</strong></p>
-    </div>
-
-    <div class="d-flex">
-      <div class="workschedule-wrapper custom-border-right">
-        <div class="workschedule-title col-md-12 col-12"> WORK SCHEDULE:</div>
-        
-        <div class="workschedule-col-title col-md-12 col-12 row">
-          <div class="col-md-6 col-6 text-left"> Date </div>
-          <div class="col-md-3 col-3 text-right"> Start </div>
-          <div class="col-md-3 col-3 text-right"> End </div>
-        </div>
-
-        <div *ngFor="let schedule of event_role.role.workSchedules" class="workschedule row col-md-12 col-12 row">
-          <div class="col-md-6 col-6 text-left"> {{schedule.day | date: 'd MMMM y'}}</div>
-          <div class="col-md-3 col-3 text-right"> {{schedule.startTime}} </div>
-          <div class="col-md-3 col-3 text-right"> {{schedule.endTime}} </div>
-        </div>
+  <div class="collapse_section" *ngFor="let event of event_role; let i = index">
+    <header accordion-heading (click)="onCollapse(i)" [attr.aria-expanded]="!isCollapsed">
+      <div>
+        <h1> {{event.name}} </h1>
+        <time> {{event.startDate | date: 'yMMMMd' }}</time>
+        <p> <strong>{{event.city}},</strong> {{event.country}}</p>
+      </div>
+      <span *ngIf="collapse_no != i" class="icon icon-plus-circle"></span>
+      <span *ngIf="collapse_no == i" class="icon icon-minus-circle"></span>
+    </header>
+    
+    <div class="job-body" *ngIf="collapse_no == i">
+      <div class="job-role-content col-md-12 col-12 text-left">
+        <p class="job-title">JOB:</p>
+        <p class="custom-border-bottom"><strong>{{event.role.name}}</strong></p>
       </div>
 
-      <div class="pay-rate-wrapper">
-        <div class="pay-rate-title col-md-12 col-12"> PAY RATE</div>
-        <div class="pay-rate-col-title col-md-12 col-12"> €{{event_role.role.pay | number : fractionSize}}</div>
+      <div class="d-flex">
+        <div class="workschedule-wrapper custom-border-right">
+          <div class="workschedule-title col-md-12 col-12"> WORK SCHEDULE:</div>
+          
+          <div class="workschedule-col-title col-md-12 col-12 row">
+            <div class="col-md-6 col-6 text-left"> Date </div>
+            <div class="col-md-3 col-3 text-right"> Start </div>
+            <div class="col-md-3 col-3 text-right"> End </div>
+          </div>
+
+          <div *ngFor="let schedule of event.role.workSchedules" class="workschedule row col-md-12 col-12 row">
+            <div class="col-md-6 col-6 text-left"> {{schedule.day | date: 'd MMMM y'}}</div>
+            <div class="col-md-3 col-3 text-right"> {{schedule.startTime}} </div>
+            <div class="col-md-3 col-3 text-right"> {{schedule.endTime}} </div>
+          </div>
+        </div>
+
+        <div class="pay-rate-wrapper">
+          <div class="pay-rate-title col-md-12 col-12"> PAY RATE</div>
+          <div class="pay-rate-col-title col-md-12 col-12"> €{{event.role.pay | number : fractionSize}}</div>
+        </div>
       </div>
     </div>
   </div>

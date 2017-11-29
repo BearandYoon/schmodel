@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation, TemplateRef  } from '@angular/core';
 
 import { routerTransition } from '../../../router.animations';
 
@@ -6,17 +6,33 @@ import { routerTransition } from '../../../router.animations';
   selector: 'app-sch-job-row',
   templateUrl: './sch-job-row.component.html',
   styleUrls: ['./sch-job-row.component.scss'],
-  animations: [routerTransition()]
+  encapsulation: ViewEncapsulation.None
 })
 export class SchJobRowComponent implements OnInit {
 
   @Input() event_role: any;
 
-  public isCollapsed = false;
+  public collapse_no: number = -1;
+  public isCollapsed: boolean = false;
 
   constructor() { }
 
   ngOnInit() {
     console.log(this.event_role);
+    console.log(this.isCollapsed);
+  }
+
+  onCollapse(index : number) {
+    if(this.collapse_no == index) {
+      this.isCollapsed = false;
+      this.collapse_no = -1;
+    } else {
+      this.isCollapsed = true;
+      this.collapse_no = index;
+    }
+  }
+
+  onCollapseSection(sectionTemplate: TemplateRef<any>): void {
+    sectionTemplate['isOpen'] = false;
   }
 }
