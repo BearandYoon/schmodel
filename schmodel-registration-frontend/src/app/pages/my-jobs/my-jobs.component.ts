@@ -19,8 +19,8 @@ export class MyJobsComponent implements OnInit {
         "upcomingEvents": [{
             "id": 0,
             "name": "FE Race 3",
-            "startDate": "13-01-2018",
-            "endDate": "13-01-2018",
+            "startDate": "2018-01-13",
+            "endDate": "2018-01-13",
             "city": "Marrakesh",
             "country": "Morocco",
             "role": {
@@ -28,17 +28,17 @@ export class MyJobsComponent implements OnInit {
                 "name": "PR",
                 "pay": 1400,
                 "workSchedules": [{
-                    "day": "12-01-2018",
+                    "day": "2018-01-12",
                     "startTime": "9:00am",
                     "endTime": "5:00pm"
                 },
                 {
-                    "day": "13-01-2018",
+                    "day": "2018-01-13",
                     "startTime": "9:00am",
                     "endTime": "5:00pm"
                 },
                 {
-                    "day": "14-01-2018",
+                    "day": "2018-01-14",
                     "startTime": "9:00am",
                     "endTime": "5:00pm"
                 }]
@@ -47,8 +47,8 @@ export class MyJobsComponent implements OnInit {
         {
             "id": 0,
             "name": "FE Race 4",
-            "startDate": "20-01-2018",
-            "endDate": "20-01-2018",
+            "startDate": "2018-01-20",
+            "endDate": "2018-01-20",
             "city": "Marrakesh",
             "country": "Morocco",
             "role": {
@@ -56,12 +56,12 @@ export class MyJobsComponent implements OnInit {
                 "name": "PR",
                 "pay": 1400,
                 "workSchedules": [{
-                    "day": "20-01-2018",
+                    "day": "2018-01-20",
                     "startTime": "9:00am",
                     "endTime": "5:00pm"
                 },
                 {
-                    "day": "20-01-2018",
+                    "day": "2018-01-20",
                     "startTime": "9:00am",
                     "endTime": "5:00pm"
                 }]
@@ -70,8 +70,8 @@ export class MyJobsComponent implements OnInit {
         "previousEvents": [{
             "id": 0,
             "name": "FE Race 1-2",
-            "startDate": "02-12-2017",
-            "endDate": "03-12-2017",
+            "startDate": "2017-12-02",
+            "endDate": "2017-12-03",
             "city": "Hong Kong",
             "country": "China",
             "role": {
@@ -79,22 +79,22 @@ export class MyJobsComponent implements OnInit {
                 "name": "PR",
                 "pay": 2000,
                 "workSchedules": [{
-                    "day": "01-12-2017",
+                    "day": "2017-12-01",
                     "startTime": "9:00am",
                     "endTime": "5:00pm"
                 },
                 {
-                    "day": "02-12-2017",
+                    "day": "2017-12-02",
                     "startTime": "9:00am",
                     "endTime": "5:00pm"
                 },
                 {
-                    "day": "03-12-2017",
+                    "day": "2017-12-03",
                     "startTime": "9:00am",
                     "endTime": "5:00pm"
                 },
                 {
-                    "day": "04-12-2017",
+                    "day": "2017-12-04",
                     "startTime": "9:00am",
                     "endTime": "5:00pm"
                 }]
@@ -103,8 +103,8 @@ export class MyJobsComponent implements OnInit {
         {
             "id": 0,
             "name": "FE Race 0",
-            "startDate": "02-12-2016",
-            "endDate": "03-12-2016",
+            "startDate": "2016-12-02",
+            "endDate": "2016-12-03",
             "city": "Hong Kong",
             "country": "China",
             "role": {
@@ -112,22 +112,22 @@ export class MyJobsComponent implements OnInit {
                 "name": "PR",
                 "pay": 2000,
                 "workSchedules": [{
-                    "day": "01-12-2016",
+                    "day": "2016-12-01",
                     "startTime": "9:00am",
                     "endTime": "5:00pm"
                 },
                 {
-                    "day": "02-12-2016",
+                    "day": "2016-12-02",
                     "startTime": "9:00am",
                     "endTime": "5:00pm"
                 },
                 {
-                    "day": "03-12-2016",
+                    "day": "2016-12-03",
                     "startTime": "9:00am",
                     "endTime": "5:00pm"
                 },
                 {
-                    "day": "04-12-2016",
+                    "day": "2016-12-04",
                     "startTime": "9:00am",
                     "endTime": "5:00pm"
                 }]
@@ -146,6 +146,7 @@ export class MyJobsComponent implements OnInit {
       },
     );
     this.flag = true;
+    this.boardHeight = '90vh';
   }
 
   onScrollDown() {

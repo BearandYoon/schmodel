@@ -1,7 +1,7 @@
 <accordion>
   <header accordion-heading (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">
     <div>
-      <h1> FIA FORMULA E </h1>
+      <h1> {{event_role.name}} </h1>
       <time> {{event_role.startDate | date: 'yMMMMd' }}</time>
       <p> <strong>{{event_role.city}},</strong> {{event_role.country}}</p>
     </div>
@@ -12,7 +12,7 @@
   <div class="job-body" *ngIf="isCollapsed">
     <div class="job-role-content col-md-12 col-12 text-left">
       <p class="job-title">JOB:</p>
-      <p class="custom-border-bottom"><strong>PR</strong>(Brand Ambassador)</p>
+      <p class="custom-border-bottom"><strong>{{event_role.role.name}}</strong></p>
     </div>
 
     <div class="d-flex">
@@ -34,7 +34,7 @@
 
       <div class="pay-rate-wrapper">
         <div class="pay-rate-title col-md-12 col-12"> PAY RATE</div>
-        <div class="pay-rate-col-title col-md-12 col-12"> €1,400</div>
+        <div class="pay-rate-col-title col-md-12 col-12"> €{{event_role.role.pay | number : fractionSize}}</div>
       </div>
     </div>
   </div>
