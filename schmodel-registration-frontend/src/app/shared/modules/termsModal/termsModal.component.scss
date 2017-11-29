@@ -27,11 +27,11 @@
   font-family: "Open Sans Regular";
   max-height: 380px;
   padding: 20px;
-  letter-spacing: 1px;
 
   .content-wrapper {
     max-height: 300px;
     overflow: auto;
+    font-size: 14px;
     -webkit-overflow-scrolling: touch;
 
     .content {
@@ -39,6 +39,39 @@
       font-size: 14px;
       margin-bottom: 0;
       white-space: pre-wrap;
+    }
+
+    .terms-row-wrapper {
+      display: flex;
+
+      .prefix-number {
+        padding: 0 10px 0 0;
+      }
+    }
+
+    .terms-row-wrapper.bold {
+      font-weight: bold;
+      font-family: "Open Sans Bold";
+    }
+
+    ul {
+      padding-left: 15px;
+    }
+
+    .terms-italic {
+      font-style: italic;
+      font-weight: bold;
+      font-family: "Open Sans Bold";
+    }
+
+    .terms-heading {
+      font-size: 13px;
+      font-weight: bold;
+      font-family: "Open Sans Bold";
+    }
+
+    .terms-block {
+      margin-bottom: 20px;
     }
   }
 
@@ -75,10 +108,8 @@
     .content-wrapper {
       max-height: 300px;
       overflow: auto;
-
-      .content {
-        font-size: 12px;
-      }
+      padding: 10px;
+      font-size: 12px;
     }
 
     .action-wrapper {
