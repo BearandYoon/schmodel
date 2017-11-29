@@ -17,14 +17,23 @@ const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     children: [
       {
         path: 'edit-profile',
         canActivate: [AuthGuard],
         loadChildren: './pages/edit-profile/edit-profile.module#EditProfileModule',
         data: {
-          title: 'Edit My Profile',       
+          title: 'Edit My Profile',
+          navLeft: 'back'
+        }
+      },
+      {
+        path: 'event-calendar',
+        // canActivate: [AuthGuard],
+        loadChildren: './pages/event-calendar/event-calendar.module#EventCalendarModule',
+        data: {
+          title: 'Event Calendar',
           navLeft: 'back'
         }
       }

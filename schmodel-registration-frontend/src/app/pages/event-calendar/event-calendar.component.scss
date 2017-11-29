@@ -1,0 +1,45 @@
+$page-margin: 3px;
+$page-margin-half: 1.5px;
+$model-img-size: 120px;
+$formula-logo-height: 70px;
+
+.item-calendar {
+    width: 100%;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-image: url('/assets/img/bg_event_calendar.png')
+}
+
+.info-bar {
+    display: flex;
+    padding-top: $page-margin;
+    font-family: 'Open Sans', sans-serif;
+  
+    .formula-logo {
+      width: $model-img-size;
+      height: $formula-logo-height;
+      object-fit: cover;
+    }
+  
+    .info-wrapper {
+      display: flex;
+      flex: 1;
+      margin-left: $page-margin-half;
+      margin-right: -$page-margin-half;
+  
+      .info-item {
+        display: flex;
+        flex: 1;
+        background-color: rgba(255, 255, 255, 0.05);
+        margin: 0 $page-margin-half;
+        padding: 10px 6px 10px 2px;
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+    }
+  }
+
