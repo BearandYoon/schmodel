@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'reset-token', loadChildren: './pages/setpassword/setpassword.module#SetpasswordModule' },
   { path: 'change-password', loadChildren: './pages/changepassword/changepassword.module#ChangepasswordModule' },
   {
-    path: 'client/home',
+    path: 'client',
     canActivate: [AuthGuard],
     loadChildren: './pages/client-home/client-home.module#ClientHomeModule'
   },
