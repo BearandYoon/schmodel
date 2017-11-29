@@ -41,7 +41,11 @@
         <img src="assets/img/ic_app_jobs.png" />
       </div>
     </div>
-    <div class="btn-apply-job common-pattern" [ngClass]="isCompletedProfile ? '' : 'unCompleted'">
+    <!--
+      <div class="btn-apply-job common-pattern" (click)="onApplyForJobs()" [ngClass]="isCompletedProfile ? '' : 'unCompleted'">
+      TODO: Commented to enable button even if profile is not completed.
+    -->
+    <div class="btn-apply-job common-pattern" (click)="onApplyForJobs()">
       <div class="btn-text">
         <span>Apply for Jobs</span>
       </div>

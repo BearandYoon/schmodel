@@ -95,6 +95,13 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['profile']);
   }
 
+  onApplyForJobs() {
+    // TODO: Commented for testing Apply for jobs
+    // if (this.isCompletedProfile) {
+    this.router.navigate(['apply-for-jobs']);
+    // }
+  }
+
   showTermsAndConditions() {
     this.termsModalRef = this.modalService.show(TermsModalComponent, this.termsModalConfig);
     this.termsModalRef.content.termsContent = this.termsContent;
