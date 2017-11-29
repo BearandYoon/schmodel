@@ -1,0 +1,34 @@
+<section>
+    <form [formGroup]="editBillingForm" (submit)="onSubmit()" (change)="onChange($event)" (keypress)="onChange($event)">
+    <div class="form-group">
+      <sch-input-row formControlName="companyName" label="Company Name" maxlength="30"></sch-input-row>
+      <sch-dropdown-row formControlName="companyRegistrationCountryId" label="Country of Registration" [items]="['countries']"></sch-dropdown-row>
+      <sch-input-row formControlName="companyVatNumber" label="UK (or EU) VAT #" maxlength="15"></sch-input-row>
+    </div>
+    <div class="form-group">
+      <sch-input-row  formControlName="addressLine1" label="Billing Address *" maxlength="40"></sch-input-row>
+      <sch-input-row formControlName="addressLine2" label="Billing Address Line 2" maxlength="40"></sch-input-row>
+      <sch-dropdown-row  formControlName="addressCountryId" label="Country *" [items]="['countries']"></sch-dropdown-row>
+      <sch-input-row  formControlName="addressCity" label="City *" maxlength="15"></sch-input-row>
+      <sch-input-row  formControlName="addressState" label="State/Province *" maxlength="20"></sch-input-row>
+      <sch-input-row formControlName="addressZipCode" label="Zip/Post code *" maxlength="10"></sch-input-row>
+    </div>
+    <div class="form-group form-group--submit">
+      <alert type="danger" *ngIf="!!message">
+        <strong>{{message}}</strong>
+      </alert>
+      <div class="row">
+        <div>
+          <p class="validation-error" *ngIf="!editBillingForm.valid">Please complete all the mandatory fields</p>
+          <p *ngIf="btnSave">SAVED!</p>
+          <p *ngIf="!btnSave">&nbsp;</p>
+          <button type="submit" class="btn btn--save" [disabled]="!editBillingForm.valid">SAVE</button>
+        </div>
+        <div>
+          <p> &nbsp;</p>
+          <button type="button" class="btn btn--cancel" (click)="onCancel()">CANCEL</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</section>

@@ -1,0 +1,40 @@
+select.select--countries,
+select.select--heights,
+select.select--waistSizes,
+select.select--weights,
+select.select--dressSizes,
+select.select--hairColors,
+select.select--eyeColors {
+  width: 66%;
+}
+
+select {
+  display: inline-block;
+  vertical-align: top;
+}
+
+select.select--chestCircSizes,
+select.select--chestCupSizes {
+  width: calc(33% - 2px);
+}
+
+select.select--citizenships,
+select.select--languages {
+  width: calc(33% - 2px);
+
+  &:last-child {
+    margin-right: -1px;
+  }
+}
+
+option.hidden {
+  display: none !important;
+}
+
+.icon-close {
+  position: absolute;
+  font-size: 7px;
+  right: 3px;
+  top: -2px;
+  padding: 5px;
+}

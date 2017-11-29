@@ -1,16 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HeaderComponent } from './header/header.component';
+import { PhoneCodeSelectComponent } from './phone-code-select/phone-code-select.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    BsDropdownModule.forRoot()
   ],
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    PhoneCodeSelectComponent
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    PhoneCodeSelectComponent
   ]
 })
 export class ComponentsModule { }

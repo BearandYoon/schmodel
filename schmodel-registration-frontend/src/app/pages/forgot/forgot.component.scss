@@ -1,0 +1,264 @@
+@import "../login/login.component.scss";
+
+.page-container {
+  background-image: url("/assets/img/bg_reset_pass.png");
+
+  .title {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 26px;
+    font-weight: 200;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 6%;
+  }
+
+  .content-wrapper {
+    flex: 1 0 0;
+    align-items: flex-end;
+    display: flex;
+    min-height: 350px;
+  }
+
+  .content-container {
+    text-align: center;
+    color: white;
+    width: 100%;
+
+    .comment {
+      font-size: 18px;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 200;
+    }
+
+    .alert {
+      font-size: 18px;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 200;
+      color: rgba(255, 4, 0, 0.52);
+    }
+  }
+
+  .input-lg {
+    padding: 5px 0;
+    font-size: 14px;
+    line-height: 1.3333333;
+    border-radius: 0;
+  }
+
+  .input-underline {
+    background: 0 0;
+    border: none;
+    box-shadow: none;
+    border-bottom: 1px solid rgba(255, 255, 255, .5);
+    color: #FFF;
+    border-radius: 0;
+  }
+
+  .input-underline:focus {
+    border-bottom: 1px solid rgba(255, 255, 255, .5);
+    box-shadow: none;
+  }
+
+  p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 10px;
+    margin-bottom: 50px;
+  }
+
+  .form-group {
+    input::-webkit-input-placeholder {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    input:-moz-placeholder { /* Firefox 18- */
+      color: rgba(255, 255, 255, 0.6) !important;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    input::-moz-placeholder { /* Firefox 19+ */
+      color: rgba(255, 255, 255, 0.6) !important;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    input:-ms-input-placeholder {
+      color: rgba(255, 255, 255, 0.6) !important;
+      font-family: 'Open Sans', sans-serif;
+      
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+   
+    .danger {
+      height:22px;
+      padding: 0px;
+      font-size: 14px;
+      background-color: transparent;
+      margin-top: 13px;
+      margin-bottom: 35px;
+      
+      .errormessage {
+        color: rgba(255, 4, 0, 0.52);
+      }
+      .validmessage {
+        color: rgb(255, 255, 255);
+      }
+    }
+  }
+  
+  .action-container {
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+
+    .bordered-btn {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 900;
+      color: rgba(255, 255, 255, 1);
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 1);
+      font-size: 12px;
+      line-height: 30px;
+      padding: 3px 25px;
+      border-radius: 0;
+      text-transform: uppercase;
+    }
+
+    .bordered-btn:hover, .bordered-btn:focus, .bordered-btn:active, .bordered-btn:visited {
+      color: rgba(255, 255, 255, 1);
+      border: 1px solid rgba(255, 255, 255, 1);
+      outline: none;
+    }
+
+    .btn-submit-container {
+      padding: 27px 0 53px 0;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .page-container {
+
+    .content-container {
+      text-align: center;
+      color: white;
+      width: 100%;
+  
+      .comment {
+        font-size: 14px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 200;
+      }
+  
+      .alert {
+        font-size: 14px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 200;
+        color: rgba(255, 4, 0, 0.52);
+      }
+    }
+  }
+}
+
+@media (min-width: 426px) {
+  .page-container {
+    padding: 50px 50px 0;
+    
+    .page-container {
+      .img-logo {
+        width: 35%;
+      }
+
+      .content-container {
+        p.comment {
+          font-size: 35px;
+        }
+        p.alert {
+          font-size: 35px;
+        }        
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .page-container {
+    .comment {
+      font-size: 18px;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 200;
+      max-width: 42%;
+      display: inline-block;
+    }
+
+    .img-logo {
+      width: 35%;
+    }
+
+    .input-lg {
+      font-size: 15px;
+    }
+
+    p {
+      font-size: 15px;
+    }
+
+    .form-group {
+      input::-webkit-input-placeholder {
+        font-size: 15px;
+      }
+
+      input:-moz-placeholder { /* Firefox 18- */
+        font-size: 15px;
+      }
+
+      input::-moz-placeholder { /* Firefox 19+ */
+        font-size: 15px;
+      }
+
+      input:-ms-input-placeholder {
+        font-size: 15px;
+      }
+    }
+
+    .action-container {
+      .bordered-btn {
+        font-size: 18px;
+      }
+
+      .btn-register-container a {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-container {
+
+    .comment {
+      font-size: 18px;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 200;
+      max-width: 70%;
+      display: inline-block;
+    }
+    .alert {
+      font-size: 30px;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 200;
+      display: inline-block;
+      color: rgba(255, 4, 0, 0.52);
+    }
+    .img-logo {
+      width: 300px;
+    }
+  }
+}

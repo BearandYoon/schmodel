@@ -1,19 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers, Response, URLSearchParams } from '@angular/http';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 import { LocalStorageService } from 'ngx-webstorage';
+import { ErrorResponse } from '../shared/models';
 import { environment } from '../../environments/environment';
 
 @Injectable()
 export class HttpHelperService {
-  constructor(private http: Http, private localStorage: LocalStorageService) {}
+  constructor(
+    private router: Router,
+    private http: Http,
+    private localStorage: LocalStorageService
+  ) { }
 
- 
   private checkAuthHeader(response: Response) {
     let res;
-    const authorizationHeader =  response.headers.toJSON()['authorization'];
-
+    const authorizationHeader = response.headers.toJSON()['Authorization'] || response.headers.toJSON()['authorization'];
     if (authorizationHeader) {
       this.localStorage.store(environment.localStorage.token, authorizationHeader[0]);
     }
@@ -24,7 +28,6 @@ export class HttpHelperService {
     }
     return res;
   }
- 
   /***
    * generate request options
    * @param isUrlEncoded
@@ -37,7 +40,8 @@ export class HttpHelperService {
     isUrlEncoded = false,
     requiredAuth = false,
     customHeader?: Headers,
-    customParam?: Object
+    customParam?: Object,
+    isMultipart = false
   ): RequestOptions {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     const search = new URLSearchParams();
@@ -48,12 +52,15 @@ export class HttpHelperService {
       });
     }
 
+    if (isMultipart) {
+      headers = new Headers();
+    }
+
     if (requiredAuth) {
       const token = this.localStorage.retrieve(
         environment.localStorage.token
       );
       headers.append('Authorization', `${token}`);
- 
     }
 
     if (customHeader) {
@@ -91,7 +98,9 @@ export class HttpHelperService {
       .map((response: Response) => {
         return this.checkAuthHeader(response);
       })
-      .catch(this.handleError);
+      .catch(error => {
+        return this.handleError(error);
+      });
   }
 
   /***
@@ -117,12 +126,19 @@ export class HttpHelperService {
       });
       body = urlSearchParams.toString();
     }
+
+    let requestOptions = this.generateReqOptions(isUrlEncoded, requiredAuth, headers);
+    if (body instanceof FormData) {
+      requestOptions = this.generateReqOptions(isUrlEncoded, requiredAuth, headers, null, true);
+    }
     return this.http
-      .post( url, body, this.generateReqOptions(isUrlEncoded, requiredAuth, headers))
+      .post(url, body, requestOptions)
       .map((response: Response) => {
         return this.checkAuthHeader(response);
       })
-      .catch(this.handleError);
+      .catch(error => {
+        return this.handleError(error);
+      });
   }
 
   /***
@@ -149,11 +165,13 @@ export class HttpHelperService {
       body = urlSearchParams.toString();
     }
     return this.http
-      .patch( url, body, this.generateReqOptions(isUrlEncoded, requiredAuth, headers))
+      .patch(url, body, this.generateReqOptions(isUrlEncoded, requiredAuth, headers))
       .map((response: Response) => {
         return this.checkAuthHeader(response);
       })
-      .catch(this.handleError);
+      .catch(error => {
+        return this.handleError(error);
+      });
   }
 
   /***
@@ -180,11 +198,13 @@ export class HttpHelperService {
       body = urlSearchParams.toString();
     }
     return this.http
-      .put( url, body, this.generateReqOptions(isUrlEncoded, requiredAuth, headers))
+      .put(url, body, this.generateReqOptions(isUrlEncoded, requiredAuth, headers))
       .map((response: Response) => {
         return this.checkAuthHeader(response);
       })
-      .catch(this.handleError);
+      .catch(error => {
+        return this.handleError(error);
+      });
   }
 
   /***
@@ -206,7 +226,9 @@ export class HttpHelperService {
       .map((response: Response) => {
         return this.checkAuthHeader(response);
       })
-      .catch(this.handleError);
+      .catch(error => {
+        return this.handleError(error)
+      });
   }
 
   /***
@@ -215,19 +237,12 @@ export class HttpHelperService {
    * @returns {any}
    */
   private handleError(error: Response | any) {
-    // let errMsg: string;
-    // if (error instanceof Response) {
-    //   const body = error.json() || '';
-    //   errMsg = '';
-    //
-    //   if (body.errors) {
-    //     body.errors.forEach(_err => {
-    //       errMsg += _err.field + ' ' + _err.massage;
-    //     });
-    //   } else {
-    //     errMsg = error.message ? error.message : error.toString();
-    //   }
-    // }
+    if (error.status === 500) {
+      const body = error.json() || '';
+      if (body.exception && body.exception === ErrorResponse.TOKEN_EXPIRE) {
+        this.router.navigate(['login']);
+      }
+    }
     return Observable.throw(error);
   }
 }

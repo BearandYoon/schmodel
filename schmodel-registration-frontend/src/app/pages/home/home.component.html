@@ -1,0 +1,66 @@
+<div class="page-container">
+  <div class="logo-container">
+    <img class="img-logo" src="assets/img/img_logo.png">
+  </div>
+  <p class="title" *ngIf="!isCompletedProfile">Complete Your Profile</p>
+  <p class="title" *ngIf="isCompletedProfile">Welcome back {{firstName}}-{{lastName}}</p>
+  <div class="content-wrapper">
+    <div class="profile-content" *ngIf="isCompletedProfile">
+      <div class="profile-image">
+        <img src="/assets/img/img_home.png" />
+      </div>
+      <div class="profile-info">
+        <div class="profile-title">
+          <h2>JOBS</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="profile-upcoming">
+          <span>{{upcoming}}</span>
+          <p>UPCOMING</p>
+          <div class="divider"></div>
+        </div>
+        <div class="profile-applications">
+          <span>{{applications}}</span>
+          <p>APPLICATIONS</p>
+        </div>
+      </div>
+    </div>
+    <div class="btn-edit-profile common-pattern" (click)="onEdit()" *ngIf="!isCompletedProfile">
+      <div class="btn-text">
+        <span>Edit My Profile</span>
+      </div>
+      <div class="btn-icon">
+        <img src="assets/img/ic_app_jobs.png" />
+      </div>
+    </div>
+    <div class="btn-edit-profile common-pattern" (click)="onView()" *ngIf="isCompletedProfile">
+      <div class="btn-text">
+        <span>My Profile</span>
+      </div>
+      <div class="btn-icon">
+        <img src="assets/img/ic_app_jobs.png" />
+      </div>
+    </div>
+    <div class="btn-apply-job common-pattern" [ngClass]="isCompletedProfile ? '' : 'unCompleted'">
+      <div class="btn-text">
+        <span>Apply for Jobs</span>
+      </div>
+      <div class="btn-icon">
+        <img src="assets/img/ic_edit_jobs.png" />
+      </div>
+    </div>
+    <div class="btn-my-job common-pattern" [ngClass]="isCompletedProfile ? '' : 'unCompleted'">
+      <div class="btn-text">
+        <span>My Jobs</span>
+      </div>
+      <div class="btn-icon">
+        <img src="assets/img/ic_my_jobs.png" />
+      </div>
+    </div>
+  </div>
+  <p class="content-text">Only Schmodels with an activation code can apply for jobs (until further notice)</p>
+  <div class="page-footer">
+    <p class="logout-text" (click)="logout()">LOG-OUT</p>
+    <p class="terms-condition" (click)="showTermsAndConditions()">Terms & Conditions</p>
+  </div>
+</div>

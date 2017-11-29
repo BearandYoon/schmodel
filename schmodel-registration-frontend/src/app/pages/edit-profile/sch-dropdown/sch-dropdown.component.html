@@ -1,0 +1,5 @@
+<select class="{{'select--'+category}}" [(ngModel)]="value">
+  <option value="" disabled selected hidden>{{data.placeholder}}</option>
+  <option *ngFor="let option of options" [attr.value]="option.value">{{option.text}}</option>
+</select>
+<span *ngIf="allowRemove" (click)="onRemoveClick()" class="icon-close"></span>

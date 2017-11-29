@@ -23,7 +23,7 @@ export class LayoutComponent implements OnInit {
 
         this.pageData = route.snapshot.data;
       }
-    })
+    });
   }
   
   ngOnInit() {

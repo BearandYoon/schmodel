@@ -4,6 +4,11 @@ import { AuthGuard } from './shared';
 import { LayoutComponent } from './pages/layout';
 
 const routes: Routes = [
+  { path: 'login', loadChildren: './pages/login/login.module#LoginModule' },
+  { path: 'signup', loadChildren: './pages/signup/signup.module#SignupModule' },
+  { path: 'not-found', loadChildren: './pages/not-found/not-found.module#NotFoundModule' },
+  { path: 'forgot', loadChildren: './pages/forgot/forgot.module#ForgotModule' },
+  { path: 'reset-token', loadChildren: './pages/setpassword/setpassword.module#SetpasswordModule' },
   {
     path: '',
     canActivate: [AuthGuard],
@@ -22,25 +27,24 @@ const routes: Routes = [
           title: 'Apply for Jobs',
           navLeft: 'back'
         }
-      }, {
-        path: 'my-jobs',
+      },
+      {
+        path: 'edit-profile',
         canActivate: [AuthGuard],
-        loadChildren: './pages/my-jobs/my-jobs.module#MyJobsModule',
+        loadChildren: './pages/edit-profile/edit-profile.module#EditProfileModule',
         data: {
-          title: 'Upcoming / Previous Jobs',
+          title: 'Edit My Profile',
           navLeft: 'back'
         }
       }
     ]
   },
-  { path: 'login', loadChildren: './pages/login/login.module#LoginModule' },
-  { path: 'signup', loadChildren: './pages/signup/signup.module#SignupModule' },
-  { path: 'not-found', loadChildren: './pages/not-found/not-found.module#NotFoundModule' },
+  { path: 'change-password', loadChildren: './pages/changepassword/changepassword.module#ChangepasswordModule' },
   { path: '**', redirectTo: 'not-found' }
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -1,0 +1,18 @@
+section {
+  padding: 18px 30px;
+}
+
+.form-group--location {
+  p {
+    line-height: 1em;
+    font-size: 8px;
+    color: #6D6E71;
+    margin-bottom: 5px;
+  }
+}
+
+.validation-error {
+  margin: 5px 0 0 0;
+  font-size: 10px;
+  color: rgba(255, 4, 0, 0.52);
+}
