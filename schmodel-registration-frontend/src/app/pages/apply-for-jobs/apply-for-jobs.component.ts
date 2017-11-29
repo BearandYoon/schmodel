@@ -50,13 +50,6 @@ export class ApplyForJobsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.jobService.getApplyForJobs()
-      .then(res => {
-        this.eventView = res.eventView;
-      })
-      .catch(code => {
-        console.log("Failed with status code", code);
-      });
     this.flag = true;
     this.boardHeight = this.style_height[0].boardHeight;
     this.role_title = ["PR", "HOST", "GRID", "SCHMODEL GUEST"];

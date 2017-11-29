@@ -12,17 +12,4 @@ export class JobService {
     private http: HttpHelperService,
     private apiRoutingService: ApiRoutingService
   ) { }
-
-  getApplyForJobs(): Promise<any> {
-
-    return this.http.get(
-      this.apiRoutingService.getApplyForJobsAPIUrl(),
-      {},
-      true,
-      null
-    )
-      .toPromise()
-      .then(response => response.json())
-      .catch(err => Promise.reject(err.status))
-  }
 }
