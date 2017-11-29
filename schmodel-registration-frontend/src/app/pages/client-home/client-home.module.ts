@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { ClientHomeRoutingModule } from './client-home-routing.module';
 import { ClientHomeComponent } from './client-home.component';
-import { ProfileService } from '../../core/services';
+import { ClientService } from '../../core/services';
 
 @NgModule({
   imports: [
@@ -12,7 +12,7 @@ import { ProfileService } from '../../core/services';
   ],
   declarations: [ClientHomeComponent],
   providers: [
-    ProfileService
+    ClientService
   ]
 })
 export class ClientHomeModule {

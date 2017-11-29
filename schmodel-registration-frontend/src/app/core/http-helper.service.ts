@@ -227,7 +227,7 @@ export class HttpHelperService {
         return this.checkAuthHeader(response);
       })
       .catch( error => {
-        return this.handleError(error)
+        return this.handleError(error);
       });
   }
 

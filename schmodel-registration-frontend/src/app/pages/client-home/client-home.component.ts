@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'ngx-webstorage';
 
+import { ClientService } from '../../core/services';
 import { routerTransition } from '../../router.animations';
 import { environment } from '../../../environments/environment';
 
@@ -15,16 +16,25 @@ import { environment } from '../../../environments/environment';
 export class ClientHomeComponent implements OnInit {
   constructor(
     public router: Router,
-    private localStorage: LocalStorageService
+    private localStorage: LocalStorageService,
+    private clientService: ClientService
   ) {}
 
   ngOnInit() {
+    this.clientService.clientHome().subscribe(res => {
+      console.log(res);
+    }, error => {
+      console.log(error);
+      if (error.status === 401) {
+        this.router.navigate(['client/login']);
+      }
+      this.router.navigate(['client/login']);
+    });
   }
 
   logout() {
-    // this.showLogOutMessage();
     this.localStorage.clear(environment.localStorage.token);
-    this.router.navigate(['login']);
+    this.router.navigate(['client/login']);
   }
 
   onCalendar() {

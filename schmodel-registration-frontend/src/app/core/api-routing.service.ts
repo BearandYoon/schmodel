@@ -65,4 +65,7 @@ export class ApiRoutingService {
     return this.baseUrl + '/client/login';
   }
 
+  getClientHomeAPIUrl(): string {
+    return this.baseUrl + '/client/home';
+  }
 }
