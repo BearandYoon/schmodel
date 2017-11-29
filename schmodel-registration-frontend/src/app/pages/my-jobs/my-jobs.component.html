@@ -1,0 +1,13 @@
+<div class="my-jobs" [ngStyle]="{ 'height' : '100%' }" [@routerTransition]>
+  <div class="title">
+    UPCOMING JOBS
+  </div>
+
+  <div class="sch-job-row" *ngFor="let event of eventView">
+    <app-sch-job-row [event_role]="event"></app-sch-job-row>
+  </div>
+
+  <div class="title">
+    PREVIOUS JOBS
+  </div>
+</div>

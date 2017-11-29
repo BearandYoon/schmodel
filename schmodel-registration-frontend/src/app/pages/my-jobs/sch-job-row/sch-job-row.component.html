@@ -1,0 +1,42 @@
+<accordion>
+  <header accordion-heading (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed">
+    <div>
+      <h1> FIA FORMULA E </h1>
+      <time> {{event_role.startDate | date: 'yMMMMd' }}</time>
+      <p> <strong>{{event_role.city}},</strong> {{event_role.country}}</p>
+    </div>
+    <span *ngIf="!isCollapsed" class="icon icon-plus-circle"></span>
+    <span *ngIf="isCollapsed" class="icon icon-minus-circle"></span>
+  </header>
+  
+  <div class="job-body" *ngIf="isCollapsed">
+    <div class="job-role-content col-md-12 col-12 text-left">
+      <p class="job-title">JOB:</p>
+      <p class="custom-border-bottom"><strong>PR</strong>(Brand Ambassador)</p>
+    </div>
+
+    <div class="d-flex">
+      <div class="workschedule-wrapper custom-border-right">
+        <div class="workschedule-title col-md-12 col-12"> WORK SCHEDULE:</div>
+        
+        <div class="workschedule-col-title col-md-12 col-12 row">
+          <div class="col-md-6 col-6 text-left"> Date </div>
+          <div class="col-md-3 col-3 text-right"> Start </div>
+          <div class="col-md-3 col-3 text-right"> End </div>
+        </div>
+
+        <div *ngFor="let schedule of event_role.roles[0].workSchedules" class="workschedule row col-md-12 col-12 row">
+          <div class="col-md-6 col-6 text-left"> {{schedule.day | date: 'd MMMM y'}}</div>
+          <div class="col-md-3 col-3 text-right"> {{schedule.startTime}} </div>
+          <div class="col-md-3 col-3 text-right"> {{schedule.endTime}} </div>
+        </div>
+      </div>
+
+      <div class="pay-rate-wrapper">
+        <div class="pay-rate-title col-md-12 col-12"> PAY RATE</div>
+        <div class="pay-rate-col-title col-md-12 col-12"> €1,400</div>
+      </div>
+    </div>
+  </div>
+</accordion>
+<ng-template #elseBlock> &nbsp; </ng-template>

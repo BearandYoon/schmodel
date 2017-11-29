@@ -1,0 +1,58 @@
+<div class="text-center"> 
+  <div class="modal-header">
+    <h2 class="modal-title">{{dialogTitle}}</h2>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="onClose()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <div class="content-wrapper" style="width: 80%; margin:auto">
+      <div class="role-wrapper row custom-border">
+        <div class="col-md-4 col-4"> Position:</div>
+        <div class="col-md-2 col-2"></div>
+        <div class="col-md-6 col-6 text-left">{{position_field}}</div>
+
+        <div class="col-md-4 col-4"> City/Country:</div>
+        <div class="col-md-2 col-2"></div>
+        <div class="col-md-6 col-6 text-left">{{city_country_field}}</div>
+
+        <div class="col-md-4 col-4"> Pay rate:</div>
+        <div class="col-md-2 col-2"></div>
+        <div *ngIf="pay_rate_field; else elseBlock" class="col-md-6 col-6 text-left">{{pay_rate_field | number : fractionSize}}€</div>
+      </div>
+
+      <div class="workschedule-wrapper row custom-border">
+        <div class="workschedule-title col-md-12 col-12"> WORK SCHEDULE:</div>
+        
+        <div class="workschedule-col-title col-md-12 col-12 row">
+          <div class="col-md-6 col-6 text-left"> Date </div>
+          <div class="col-md-3 col-3 text-right"> Start </div>
+          <div class="col-md-3 col-3 text-right"> End </div>
+        </div>
+
+        <div *ngFor="let schedule of workschedule" class="workschedule row col-md-12 col-12 row">
+          <div class="col-md-6 col-6 text-left"> {{schedule.day | date: 'd MMMM y'}}</div>
+          <div class="col-md-3 col-3 text-right"> {{schedule.startTime}} </div>
+          <div class="col-md-3 col-3 text-right"> {{schedule.endTime}} </div>
+        </div>
+      </div>
+
+      <div class="description-wrapper">
+        <p> This job requires work eligibility in Morocco. Do you confirm your applicaion for this job as per the
+          <span class="terms-conditions" (click)="onTC()">Terms and Conditions</span>?
+        </p>
+      </div>
+
+      <div class="term-condition-wrapper" *ngIf="tc_flag">
+        <p>{{terms_conditions}}</p>
+      </div>
+    </div>
+
+    <div class="action-wrapper">
+      <button (click)="onConfirm()"> YES </button>
+      <button (click)="onClose()"> NO  </button>
+    </div>
+  </div>
+</div>
+<ng-template #elseBlock> &nbsp; </ng-template>
