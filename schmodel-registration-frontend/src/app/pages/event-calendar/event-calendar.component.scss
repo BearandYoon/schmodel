@@ -38,8 +38,66 @@ $formula-logo-height: 70px;
         font-weight: bold;
         text-align: center;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: flex-end;
       }
     }
-  }
+	}
+	
+	.section--talent {
+		display: flex;
+		margin-top: 4px;
+		width: 100%;
+		background-image: url('/assets/img/bg_event_calendar.png');
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+
+		&:last-of-type {
+			margin-bottom: 40px;
+		}
+
+		.talent-calendar {
+			width: $model-img-size;
+			background-color: rgba(0, 198, 253, 0.19);
+			
+			// .info-values {
+			// 	font-size: 7px;
+			// 	font-weight: normal;
+			// 	margin: 0;
+			// 	line-height: 1.2em;
+
+			// 	span {
+			// 		white-space: nowrap;
+
+			// 		&:nth-of-type(1) {
+			// 			color: #bcbec0;
+			// 		}
+			// 		&:nth-of-type(2) {
+			// 			color: #bcbec0;
+			// 		}
+			// 		&:nth-of-type(3) {
+			// 			color: #bcbec0;
+			// 		}
+			// 	}
+
+			// 	b {
+			// 		font-weight: 800;
+			// 	}
+			// }
+			
+		}
+
+		.talent-calendar-second {
+			width: $model-img-size;
+			background-color: rgba(97, 29, 146, 0.19);
+		}
+
+		.talent-content {
+			display: flex;
+			flex: 1;
+		}
+
+	}
+
+
+
 
