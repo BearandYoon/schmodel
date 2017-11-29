@@ -1,13 +1,23 @@
-<div class="my-jobs" [ngStyle]="{ 'height' : '100%' }" [@routerTransition]>
+<div class="my-jobs" [ngStyle]="{ 'height' : boardHeight }" [@routerTransition]>
   <div class="title">
     UPCOMING JOBS
   </div>
 
-  <div class="sch-job-row" *ngFor="let event of eventView">
+  <div class="sch-job-row" *ngFor="let event of response[0].upcomingEvents">
     <app-sch-job-row [event_role]="event"></app-sch-job-row>
   </div>
 
   <div class="title">
     PREVIOUS JOBS
+  </div>
+
+  <div class="sch-job-row" *ngFor="let event of response[0].previousEvents">
+    <app-sch-job-row [event_role]="event"></app-sch-job-row>
+  </div>
+
+  <div [ngStyle]="{'height' : '50vh'}" class="sticky-footer" *ngIf="flag">
+    <div class="gra-footer-padding">
+      <img src="/assets/img/ic_down.png" (click)="onScrollDown()">
+    </div>
   </div>
 </div>

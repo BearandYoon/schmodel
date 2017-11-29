@@ -17,5 +17,6 @@ export class SchJobRowComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.event_role);
   }
 }

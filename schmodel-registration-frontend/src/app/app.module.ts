@@ -15,12 +15,18 @@ import { ValidationService, SharedService } from './shared/services';
 import { TermsModalComponent } from './shared/modules';
 import { MessageModalComponent } from './shared/modules';
 import { LayoutModule } from './pages/layout/layout.module';
+import { DialogDetailComponent } from './pages/apply-for-jobs/components/dialog-detail/dialog-detail..component';
+import { DialogJobApplyComponent } from './pages/apply-for-jobs/components/dialog-job-apply/dialog-job-apply.component';
+import { DialogWithdrawComponent } from './pages/apply-for-jobs/components/dialog-withdraw/dialog-withdraw.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TermsModalComponent,
-    MessageModalComponent
+    MessageModalComponent,
+    DialogDetailComponent,
+    DialogJobApplyComponent,
+    DialogWithdrawComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +50,10 @@ import { LayoutModule } from './pages/layout/layout.module';
   ],
   entryComponents: [
     TermsModalComponent,
-    MessageModalComponent
+    MessageModalComponent,
+    DialogDetailComponent,
+    DialogJobApplyComponent,
+    DialogWithdrawComponent
   ],
   bootstrap: [AppComponent]
 })
