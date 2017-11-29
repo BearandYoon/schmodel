@@ -10,6 +10,12 @@ const routes: Routes = [
   { path: 'not-found', loadChildren: './pages/not-found/not-found.module#NotFoundModule' },
   { path: 'forgot', loadChildren: './pages/forgot/forgot.module#ForgotModule' },
   { path: 'reset-token', loadChildren: './pages/setpassword/setpassword.module#SetpasswordModule' },
+  { path: 'change-password', loadChildren: './pages/changepassword/changepassword.module#ChangepasswordModule' },
+  {
+    path: 'client/home',
+    canActivate: [AuthGuard],
+    loadChildren: './pages/client-home/client-home.module#ClientHomeModule'
+  },
   {
     path: '',
     canActivate: [AuthGuard],
@@ -25,13 +31,12 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         loadChildren: './pages/edit-profile/edit-profile.module#EditProfileModule',
         data: {
-          title: 'Edit My Profile',       
+          title: 'Edit My Profile',
           navLeft: 'back'
         }
       }
     ]
   },
-  { path: 'change-password', loadChildren: './pages/changepassword/changepassword.module#ChangepasswordModule' },
   { path: '**', redirectTo: 'not-found' }
 ];
 

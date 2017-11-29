@@ -53,6 +53,7 @@ export class ClientLoginComponent implements OnInit {
     this.authUser.password = this.signInForm.value.password;
     this.authService.clientLogin(this.authUser).subscribe( res => {
       console.log('successfully logged in as client');
+      this.router.navigate(['client/home']);
     }, error => {
       if (error.status === 401) {
         this.message = ValidationMessage.INVALID_CREDENTIALS;
