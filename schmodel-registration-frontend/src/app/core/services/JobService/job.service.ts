@@ -12,4 +12,22 @@ export class JobService {
     private http: HttpHelperService,
     private apiRoutingService: ApiRoutingService
   ) { }
+
+  getApplyForJobs(callback = undefined) {
+    return this.http.get(
+      this.apiRoutingService.getApplyForJobsUrl(),
+      {},
+      true,
+      null
+    ).subscribe(res => {
+      if (callback) {
+        callback(res.eventView);
+      }
+    }, error => {
+      console.log(error);
+      if (callback) {
+        callback([]);
+      }
+    });
+  }
 }

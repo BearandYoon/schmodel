@@ -62,7 +62,7 @@ export class ApiRoutingService {
     return this.baseUrl + '/talent/delete-photo';
   }
 
-  getApplyForJobs(): string {
+  getApplyForJobsUrl(): string {
     return this.baseUrl + '/talent/apply-for-jobs';
   }
 

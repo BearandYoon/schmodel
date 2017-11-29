@@ -50,6 +50,9 @@ export class ApplyForJobsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.jobService.getApplyForJobs(eventView => {
+      this.eventView = eventView;
+    });
     this.flag = true;
     this.boardHeight = this.style_height[0].boardHeight;
     this.role_title = ["PR", "HOST", "GRID", "SCHMODEL GUEST"];
