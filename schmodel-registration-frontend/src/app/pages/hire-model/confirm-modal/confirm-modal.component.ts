@@ -17,9 +17,6 @@ export class ConfirmModalComponent implements OnInit {
   public pay_rate_field: number;
   public dialogTitle: string;
   public onCloseReason: Subject<string>;
-  public terms_conditions: string;
-  public tc_flag ;
-  public workschedule: Array<any> = [];
 
   constructor(
     public bsModalRef: BsModalRef
@@ -34,7 +31,6 @@ export class ConfirmModalComponent implements OnInit {
     this.city_country_field = 'Marrakesh, Morocco';
     this.pay_rate_field = 1400;
     this.onCloseReason = new Subject();
-    this.tc_flag = false;
   }
 
   onConfirm() {
@@ -48,6 +44,5 @@ export class ConfirmModalComponent implements OnInit {
   }
 
   onTC() {
-    this.tc_flag = !this.tc_flag;
   }
 }
