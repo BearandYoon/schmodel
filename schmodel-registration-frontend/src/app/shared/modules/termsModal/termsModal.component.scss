@@ -24,7 +24,7 @@
 
 .modal-body {
   background-color: #e6e7e8;
-  font-family: "Open Sans Regular";
+  //font-family: "Open Sans Regular";
   max-height: 380px;
   padding: 20px;
 
@@ -51,7 +51,6 @@
 
     .terms-row-wrapper.bold {
       font-weight: bold;
-      font-family: "Open Sans Bold";
     }
 
     ul {
@@ -61,13 +60,11 @@
     .terms-italic {
       font-style: italic;
       font-weight: bold;
-      font-family: "Open Sans Bold";
     }
 
     .terms-heading {
       font-size: 13px;
       font-weight: bold;
-      font-family: "Open Sans Bold";
     }
 
     .terms-block {
@@ -85,7 +82,8 @@
       font-size: 14px;
       padding: 5px 30px;
       border-radius: 0;
-      font-family: "Open Sans Bold";
+      //font-family: "Open Sans Bold";
+      font-weight: bold;
       text-transform: uppercase;
     }
   }
