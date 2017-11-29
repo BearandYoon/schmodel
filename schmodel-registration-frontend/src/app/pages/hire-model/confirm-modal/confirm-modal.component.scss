@@ -1,0 +1,136 @@
+.modal-header {
+  background-image: url("/assets/img/bg_modal_title.png");
+  background-size: cover;
+  align-items: center;
+  color: #FFFFFF;
+  border-radius: 0;
+  height: 70px;
+
+  .modal-title {
+    margin-bottom: 0;
+    text-align: center;
+    width: 100%;
+    font-size: 20px;
+    font-family: "Open Sans";
+    font-weight: 100;
+    letter-spacing: 1.2px;
+    position: absolute;
+  }
+
+  .close {
+    background-size: cover;
+    position: absolute;
+    font-weight: 100;
+    font-size: 1.9em;
+    top: 0;
+    right: 8px;
+    color: #FFFFFF;
+  }
+}
+
+.modal-body {
+  background-color: #ebecec;
+  max-height: 400px;
+  overflow: auto;
+  padding: 20px;
+  font-size: 10px;
+  font-weight: 400;
+
+  .content-wrapper {
+    width: 80%;
+    margin:auto;
+    //padding: 10px 10px 0px 10px;
+  }
+
+  .role-wrapper {
+    width: 100%;
+    margin:auto;
+    font-family: "Open Sans";
+    font-weight: 9px;
+    text-align: left;
+    padding-bottom: 10px;
+
+    .col-md-4.col-4 {
+      font-weight: 700;
+    }
+  }
+
+  .workschedule-wrapper {
+    width: 100%;
+    margin:auto;
+    padding-bottom: 10px;
+    font-family: "Open Sans";
+    font-size: 9px;
+    font-weight: 400;
+
+    .workschedule-title {
+      padding-top: 10px;
+      font-size: 8px;
+      font-weight: 700;
+      color: gray;
+      text-align: left;
+    }
+
+    .workschedule-col-title {
+      font-weight: 700;
+      padding-right: 0;
+    }
+
+    .workschedule {
+      padding-right: 0;
+      width: 100%;
+    }
+  }
+
+  .description-wrapper {
+    padding: 10px 0 10px 0;
+    width: 75%;
+    margin: auto;
+
+    .terms-conditions {
+      font-size: 9px;
+      text-decoration: underline;
+    }
+  }
+
+  .agreement-wrapper {
+    padding-bottom: 10px;
+    p {
+      margin-bottom: 0;
+      font-style: italic;
+    }
+  }
+
+  .action-wrapper {
+    text-align: center;
+
+    button {
+      background-color: transparent;
+      border: 1px solid black;
+      margin: 10px;
+      font-size: 10px;
+      padding: 5px 30px;
+      border-radius: 0;
+      font-family: "Open Sans";
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.col-3.col-md-3 {
+  padding-left: 0px;
+}
+
+.custom-border {
+  border-bottom: 1px solid;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  -webkit-border-image: -webkit-gradient(linear, #e6e7e8 0%,#bbbdbf 12%,#bbbdbf 88%,#e6e7e8 100%);
+  -webkit-border-image: -webkit-linear-gradient(left, #e6e7e8 0%,#bbbdbf 12%,#bbbdbf 88%,#e6e7e8 100%);
+  -moz-border-image:    -moz-linear-gradient(left, #e6e7e8 0%, #bbbdbf 12%, #bbbdbf 88%, #e6e7e8 100%);
+  -o-border-image:    -o-linear-gradient(#e6e7e8 0%,#bbbdbf 12%,#bbbdbf 88%,#e6e7e8 100%);
+  border-image:    linear-gradient(to right, #e6e7e8 0%,#bbbdbf 12%,#bbbdbf 88%,#e6e7e8 100%);
+  border-image-slice: 1;
+}
