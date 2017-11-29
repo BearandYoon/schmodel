@@ -17,14 +17,23 @@ const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     children: [
       {
         path: 'edit-profile',
-        canActivate: [AuthGuard],
+        // canActivate: [AuthGuard],
         loadChildren: './pages/edit-profile/edit-profile.module#EditProfileModule',
         data: {
-          title: 'Edit My Profile',       
+          title: 'Edit My Profile',
+          navLeft: 'back'
+        }
+      },
+      {
+        path: 'hire-model',
+        // canActivate: [AuthGuard],
+        loadChildren: './pages/hire-model/hire-model.module#HireModelModule',
+        data: {
+          title: ' ',
           navLeft: 'back'
         }
       }
