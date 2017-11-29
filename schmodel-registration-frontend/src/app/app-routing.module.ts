@@ -19,6 +19,16 @@ const routes: Routes = [
     component: LayoutComponent,
     canActivate: [AuthGuard],
     children: [
+     {
+        path: 'profile',
+        canActivate: [AuthGuard],
+        loadChildren: './pages/profile/profile.module#ProfileModule',
+        data: {
+          title: 'My Profile',       
+          navLeft: 'back',
+          navRight: 'settings'
+        }
+      },    
       {
         path: 'edit-profile',
         canActivate: [AuthGuard],

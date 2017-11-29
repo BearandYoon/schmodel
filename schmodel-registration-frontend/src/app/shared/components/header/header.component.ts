@@ -30,7 +30,7 @@ export class HeaderComponent implements OnInit {
     const navRight: String = this.pageData.navRight;
     switch (navRight) {
       case 'settings':
-        // this.router.navigate(['/profile']);
+        this.router.navigate(['/edit-profile']);
         break;
       default:
     }
