@@ -1,4 +1,6 @@
 <section>
+    <p class="mandatory"> Fields marked with * are mandatory</p>
+    
     <form [formGroup]="editBillingForm" (submit)="onSubmit()" (change)="onChange($event)" (keypress)="onChange($event)">
     <div class="form-group">
       <sch-input-row formControlName="companyName" label="Company Name" maxlength="30"></sch-input-row>
