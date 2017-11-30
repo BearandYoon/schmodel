@@ -30,13 +30,31 @@ export class ProfileService {
       null
     );
   }
+  
+  viewTalentProfile(talentId) {
+    const photoWidth = Math.round(window.innerWidth / 2);
+    const photoHeight = Math.round(window.innerWidth / 2);
+    return this.http.get(
+      this.apiRoutingService.getViewTalentProfileUrl(),
+	  {
+	          talentId,
+	          photoWidth,      
+	          photoHeight
+	   },
+	   true,
+	   null
+	 );
+  }
 
   getAfterProfile() {
     const photoWidth = Math.round(2 * window.innerWidth / 3);
     const photoHeight = Math.round(2 * window.innerWidth / 3);
     return this.http.get(
       this.apiRoutingService.getAfterProfileInfoAPIUrl(),
-      {},
+      {
+      	photoWidth,
+      	photoHeight
+      },
       true,
       null
     );

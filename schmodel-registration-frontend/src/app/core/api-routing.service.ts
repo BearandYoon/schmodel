@@ -60,7 +60,12 @@ export class ApiRoutingService {
   getDeletePhotoUrl(): string {
     return this.baseUrl + '/talent/delete-photo';
   }
+  
   getViewProfileAPIUrl(): string {
     return this.baseUrl + '/talent/my-profile';
+  }
+  
+  getViewTalentProfileUrl(): string {
+  	return this.baseUrl + '/client/talent-profile';
   }
 }

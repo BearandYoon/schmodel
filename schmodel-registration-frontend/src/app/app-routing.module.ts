@@ -37,9 +37,19 @@ const routes: Routes = [
           title: 'Edit My Profile',       
           navLeft: 'back'
         }
+      },
+     {
+    	path: 'talent-profile',
+        canActivate: [AuthGuard],
+        loadChildren: './pages/profile/profile.module#ProfileModule',
+        data: {
+           title: 'Schmodel Profile',       
+           navLeft: 'back'
+        }
       }
     ]
   },
+ 
   { path: 'change-password', loadChildren: './pages/changepassword/changepassword.module#ChangepasswordModule' },
   { path: '**', redirectTo: 'not-found' }
 ];

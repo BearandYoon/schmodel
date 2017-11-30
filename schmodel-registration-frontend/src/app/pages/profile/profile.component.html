@@ -1,4 +1,4 @@
-<div  *ngIf="profile.id >0"> 
+<div> 
 <div class="profile-page" >
   <swiper [config]="config">
       <div class="swiper-wrapper">
@@ -16,8 +16,8 @@
     <div>
       <p><label>Date of Birth:</label><span>{{profile.dateOfBirth | date : 'd MMMM yyyy'}}</span></p>
       <p><label>Residence:</label><span>{{profile.residentialAddressCity}}</span></p>
-      <p><label>Citizenship:</label><span *ngFor="let citizenship of profile.citizenship">{{citizenship.name}} </span></p>
-      <p><label>Languages:</label><span *ngFor="let language of profile.language">{{language.name}} </span></p>
+      <p><label>Citizenship:</label><span *ngFor="let citizenship of profile.citizenships">{{citizenship.name}} </span></p>
+      <p><label>Languages:</label><span *ngFor="let language of profile.languages">{{language.name}} </span></p>
       <p class="work-proficiency"><small >(working proficiency)</small></p>
     </div>
     <div>
@@ -40,7 +40,8 @@
       <p>{{profile.biography}}</p>
     </div>
     <div>
-      <small>MY TERMS & CONDITIONS</small>
+      <small *ngIf="isOwnProfile">MY TERMS & CONDITIONS</small>
+      <small *ngIf="!isOwnProfile">TERMS & CONDITIONS</small>
       <p *ngFor="let item of profile.talentClauses;let i = index">{{i+1}}.{{item.clause}}</p>
     </div>
     <div>
