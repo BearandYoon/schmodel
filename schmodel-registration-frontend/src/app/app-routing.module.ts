@@ -17,7 +17,7 @@ const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'edit-profile',
@@ -30,7 +30,7 @@ const routes: Routes = [
       },
       {
         path: 'event-calendar',
-        // canActivate: [AuthGuard],
+        canActivate: [AuthGuard],
         loadChildren: './pages/event-calendar/event-calendar.module#EventCalendarModule',
         data: {
           title: 'Event Calendar',
