@@ -1,6 +1,6 @@
-<p class="info-values">
-  <span>APPLICANTS <b>32</b></span><br/>
-  <span>LIKES <b>26</b></span><br/>
-  <span>HIRED <b>19</b></span>
+<p *ngIf="!!role.name" class="info-values">
+  <span>APPLICANTS <b>{{role.applicants}}</b></span><br/>
+  <span>LIKES <b>{{role.liked}}</b></span><br/>
+  <span>HIRED <b>{{role.hired}}</b></span>
 </p>
-PR
+{{role.name}}

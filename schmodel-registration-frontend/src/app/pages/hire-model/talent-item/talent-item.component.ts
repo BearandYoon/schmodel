@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'talent-item',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TalentItemComponent implements OnInit {
 
+  @Input() talent: any = {};
+  @Output() confirmHiring: EventEmitter<any> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onConfirmHiring() {
+    this.confirmHiring.emit();
   }
 
 }

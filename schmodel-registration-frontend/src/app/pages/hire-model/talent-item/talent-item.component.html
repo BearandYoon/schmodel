@@ -1,16 +1,19 @@
-<section class="section--talent has-message">
+<section class="section--talent">
   <div class="content-wrapper">
     <img class="talent-photo" src="/assets/img/img_home.png">
     <div class="talent-content">
       <div class="title-wrapper">
-        Lindsay-Anne
+        {{talent.firstName}}
         <img src="/assets/images/ic_three_dots.svg">
       </div>
       <div class="action-wrapper">
-        <div class="action-item item--unliked"></div>
-        <div class="action-item item--liked"></div>
-        <div class="action-item item--none"></div>
-        <div class="action-item item--hire" (click)="confirmHiring()"></div>
+        <div *ngFor="let role of talent.roles" class="action-item" [ngClass]="{
+          'item--hired-circle': role.application && role.application.liked && talent.hired,
+          'item--liked': role.application && role.application.liked && !talent.hired,
+          'item--unliked': role.application && !role.application.liked,
+          'item--none': !role.application}"></div>
+        <div *ngIf="!talent.hired" class="action-item item--hire" (click)="onConfirmHiring()"></div>
+        <div *ngIf="talent.hired" class="action-item item--hired"></div>
       </div>
     </div>
   </div>
