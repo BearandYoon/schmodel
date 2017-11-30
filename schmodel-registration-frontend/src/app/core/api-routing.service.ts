@@ -54,6 +54,10 @@ export class ApiRoutingService {
     return this.baseUrl + '/talent/edit-my-profile';
   }
 
+  getEventCalendarListInfoUrl(): string {
+    return this.baseUrl + '/talent/event-calendar';
+  }
+
   getUploadPhotoUrl(): string {
     return this.baseUrl + '/talent/upload-photo';
   }

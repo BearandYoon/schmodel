@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ProfileService } from '../../core/services';
+
 @Component({
   selector: 'app-event-calendar',
   templateUrl: './event-calendar.component.html',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventCalendarComponent implements OnInit {
 
-  constructor() { }
+  eventItems: any;
+
+  constructor(
+    private profileService: ProfileService,
+  ) { }
 
   ngOnInit() {
+    this.profileService.getEventCalendar().subscribe(res => {
+      this.eventItems = res[0];
+    });
   }
 
 }

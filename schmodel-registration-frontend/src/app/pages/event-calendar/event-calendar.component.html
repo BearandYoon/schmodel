@@ -13,140 +13,44 @@
     </div>
 </div>
 <div class="talent-container">  
-    <div class="section--talent">
-      <div class="talent-calendar">
-        <p class="info-values">
-          <span><b>R1-2</b></span><br/>
-          <span>Dec. 2-3, 2017</span><br/>
-          <span>HONG KONG,</span><br/>
-          <span>China</span>
-        </p>
-      </div>
-      <div class="talent-content">
-        <div class="info-item">
-          <p>JOBS<span>25</span></p>
-          <p>APPLICANTS<span>44</span></p>
-          <p>HIRED<span>25</span></p>
-        </div>
-        <div class="info-item item--none"></div>
-        <div class="info-item item--none"></div>
-      </div>
+  <div class="section--talent" *ngFor="let eventItem in eventItems.eventList">
+    
+    <div class="talent-calendar">
+      <p class="info-values">
+        <span><b>eventItem[0].data.name</b></span><br/>
+        <span>Dec. 2-3, 2017</span><br/>
+        <span>eventItem[0].data.city</span><br/>
+        <span>eventItem[0].data.country.name</span>
+      </p>
     </div>
-  
-    <div class="section--talent">
-      <div class="talent-calendar">
-        <p class="info-values">
-          <span><b>R1-2</b></span><br/>
-          <span>Dec. 2-3, 2017</span><br/>
-          <span>HONG KONG,</span><br/>
-          <span>China</span>
-        </p>
+
+    <div class="talent-content">
+
+      <div class="info-item" [ngClass]={'item--none': eventItem[1].data.jobs == 0}>
+        <p>JOBS<span>eventItem[1].data.jobs</span></p>
+        <p>APPLICANTS<span>eventItem[1].data.applicants</span></p>
+        <p>HIRED<span>eventItem[1].data.hired</span></p>
       </div>
-      <div class="talent-content">
-        <div class="info-item">
-          <p>JOBS<span>25</span></p>
-          <p>APPLICANTS<span>44</span></p>
-          <p>HIRED<span>25</span></p>
-        </div>
-        <div class="info-item">
-          <p>JOBS<span>25</span></p>
-          <p>APPLICANTS<span>44</span></p>
-          <p>HIRED<span>25</span></p>
-        </div>
-        <div class="info-item">
-          <p>JOBS<span>25</span></p>
-          <p>APPLICANTS<span>44</span></p>
-          <p>HIRED<span>25</span></p>
-        </div>
+
+      <div class="info-item" [ngClass]={'item--none': eventItem[1].data.jobs == 0}>
+        <p>JOBS<span>eventItem[1].data.jobs</span></p>
+        <p>APPLICANTS<span>eventItem[1].data.applicants</span></p>
+        <p>HIRED<span>eventItem[1].data.hired</span></p>
       </div>
+
+      <div class="info-item" [ngClass]={'item--none': eventItem[1].data.jobs == 0}>
+        <p>JOBS<span>eventItem[1].data.jobs</span></p>
+        <p>APPLICANTS<span>eventItem[1].data.applicants</span></p>
+        <p>HIRED<span>eventItem[1].data.hired</span></p>
+      </div>
+
     </div>
-  
-    <div class="section--talent">
-      <div class="talent-calendar">
-        <p class="info-values">
-          <span><b>R1-2</b></span><br/>
-          <span>Dec. 2-3, 2017</span><br/>
-          <span>HONG KONG,</span><br/>
-          <span>China</span>
-        </p>
-      </div>
-      <div class="talent-content">
-        <div class="info-item">
-          <p>JOBS<span>25</span></p>
-          <p>APPLICANTS<span>44</span></p>
-          <p>HIRED<span>25</span></p>
-        </div>
-        <div class="info-item">
-          <p>JOBS<span>25</span></p>
-          <p>APPLICANTS<span>44</span></p>
-          <p>HIRED<span>25</span></p>
-        </div>
-        <div class="info-item">
-          <p>JOBS<span>25</span></p>
-          <p>APPLICANTS<span>44</span></p>
-          <p>HIRED<span>25</span></p>
-        </div>
-      </div>
-    </div>
-  
-    <div class="section--talent">
-      <div class="talent-calendar">
-        <p class="info-values">
-          <span><b>R1-2</b></span><br/>
-          <span>Dec. 2-3, 2017</span><br/>
-          <span>HONG KONG,</span><br/>
-          <span>China</span>
-        </p>
-      </div>
-      <div class="talent-content">
-        <div class="info-item">
-          <p>JOBS<span>25</span></p>
-          <p>APPLICANTS<span>44</span></p>
-          <p>HIRED<span>25</span></p>
-        </div>
-        <div class="info-item">
-          <p>JOBS<span>25</span></p>
-          <p>APPLICANTS<span>44</span></p>
-          <p>HIRED<span>25</span></p>
-        </div>
-        <div class="info-item">
-          <p>JOBS<span>25</span></p>
-          <p>APPLICANTS<span>44</span></p>
-          <p>HIRED<span>25</span></p>
-        </div>
-      </div>
-    </div>
-  
-    <div class="section--talent">
-      <div class="talent-calendar">
-        <p class="info-values">
-          <span><b>R1-2</b></span><br/>
-          <span>Dec. 2-3, 2017</span><br/>
-          <span>HONG KONG,</span><br/>
-          <span>China</span>
-        </p>
-      </div>
-      <div class="talent-content">
-        <div class="info-item">
-          <p>JOBS<span>25</span></p>
-          <p>APPLICANTS<span>44</span></p>
-          <p>HIRED<span>25</span></p>
-        </div>
-        <div class="info-item">
-          <p>JOBS<span>25</span></p>
-          <p>APPLICANTS<span>44</span></p>
-          <p>HIRED<span>25</span></p>
-        </div>
-        <div class="info-item">
-          <p>JOBS<span>25</span></p>
-          <p>APPLICANTS<span>44</span></p>
-          <p>HIRED<span>25</span></p>
-        </div>
-      </div>
-    </div>
-    <div class="show-more">
-      <img class="overlay" src="/assets/images/img_gradient_overlay.png">
-      <img src="/assets/images/ic_arrow_down.svg">
-    </div>
+    
   </div>
+ 
+  <div class="show-more">
+    <img class="overlay" src="/assets/images/img_gradient_overlay.png">
+    <img src="/assets/images/ic_arrow_down.svg">
+  </div>
+</div>
  

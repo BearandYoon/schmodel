@@ -26,6 +26,15 @@ export class ProfileService {
     );
   }
 
+  getEventCalendar() {
+    return this.http.get(
+      this.apiRoutingService.getEventCalendarListInfoUrl(),
+      {},
+      true,
+      null
+    );
+  }
+
   updatePassword(oldPassword, newPassword) {
     const body = {
       oldPassword,
