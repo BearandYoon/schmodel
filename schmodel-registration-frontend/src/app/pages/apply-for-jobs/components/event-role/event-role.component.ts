@@ -6,6 +6,8 @@ import { DialogJobApplyComponent } from '../dialog-job-apply/dialog-job-apply.co
 import { DialogWithdrawComponent } from '../dialog-withdraw/dialog-withdraw.component';
 import { routerTransition } from '../../../../router.animations';
 
+import { JobService } from '../../../../core/services';
+
 enum ButtonStatus { Disabled, Checked, Apply }
 
 @Component({
@@ -18,6 +20,8 @@ enum ButtonStatus { Disabled, Checked, Apply }
 export class EventRoleComponent implements OnInit {
 
   @Output() event: EventEmitter<any> = new EventEmitter();
+  @Input() event_id: number;
+  @Input() role_id: number;
   @Input() price: number;
   @Input() city: string;
   @Input() country: string;
@@ -44,7 +48,7 @@ export class EventRoleComponent implements OnInit {
     backdrop: true,
     ignoreBackdropClick: false
   };
-  
+
   openDialog() {
     if (this.status === ButtonStatus.Apply) {
       this.jobapplyDlgRef = this.detailDlgService.show(DialogJobApplyComponent, this.dialogConfig);
@@ -54,8 +58,14 @@ export class EventRoleComponent implements OnInit {
       this.jobapplyDlgRef.content.workschedule = this.workschedule;
       this.jobapplyDlgRef.content.onCloseReason.subscribe(result => {
         if (result == "confirm") {
-          this.status = ButtonStatus.Checked;
-          this.ngOnChanges();
+          const data = { 'eventId': this.event_id, 'jobRoleId': this.role_id, 'ipAddress': "0.0.0.0" };
+          this.jobService.createApplication(data).subscribe(res => {
+            this.status = ButtonStatus.Checked;
+            this.ngOnChanges();
+          }, error => {
+            console.log(error);
+          });
+
         }
       });
     } else if (this.status === ButtonStatus.Checked) {
@@ -69,7 +79,7 @@ export class EventRoleComponent implements OnInit {
     }
   }
 
-  constructor(private detailDlgService:BsModalService, private withdrawDlgService: BsModalService) {
+  constructor(private detailDlgService: BsModalService, private withdrawDlgService: BsModalService, private jobService: JobService) {
     this.image_url = this.ic_disabled;
   }
 
