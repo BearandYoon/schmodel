@@ -50,15 +50,13 @@ export class ApplyForJobsComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    this.jobService.getIpAddress().subscribe(res => {
-      console.log(res.ip);
-    }, error => {
-      console.log(error);
-    });
-
-    this.jobService.getApplyForJobs(eventView => {
-      this.eventView = eventView;
+    this.jobService.getApplyForJobs((success, response) => {
+      if (success) {
+        this.eventView = response;
+      }
+      else {
+        // TODO: Error Handling
+      }
     });
     this.flag = true;
     this.boardHeight = this.style_height[0].boardHeight;
