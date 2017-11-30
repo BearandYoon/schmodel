@@ -70,6 +70,10 @@ export class ApiRoutingService {
     return this.baseUrl + '/talent/create-application';
   }
 
+  getWithdrawApplicationUrl(): string {
+    return this.baseUrl + '/talent/withdraw-application';
+  }
+
   getMyJobs(): string {
     return this.baseUrl + '/talent/my-jobs';
   }

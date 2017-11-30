@@ -43,4 +43,14 @@ export class JobService {
     );
   }
 
+  withdrawApplication(data) {
+    return this.http.post(
+      this.apiRoutingService.getWithdrawApplicationUrl(),
+      data,
+      false,
+      true,
+      null
+    );
+  }
+
 }

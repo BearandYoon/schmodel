@@ -65,15 +65,19 @@ export class EventRoleComponent implements OnInit {
           }, error => {
             console.log(error);
           });
-
         }
       });
     } else if (this.status === ButtonStatus.Checked) {
       this.withdrawDlgRef = this.withdrawDlgService.show(DialogWithdrawComponent, this.dialogConfig);
       this.withdrawDlgRef.content.onCloseReason.subscribe(result => {
         if (result == "confirm") {
-          this.status = ButtonStatus.Apply;
-          this.ngOnChanges();
+          const data = { 'eventId': this.event_id, 'jobRoleId': this.role_id, 'ipAddress': "0.0.0.0" };
+          this.jobService.withdrawApplication(data).subscribe(res => {
+            this.status = ButtonStatus.Apply;
+            this.ngOnChanges();
+          }, error => {
+            console.log(error);
+          });
         }
       });
     }
