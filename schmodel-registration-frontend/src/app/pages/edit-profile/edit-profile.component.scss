@@ -1,5 +1,5 @@
 $header-height: 64px;
-$form-control-height: 17px;
+$form-control-height: 21px;
 $half-control-height: 8.5px;
 $border-color: #6D6E71;
 
@@ -13,7 +13,7 @@ accordion.edit-profile {
         opacity: 0.5;
       }
     }
-  
+
     .form-group--password .row {
       padding-top: 10px;
     }
@@ -25,7 +25,7 @@ accordion.edit-profile {
       border-radius: 0 !important;
       background-color: transparent;
     }
-    section {      
+    section {
       .row p {
         font-family: 'Open Sans', sans-serif;
         font-weight: bold;
@@ -47,9 +47,9 @@ accordion.edit-profile {
       background-image: url('/assets/images/bg_row.png');
       background-repeat: no-repeat;
       background-size: 100% 100%;
-  
+
       .title {
-        font-size: 13px;
+        font-size: 14px;
         font-weight: bold;
         color: white;
         margin: 0;
@@ -58,7 +58,7 @@ accordion.edit-profile {
       .icon {
         font-size: 22px;
         color: #939598;
-  
+
         &.icon-plus-circle {
           display: block;
         }
@@ -67,7 +67,7 @@ accordion.edit-profile {
         }
       }
     }
-  
+
     &.panel-open header {
       .icon-plus-circle {
         display: none;
@@ -76,7 +76,7 @@ accordion.edit-profile {
         display: block;
       }
     }
-  
+
     .panel-body {
       padding: 0;
       color: white;
@@ -91,17 +91,18 @@ accordion.edit-profile {
       margin: 0;
       padding-top: 5px;
       align-items: center;
-      font-size: 11px;
+      font-size: 14px;
     }
 
     app-control-messages div {
-      padding-left: 112px;
+      padding-left: 130px;
+      position: relative;
     }
-  
+
     &:first-child {
       padding-top: 0;
     }
-  
+
     &.form-group--submit {
       .row {
         padding-top: 0;
@@ -109,34 +110,34 @@ accordion.edit-profile {
       }
     }
   }
-  
+
   .row {
     margin: 0;
     padding-top: 5px;
     align-items: center;
     font-size: 11px;
-  
+
     &.row--valign-top,
     &.row--multi {
       align-items: flex-start;
     }
-  
+
     &.row--multi select {
       margin-bottom: 4px;
     }
-  
+
     label {
-      min-width: 112px;
+      min-width: 130px;
       margin: 0;
       line-height: 1em;
-  
+
       & > span {
         font-size: 8px;
       }
     }
     input {
       flex: 1;
-      font-size: 11px;
+      font-size: 14px;
       height: $form-control-height;
       padding: 0;
       color: white !important;
@@ -156,7 +157,7 @@ accordion.edit-profile {
       background-color: transparent;
       color: white;
       border: 1px solid $border-color;
-      font-size: 9px;
+      font-size: 14px;
     }
     phone-input {
       flex: 1;
@@ -165,7 +166,7 @@ accordion.edit-profile {
     sch-dropdown {
       position: relative;
     }
-  
+
     button {
       width: 75px;
       height: 24px;
@@ -175,36 +176,37 @@ accordion.edit-profile {
       border: 1px solid #C1C1C1;
       font-family: 'Open Sans', sans-serif;
       font-weight: bold;
-      font-size: 9px;
-  
+      font-size: 12px;
+
       &:active {
         background-color: rgba(85, 85, 85, 0.5) !important;
       }
-  
+
       &.btn--save {
         margin-right: 13px;
       }
-  
+
       &.btn--cancel {
         border: none;
         background-color: rgba(85, 85, 85, 0.2);
       }
     }
-  
+
     select {
       -webkit-appearance: button;
       -webkit-border-radius: $half-control-height;
       border-radius: $half-control-height;
       padding: 0 5px 1px 22px;
+      margin-top: 3px;
       height: $form-control-height;
       background-image: url('/assets/images/ic_arrow_down_fill.svg');
       background-repeat: no-repeat;
       background-position: 8px 50%;
       background-color: transparent;
       color: white;
-      font-size: 8px;
+      font-size: 14px;
       border: 1px solid $border-color;
-  
+
       option {
         color: black;
       }
@@ -220,23 +222,24 @@ accordion.edit-profile {
     .dropdown-wrapper {
       flex: 1;
     }
-  
+
     span.add-category {
       position: relative;
-  
+
       span.icon-plus-circle {
         position: absolute;
         left: 3px;
+        top: 3px;
         font-size: 15px;
         color: $border-color;
-  
+
         &.icon-plus-circle--alone {
           position: static;
           left: 0;
         }
       }
     }
-  }  
+  }
 }
 
 .alert-wrapper {
