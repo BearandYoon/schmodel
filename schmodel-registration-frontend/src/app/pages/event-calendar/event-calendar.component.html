@@ -13,36 +13,36 @@
     </div>
 </div>
 <div class="talent-container">  
-  <div class="section--talent" *ngFor="let eventItem in eventItems.eventList">
+  <div class="section--talent" *ngFor="let eventItem of eventItems; let i = index" >
     
     <div class="talent-calendar">
       <p class="info-values">
-        <span><b>eventItem[0].data.name</b></span><br/>
+        <span><b>{{eventItem[0].data.name}}</b></span><br/>
         <span>Dec. 2-3, 2017</span><br/>
-        <span>eventItem[0].data.city</span><br/>
-        <span>eventItem[0].data.country.name</span>
+        <span>{{eventItem[0].data.city}}</span><br/>
+        <span>{{eventItem[0].data.country.name}}</span>
       </p>
     </div>
 
-    <div class="talent-content">
+    <div class="talent-content"  (click)="onEvent(i)">
 
-      <div class="info-item" [ngClass]={'item--none': eventItem[1].data.jobs == 0}>
-        <p>JOBS<span>eventItem[1].data.jobs</span></p>
-        <p>APPLICANTS<span>eventItem[1].data.applicants</span></p>
-        <p>HIRED<span>eventItem[1].data.hired</span></p>
+      <div class="info-item">
+        <p>JOBS<span>{{eventItem[1].data.jobs}}</span></p>
+        <p>APPLICANTS<span>{{eventItem[1].data.applicants}}</span></p>
+        <p>HIRED<span>{{eventItem[1].data.hired}}</span></p>
       </div>
 
-      <div class="info-item" [ngClass]={'item--none': eventItem[2].data.jobs == 0}>
-        <p>JOBS<span>eventItem[2].data.jobs</span></p>
-        <p>APPLICANTS<span>eventItem[2].data.applicants</span></p>
-        <p>HIRED<span>eventItem[2].data.hired</span></p>
+      <div class="info-item" >
+        <p>JOBS<span>{{eventItem[2].data.jobs}}</span></p>
+        <p>APPLICANTS<span>{{eventItem[2].data.applicants}}</span></p>
+        <p>HIRED<span>{{eventItem[2].data.hired}}</span></p>
       </div>
 
-      <div class="info-item" [ngClass]={'item--none': eventItem[3].data.jobs == 0}>
-        <p>JOBS<span>eventItem[3].data.jobs</span></p>
-        <p>APPLICANTS<span>eventItem[3].data.applicants</span></p>
-        <p>HIRED<span>eventItem[3].data.hired</span></p>
-      </div>
+      <div class="info-item" >
+        <p>JOBS<span>{{eventItem[3].data.jobs}}</span></p>
+        <p>APPLICANTS<span>{{eventItem[3].data.applicants}}</span></p>
+        <p>HIRED<span>{{eventItem[3].data.hired}}</span></p>
+      </div>  
 
     </div>
     

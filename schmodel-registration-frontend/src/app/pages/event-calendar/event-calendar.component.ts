@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Router } from '@angular/router';
 import { ProfileService } from '../../core/services';
 
 @Component({
@@ -12,13 +13,19 @@ export class EventCalendarComponent implements OnInit {
   eventItems: any;
 
   constructor(
+    public router: Router,
     private profileService: ProfileService,
   ) { }
 
   ngOnInit() {
     this.profileService.getEventCalendar().subscribe(res => {
-      this.eventItems = res[0];
+      console.log(res);
+      this.eventItems = res[0].eventList;
     });
+  }
+
+  onEvent(i) {
+    this.router.navigate(['/hire-schmodel'], i);
   }
 
 }

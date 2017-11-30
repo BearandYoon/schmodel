@@ -28,7 +28,8 @@ export class ProfileService {
 
   getEventCalendar() {
     return this.http.get(
-      this.apiRoutingService.getEventCalendarListInfoUrl(),
+      // this.apiRoutingService.getEventCalendarListInfoUrl(),
+      '/assets/data.json',
       {},
       true,
       null
