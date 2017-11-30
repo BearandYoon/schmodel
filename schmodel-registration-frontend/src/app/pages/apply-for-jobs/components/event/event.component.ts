@@ -22,9 +22,10 @@ export class EventComponent implements OnInit, OnChanges {
 
   public race_bg_urls: Array<any> = [];
   public race_title_style: Array<any> = [];
-  public role_infor: string [];
-  public event_role_status: number [];
-  public event_role_price: number [];
+  public role_ids: number[];
+  public role_infor: string[];
+  public event_role_status: number[];
+  public event_role_price: number[];
   public event_role_workschedule: Array<any> = [];
   public bg_url: string = '';
   public title_border_style: string = '';
@@ -46,20 +47,24 @@ export class EventComponent implements OnInit, OnChanges {
       { imagePath: '/assets/img/bg_r11_12.png' },
       { imagePath: '/assets/img/bg_r13_14.png' }
     );
+    this.role_ids = [-1, -1, -1, -1];
     this.role_infor = ["PR", "HOST", "GRID", "SCHMODEL GUEST"];
     this.event_role_status = [0, 0, 0, 0];
     this.event_role_price = [0, 0, 0, 0];
   }
 
   ngOnInit() {
+    for (let i = 0; i < this.roles_data.length; i++) {
+      this.role_ids[this.roles_data[i].id - 1] = this.roles_data[i].id;
+    }
   }
 
   ngOnChanges() {
-    
+
     this.event_number = this.event_number.replace('FE Race ', 'R');
 
     //race background 
-    this.bg_url = this.race_bg_urls[(this.event_no-1) % 11].imagePath;
+    this.bg_url = this.race_bg_urls[(this.event_no - 1) % 11].imagePath;
     if (this.event_no % 2 === 0) {
       this.title_border_style = this.light_blue;
     } else {
@@ -67,14 +72,14 @@ export class EventComponent implements OnInit, OnChanges {
     }
 
     //Event_Role Status
-    for(let i = 0; i < this.roles_data.length; i ++) {
-      this.event_role_workschedule[this.roles_data[i].id-1] = this.roles_data[i].workSchedules;
-      this.event_role_price[this.roles_data[i].id-1] = this.roles_data[i].pay;
+    for (let i = 0; i < this.roles_data.length; i++) {
+      this.event_role_workschedule[this.roles_data[i].id - 1] = this.roles_data[i].workSchedules;
+      this.event_role_price[this.roles_data[i].id - 1] = this.roles_data[i].pay;
 
-      if(this.roles_data[i].applied == true) {
-        this.event_role_status[this.roles_data[i].id-1] = 1;
+      if (this.roles_data[i].applied == true) {
+        this.event_role_status[this.roles_data[i].id - 1] = 1;
       } else {
-        this.event_role_status[this.roles_data[i].id-1] = 2;
+        this.event_role_status[this.roles_data[i].id - 1] = 2;
       }
     }
   }
