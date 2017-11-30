@@ -3,7 +3,8 @@
     <header accordion-heading (click)="onCollapse(i)" [attr.aria-expanded]="!isCollapsed">
       <div>
         <h1> {{event.name}} </h1>
-        <time> {{event.startDate | date: 'yMMMMd' }}</time>
+        <time *ngIf="event.startDate == event.endDate"> {{event.startDate | date: 'yMMMMd' }}</time>
+        <time *ngIf="event.startDate != event.endDate"> {{event.startDate | date: 'd' }} - {{event.endDate | date: 'yMMMMd' }}</time>
         <p> <strong>{{event.city}},</strong> {{event.country}}</p>
       </div>
       <span *ngIf="collapse_no != i" class="icon icon-plus-circle"></span>
@@ -41,4 +42,3 @@
     </div>
   </div>
 </accordion>
-<ng-template #elseBlock> &nbsp; </ng-template>
