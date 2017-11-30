@@ -1,6 +1,5 @@
 header {
     width: 100%;
-    // height: $header-height;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -40,7 +39,7 @@ header {
         color: white;
         margin-bottom: 0px;
     }
-    
+
     p, time {
         font-family: 'Open Sans';
         font-size: 11px;
@@ -75,12 +74,13 @@ header {
             margin-bottom: 3px;
             padding-bottom: 0px;
         }
+        
         p {
             margin-bottom: 0px;
             padding-bottom: 10px;
         }
     }
-    
+
     .role-wrapper {
         width: 100%;
         margin:auto;
@@ -90,7 +90,7 @@ header {
         padding-bottom: 10px;
         
         .col-md-4.col-4 {
-        font-weight: 700;
+            font-weight: 700;
         }
     }
 
