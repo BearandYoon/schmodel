@@ -41,9 +41,13 @@ $formula-logo-height: 70px;
 	margin-top: 4px;
 	width: 100%;
 	height: $model-img-size; 
-	background-image: url('/assets/img/bg_event_calendar.png');
+	//background-image: url('/assets/img/bg_event_calendar.png');
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
+
+	img {
+		background-repeat: no-repeat;
+	}
 
 	&:last-of-type {
 		margin-bottom: 4px;
