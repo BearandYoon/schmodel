@@ -7,7 +7,6 @@ const routes: Routes = [
   { path: '', component: ApplyForJobsComponent }
 ];
 
-
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]

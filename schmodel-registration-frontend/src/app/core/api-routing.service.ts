@@ -69,5 +69,4 @@ export class ApiRoutingService {
   getMyJobs(): string {
     return this.baseUrl + '/talent/my-jobs';
   }
-
 }

@@ -50,6 +50,13 @@ export class ApplyForJobsComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.jobService.getIpAddress().subscribe(res => {
+      console.log(res.ip);
+    }, error => {
+      console.log(error);
+    });
+
     this.jobService.getApplyForJobs(eventView => {
       this.eventView = eventView;
     });
