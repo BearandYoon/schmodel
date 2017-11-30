@@ -17,6 +17,22 @@ const routes: Routes = [
     loadChildren: './pages/client-home/client-home.module#ClientHomeModule'
   },
   {
+    path: 'client',
+    component: LayoutComponent,
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: 'hire-a-schmodel',
+        canActivate: [AuthGuard],
+        loadChildren: './pages/hire-model/hire-model.module#HireModelModule',
+        data: {
+          title: ' ',
+          navLeft: 'back'
+        }
+      }
+    ]
+  },
+  {
     path: '',
     canActivate: [AuthGuard],
     loadChildren: './pages/home/home.module#HomeModule'
@@ -24,23 +40,14 @@ const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'edit-profile',
-        // canActivate: [AuthGuard],
+        canActivate: [AuthGuard],
         loadChildren: './pages/edit-profile/edit-profile.module#EditProfileModule',
         data: {
           title: 'Edit My Profile',
-          navLeft: 'back'
-        }
-      },
-      {
-        path: 'hire-model',
-        // canActivate: [AuthGuard],
-        loadChildren: './pages/hire-model/hire-model.module#HireModelModule',
-        data: {
-          title: ' ',
           navLeft: 'back'
         }
       }
