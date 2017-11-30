@@ -66,6 +66,10 @@ export class ApiRoutingService {
     return this.baseUrl + '/talent/apply-for-jobs';
   }
 
+  getCreateApplicationUrl(): string {
+    return this.baseUrl + '/talent/create-application';
+  }
+
   getMyJobs(): string {
     return this.baseUrl + '/talent/my-jobs';
   }

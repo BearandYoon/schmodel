@@ -23,24 +23,24 @@ export class JobService {
       null
     ).subscribe(res => {
       if (callback) {
-        callback(res.eventView);
+        callback(true, res.eventView ? res.eventView : []);
       }
     }, error => {
       console.log(error);
       if (callback) {
-        callback([]);
+        callback(false, []);
       }
     });
   }
 
-  getIpAddress() {
-    return this.ip_http
-    .get('http://freegeoip.net/json', {})
-    .map((response: Response) => {
-      return JSON.parse(response.text());
-    })
-    .catch(error => {
-      return error;
-    });
+  createApplication(data) {
+    return this.http.post(
+      this.apiRoutingService.getCreateApplicationUrl(),
+      data,
+      false,
+      true,
+      null
+    );
   }
+
 }
