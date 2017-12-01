@@ -74,6 +74,10 @@ export class ApiRoutingService {
     return this.baseUrl + '/talent/withdraw-application';
   }
 
+  getIPAddressUrl(): string {
+    return 'https://api.ipify.org/?format=json';
+  }
+
   getMyJobs(): string {
     return this.baseUrl + '/talent/my-jobs';
   }

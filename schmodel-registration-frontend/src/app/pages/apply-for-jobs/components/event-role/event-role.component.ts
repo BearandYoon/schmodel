@@ -58,7 +58,7 @@ export class EventRoleComponent implements OnInit {
       this.jobapplyDlgRef.content.workschedule = this.workschedule;
       this.jobapplyDlgRef.content.onCloseReason.subscribe(result => {
         if (result == "confirm") {
-          const data = { 'eventId': this.event_id, 'jobRoleId': this.role_id, 'ipAddress': "0.0.0.0" };
+          const data = { 'eventId': this.event_id, 'jobRoleId': this.role_id, 'ipAddress': this.jobService.ipAddress };
           this.jobService.createApplication(data).subscribe(res => {
             this.status = ButtonStatus.Checked;
             this.ngOnChanges();
@@ -71,7 +71,7 @@ export class EventRoleComponent implements OnInit {
       this.withdrawDlgRef = this.withdrawDlgService.show(DialogWithdrawComponent, this.dialogConfig);
       this.withdrawDlgRef.content.onCloseReason.subscribe(result => {
         if (result == "confirm") {
-          const data = { 'eventId': this.event_id, 'jobRoleId': this.role_id, 'ipAddress': "0.0.0.0" };
+          const data = { 'eventId': this.event_id, 'jobRoleId': this.role_id, 'ipAddress': this.jobService.ipAddress };
           this.jobService.withdrawApplication(data).subscribe(res => {
             this.status = ButtonStatus.Apply;
             this.ngOnChanges();

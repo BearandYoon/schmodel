@@ -4,10 +4,10 @@ import { Http, Response } from '@angular/http';
 import { HttpHelperService } from '../../http-helper.service';
 import { ApiRoutingService } from '../../api-routing.service';
 
-import 'rxjs/add/operator/toPromise';
-
 @Injectable()
 export class JobService {
+
+  ipAddress: string = '';
 
   constructor(
     private http: HttpHelperService,
@@ -51,6 +51,15 @@ export class JobService {
       true,
       null
     );
+  }
+
+  getIPAddress() {
+    this.ip_http.get(this.apiRoutingService.getIPAddressUrl())
+      .subscribe((res: Response) => {
+        if (res.json() || res.json().ip) {
+          this.ipAddress = res.json().ip;
+        }
+      });
   }
 
 }
