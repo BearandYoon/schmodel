@@ -73,6 +73,33 @@ export class HireModelComponent implements OnInit {
     console.log(this.hireModelData);
   }
 
+  handleLikeTalent(value) {
+    const { role, talent } = value;
+    const talentIndex = this.hireModelData.talents.indexOf(talent);
+    const newTalent = Object.assign({}, talent);
+    let alreadyLiked = false;
+    for (const aRole of newTalent.roles) {
+      if (aRole.application && aRole.application.liked) {
+        alreadyLiked = true;
+        break;
+      }
+    }
+    if (alreadyLiked) {
+      newTalent.errorMessage = "Schmodel's can only be hired for one position, please update.";
+    } else {
+      role.application.liked = true;
+    }
+    this.hireModelData.talents.splice(talentIndex, 1, newTalent);
+  }
+
+  handleUnlikeTalent(value) {
+    const { role, talent } = value;
+    const talentIndex = this.hireModelData.talents.indexOf(talent);
+    const newTalent = Object.assign({}, talent);
+    role.application.liked = false;
+    this.hireModelData.talents.splice(talentIndex, 1, newTalent);
+  }
+
   confirmHiring() {
     this.termsModalRef = this.modalService.show(ConfirmModalComponent, this.termsModalConfig);
     this.termsModalRef.content.termsContent = this.termsContent;

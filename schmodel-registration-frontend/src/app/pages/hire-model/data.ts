@@ -77,6 +77,35 @@ const hireModelData = {
           "liked": true
         }
       ]
+    },
+    {
+      "id": 3,
+      "firstName": "Alice",
+      "billingCompanyName": "Some Company",
+      "hired": false,
+      "photoUrl": "localhost:4200/assets/img/img_home.png",
+      "applications": [
+        {
+          "id": 1,
+          "roleId": 1,
+          "clauses": [
+            "Clause 1",
+            "Clause 2"
+          ],
+          "pay": 6000,
+          "liked": false
+        },
+        {
+          "id": 3,
+          "roleId": 3,
+          "clauses": [
+            "Clause 1",
+            "Clause 2"
+          ],
+          "pay": 6000,
+          "liked": false
+        }
+      ]
     }
   ]
 };
