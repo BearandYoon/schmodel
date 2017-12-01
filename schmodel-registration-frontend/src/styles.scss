@@ -52,3 +52,10 @@ button {
 .flex-full {
   flex: 1;
 }
+
+.swiper-pagination-bullet {
+    background: #eee !important;
+}
+.swiper-pagination-bullet-active{
+    background: #007aff !important;
+}

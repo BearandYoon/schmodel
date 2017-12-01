@@ -19,6 +19,16 @@ const routes: Routes = [
     component: LayoutComponent,
     canActivate: [AuthGuard],
     children: [
+     {
+        path: 'profile',
+        canActivate: [AuthGuard],
+        loadChildren: './pages/profile/profile.module#ProfileModule',
+        data: {
+          title: 'My Profile',       
+          navLeft: 'back',
+          navRight: 'settings'
+        }
+      },    
       {
         path: 'edit-profile',
         canActivate: [AuthGuard],
@@ -36,9 +46,19 @@ const routes: Routes = [
           title: 'Event Calendar',
           navLeft: 'back'
         }
+      },
+     {
+    	path: 'talent-profile',
+        canActivate: [AuthGuard],
+        loadChildren: './pages/profile/profile.module#ProfileModule',
+        data: {
+           title: 'Schmodel Profile',       
+           navLeft: 'back'
+        }
       }
     ]
   },
+ 
   { path: 'change-password', loadChildren: './pages/changepassword/changepassword.module#ChangepasswordModule' },
   { path: '**', redirectTo: 'not-found' }
 ];

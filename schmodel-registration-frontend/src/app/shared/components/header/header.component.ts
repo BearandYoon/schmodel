@@ -28,9 +28,10 @@ export class HeaderComponent implements OnInit {
 
   handleRightNavClick() {
     const navRight: String = this.pageData.navRight;
+    const talentId: number = 1;
     switch (navRight) {
       case 'settings':
-        // this.router.navigate(['/profile']);
+        this.router.navigate(['/edit-profile']);
         break;
       default:
     }
