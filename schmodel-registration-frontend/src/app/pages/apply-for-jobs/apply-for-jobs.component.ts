@@ -37,7 +37,30 @@ export class ApplyForJobsComponent implements OnInit {
   public boardHeight: string = '';
   public bottomHeight: string = '';
 
-  public eventView: Array<any> = [];
+  public eventView: Array<any> = [{
+		"id": 1,
+		"name": "FE Race 1-2",
+		"startDate": [],
+		"endDate": [],
+		"city": "Hong Kong",
+		"country": "HK",
+		"roles": [{
+			"id": 1,
+			"name": "PR",
+			"roleNameId": 1,
+			"pay": 1500,
+			"applied": true,
+			"workSchedules": []
+		},
+		{
+			"id": 34,
+			"name": "Schmodel Guest",
+			"roleNameId": 4,
+			"pay": 0,
+			"applied": false,
+			"workSchedules": []
+		}]
+  }];
 
   constructor(
     private detailDlgService: BsModalService,
