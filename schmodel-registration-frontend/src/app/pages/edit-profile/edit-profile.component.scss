@@ -119,7 +119,7 @@ accordion.edit-profile {
 
     &.row--valign-top,
     &.row--multi {
-      align-items: flex-start;
+      align-items: center;
     }
 
     &.row--multi select {
@@ -132,7 +132,7 @@ accordion.edit-profile {
       line-height: 1em;
 
       & > span {
-        font-size: 8px;
+        font-size: 10px;
       }
     }
     input {

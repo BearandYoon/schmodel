@@ -5,7 +5,7 @@ select.select--weights,
 select.select--dressSizes,
 select.select--hairColors,
 select.select--eyeColors {
-  width: 66%;
+  width: 100%;
 }
 
 select {
@@ -15,12 +15,13 @@ select {
 
 select.select--chestCircSizes,
 select.select--chestCupSizes {
-  width: calc(33% - 2px);
+  width: calc(50% - 4px);
 }
 
 select.select--citizenships,
 select.select--languages {
-  width: calc(33% - 2px);
+  //width: calc(33% - 4px);
+  width: 95%;
 
   &:last-child {
     margin-right: -1px;
