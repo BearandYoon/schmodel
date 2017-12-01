@@ -5,7 +5,7 @@
   </div>
 </div>
 <div class="talents-container">
-  <talent-item *ngFor="let talent of hireModelData.talents" [talent]="talent" (confirmHiring)="confirmHiring()" (handleLikeTalent)="handleLikeTalent($event)" (handleUnlikeTalent)="handleUnlikeTalent($event)"></talent-item>
+  <talent-item *ngFor="let talent of hireModelData.talents" [talent]="talent" (confirmHiring)="confirmHiring($event)" (handleLikeTalent)="handleLikeTalent($event)" (handleUnlikeTalent)="handleUnlikeTalent($event)"></talent-item>
   <!-- <div class="show-more">
     <img class="overlay" src="/assets/images/img_gradient_overlay.png">
     <img src="/assets/images/ic_arrow_down.svg">

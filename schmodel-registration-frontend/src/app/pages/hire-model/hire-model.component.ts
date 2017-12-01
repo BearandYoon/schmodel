@@ -112,7 +112,8 @@ export class HireModelComponent implements OnInit {
     this.hireModelData.talents.splice(talentIndex, 1, newTalent);
   }
 
-  confirmHiring() {
+  confirmHiring(value) {
+    const { talent } = value;
     this.confirmModalRef = this.modalService.show(ConfirmModalComponent, this.confirmModalConfig);
 
     this.confirmModalRef.content.onCloseReason.subscribe(result => {

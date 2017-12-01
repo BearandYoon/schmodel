@@ -37,7 +37,7 @@ export class TalentItemComponent implements OnInit {
   }
 
   onConfirmHiring() {
-    this.confirmHiring.emit();
+    this.confirmHiring.emit({ talent: this.talent });
   }
 
 }
