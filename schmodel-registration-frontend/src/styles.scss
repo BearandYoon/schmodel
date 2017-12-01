@@ -39,7 +39,7 @@ input:-webkit-autofill:active {
   .modal-dialog {
     left: 0 !important;
     transform: translateY(-50%) !important;
-    min-width: 95vw;
+    //min-width: 95vw;
   }
 }
 
@@ -51,4 +51,9 @@ button {
 
 .flex-full {
   flex: 1;
+}
+
+#page-title b,
+#page-title strong {
+  font-weight: 700;
 }

@@ -5,10 +5,17 @@ import { LayoutComponent } from './pages/layout';
 
 const routes: Routes = [
   { path: 'login', loadChildren: './pages/login/login.module#LoginModule' },
+  { path: 'client/login', loadChildren: './pages/client-login/client-login.module#ClientLoginModule' },
   { path: 'signup', loadChildren: './pages/signup/signup.module#SignupModule' },
   { path: 'not-found', loadChildren: './pages/not-found/not-found.module#NotFoundModule' },
   { path: 'forgot', loadChildren: './pages/forgot/forgot.module#ForgotModule' },
   { path: 'reset-token', loadChildren: './pages/setpassword/setpassword.module#SetpasswordModule' },
+  { path: 'change-password', loadChildren: './pages/changepassword/changepassword.module#ChangepasswordModule' },
+  {
+    path: 'client',
+    canActivate: [AuthGuard],
+    loadChildren: './pages/client-home/client-home.module#ClientHomeModule'
+  },
   {
     path: '',
     canActivate: [AuthGuard],
@@ -17,11 +24,11 @@ const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     children: [
       {
         path: 'edit-profile',
-        canActivate: [AuthGuard],
+        // canActivate: [AuthGuard],
         loadChildren: './pages/edit-profile/edit-profile.module#EditProfileModule',
         data: {
           title: 'Edit My Profile',
@@ -29,17 +36,25 @@ const routes: Routes = [
         }
       },
       {
-        path: 'event-calendar',
+        path: 'client/event-calendar',
         canActivate: [AuthGuard],
         loadChildren: './pages/event-calendar/event-calendar.module#EventCalendarModule',
         data: {
           title: 'Event Calendar',
           navLeft: 'back'
         }
+      },
+      {
+        path: 'hire-model',
+        // canActivate: [AuthGuard],
+        loadChildren: './pages/hire-model/hire-model.module#HireModelModule',
+        data: {
+          title: ' ',
+          navLeft: 'back'
+        }
       }
     ]
   },
-  { path: 'change-password', loadChildren: './pages/changepassword/changepassword.module#ChangepasswordModule' },
   { path: '**', redirectTo: 'not-found' }
 ];
 

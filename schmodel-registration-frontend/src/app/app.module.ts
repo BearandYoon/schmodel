@@ -14,6 +14,7 @@ import { ApiRoutingService } from './core/api-routing.service';
 import { ValidationService, SharedService } from './shared/services';
 import { TermsModalComponent } from './shared/modules';
 import { MessageModalComponent } from './shared/modules';
+import { ConfirmModalComponent } from './pages/hire-model/confirm-modal/confirm-modal.component';
 import { LayoutModule } from './pages/layout/layout.module';
 
 @NgModule({
@@ -21,6 +22,7 @@ import { LayoutModule } from './pages/layout/layout.module';
     AppComponent,
     TermsModalComponent,
     MessageModalComponent,
+    ConfirmModalComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import { LayoutModule } from './pages/layout/layout.module';
   ],
   entryComponents: [
     TermsModalComponent,
-    MessageModalComponent
+    MessageModalComponent,
+    ConfirmModalComponent
   ],
   bootstrap: [AppComponent]
 })
