@@ -68,4 +68,8 @@ export class ApiRoutingService {
   getClientHomeAPIUrl(): string {
     return this.baseUrl + '/client/home';
   }
+
+  getIPAddressUrl(): string {
+    return 'https://api.ipify.org/?format=json';
+  }
 }
