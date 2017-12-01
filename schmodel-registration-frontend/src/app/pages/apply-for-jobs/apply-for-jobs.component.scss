@@ -110,29 +110,6 @@ p {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0089fff1', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
 }
 
-.message-wrapper {
-    right: 0;
-    width: 75%;
-    height: 40px;
-    background-color: #FF4165;
-    color: white;
-    display: flex;
-    align-items: center;
-    padding: 0 5px 0 25px;
-    .icon-close {
-      font-weight: bold;
-      font-size: 20px;
-      margin-right: 10px;
-    }
-    .message {
-      font-family: 'Open Sans', sans-serif;
-      font-size: 6px;
-      b {
-        font-size: 10px;
-      }
-    }
-}
-
 @media (max-width: 325px) {
     h4 {
         font-family: 'Open Sans', sans-serif;
