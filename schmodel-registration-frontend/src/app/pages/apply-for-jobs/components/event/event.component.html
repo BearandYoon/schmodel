@@ -12,7 +12,8 @@
 
     <div *ngFor="let i of [0,1,2,3]" class="col-md-2 col-2 align-items-center row event-role-style custom-border">
       <app-event-role class="event-role" [event_id]=event_no [role_id]=role_ids[i] [position]=role_infor[i] [price]=event_role_price[i]
-        [city]=event_city [country]=event_country_code [status]=event_role_status[i] [workschedule]=event_role_workschedule[i]>
+        [city]=event_city [country]=event_country_code [status]=event_role_status[i] [workschedule]=event_role_workschedule[i]
+        (onErrorOccured)="onErrorOccured($event)">
       </app-event-role>
     </div>
   </div>

@@ -19,7 +19,7 @@ enum ButtonStatus { Disabled, Checked, Apply }
 
 export class EventRoleComponent implements OnInit {
 
-  @Output() event: EventEmitter<any> = new EventEmitter();
+  @Output() onErrorOccured = new EventEmitter<boolean>();
   @Input() event_id: number;
   @Input() role_id: number;
   @Input() price: number;

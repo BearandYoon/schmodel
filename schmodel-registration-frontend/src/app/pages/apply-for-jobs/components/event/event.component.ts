@@ -11,7 +11,6 @@ import { routerTransition } from '../../../../router.animations';
 
 export class EventComponent implements OnInit, OnChanges {
 
-  @Output() event: EventEmitter<any> = new EventEmitter();
   @Input() event_no: number;               // only for identify the row
   @Input() event_number: string;           // formula race number e.g : R1-2, R3, R4, ....
   @Input() event_start_date: string;       // formula race date   e.g : Dec. 2-3, 2017,  Jan. 13, 2018, ...
@@ -29,6 +28,7 @@ export class EventComponent implements OnInit, OnChanges {
   public event_role_workschedule: Array<any> = [];
   public bg_url: string = '';
   public title_border_style: string = '';
+  public errorOccured: boolean = false;
 
   private light_blue: string = 'rgba(78, 200, 235, 0.1)';
   private light_purple: string = 'rgba(53, 20, 77, 0.1)';
@@ -82,5 +82,9 @@ export class EventComponent implements OnInit, OnChanges {
         this.event_role_status[this.roles_data[i].id - 1] = 2;
       }
     }
+  }
+
+  onErrorOccured(errorOccured: boolean) {
+    this.errorOccured = errorOccured;
   }
 }
