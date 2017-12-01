@@ -40,7 +40,7 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         loadChildren: './pages/my-jobs/my-jobs.module#MyJobsModule',
         data: {
-          title: 'Upcoming / Previous Jobs',
+          title: 'My Jobs',
           navLeft: 'back'
         }
       }

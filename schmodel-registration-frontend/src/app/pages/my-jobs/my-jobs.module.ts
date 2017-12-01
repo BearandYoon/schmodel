@@ -7,6 +7,8 @@ import { MyJobsRoutingModule } from './my-jobs-routing.module';
 import { MyJobsComponent } from './my-jobs.component';
 import { SchJobRowComponent } from './sch-job-row/sch-job-row.component';
 
+import { MyJobService } from '../../core/services';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -17,6 +19,8 @@ import { SchJobRowComponent } from './sch-job-row/sch-job-row.component';
     MyJobsComponent,
     SchJobRowComponent
   ],
-  providers: []
+  providers: [
+    MyJobService
+  ]
 })
 export class MyJobsModule { }

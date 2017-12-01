@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { routerTransition } from '../../router.animations';
+import { MyJobService } from '../../core/services';
 
 @Component({
   selector: 'app-my-jobs',
@@ -137,6 +138,7 @@ export class MyJobsComponent implements OnInit {
   ];
   
   constructor(
+    private myjobService: MyJobService
   ) {
     this.style_height.push(
       {
@@ -155,5 +157,12 @@ export class MyJobsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.myjobService.getMyJobInfor().subscribe( res => {
+        this.response = null;
+        this.response = res;
+        console.log("my-jobs : " + res);
+      }, error => {
+        console.log(error);
+    });
   }
 }

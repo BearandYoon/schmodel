@@ -18,8 +18,6 @@ export class SchJobRowComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.event_role);
-    console.log(this.isCollapsed);
   }
 
   onCollapse(index : number) {
@@ -34,5 +32,11 @@ export class SchJobRowComponent implements OnInit {
 
   onCollapseSection(sectionTemplate: TemplateRef<any>): void {
     sectionTemplate['isOpen'] = false;
+  }
+
+  ngOnChanges() {
+    for(let i = 0; i < this.event_role.length; i ++) {
+      this.event_role[i].name = this.event_role[i].name.replace('FE Race ', 'R');
+    }
   }
 }

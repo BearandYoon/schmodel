@@ -2,7 +2,7 @@
   <div class="collapse_section" *ngFor="let event of event_role; let i = index">
     <header accordion-heading (click)="onCollapse(i)" [attr.aria-expanded]="!isCollapsed">
       <div>
-        <h1> {{event.name}} </h1>
+        <h1> Formual E {{event.name}} </h1>
         <time *ngIf="event.startDate == event.endDate"> {{event.startDate | date: 'yMMMMd' }}</time>
         <time *ngIf="event.startDate != event.endDate"> {{event.startDate | date: 'd' }} - {{event.endDate | date: 'yMMMMd' }}</time>
         <p> <strong>{{event.city}},</strong> {{event.country}}</p>
