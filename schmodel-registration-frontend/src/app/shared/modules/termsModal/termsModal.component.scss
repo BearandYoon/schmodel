@@ -24,14 +24,14 @@
 
 .modal-body {
   background-color: #e6e7e8;
-  font-family: "Open Sans Regular";
+  //font-family: "Open Sans Regular";
   max-height: 380px;
   padding: 20px;
-  letter-spacing: 1px;
 
   .content-wrapper {
     max-height: 300px;
     overflow: auto;
+    font-size: 14px;
     -webkit-overflow-scrolling: touch;
 
     .content {
@@ -39,6 +39,36 @@
       font-size: 14px;
       margin-bottom: 0;
       white-space: pre-wrap;
+    }
+
+    .terms-row-wrapper {
+      display: flex;
+
+      .prefix-number {
+        padding: 0 10px 0 0;
+      }
+    }
+
+    .terms-row-wrapper.bold {
+      font-weight: bold;
+    }
+
+    ul {
+      padding-left: 15px;
+    }
+
+    .terms-italic {
+      font-style: italic;
+      font-weight: bold;
+    }
+
+    .terms-heading {
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .terms-block {
+      margin-bottom: 20px;
     }
   }
 
@@ -52,7 +82,8 @@
       font-size: 14px;
       padding: 5px 30px;
       border-radius: 0;
-      font-family: "Open Sans Bold";
+      //font-family: "Open Sans Bold";
+      font-weight: bold;
       text-transform: uppercase;
     }
   }
@@ -75,10 +106,8 @@
     .content-wrapper {
       max-height: 300px;
       overflow: auto;
-
-      .content {
-        font-size: 12px;
-      }
+      padding: 10px;
+      font-size: 12px;
     }
 
     .action-wrapper {

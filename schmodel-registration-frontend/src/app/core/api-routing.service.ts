@@ -55,7 +55,7 @@ export class ApiRoutingService {
   }
 
   getEventCalendarListInfoUrl(): string {
-    return this.baseUrl + '/talent/event-calendar';
+    return this.baseUrl + '/client/event-calendar';
   }
 
   getUploadPhotoUrl(): string {
@@ -63,6 +63,14 @@ export class ApiRoutingService {
   }
   getDeletePhotoUrl(): string {
     return this.baseUrl + '/talent/delete-photo';
+  }
+
+  getClientLoginAPIUrl(): string {
+    return this.baseUrl + '/client/login';
+  }
+
+  getClientHomeAPIUrl(): string {
+    return this.baseUrl + '/client/home';
   }
   
   getViewProfileAPIUrl(): string {

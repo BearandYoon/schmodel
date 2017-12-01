@@ -14,6 +14,7 @@ import { ApiRoutingService } from './core/api-routing.service';
 import { ValidationService, SharedService } from './shared/services';
 import { TermsModalComponent } from './shared/modules';
 import { MessageModalComponent } from './shared/modules';
+import { ConfirmModalComponent } from './pages/hire-model/confirm-modal/confirm-modal.component';
 import { LayoutModule } from './pages/layout/layout.module';
 import { SwiperModule } from 'angular2-useful-swiper';
 
@@ -22,6 +23,7 @@ import { SwiperModule } from 'angular2-useful-swiper';
     AppComponent,
     TermsModalComponent,
     MessageModalComponent,
+    ConfirmModalComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,8 @@ import { SwiperModule } from 'angular2-useful-swiper';
   ],
   entryComponents: [
     TermsModalComponent,
-    MessageModalComponent
+    MessageModalComponent,
+    ConfirmModalComponent
   ],
   bootstrap: [AppComponent]
 })
