@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
   applications: number;
   upcoming: number;
   photos: string;
-
+  
   constructor(
     public router: Router,
     private localStorage: LocalStorageService,
@@ -57,6 +57,7 @@ export class HomeComponent implements OnInit {
     this.applications = 0;
     this.upcoming = 0;
     this.photos = '';
+    this.isCompletedProfile = false;
   }
 
   ngOnInit() {

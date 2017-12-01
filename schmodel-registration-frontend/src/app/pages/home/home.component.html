@@ -4,7 +4,7 @@
   </div>
   <p class="title" *ngIf="!isCompletedProfile">Complete Your Profile</p>
   <p class="title" *ngIf="isCompletedProfile">Welcome back {{firstName}}-{{lastName}}</p>
-  <div class="content-wrapper">
+  <div class="content-wrapper" *ngIf="isCompletedProfile">
     <div class="profile-content" *ngIf="isCompletedProfile">
       <div class="profile-image">
         <img src="/assets/img/img_home.png" />
