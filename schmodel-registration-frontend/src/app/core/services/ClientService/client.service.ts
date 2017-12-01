@@ -14,4 +14,14 @@ export class ClientService {
   clientHome() {
     return this.http.get(this.apiRoutingService.getClientHomeAPIUrl(), {}, true, null);
   }
+
+  getHireSchemodel(data) {
+    return this.http.post(
+      this.apiRoutingService.getHireSchemodelAPIUrl(),
+      data,
+      false,
+      true,
+      null
+    );
+  }
 }

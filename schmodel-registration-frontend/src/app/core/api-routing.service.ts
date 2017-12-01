@@ -69,6 +69,10 @@ export class ApiRoutingService {
     return this.baseUrl + '/client/home';
   }
 
+  getHireSchemodelAPIUrl(): string {
+    return this.baseUrl + '/client/hire-a-schmodel';
+  }
+
   getIPAddressUrl(): string {
     return 'https://api.ipify.org/?format=json';
   }

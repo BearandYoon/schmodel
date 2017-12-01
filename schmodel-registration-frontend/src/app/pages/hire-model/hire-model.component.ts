@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
+import { ClientService } from '../../core/services';
 import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
-import hireModelData from './data';
 
 @Component({
   selector: 'app-hire-model',
@@ -12,27 +12,40 @@ import hireModelData from './data';
 })
 export class HireModelComponent implements OnInit {
 
-  termsModalRef: BsModalRef;
-  termsContent: string;
-  termsModalConfig = {
+  confirmModalRef: BsModalRef;
+  confirmModalConfig = {
     animated: true,
     keyboard: false,
     backdrop: true,
     ignoreBackdropClick: true
   };
+  eventId: number;
 
   hireModelData: any = {};
 
   constructor(
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    private clientService: ClientService
   ) {
-    this.transformData(hireModelData);
   }
 
   ngOnInit() {
+    this.eventId = 1;
     const pageTitleDom = document.getElementById('page-title');
     pageTitleDom.style.fontSize = '14px';
     pageTitleDom.innerHTML = '<strong>R3</strong> | Jan. 13, 2018 | <strong>MARRAKESH</strong>, MA';
+
+    const data = {
+      'eventId': this.eventId,
+      'photoWidth': 100,
+      'photoHeight': 100
+    };
+
+    this.clientService.getHireSchemodel(data).subscribe(res => {
+      this.transformData(res);
+    }, error => {
+      console.log(error);
+    });
   }
 
   transformData(data) {
@@ -70,7 +83,6 @@ export class HireModelComponent implements OnInit {
 
     // add empty column
     data.roles.push({});
-    console.log(this.hireModelData);
   }
 
   handleLikeTalent(value) {
@@ -85,7 +97,7 @@ export class HireModelComponent implements OnInit {
       }
     }
     if (alreadyLiked) {
-      newTalent.errorMessage = "Schmodel's can only be hired for one position, please update.";
+      newTalent.errorMessage = `Schmodel's can only be hired for one position, please update.`;
     } else {
       role.application.liked = true;
     }
@@ -101,11 +113,9 @@ export class HireModelComponent implements OnInit {
   }
 
   confirmHiring() {
-    this.termsModalRef = this.modalService.show(ConfirmModalComponent, this.termsModalConfig);
-    this.termsModalRef.content.termsContent = this.termsContent;
-    this.termsModalRef.content.isBtnAgree = false;
+    this.confirmModalRef = this.modalService.show(ConfirmModalComponent, this.confirmModalConfig);
 
-    this.termsModalRef.content.onCloseReason.subscribe(result => {
+    this.confirmModalRef.content.onCloseReason.subscribe(result => {
       console.log('Terms Modal Close Reason = ', result);
     });
   }
