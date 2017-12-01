@@ -1,15 +1,17 @@
 <div class="my-jobs" [ngStyle]="{ 'height' : boardHeight }" [@routerTransition]>
-  <div class="title">
-    UPCOMING JOBS
-  </div>
+
+  <div *ngIf="response.upcomingEvents" class="title"> NO UPCOMING JOBS</div>
+  <div *ngIf="!response.upcomingEvents" class="title"> UPCOMING JOBS</div>
+
   <app-sch-job-row [event_role]="response.upcomingEvents"></app-sch-job-row>
 
-  <div class="title">
-    PREVIOUS JOBS
-  </div>
+  <div *ngIf="response.previousEvents" class="title"> NO PREVIOUS JOBS</div>
+  <div *ngIf="!response.previousEvents" class="title"> PREVIOUS JOBS</div>
+
+
   <app-sch-job-row [event_role]="response.previousEvents"></app-sch-job-row>
 
-  <div [ngStyle]="{'height' : '50vh'}" class="sticky-footer" *ngIf="flag">
+  <div *ngIf="(!response.previousEvents || !response.upcomingEvents) && flag" [ngStyle]="{'height' : '50vh'}" class="sticky-footer">
     <div class="gra-footer-padding">
       <img src="/assets/img/ic_down.png" (click)="onScrollDown()">
     </div>
