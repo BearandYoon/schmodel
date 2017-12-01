@@ -31,7 +31,7 @@ export class ClientHomeComponent implements OnInit {
       this.router.navigate(['client/login']);
     });
   }
-  
+
   onCalendar() {
       this.router.navigate(['event-calendar']);
   }
@@ -39,9 +39,5 @@ export class ClientHomeComponent implements OnInit {
   logout() {
     this.localStorage.clear(environment.localStorage.token);
     this.router.navigate(['client/login']);
-  }
-
-  onCalendar() {
-
   }
 }
