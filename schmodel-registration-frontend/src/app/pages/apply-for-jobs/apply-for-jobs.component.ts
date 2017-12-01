@@ -6,8 +6,10 @@ import { BsModalRef } from "ngx-bootstrap/modal";
 
 import { routerTransition } from '../../router.animations';
 import { DialogDetailComponent } from './components/dialog-detail/dialog-detail..component';
+import { MessageModalComponent } from '../../shared/modules';
 
 import { JobService } from '../../core/services';
+import { ValidationMessage } from '../../shared/models';
 
 @Component({
   selector: 'app-apply-for-jobs',
@@ -22,6 +24,7 @@ export class ApplyForJobsComponent implements OnInit {
   public style_height: Array<any> = [];
   public role_title: string[];
   public flag = false;
+
   detailDlgRef: BsModalRef;
   detailDlgContent: string;
   detailDlgConfig = {
@@ -56,7 +59,7 @@ export class ApplyForJobsComponent implements OnInit {
         this.eventView = response;
       }
       else {
-        // TODO: Error Handling
+        this.showFailLoadingDialog();
       }
     });
     this.flag = true;
@@ -88,5 +91,11 @@ export class ApplyForJobsComponent implements OnInit {
     this.detailDlgRef.content.onCloseReason.subscribe(result => {
       console.log('Detail Dialog close reason = ', result);
     })
+  }
+
+  showFailLoadingDialog() {
+    this.detailDlgRef = this.detailDlgService.show(MessageModalComponent, this.detailDlgConfig);
+    this.detailDlgRef.content.messageContent = ValidationMessage.FAIL_GET_APPLY_FOR_JOBS;
+    this.detailDlgRef.content.dialogTitle = "Message";
   }
 }
