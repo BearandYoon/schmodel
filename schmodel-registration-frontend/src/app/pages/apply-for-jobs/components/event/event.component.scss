@@ -54,3 +54,28 @@ p, time {
   border-image:    linear-gradient(to bottom, rgba(0,0,0,0.23) 0%, rgba(0,0,0,0.23) 1%, rgba(255,255,255,0.23) 50%, rgba(0,0,0,0.23) 100%);
   border-image-slice: 2;
 }
+
+.message-wrapper {
+  position: absolute;
+  margin-top: -5px;
+  right: 0;
+  width: 66%;
+  height: 40px;
+  background-color: #FF4165;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 5px 0 25px;
+  .icon-close {
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 10px;
+  }
+  .message {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 6px;
+    b {
+      font-size: 10px;
+    }
+  }
+}
