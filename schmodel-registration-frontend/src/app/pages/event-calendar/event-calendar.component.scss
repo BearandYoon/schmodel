@@ -41,7 +41,6 @@ $formula-logo-height: 70px;
 	margin-top: 4px;
 	width: 100%;
 	height: $model-img-size; 
-	//background-image: url('/assets/img/bg_event_calendar.png');
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 
@@ -68,15 +67,16 @@ $formula-logo-height: 70px;
 			font-weight: normal;
 			margin: 0;
 			line-height: 0.9em;
-			padding: 30px 12px;
-
+			padding: 25px 14px;
 
 			span {
 				white-space: nowrap;
 				color: white;
 
 				&:nth-of-type(1) {
+					display: block;
 					font-size: 25px;
+					margin-bottom: -5px;
 				}
 				&:nth-of-type(2) {
 					font-size: 14px;
@@ -107,12 +107,11 @@ $formula-logo-height: 70px;
 			background-repeat: no-repeat;
 			background-position: 50% 50%;
 			background-size: 55px 55px;
-			padding: 24px 10px 0px 0px;
+			padding: 15px 15px 0px 0px;
 			
 			&:after {
 				content: "";
 				position: absolute;
-				//background-image: url('/assets/images/ic_separator_vert.png');
 				background-image: linear-gradient(rgba(132, 132, 132, 0.04), #887d7d, rgba(255, 255, 255, 0.04));
 				background-size: 100% 100%;
 				height: 100%;
@@ -133,9 +132,9 @@ $formula-logo-height: 70px;
 
 				span {
 					font-size: 20px;
-					vertical-align: middle;
+					vertical-align: -webkit-baseline-middle;
 					font-weight: 800;
-					margin-left: 1px;
+					margin-left: 3px;
 					
 				}
 

@@ -26,21 +26,21 @@
     <div class="talent-content"  (click)="onEvent(i)">
 
       <div class="info-item" [ngClass]="{'item--none': eventItem[1].data.jobs == 0}">
-        <p *ngIf="!eventItem[1].data.jobs == 0">JOBS<span>{{eventItem[1].data.jobs}}</span></p>
-        <p *ngIf="!eventItem[1].data.jobs == 0">APPLICANTS<span>{{eventItem[1].data.applicants}}</span></p>
-        <p *ngIf="!eventItem[1].data.jobs == 0">HIRED<span>{{eventItem[1].data.hired}}</span></p>
+        <p *ngIf="!eventItem[1].data.jobs == 0">JOBS<span>{{eventItem[1].data.jobs | number: '2.'}}</span></p>
+        <p *ngIf="!eventItem[1].data.jobs == 0">APPLICANTS<span>{{eventItem[1].data.applicants | number: '2.'}}</span></p>
+        <p *ngIf="!eventItem[1].data.jobs == 0">HIRED<span>{{eventItem[1].data.hired | number: '2.'}}</span></p>
       </div>
 
       <div class="info-item" [ngClass]="{'item--none': eventItem[2].data.jobs == 0}">
-        <p *ngIf="!eventItem[2].data.jobs == 0">JOBS<span>{{eventItem[2].data.jobs}}</span></p>
-        <p *ngIf="!eventItem[2].data.jobs == 0">APPLICANTS<span>{{eventItem[2].data.applicants}}</span></p>
-        <p *ngIf="!eventItem[2].data.jobs == 0">HIRED<span>{{eventItem[2].data.hired}}</span></p>
+        <p *ngIf="!eventItem[2].data.jobs == 0">JOBS<span>{{eventItem[2].data.jobs | number: '2.'}}</span></p>
+        <p *ngIf="!eventItem[2].data.jobs == 0">APPLICANTS<span>{{eventItem[2].data.applicants | number: '2.'}}</span></p>
+        <p *ngIf="!eventItem[2].data.jobs == 0">HIRED<span>{{eventItem[2].data.hired | number: '2.'}}</span></p>
       </div>
 
       <div class="info-item" [ngClass]="{'item--none': eventItem[3].data.jobs == 0}">
-        <p *ngIf="!eventItem[3].data.jobs == 0">JOBS<span>{{eventItem[3].data.jobs}}</span></p>
-        <p *ngIf="!eventItem[3].data.jobs == 0">APPLICANTS<span>{{eventItem[3].data.applicants}}</span></p>
-        <p *ngIf="!eventItem[3].data.jobs == 0">HIRED<span>{{eventItem[3].data.hired}}</span></p>
+        <p *ngIf="!eventItem[3].data.jobs == 0">JOBS<span>{{eventItem[3].data.jobs | number: '2.'}}</span></p>
+        <p *ngIf="!eventItem[3].data.jobs == 0">APPLICANTS<span>{{eventItem[3].data.applicants | number: '2.'}}</span></p>
+        <p *ngIf="!eventItem[3].data.jobs == 0">HIRED<span>{{eventItem[3].data.hired | number: '2.'}}</span></p>
       </div>  
 
     </div>
