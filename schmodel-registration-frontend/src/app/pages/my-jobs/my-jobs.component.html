@@ -2,12 +2,12 @@
   <div class="title">
     UPCOMING JOBS
   </div>
-  <app-sch-job-row [event_role]="response[0].upcomingEvents"></app-sch-job-row>
+  <app-sch-job-row [event_role]="response.upcomingEvents"></app-sch-job-row>
 
   <div class="title">
     PREVIOUS JOBS
   </div>
-  <app-sch-job-row [event_role]="response[0].previousEvents"></app-sch-job-row>
+  <app-sch-job-row [event_role]="response.previousEvents"></app-sch-job-row>
 
   <div [ngStyle]="{'height' : '50vh'}" class="sticky-footer" *ngIf="flag">
     <div class="gra-footer-padding">

@@ -35,8 +35,5 @@ export class SchJobRowComponent implements OnInit {
   }
 
   ngOnChanges() {
-    for(let i = 0; i < this.event_role.length; i ++) {
-      this.event_role[i].name = this.event_role[i].name.replace('FE Race ', 'R');
-    }
   }
 }

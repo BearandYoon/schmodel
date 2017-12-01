@@ -12,11 +12,10 @@ export class MyJobService {
   ) {}
 
   getMyJobInfor() {
-    console.log(this.apiRoutingService.getMyJobsUrl());
     return this.http.get(
       this.apiRoutingService.getMyJobsUrl(),
       {},
-      false,
+      true,
       null
     );
   }
