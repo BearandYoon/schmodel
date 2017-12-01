@@ -16,6 +16,7 @@ import { TermsModalComponent } from './shared/modules';
 import { MessageModalComponent } from './shared/modules';
 import { ConfirmModalComponent } from './pages/hire-model/confirm-modal/confirm-modal.component';
 import { LayoutModule } from './pages/layout/layout.module';
+import { SwiperModule } from 'angular2-useful-swiper';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { LayoutModule } from './pages/layout/layout.module';
     HttpModule,
     AppRoutingModule,
     SharedModule,
+    SwiperModule,
     LayoutModule,
     Ng2Webstorage,
     ModalModule.forRoot(),

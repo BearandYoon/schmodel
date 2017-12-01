@@ -72,4 +72,12 @@ export class ApiRoutingService {
   getClientHomeAPIUrl(): string {
     return this.baseUrl + '/client/home';
   }
+  
+  getViewProfileAPIUrl(): string {
+    return this.baseUrl + '/talent/my-profile';
+  }
+  
+  getViewTalentProfileUrl(): string {
+  	return this.baseUrl + '/client/talent-profile';
+  }
 }

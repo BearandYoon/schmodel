@@ -53,7 +53,16 @@ button {
   flex: 1;
 }
 
+ 
 #page-title b,
 #page-title strong {
   font-weight: 700;
 }
+
+.swiper-pagination-bullet {
+    background: #eee !important;
+}
+.swiper-pagination-bullet-active{
+    background: #007aff !important;
+}
+

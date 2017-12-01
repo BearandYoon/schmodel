@@ -57,6 +57,7 @@ export class HomeComponent implements OnInit {
     this.applications = 0;
     this.upcoming = 0;
     this.photo_url = '';
+    this.isCompletedProfile = false;
   }
 
   ngOnInit() {
@@ -94,6 +95,14 @@ export class HomeComponent implements OnInit {
   onView() {
     this.router.navigate(['profile']);
   }
+  
+  onJobs() {
+    this.router.navigate(['my-jobs']);
+  }
+  
+  onApply() {
+    this.router.navigate(['apply-jobs']);
+  }   
 
   showTermsAndConditions() {
     this.termsModalRef = this.modalService.show(TermsModalComponent, this.termsModalConfig);
