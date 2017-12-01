@@ -33,11 +33,11 @@
       <div class="btn-text"><span>My Profile</span></div>
       <div class="btn-icon"><img src="assets/img/ic_app_jobs.png" /></div>
     </div>
-    <div class="btn-apply-job common-pattern" [ngClass]="isCompletedProfile ? '' : 'unCompleted'">
+    <div class="btn-apply-job common-pattern" (click)="onApply()" [ngClass]="isCompletedProfile ? '' : 'unCompleted'">
       <div class="btn-text"><span>Apply for Jobs</span></div>
       <div class="btn-icon"><img src="assets/img/ic_edit_jobs.png" /></div>
     </div>
-    <div class="btn-my-job common-pattern" [ngClass]="isCompletedProfile ? '' : 'unCompleted'">
+    <div class="btn-my-job common-pattern" (click)="onJobs()" [ngClass]="isCompletedProfile ? '' : 'unCompleted'">
       <div class="btn-text"><span>My Jobs</span></div>
       <div class="btn-icon"><img src="assets/img/ic_my_jobs.png" /></div>
     </div>
