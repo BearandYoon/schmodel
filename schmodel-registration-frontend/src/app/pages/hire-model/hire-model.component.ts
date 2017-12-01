@@ -24,13 +24,13 @@ export class HireModelComponent implements OnInit {
   hireModelData: any = {};
 
   constructor(
-    private modalService: BsModalService,
+    private modalService: BsModalService
   ) {
     this.transformData(hireModelData);
   }
 
   ngOnInit() {
-    let pageTitleDom = document.getElementById('page-title');
+    const pageTitleDom = document.getElementById('page-title');
     pageTitleDom.style.fontSize = '14px';
     pageTitleDom.innerHTML = '<strong>R3</strong> | Jan. 13, 2018 | <strong>MARRAKESH</strong>, MA';
   }
