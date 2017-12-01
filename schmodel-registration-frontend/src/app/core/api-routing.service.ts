@@ -55,7 +55,7 @@ export class ApiRoutingService {
   }
 
   getEventCalendarListInfoUrl(): string {
-    return this.baseUrl + '/talent/event-calendar';
+    return this.baseUrl + '/client/event-calendar';
   }
 
   getUploadPhotoUrl(): string {
