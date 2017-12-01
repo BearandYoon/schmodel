@@ -40,7 +40,6 @@ export class MyJobsComponent implements OnInit {
     this.myjobService.getMyJobInfor().subscribe( res => {
         this.response = null;
         this.response = res;
-        console.log(res);
       }, error => {
         console.log(error);
     });
