@@ -34,6 +34,7 @@ export class ValidationMessage {
     'included on the booking confirmation form. In the event of any inconsistency or contradiction between ' +
     'these terms and conditions and the booking confirmation form, the terms set out in the booking' +
     ' confirmation form shall prevail.';
+  public static FAIL_GET_APPLY_FOR_JOBS = 'Could not get the apply for jobs details. Please log out and log in again.';
 }
 
 export class ErrorResponse {
