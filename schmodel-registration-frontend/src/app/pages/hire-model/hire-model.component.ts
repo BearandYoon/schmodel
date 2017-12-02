@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 import { ClientService } from '../../core/services';
+import { HireTalent } from '../../shared/models';
 import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
 
 @Component({
@@ -114,7 +115,26 @@ export class HireModelComponent implements OnInit {
 
   confirmHiring(value) {
     const { talent } = value;
+
+    const hireTalent: HireTalent = new HireTalent;
+    const roleId = talent.applications[0].roleId;
+
+    hireTalent.talentName = talent.firstName;
+    hireTalent.companyName = this.hireModelData.companyName;
+    hireTalent.eventDate = this.hireModelData.eventStartDate;
+    hireTalent.country = this.hireModelData.eventCountry;
+    hireTalent.city = this.hireModelData.eventCity;
+    hireTalent.pay_rate = talent.applications[0].pay;
+    hireTalent.clauses = talent.applications[0].clauses;
+
+    this.hireModelData.roles.map(role => {
+      if (role.id === roleId) {
+        hireTalent.position = role.name;
+      }
+    });
+
     this.confirmModalRef = this.modalService.show(ConfirmModalComponent, this.confirmModalConfig);
+    this.confirmModalRef.content.hireTalent = hireTalent;
 
     this.confirmModalRef.content.onCloseReason.subscribe(result => {
       console.log('Terms Modal Close Reason = ', result);

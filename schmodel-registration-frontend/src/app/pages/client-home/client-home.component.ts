@@ -38,6 +38,6 @@ export class ClientHomeComponent implements OnInit {
   }
 
   onCalendar() {
-
+    this.router.navigate(['client/hire-a-schmodel']);
   }
 }

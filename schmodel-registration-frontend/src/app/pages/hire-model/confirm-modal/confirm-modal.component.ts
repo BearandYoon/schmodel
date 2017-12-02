@@ -3,12 +3,15 @@ import { Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { Subject } from 'rxjs/Subject';
 
+import { HireTalent } from '../../../shared/models';
+
 @Component({
   selector: 'app-confirm-modal',
   templateUrl: './confirm-modal.component.html',
   styleUrls: ['./confirm-modal.component.scss']
 })
 export class ConfirmModalComponent implements OnInit {
+  hireTalent: HireTalent = new HireTalent;
   public position_field: string;
   private talentName: string;
   private companyName: string;
@@ -23,6 +26,7 @@ export class ConfirmModalComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    // console.log('========', this.schModelData, this.talentId);
     this.dialogTitle = 'Hiring Confirmation';
     this.talentName = 'LINDSAY-ANNE';
     this.companyName = 'ABC MODEL CO.';
@@ -34,6 +38,7 @@ export class ConfirmModalComponent implements OnInit {
   }
 
   onConfirm() {
+    // console.log('========', this.schModelData, this.talentId);
     this.onCloseReason.next('confirm');
     this.bsModalRef.hide();
   }

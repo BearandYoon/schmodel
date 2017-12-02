@@ -9,7 +9,6 @@ import { Subject } from 'rxjs/Subject';
   styleUrls: ['./termsModal.component.scss'],
 })
 export class TermsModalComponent implements OnInit {
-  termsContent: String;
   isBtnAgree: boolean;
   isScrollBottom: boolean;
   isOnlyCancel: boolean;
