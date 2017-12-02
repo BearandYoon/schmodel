@@ -52,7 +52,7 @@ const routes: Routes = [
         }
       },
       {
-        path: 'hire-model',
+        path: 'client/hire-model',
         canActivate: [AuthGuard],
         loadChildren: './pages/hire-model/hire-model.module#HireModelModule',
         data: {

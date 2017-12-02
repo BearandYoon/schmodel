@@ -35,7 +35,7 @@ export class EditProfileComponent implements OnInit {
   ];
 
   constructor(
-    private profileService: ProfileService
+    public profileService: ProfileService
   ) {
     this.profileService.profileData = null;
     this.profileService.getProfileInfo(success => {

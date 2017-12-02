@@ -10,10 +10,10 @@ import { Subject } from 'rxjs/Subject';
 })
 export class ConfirmModalComponent implements OnInit {
   public position_field: string;
-  private talentName: string;
-  private companyName: string;
+  public talentName: string;
+  public companyName: string;
   public city_country_field: string;
-  private date_field: string;
+  public date_field: string;
   public pay_rate_field: number;
   public dialogTitle: string;
   public onCloseReason: Subject<string>;
