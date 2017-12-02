@@ -12,7 +12,6 @@ import { ViewProfile } from '../../shared/models';
 export class ProfileComponent implements OnInit {
   profile: object;
   isOwnProfile: boolean;
-  isValidResponse: boolean;
   config: SwiperOptions = {
     pagination: '.swiper-pagination',
     paginationClickable: true,
@@ -29,7 +28,6 @@ export class ProfileComponent implements OnInit {
   }
   ngOnInit() {
     this.isOwnProfile = false;
-    this.isValidResponse = false;
     this.activatedRoute.queryParams.subscribe((params: Params) => {
         this.talentId = params['talentId'];
       });
@@ -38,7 +36,6 @@ export class ProfileComponent implements OnInit {
 	    	console.log(res);
       		if ( res !== null) {
         		this.profile = res;
-        		this.isValidResponse = true;
       		} else {
         		this.message = 'Something went wrong.';
       		}
@@ -51,7 +48,6 @@ export class ProfileComponent implements OnInit {
 	    	console.log(res);
       		if ( res !== null) {
         		this.profile = res;
-        		this.isValidResponse = true;
       		} else {
         		this.message = 'Something went wrong.';
       		}
