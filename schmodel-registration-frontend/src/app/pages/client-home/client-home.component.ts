@@ -33,7 +33,7 @@ export class ClientHomeComponent implements OnInit {
   }
 
   onCalendar() {
-      this.router.navigate(['event-calendar']);
+      this.router.navigate(['client/event-calendar']);
   }
 
   logout() {
