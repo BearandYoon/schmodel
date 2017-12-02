@@ -5,12 +5,12 @@
   <div class="danger">
       <span class="message">{{message}}</span>
   </div>  
-  <div *ngIf="isProfileLoaded">
+
   <p class="title" *ngIf="!isCompletedProfile">Complete Your Profile</p>
   <p class="content-text" *ngIf="!isCompletedProfile">Please complete your profile so you can start applying to jobs.</p>
   <p class="title" *ngIf="isCompletedProfile">Welcome back {{firstName}}-{{lastName}}</p>
 
-  <div class="content-wrapper">
+  <div class="content-wrapper" *ngIf="isProfileLoaded">
     <div class="profile-content" *ngIf="isCompletedProfile">
       <div class="profile-image">
         <img [src]="photo_url"/>
@@ -52,6 +52,5 @@
   <div class="page-footer">
     <p class="logout-text" (click)="logout()">LOG-OUT</p>
     <p class="terms-condition" (click)="showTermsAndConditions()">Terms & Conditions</p>
-  </div>
   </div>
 </div>
