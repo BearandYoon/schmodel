@@ -13,16 +13,30 @@ const routes: Routes = [
   { path: 'change-password', loadChildren: './pages/changepassword/changepassword.module#ChangepasswordModule' },
   {
     path: 'client',
+    component:LayoutComponent,
     canActivate: [AuthGuard],
-    loadChildren: './pages/client-home/client-home.module#ClientHomeModule'
+    children: [
+     {
+        path: 'event-calendar',
+        canActivate: [AuthGuard],
+        loadChildren: './pages/event-calendar/event-calendar.module#EventCalendarModule',
+        data: {
+          title: 'Event Calendar',
+          navLeft: 'back'
+        }
+      },
+      {
+        path: '',
+        canActivate: [AuthGuard],
+    	loadChildren: './pages/client-home/client-home.module#ClientHomeModule'
+      }
+    ]
   },
-
   {
     path: '',
     component: LayoutComponent,
     canActivate: [AuthGuard],
     children: [
-     
      {
         path: 'profile',
         canActivate: [AuthGuard],
@@ -39,15 +53,6 @@ const routes: Routes = [
         loadChildren: './pages/edit-profile/edit-profile.module#EditProfileModule',
         data: {
           title: 'Edit My Profile',
-          navLeft: 'back'
-        }
-      },
-      {
-        path: 'client/event-calendar',
-        canActivate: [AuthGuard],
-        loadChildren: './pages/event-calendar/event-calendar.module#EventCalendarModule',
-        data: {
-          title: 'Event Calendar',
           navLeft: 'back'
         }
       },
@@ -77,7 +82,6 @@ const routes: Routes = [
       }
     ]
   },
-  { path: 'change-password', loadChildren: './pages/changepassword/changepassword.module#ChangepasswordModule' },
   { path: '**', redirectTo: 'not-found' }
 ];
 
