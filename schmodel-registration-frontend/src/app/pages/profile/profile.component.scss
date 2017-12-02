@@ -1,5 +1,16 @@
 $profileTextColor: #ffffff;
 
+.danger {
+      height:22px;
+      padding: 0px;
+      font-size: 16px;
+      background-color: transparent;
+      margin-top: 13px;
+      margin-bottom: 35px;
+      color: rgba(255, 4, 0, 0.52);
+      text-align: center;
+}
+
 .profile-page {
     background-image: url('/assets/img/bg_my_profile.png');
     background-size: cover;

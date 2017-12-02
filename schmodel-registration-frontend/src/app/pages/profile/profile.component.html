@@ -1,4 +1,9 @@
-<div> 
+<div *ngIf="!validResponse">
+  <div class="danger">
+      <span class="message">{{message}}</span>
+  </div>  
+</div>
+<div *ngIf="validResponse"> 
 <div class="profile-page" >
   <swiper [config]="config">
       <div class="swiper-wrapper">

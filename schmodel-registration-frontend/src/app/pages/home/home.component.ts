@@ -20,6 +20,7 @@ import { environment } from '../../../environments/environment';
 
 export class HomeComponent implements OnInit {
   isCompletedProfile: boolean;
+  isProfileLoaded: boolean;
   beforeTitle: string;
   termsModalRef: BsModalRef;
   termsContent: string;
@@ -44,6 +45,7 @@ export class HomeComponent implements OnInit {
   public applications: number;
   public upcoming: number;
   public photo_url: string;
+  public message: string;
 
   constructor(
     public router: Router,
@@ -57,17 +59,22 @@ export class HomeComponent implements OnInit {
     this.applications = 0;
     this.upcoming = 0;
     this.photo_url = '';
+    this.message = '';
     this.isCompletedProfile = false;
+    this.isProfileLoaded = false;
   }
 
   ngOnInit() {
     this.isCompletedProfile = false;
+    this.isProfileLoaded = false;
     this.termsContent = ValidationMessage.TERMS_CONTENT;
     if (this.sharedService.fromSignup) {
       this.beforeTitle = ValidationMessage.BEFORE_COMPLETE_HOME_TITLE_ONCE_SIGNUP;
     }
     this.profileService.isProfileComplete().subscribe(res => {
       this.isCompletedProfile = res.profileComplete;
+    }, err => {
+      		this.message = 'Something went wrong.';
     });
 
     this.profileService.getAfterProfile().subscribe(res => {
@@ -75,11 +82,17 @@ export class HomeComponent implements OnInit {
       if (res !== null) {
         this.firstName = res.firstName;
         this.lastName = res.lastName;
-        this.applications = res.applications;
-        this.upcoming = res.upcoming;
+        this.applications = res.applicationCount;
+        this.upcoming = res.upcomingJobCount;
         this.photo_url = res.photoUrl;
+        this.isProfileLoaded = true;
+      } else {
+      	this.message = 'Something went wrong';
       }
+    }, err => {
+  		this.message = 'Something went wrong.';
     });
+    
   }
 
   logout() {
