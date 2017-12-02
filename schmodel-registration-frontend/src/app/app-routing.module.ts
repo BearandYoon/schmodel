@@ -16,16 +16,13 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     loadChildren: './pages/client-home/client-home.module#ClientHomeModule'
   },
-  {
-    path: '',
-    canActivate: [AuthGuard],
-    loadChildren: './pages/home/home.module#HomeModule'
-  },
+
   {
     path: '',
     component: LayoutComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     children: [
+     
      {
         path: 'profile',
         canActivate: [AuthGuard],
@@ -38,7 +35,7 @@ const routes: Routes = [
       },    
       {
         path: 'edit-profile',
-        // canActivate: [AuthGuard],
+        canActivate: [AuthGuard],
         loadChildren: './pages/edit-profile/edit-profile.module#EditProfileModule',
         data: {
           title: 'Edit My Profile',
@@ -56,7 +53,7 @@ const routes: Routes = [
       },
       {
         path: 'hire-model',
-        // canActivate: [AuthGuard],
+        canActivate: [AuthGuard],
         loadChildren: './pages/hire-model/hire-model.module#HireModelModule',
         data: {
           title: ' ',
@@ -71,6 +68,12 @@ const routes: Routes = [
            title: 'Schmodel Profile',       
            navLeft: 'back'
         }
+      },
+      {
+        path: '',
+        canActivate: [AuthGuard],
+        loadChildren: './pages/home/home.module#HomeModule',
+       
       }
     ]
   },
