@@ -26,6 +26,15 @@ const routes: Routes = [
         }
       },
       {
+        path: 'hire-model',
+        canActivate: [AuthGuard],
+        loadChildren: './pages/hire-model/hire-model.module#HireModelModule',
+        data: {
+          title: ' ',
+          navLeft: 'back'
+        }
+      },
+      {
         path: '',
         canActivate: [AuthGuard],
     	loadChildren: './pages/client-home/client-home.module#ClientHomeModule'
@@ -53,15 +62,6 @@ const routes: Routes = [
         loadChildren: './pages/edit-profile/edit-profile.module#EditProfileModule',
         data: {
           title: 'Edit My Profile',
-          navLeft: 'back'
-        }
-      },
-      {
-        path: 'hire-model',
-        canActivate: [AuthGuard],
-        loadChildren: './pages/hire-model/hire-model.module#HireModelModule',
-        data: {
-          title: ' ',
           navLeft: 'back'
         }
       },

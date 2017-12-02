@@ -25,7 +25,7 @@ export class EventCalendarComponent implements OnInit {
   }
 
   onEvent(i) {
-    this.router.navigate(['client/hire-schmodel'], i);
+    this.router.navigate(['client/hire-model'], i);
   }
 
 }

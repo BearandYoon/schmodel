@@ -5,14 +5,14 @@
  <div class="profile-page" >
   <swiper [config]="config">
       <div class="swiper-wrapper">
-        <div class="swiper-slide" *ngFor="let photo of profile.photoUrls"><img [src]="photo"></div>
+        <div class="swiper-slide" *ngFor="let photo of profile['photoUrls']"><img [src]="photo"></div>
       </div>
       <!-- Add Pagination -->
       <div class="swiper-pagination"></div>
   </swiper>
   <div class="profile-title">
     <div class="title-detail">
-      <h1>{{profile.firstName}}-{{profile.lastName}}</h1>
+      <h1>{{profile['firstName']}}-{{profile['lastName']}}</h1>
     </div>
   </div>
   <div class="profile-text" *ngIf="profile">
