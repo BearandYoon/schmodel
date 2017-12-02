@@ -26,6 +26,24 @@ const routes: Routes = [
         }
       },
       {
+        path: 'hire-schmodel',
+        canActivate: [AuthGuard],
+        loadChildren: './pages/hire-schmodel/hire-schmodel.module#HireModelModule',
+        data: {
+          title: 'Hire Schmodel',
+          navLeft: 'back'
+        }
+      },
+     {
+    	path: 'talent-profile',
+        canActivate: [AuthGuard],
+        loadChildren: './pages/profile/profile.module#ProfileModule',
+        data: {
+           title: 'Schmodel Profile',       
+           navLeft: 'back'
+        }
+      },
+      {
         path: '',
         canActivate: [AuthGuard],
     	loadChildren: './pages/client-home/client-home.module#ClientHomeModule'
@@ -57,23 +75,23 @@ const routes: Routes = [
         }
       },
       {
-        path: 'hire-model',
+        path: 'my-jobs',
         canActivate: [AuthGuard],
-        loadChildren: './pages/hire-model/hire-model.module#HireModelModule',
+        loadChildren: './pages/my-jobs/my-jobs.module#MyJobsModule',
         data: {
-          title: ' ',
+          title: 'My Jobs',
           navLeft: 'back'
         }
       },
      {
-    	path: 'talent-profile',
+        path: 'apply-jobs',
         canActivate: [AuthGuard],
-        loadChildren: './pages/profile/profile.module#ProfileModule',
+        loadChildren: './pages/apply-jobs/apply-jobs.module#ApplyJobsModule',
         data: {
-           title: 'Schmodel Profile',       
-           navLeft: 'back'
+          title: 'Apply Jobs',
+          navLeft: 'back'
         }
-      },
+      },      
       {
         path: '',
         canActivate: [AuthGuard],
