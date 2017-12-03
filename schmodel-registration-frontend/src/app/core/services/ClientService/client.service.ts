@@ -24,4 +24,14 @@ export class ClientService {
       null
     );
   }
+
+  hireTalent(data) {
+    return this.http.post(
+      this.apiRoutingService.getHireTalentAPIUrl(),
+      data,
+      false,
+      true,
+      null
+    );
+  }
 }

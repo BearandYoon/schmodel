@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { LocalStorageService } from 'ngx-webstorage';
 
 import { ClientService } from '../../core/services';
-import { HireTalent } from '../../shared/models';
+import { HireTalent, TermsModalResponse } from '../../shared/models';
+import { environment } from '../../../environments/environment';
 import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
 
 @Component({
@@ -26,7 +28,8 @@ export class HireModelComponent implements OnInit {
 
   constructor(
     private modalService: BsModalService,
-    private clientService: ClientService
+    private clientService: ClientService,
+    private localStorage: LocalStorageService
   ) {
   }
 
@@ -118,6 +121,7 @@ export class HireModelComponent implements OnInit {
 
     const hireTalent: HireTalent = new HireTalent;
     const roleId = talent.applications[0].roleId;
+    console.log(talent);
 
     hireTalent.talentName = talent.firstName;
     hireTalent.companyName = this.hireModelData.companyName;
@@ -137,7 +141,18 @@ export class HireModelComponent implements OnInit {
     this.confirmModalRef.content.hireTalent = hireTalent;
 
     this.confirmModalRef.content.onCloseReason.subscribe(result => {
-      console.log('Terms Modal Close Reason = ', result);
+      if (result === TermsModalResponse.AGREE) {
+        const data = {
+          applicationId: talent.applications[0].id,
+          ip: this.localStorage.retrieve(environment.localStorage.ipAddress)
+        };
+
+        this.clientService.hireTalent(data).subscribe(res => {
+          console.log(res);
+        }, error => {
+          console.log(error);
+        });
+      }
     });
   }
 }
