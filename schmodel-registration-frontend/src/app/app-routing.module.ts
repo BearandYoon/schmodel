@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'change-password', loadChildren: './pages/changepassword/changepassword.module#ChangepasswordModule' },
   {
     path: 'client',
-    component:LayoutComponent,
+    component: LayoutComponent,
     canActivate: [AuthGuard],
     children: [
      {
