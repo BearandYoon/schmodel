@@ -1,18 +1,18 @@
 <div class="my-jobs" [ngStyle]="{ 'height' : boardHeight }" [@routerTransition]>
 
-  <div *ngIf="(response.upcomingEvents == undefined) || (response.upcomingEvents != undefined && response.upcomingEvents.length == 0)"
+  <div *ngIf="(response.upcomingJobs == undefined) || (response.upcomingJobs != undefined && response.upcomingJobs.length == 0)"
     class="title"> NO UPCOMING JOBS</div>
-  <div *ngIf="response.upcomingEvents != undefined && response.upcomingEvents.length != 0" class="title"> UPCOMING JOBS</div>
+  <div *ngIf="response.upcomingJobs != undefined && response.upcomingJobs.length != 0" class="title"> UPCOMING JOBS</div>
 
-  <app-sch-job-row [event_role]="response.upcomingEvents"></app-sch-job-row>
+  <app-sch-job-row [event_role]="response.upcomingJobs"></app-sch-job-row>
 
-  <div *ngIf="(response.previousEvents == undefined) || (response.previousEvents != undefined && response.previousEvents.length == 0)"
+  <div *ngIf="(response.previousJobs == undefined) || (response.previousJobs != undefined && response.previousJobs.length == 0)"
     class="title"> NO PREVIOUS JOBS</div>
-  <div *ngIf="response.previousEvents != undefined && response.previousEvents.length != 0" class="title"> PREVIOUS JOBS</div>
+  <div *ngIf="response.previousJobs != undefined && response.previousJobs.length != 0" class="title"> PREVIOUS JOBS</div>
 
-  <app-sch-job-row [event_role]="response.previousEvents"></app-sch-job-row>
+  <app-sch-job-row [event_role]="response.previousJobs"></app-sch-job-row>
 
-  <div [ngStyle]="{'height' : '50vh'}" class="sticky-footer" *ngIf="flag && ((response.previousEvents != undefined && response.previousEvents.length != 0) || (response.upcomingEvents != undefined && response.upcomingEvents.length != 0))">
+  <div [ngStyle]="{'height' : '90vh'}" class="sticky-footer" *ngIf="flag && ((response.previousJobs != undefined && response.previousJobs.length != 0) || (response.upcomingJobs != undefined && response.upcomingJobs.length != 0))">
     <div class="gra-footer-padding">
       <img src="/assets/img/ic_down.png" (click)="onScrollDown()">
     </div>

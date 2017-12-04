@@ -95,6 +95,10 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['profile']);
   }
 
+  onMyJobs() {
+    this.router.navigate(['my-jobs']);
+  }
+
   onApplyForJobs() {
     // TODO: Commented for testing Apply for jobs
     // if (this.isCompletedProfile) {

@@ -53,7 +53,7 @@
         <img src="assets/img/ic_edit_jobs.png" />
       </div>
     </div>
-    <div class="btn-my-job common-pattern" [ngClass]="isCompletedProfile ? '' : 'unCompleted'">
+    <div class="btn-my-job common-pattern" (click)="onMyJobs()" [ngClass]="isCompletedProfile ? '' : 'unCompleted'">
       <div class="btn-text">
         <span>My Jobs</span>
       </div>

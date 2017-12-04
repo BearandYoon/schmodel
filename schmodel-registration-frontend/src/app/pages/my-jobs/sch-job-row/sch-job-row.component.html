@@ -2,11 +2,11 @@
   <div class="collapse_section" *ngFor="let event of event_role; let i = index">
     <header accordion-heading (click)="onCollapse(i)" [attr.aria-expanded]="!isCollapsed">
       <div>
-        <h1> Formual E {{event.name}} </h1>
-        <time *ngIf="event.startDate == event.endDate"> {{event.startDate | date: 'yMMMMd' }}</time>
-        <time *ngIf="event.startDate != event.endDate"> {{event.startDate | date: 'd' }} - {{event.endDate | date: 'yMMMMd' }}</time>
+        <h1> Formual E {{event.eventName}} </h1>
+        <time *ngIf="event.eventStartDate == event.eventEndDate"> {{event.eventStartDate | date: 'yMMMMd' }}</time>
+        <time *ngIf="event.eventStartDate != event.eventEndDate"> {{event.eventStartDate | date: 'd' }} - {{event.eventEndDate | date: 'yMMMMd' }}</time>
         <p>
-          <strong>{{event.city}},</strong> {{event.country}}</p>
+          <strong>{{event.eventCity}},</strong> {{event.eventCountry}}</p>
       </div>
       <span *ngIf="collapse_no != i" class="icon icon-plus-circle"></span>
       <span *ngIf="collapse_no == i" class="icon icon-minus-circle"></span>
@@ -16,7 +16,7 @@
       <div class="job-role-content col-md-12 col-12 text-left">
         <p class="job-title">JOB:</p>
         <p class="custom-border-bottom">
-          <strong>{{event.role.name}}</strong>
+          <strong>{{event.roleName}}</strong>
         </p>
       </div>
 
@@ -30,7 +30,7 @@
             <div class="col-md-3 col-3 text-right"> End </div>
           </div>
 
-          <div *ngFor="let schedule of event.role.workSchedules" class="workschedule row col-md-12 col-12 row">
+          <div *ngFor="let schedule of event.workSchedules" class="workschedule row col-md-12 col-12 row">
             <div class="col-md-6 col-6 text-left"> {{schedule.day | date: 'd MMMM y'}}</div>
             <div class="col-md-3 col-3 text-right"> {{schedule.startTime}} </div>
             <div class="col-md-3 col-3 text-right"> {{schedule.endTime}} </div>
@@ -39,7 +39,7 @@
 
         <div class="pay-rate-wrapper">
           <div class="pay-rate-title col-md-12 col-12"> PAY RATE</div>
-          <div class="pay-rate-col-title col-md-12 col-12"> €{{event.role.pay | number : fractionSize}}</div>
+          <div class="pay-rate-col-title col-md-12 col-12"> €{{event.pay | number : fractionSize}}</div>
         </div>
       </div>
     </div>
