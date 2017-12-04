@@ -1,10 +1,6 @@
-<div class="page-container" >
-  <nav class="sticky-nav-bar">
-    <app-header *ngIf="pageData.title" [pageData]="pageData"></app-header>
-  </nav>
-
-  <section>
+<div class="page-container">
+  <app-header *ngIf="pageData.title" [pageData]="pageData"></app-header>
+  <div class="page-content">
     <router-outlet></router-outlet>
-  </section>
-
+  </div>
 </div>
