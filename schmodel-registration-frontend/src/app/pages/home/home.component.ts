@@ -21,6 +21,7 @@ import { environment } from '../../../environments/environment';
 export class HomeComponent implements OnInit {
   isCompletedProfile: boolean;
   isProfileLoaded: boolean;
+  isHomeProfileLoaded: boolean;
   beforeTitle: string;
   termsModalRef: BsModalRef;
   termsContent: string;
@@ -62,6 +63,7 @@ export class HomeComponent implements OnInit {
     this.message = '';
     this.isCompletedProfile = false;
     this.isProfileLoaded = false;
+    this.isHomeProfileLoaded=true;
   }
 
   ngOnInit() {
@@ -73,6 +75,7 @@ export class HomeComponent implements OnInit {
     }
     this.profileService.isProfileComplete().subscribe(res => {
       this.isCompletedProfile = res.profileComplete;
+      this.isHomeProfileLoaded=false;
     }, err => {
       		this.message = 'Something went wrong.';
     });
@@ -96,7 +99,6 @@ export class HomeComponent implements OnInit {
   }
 
   logout() {
-    // this.showLogOutMessage();
     this.localStorage.clear(environment.localStorage.token);
     this.router.navigate(['login']);
   }

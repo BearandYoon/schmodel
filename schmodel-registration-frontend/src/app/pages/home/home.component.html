@@ -6,12 +6,12 @@
       <span class="message">{{message}}</span>
   </div>  
 
-  <p class="title" *ngIf="!isCompletedProfile">Complete Your Profile</p>
-  <p class="content-text" *ngIf="!isCompletedProfile">Please complete your profile so you can start applying to jobs.</p>
-  <p class="title" *ngIf="isCompletedProfile">Welcome back {{firstName}}-{{lastName}}</p>
+  <p class="title" *ngIf="!isHomeProfileLoaded && !isCompletedProfile && !isProfileLoaded">Complete Your Profile</p>
+  <p class="content-text" *ngIf="!isHomeProfileLoaded && !isCompletedProfile && !isProfileLoaded">Please complete your profile so you can start applying to jobs.</p>
+  <p class="title" *ngIf="isCompletedProfile && isProfileLoaded">Welcome back {{firstName}}-{{lastName}}</p>
 
-  <div class="content-wrapper" *ngIf="isProfileLoaded">
-    <div class="profile-content" *ngIf="isCompletedProfile">
+  <div class="content-wrapper" *ngIf="isProfileLoaded && isCompletedProfile">
+    <div class="profile-content" >
       <div class="profile-image">
         <img [src]="photo_url"/>
       </div>
@@ -31,11 +31,8 @@
         </div>
       </div>
     </div>
-    <div class="btn-edit-profile common-pattern" (click)="onEdit()" *ngIf="!isCompletedProfile">
-      <div class="btn-text"><span>Edit My Profile</span></div>
-      <div class="btn-icon"><img src="assets/img/ic_app_jobs.png" /></div>
-    </div>
-    <div class="btn-edit-profile common-pattern" (click)="onView()" *ngIf="isCompletedProfile">
+
+    <div class="btn-edit-profile common-pattern" (click)="onView()" >
       <div class="btn-text"><span>My Profile</span></div>
       <div class="btn-icon"><img src="assets/img/ic_app_jobs.png" /></div>
     </div>
@@ -48,6 +45,23 @@
       <div class="btn-icon"><img src="assets/img/ic_my_jobs.png" /></div>
     </div>
   </div>
+
+  <div class="content-wrapper" *ngIf="!isHomeProfileLoaded && !isProfileLoaded && !isCompletedProfile">
+    
+    <div class="btn-edit-profile common-pattern" (click)="onEdit()" >
+      <div class="btn-text"><span>Edit My Profile</span></div>
+      <div class="btn-icon"><img src="assets/img/ic_app_jobs.png" /></div>
+    </div>
+    <div class="btn-apply-job common-pattern" (click)="onApply()" [ngClass]="isCompletedProfile ? '' : 'unCompleted'">
+      <div class="btn-text"><span>Apply for Jobs</span></div>
+      <div class="btn-icon"><img src="assets/img/ic_edit_jobs.png" /></div>
+    </div>
+    <div class="btn-my-job common-pattern" (click)="onJobs()" [ngClass]="isCompletedProfile ? '' : 'unCompleted'">
+      <div class="btn-text"><span>My Jobs</span></div>
+      <div class="btn-icon"><img src="assets/img/ic_my_jobs.png" /></div>
+    </div>
+  </div>
+
   <p class="content-text">Only Schmodels with an activation code can apply for jobs (until further notice)</p>
   <div class="page-footer">
     <p class="logout-text" (click)="logout()">LOG-OUT</p>
