@@ -1,0 +1,87 @@
+$profileTextColor: #ffffff;
+
+.danger {
+      height:22px;
+      padding: 0px;
+      font-size: 16px;
+      background-color: transparent;
+      margin-top: 13px;
+      margin-bottom: 35px;
+      color: rgba(255, 4, 0, 0.52);
+      text-align: center;
+}
+
+.profile-page {
+    background-image: url('/assets/img/bg_my_profile.png');
+    background-size: cover;
+    background-position: center top;
+    color: $profileTextColor;
+  
+    swiper {
+        width: 100%;
+        .swiper-pagination {
+            position: relative;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+        }
+        img {
+            width: 100%;
+            height: auto;            
+        }
+    }
+    .profile-title {
+        border-bottom: 2px solid rgba(255,255,255,.5);
+        padding: 22px 0 22px 0;
+        
+        .title-detail {
+            padding-left: 40px;
+            padding-right: 40px;
+            > small {
+                font-family: 'Open Sans', sans-serif;
+                color: #afb2b3;
+            }
+        }
+    }
+    .profile-text {
+        padding-left: 40px;
+        padding-right: 40px;
+       
+        :last-child {
+           border: none;
+        }
+        div {
+            border-bottom: 2px solid rgba(255,255,255,.5);
+            padding: 22px 0 22px 0;
+            
+            > small {
+                font-family: 'Open Sans', sans-serif;
+                color: #afb2b3;
+            }
+            .work-proficiency {
+                margin-top: -8px;
+            }
+            p {
+                display:table;
+                margin-bottom: 0px;
+                font-weight: 500;
+                
+                label {
+                    display: table-cell;
+                    width : 120px;
+                }
+                span {
+                    display: table-cell;
+                }
+                i {
+                    margin-right: 11px;
+                }
+            }
+            h1 {
+                margin-bottom: 0px;
+                padding-bottom: 6px;
+            }
+        }
+    }
+}
+

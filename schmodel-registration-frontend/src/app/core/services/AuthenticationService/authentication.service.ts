@@ -58,4 +58,14 @@ export class AuthenticationService {
       null
     );
   }
+
+  clientLogin(user: AuthUser) {
+    delete user.activationCode;
+    return this.http.post(
+      this.apiRoutingService.getClientLoginAPIUrl(),
+      user,
+      false,
+      null
+    );
+  }
 }

@@ -20,6 +20,8 @@ import { environment } from '../../../environments/environment';
 
 export class HomeComponent implements OnInit {
   isCompletedProfile: boolean;
+  isProfileLoaded: boolean;
+  isHomeProfileLoaded: boolean;
   beforeTitle: string;
   termsModalRef: BsModalRef;
   termsContent: string;
@@ -39,11 +41,12 @@ export class HomeComponent implements OnInit {
     ignoreBackdropClick: false
   };
 
-  firstName: string;
-  lastName: string;
-  applications: number;
-  upcoming: number;
-  photos: string;
+  public firstName: string;
+  public lastName: string;
+  public applications: number;
+  public upcoming: number;
+  public photo_url: string;
+  public message: string;
 
   constructor(
     public router: Router,
@@ -56,33 +59,46 @@ export class HomeComponent implements OnInit {
     this.lastName = '';
     this.applications = 0;
     this.upcoming = 0;
-    this.photos = '';
+    this.photo_url = '';
+    this.message = '';
+    this.isCompletedProfile = false;
+    this.isProfileLoaded = false;
+    this.isHomeProfileLoaded = true;
   }
 
   ngOnInit() {
     this.isCompletedProfile = false;
+    this.isProfileLoaded = false;
     this.termsContent = ValidationMessage.TERMS_CONTENT;
     if (this.sharedService.fromSignup) {
       this.beforeTitle = ValidationMessage.BEFORE_COMPLETE_HOME_TITLE_ONCE_SIGNUP;
     }
     this.profileService.isProfileComplete().subscribe(res => {
       this.isCompletedProfile = res.profileComplete;
-      // this.isCompletedProfile = true;
+      this.isHomeProfileLoaded = false;
+    }, err => {
+      this.message = 'The page could not be loaded. Please log out, log in again and try once more.';
     });
 
     this.profileService.getAfterProfile().subscribe(res => {
+      console.log(res);
       if (res !== null) {
         this.firstName = res.firstName;
         this.lastName = res.lastName;
-        this.applications = res.applications;
-        this.upcoming = res.upcoming;
-        this.photos = res.photos;
+        this.applications = res.applicationCount;
+        this.upcoming = res.upcomingJobCount;
+        this.photo_url = res.photoUrl;
+        this.isProfileLoaded = true;
+      } else {
+        this.message = 'The page could not be loaded. Please log out, log in again and try once more';
       }
+    }, err => {
+      this.message = 'The page could not be loaded. Please log out, log in again and try once more.';
     });
+
   }
 
   logout() {
-    // this.showLogOutMessage();
     this.localStorage.clear(environment.localStorage.token);
     this.router.navigate(['login']);
   }
@@ -95,15 +111,12 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['profile']);
   }
 
-  onMyJobs() {
+  onJobs() {
     this.router.navigate(['my-jobs']);
   }
 
-  onApplyForJobs() {
-    // TODO: Commented for testing Apply for jobs
-    // if (this.isCompletedProfile) {
+  onApply() {
     this.router.navigate(['apply-for-jobs']);
-    // }
   }
 
   showTermsAndConditions() {

@@ -16,10 +16,56 @@ export class ProfileService {
   isProfileComplete() {
     return this.http.get(this.apiRoutingService.getIsProfileCompleteAPIUrl(), {}, true, null);
   }
+  
+  viewProfile() {
+    const photoWidth = Math.round(window.innerWidth / 2);
+    const photoHeight = Math.round(window.innerWidth / 2);
+     return this.http.post(
+      this.apiRoutingService.getViewProfileAPIUrl(),
+      {
+      	photoWidth,
+      	photoHeight
+      },
+      false,
+      true,
+      null
+    );
+  }
+  
+  viewTalentProfile(talentId) {
+    const photoWidth = Math.round(window.innerWidth / 2);
+    const photoHeight = Math.round(window.innerWidth / 2);
+    return this.http.post(
+      this.apiRoutingService.getViewTalentProfileUrl(),
+	  {
+	          talentId,
+	          photoWidth,      
+	          photoHeight
+	   },
+	   false,
+	   true,
+	   null
+	 );
+  }
 
   getAfterProfile() {
-    return this.http.get(
+    const photoWidth = Math.round(2 * window.innerWidth / 3);
+    const photoHeight = Math.round(2 * window.innerWidth / 3);
+    return this.http.post(
       this.apiRoutingService.getAfterProfileInfoAPIUrl(),
+      {
+      	photoWidth,
+      	photoHeight
+      },
+      false,
+      true,
+      null
+    );
+  }
+
+  getEventCalendar() {
+    return this.http.get(
+      this.apiRoutingService.getEventCalendarListInfoUrl(),
       {},
       true,
       null

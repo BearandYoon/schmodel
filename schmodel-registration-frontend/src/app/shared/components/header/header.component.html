@@ -2,7 +2,7 @@
   <button type="button" class="nav nav-left" (click)="handleLeftNavClick()">
     <span *ngIf="pageData.navLeft=='back'" class="icon icon-arrow-left"></span>
   </button>
-  <p class="title">
+  <p id="page-title" class="title">
     {{pageData.title}}
   </p>
   <button type="button" class="nav nav-right" (click)="handleRightNavClick()">

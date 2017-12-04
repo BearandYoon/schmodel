@@ -1,0 +1,57 @@
+<div class="text-center">
+  <div class="modal-header">
+    <h2 class="modal-title">{{dialogTitle}}</h2>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="onClose()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <div class="content-wrapper">
+      <div class="comment-wrapper">
+        <p>Please confirm that you want to hire<br> <strong>{{talentName}}</strong> through <strong>{{companyName}}</strong> for:</p>
+      </div>
+      <div class="role-wrapper row custom-border">
+        <div class="col-md-4 col-4"> Position:</div>
+        <div class="col-md-2 col-2"></div>
+        <div class="col-md-6 col-6 text-left">{{position_field}}</div>
+
+        <div class="col-md-4 col-4"> Date:</div>
+        <div class="col-md-2 col-2"></div>
+        <div class="col-md-6 col-6 text-left">{{date_field}}</div>
+
+        <div class="col-md-4 col-4"> City/Country:</div>
+        <div class="col-md-2 col-2"></div>
+        <div class="col-md-6 col-6 text-left">{{city_country_field}}</div>
+
+        <div class="col-md-4 col-4"> Pay rate:</div>
+        <div class="col-md-2 col-2"></div>
+        <div class="col-md-6 col-6 text-left">€{{pay_rate_field}}</div>
+      </div>
+
+      <div class="description-wrapper">
+        <span> By clicking Agree, you are binding <strong>FIA FORMULA E</strong> to these<br>
+          <span class="terms-conditions" (click)="onTC()">Terms and Conditions</span>
+          and the following extra Terms proposed by <strong>{{talentName}}</strong>, <strong>{{companyName}}</strong>
+        </span>
+      </div>
+
+      <div class="agreement-wrapper">
+        <p>
+          1. I require qunioa and avocado twice a day.
+        </p>
+        <p>
+          2. I require gluten free food options during my lunch break.
+        </p>
+        <p>
+          3. All photos taken of me need my consent before public use.
+        </p>
+      </div>
+    </div>
+
+    <div class="action-wrapper">
+      <button (click)="onConfirm()"> Agree </button>
+      <button (click)="onClose()"> Cancel </button>
+    </div>
+  </div>
+</div>

@@ -54,6 +54,10 @@ export class ApiRoutingService {
     return this.baseUrl + '/talent/edit-my-profile';
   }
 
+  getEventCalendarListInfoUrl(): string {
+    return this.baseUrl + '/client/event-calendar';
+  }
+
   getUploadPhotoUrl(): string {
     return this.baseUrl + '/talent/upload-photo';
   }
@@ -80,5 +84,21 @@ export class ApiRoutingService {
 
   getMyJobsUrl(): string {
     return this.baseUrl + '/talent/my-jobs';
+  }
+
+  getClientLoginAPIUrl(): string {
+    return this.baseUrl + '/client/login';
+  }
+
+  getClientHomeAPIUrl(): string {
+    return this.baseUrl + '/client/home';
+  }
+
+  getViewProfileAPIUrl(): string {
+    return this.baseUrl + '/talent/my-profile';
+  }
+
+  getViewTalentProfileUrl(): string {
+    return this.baseUrl + '/client/talent-profile';
   }
 }

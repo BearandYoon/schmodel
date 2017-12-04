@@ -21,6 +21,10 @@ export class MessageModalComponent implements OnInit {
     this.onCloseReason = new Subject();
   }
 
+  onScroll() {
+    
+  }
+
   onOK() {
     this.onCloseReason.next('agree');
     this.bsModalRef.hide();

@@ -22,7 +22,6 @@ export class SetpasswordComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("setpassword component");
     // subscribe to router event
 
     this.activatedRoute.queryParams.subscribe((params: Params) => {
@@ -37,7 +36,7 @@ export class SetpasswordComponent implements OnInit {
         }
       }, err => {
         console.log('resetPassword Error = ', err);
-        this.router.navigate(['/not-found']);
+        // this.router.navigate(['/not-found']);
       });
     });
   }
