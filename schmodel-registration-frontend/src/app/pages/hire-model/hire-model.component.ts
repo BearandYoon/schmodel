@@ -146,6 +146,7 @@ export class HireModelComponent implements OnInit {
   confirmHiring(value) {
     const { talent } = value;
     const hireTalent: HireTalent = new HireTalent;
+    console.log(talent);
 
     hireTalent.talentName = talent.firstName;
     hireTalent.companyName = this.hireModelData.companyName;
@@ -184,7 +185,7 @@ export class HireModelComponent implements OnInit {
         };
 
         this.clientService.hireTalent(data).subscribe(res => {
-          console.log(res);
+          talent.hired = true;
         }, error => {
           console.log(error);
         });
