@@ -20,15 +20,6 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       {
-        path: 'apply-for-jobs',
-        canActivate: [AuthGuard],
-        loadChildren: './pages/apply-for-jobs/apply-for-jobs.module#ApplyForJobsModule',
-        data: {
-          title: 'Apply for Jobs',
-          navLeft: 'back'
-        }
-      },
-      {
         path: 'edit-profile',
         canActivate: [AuthGuard],
         loadChildren: './pages/edit-profile/edit-profile.module#EditProfileModule',
