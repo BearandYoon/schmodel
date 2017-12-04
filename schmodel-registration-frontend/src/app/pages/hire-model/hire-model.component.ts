@@ -143,7 +143,8 @@ export class HireModelComponent implements OnInit {
     this.confirmModalRef.content.onCloseReason.subscribe(result => {
       if (result === TermsModalResponse.AGREE) {
         const data = {
-          applicationId: talent.applications[0].id,
+          // applicationId: talent.applications[0].id,
+          applicationId: 2,
           ip: this.localStorage.retrieve(environment.localStorage.ipAddress)
         };
 
