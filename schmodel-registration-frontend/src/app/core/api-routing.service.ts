@@ -78,7 +78,7 @@ export class ApiRoutingService {
     return 'https://api.ipify.org/?format=json';
   }
 
-  getMyJobs(): string {
+  getMyJobsUrl(): string {
     return this.baseUrl + '/talent/my-jobs';
   }
 }

@@ -36,6 +36,22 @@ const routes: Routes = [
           title: 'Edit My Profile',
           navLeft: 'back'
         }
+      }, {
+        path: 'apply-for-jobs',
+        canActivate: [AuthGuard],
+        loadChildren: './pages/apply-for-jobs/apply-for-jobs.module#ApplyForJobsModule',
+        data: {
+          title: 'Apply for Jobs',
+          navLeft: 'back'
+        }
+      }, {
+        path: 'my-jobs',
+        canActivate: [AuthGuard],
+        loadChildren: './pages/my-jobs/my-jobs.module#MyJobsModule',
+        data: {
+          title: 'My Jobs',
+          navLeft: 'back'
+        }
       }
     ]
   },

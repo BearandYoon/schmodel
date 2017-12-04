@@ -27,7 +27,10 @@ import { DialogWithdrawComponent } from './pages/apply-for-jobs/components/dialo
     DialogJobApplyComponent,
     DialogWithdrawComponent,
     TermsModalComponent,
-    MessageModalComponent
+    MessageModalComponent,
+    DialogDetailComponent,
+    DialogJobApplyComponent,
+    DialogWithdrawComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,10 @@ import { DialogWithdrawComponent } from './pages/apply-for-jobs/components/dialo
     DialogJobApplyComponent,
     DialogWithdrawComponent,
     TermsModalComponent,
-    MessageModalComponent
+    MessageModalComponent,
+    DialogDetailComponent,
+    DialogJobApplyComponent,
+    DialogWithdrawComponent
   ],
   bootstrap: [AppComponent]
 })

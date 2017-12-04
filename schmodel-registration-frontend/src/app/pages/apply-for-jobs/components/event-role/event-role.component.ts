@@ -49,7 +49,6 @@ export class EventRoleComponent implements OnInit {
     backdrop: true,
     ignoreBackdropClick: false
   };
-
   openDialog() {
     if (this.status === ButtonStatus.Apply) {
       this.jobapplyDlgRef = this.detailDlgService.show(DialogJobApplyComponent, this.dialogConfig);
