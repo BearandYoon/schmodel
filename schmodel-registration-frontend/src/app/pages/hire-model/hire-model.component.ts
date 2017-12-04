@@ -100,6 +100,7 @@ export class HireModelComponent implements OnInit {
   handleLikeTalent(value) {
     const { role, talent } = value;
     const talentIndex = this.hireModelData.talents.indexOf(talent);
+    const roleIndex = talent.roles.indexOf(role);
     const newTalent = Object.assign({}, talent);
     let alreadyLiked = false;
     for (const aRole of newTalent.roles) {
@@ -110,18 +111,36 @@ export class HireModelComponent implements OnInit {
     }
     if (alreadyLiked) {
       newTalent.errorMessage = `Schmodel's can only be hired for one position, please update.`;
+      this.hireModelData.talents.splice(talentIndex, 1, newTalent);
     } else {
-      role.application.liked = true;
+      this.clientService.likeTalent({ applicationId: role.application.id }).subscribe(res => {
+        if (res.applicationIdValid) {
+          role.application.liked = true;
+          role.liked ++;
+          this.hireModelData.roles[roleIndex].liked ++;
+          this.hireModelData.talents.splice(talentIndex, 1, newTalent);
+        }
+      }, error => {
+        console.log(error);
+      });
     }
-    this.hireModelData.talents.splice(talentIndex, 1, newTalent);
   }
 
   handleUnlikeTalent(value) {
     const { role, talent } = value;
     const talentIndex = this.hireModelData.talents.indexOf(talent);
+    const roleIndex = talent.roles.indexOf(role);
     const newTalent = Object.assign({}, talent);
-    role.application.liked = false;
-    this.hireModelData.talents.splice(talentIndex, 1, newTalent);
+    this.clientService.unlikeTalent({ applicationId: role.application.id }).subscribe(res => {
+      if (res.applicationIdValid) {
+        role.application.liked = false;
+        role.liked --;
+        this.hireModelData.roles[roleIndex].liked --;
+        this.hireModelData.talents.splice(talentIndex, 1, newTalent);
+      }
+    }, error => {
+      console.log(error);
+    });
   }
 
   confirmHiring(value) {

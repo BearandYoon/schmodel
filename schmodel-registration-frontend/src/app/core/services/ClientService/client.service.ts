@@ -34,4 +34,24 @@ export class ClientService {
       null
     );
   }
+
+  likeTalent(data) {
+    return this.http.post(
+      this.apiRoutingService.getLikeTalentAPIUrl(),
+      data,
+      false,
+      true,
+      null
+    );
+  }
+
+  unlikeTalent(data) {
+    return this.http.post(
+      this.apiRoutingService.getUnlikeTalentAPIUrl(),
+      data,
+      false,
+      true,
+      null
+    );
+  }
 }

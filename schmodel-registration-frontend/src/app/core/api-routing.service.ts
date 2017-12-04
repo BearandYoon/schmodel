@@ -77,6 +77,14 @@ export class ApiRoutingService {
     return this.baseUrl + 'client/hire';
   }
 
+  getLikeTalentAPIUrl(): string {
+    return this.baseUrl + 'client/like';
+  }
+
+  getUnlikeTalentAPIUrl(): string {
+    return this.baseUrl + 'client/unlike';
+  }
+
   getIPAddressUrl(): string {
     return 'https://api.ipify.org/?format=json';
   }
