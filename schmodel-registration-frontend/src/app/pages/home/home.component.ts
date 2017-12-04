@@ -77,7 +77,7 @@ export class HomeComponent implements OnInit {
       this.isCompletedProfile = res.profileComplete;
       this.isHomeProfileLoaded=false;
     }, err => {
-      		this.message = 'Something went wrong.';
+      		this.message = 'The page could not be loaded. Please log out, log in again and try once more.';
     });
 
     this.profileService.getAfterProfile().subscribe(res => {
@@ -90,10 +90,10 @@ export class HomeComponent implements OnInit {
         this.photo_url = res.photoUrl;
         this.isProfileLoaded = true;
       } else {
-      	this.message = 'Something went wrong';
+      	this.message = 'The page could not be loaded. Please log out, log in again and try once more';
       }
     }, err => {
-  		this.message = 'Something went wrong.';
+  		this.message = 'The page could not be loaded. Please log out, log in again and try once more.';
     });
     
   }

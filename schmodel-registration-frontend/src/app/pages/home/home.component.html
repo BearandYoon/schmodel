@@ -2,10 +2,7 @@
   <div class="logo-container">
     <img class="img-logo" src="assets/img/img_logo.png">
   </div>
-  <div class="danger">
-      <span class="message">{{message}}</span>
-  </div>  
-
+  
   <p class="title" *ngIf="!isHomeProfileLoaded && !isCompletedProfile && !isProfileLoaded">Complete Your Profile</p>
   <p class="content-text" *ngIf="!isHomeProfileLoaded && !isCompletedProfile && !isProfileLoaded">Please complete your profile so you can start applying to jobs.</p>
   <p class="title" *ngIf="isCompletedProfile && isProfileLoaded">Welcome back {{firstName}}-{{lastName}}</p>
@@ -63,6 +60,10 @@
   </div>
 
   <p class="content-text">Only Schmodels with an activation code can apply for jobs (until further notice)</p>
+  <div class="danger">
+      <span class="message">{{message}}</span>
+  </div>  
+
   <div class="page-footer">
     <p class="logout-text" (click)="logout()">LOG-OUT</p>
     <p class="terms-condition" (click)="showTermsAndConditions()">Terms & Conditions</p>
