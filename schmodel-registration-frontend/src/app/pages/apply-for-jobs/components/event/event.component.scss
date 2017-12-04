@@ -56,16 +56,14 @@ p, time {
 }
 
 .message-wrapper {
-  position: absolute;
   margin-top: -5px;
-  right: 0;
-  width: 66%;
+  margin-left: 33.3%;
   height: 40px;
   background-color: #FF4165;
   color: white;
   display: flex;
   align-items: center;
-  padding: 0 5px 0 25px;
+  padding: 0 5px 0 10px;
   .icon-close {
     font-weight: bold;
     font-size: 20px;
