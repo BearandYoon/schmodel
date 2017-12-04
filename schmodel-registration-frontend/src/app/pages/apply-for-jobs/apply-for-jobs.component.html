@@ -26,18 +26,12 @@
   </div>
 
   <div *ngFor="let event of eventView" class="app-event-style">
-    <app-event
-              [event_no]="event.id"
-              [event_number]="event.name"
-              [event_start_date]="event.startDate"
-              [event_end_date]="event.endDate"
-              [event_city]="event.city"
-              [event_country_code]="event.country"
-              [roles_data]="event.roles">
+    <app-event [event_no]="event.id" [event_number]="event.name" [event_start_date]="event.startDate" [event_end_date]="event.endDate"
+      [event_city]="event.city" [event_country_code]="event.country" [roles_data]="event.roles">
     </app-event>
   </div>
 
-  
+
   <div [ngStyle]="{'height' : '50vh'}" class="sticky-footer text-center" *ngIf="flag">
     <div class="gra-footer-padding">
       <img src="/assets/img/ic_down.png" (click)="onScrollDown()">

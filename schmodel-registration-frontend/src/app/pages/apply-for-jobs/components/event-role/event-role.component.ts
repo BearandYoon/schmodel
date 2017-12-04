@@ -19,7 +19,8 @@ enum ButtonStatus { Disabled, Checked, Apply }
 
 export class EventRoleComponent implements OnInit {
 
-  @Output() onErrorOccured = new EventEmitter<boolean>();
+  @Output() onCreatedApplicationError = new EventEmitter<boolean>();
+  @Output() onWithdrawnApplicationError = new EventEmitter<boolean>();
   @Input() event_id: number;
   @Input() role_id: number;
   @Input() price: number;
@@ -61,11 +62,11 @@ export class EventRoleComponent implements OnInit {
           const data = { 'eventId': this.event_id, 'jobRoleId': this.role_id, 'ipAddress': this.jobService.ipAddress };
           this.jobService.createApplication(data).subscribe(res => {
             this.status = ButtonStatus.Checked;
-            this.onErrorOccured.emit(false);
+            this.onCreatedApplicationError.emit(false);
             this.ngOnChanges();
           }, error => {
             console.log(error);
-            this.onErrorOccured.emit(true);
+            this.onCreatedApplicationError.emit(true);
           });
         }
       });
@@ -76,11 +77,11 @@ export class EventRoleComponent implements OnInit {
           const data = { 'eventId': this.event_id, 'jobRoleId': this.role_id, 'ipAddress': this.jobService.ipAddress };
           this.jobService.withdrawApplication(data).subscribe(res => {
             this.status = ButtonStatus.Apply;
-            this.onErrorOccured.emit(false);
+            this.onWithdrawnApplicationError.emit(false);
             this.ngOnChanges();
           }, error => {
             console.log(error);
-            this.onErrorOccured.emit(true);
+            this.onWithdrawnApplicationError.emit(true);
           });
         }
       });

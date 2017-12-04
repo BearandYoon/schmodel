@@ -1,6 +1,7 @@
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 
 import { routerTransition } from '../../../../router.animations';
+import { ValidationMessage } from '../../../../shared/models';
 
 @Component({
   selector: 'app-event',
@@ -28,7 +29,9 @@ export class EventComponent implements OnInit, OnChanges {
   public event_role_workschedule: Array<any> = [];
   public bg_url: string = '';
   public title_border_style: string = '';
-  public errorOccured: boolean = false;
+  public isCreatedApplicationError: boolean = false;
+  public isWithdrawnApplicationError: boolean = false;
+  public errorMessage = '';
 
   private light_blue: string = 'rgba(78, 200, 235, 0.1)';
   private light_purple: string = 'rgba(53, 20, 77, 0.1)';
@@ -84,7 +87,13 @@ export class EventComponent implements OnInit, OnChanges {
     }
   }
 
-  onErrorOccured(errorOccured: boolean) {
-    this.errorOccured = errorOccured;
+  onCreatedApplicationError(errorOccured: boolean) {
+    this.isCreatedApplicationError = errorOccured;
+    this.errorMessage = ValidationMessage.FAIL_CREATE_APPLICATION;
+  }
+
+  onWithdrawnApplicationError(errorOccured: boolean) {
+    this.isWithdrawnApplicationError = errorOccured;
+    this.errorMessage = ValidationMessage.FAIL_WITHDRAW_APPLICATION;
   }
 }
