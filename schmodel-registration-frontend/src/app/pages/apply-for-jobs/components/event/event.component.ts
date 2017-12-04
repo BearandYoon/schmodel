@@ -96,4 +96,9 @@ export class EventComponent implements OnInit, OnChanges {
     this.isWithdrawnApplicationError = errorOccured;
     this.errorMessage = ValidationMessage.FAIL_WITHDRAW_APPLICATION;
   }
+
+  onCloseMessage() {
+    this.isCreatedApplicationError = false;
+    this.isWithdrawnApplicationError = false;
+  }
 }
