@@ -102,28 +102,17 @@ export class HireModelComponent implements OnInit {
     const talentIndex = this.hireModelData.talents.indexOf(talent);
     const roleIndex = talent.roles.indexOf(role);
     const newTalent = Object.assign({}, talent);
-    let alreadyLiked = false;
-    for (const aRole of newTalent.roles) {
-      if (aRole.application && aRole.application.liked) {
-        alreadyLiked = true;
-        break;
+
+    this.clientService.likeTalent({ applicationId: role.application.id }).subscribe(res => {
+      if (res.applicationIdValid) {
+        role.application.liked = true;
+        role.liked ++;
+        this.hireModelData.roles[roleIndex].liked ++;
+        this.hireModelData.talents.splice(talentIndex, 1, newTalent);
       }
-    }
-    if (alreadyLiked) {
-      newTalent.errorMessage = ValidationMessage.DOUBLE_LIKE_ERROR;
-      this.hireModelData.talents.splice(talentIndex, 1, newTalent);
-    } else {
-      this.clientService.likeTalent({ applicationId: role.application.id }).subscribe(res => {
-        if (res.applicationIdValid) {
-          role.application.liked = true;
-          role.liked ++;
-          this.hireModelData.roles[roleIndex].liked ++;
-          this.hireModelData.talents.splice(talentIndex, 1, newTalent);
-        }
-      }, error => {
-        console.log(error);
-      });
-    }
+    }, error => {
+      console.log(error);
+    });
   }
 
   handleUnlikeTalent(value) {
@@ -145,6 +134,18 @@ export class HireModelComponent implements OnInit {
 
   confirmHiring(value) {
     const { talent } = value;
+
+    let numLikes = 0;
+    for (const aRole of talent.roles) {
+      if (aRole.application && aRole.application.liked) {
+        numLikes ++;
+      }
+    }
+    if (numLikes >= 2) {
+      talent.errorMessage = ValidationMessage.DOUBLE_LIKE_ERROR;
+      return;
+    }
+
     const hireTalent: HireTalent = new HireTalent;
     console.log(talent);
 
