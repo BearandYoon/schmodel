@@ -62,6 +62,7 @@ $model-img-size: 120px;
           flex: 1;
           height: 100%;
           position: relative;
+          background-image: url('/assets/images/ic_circle_none.svg');
           background-repeat: no-repeat;
           background-position: 50% 50%;
 
@@ -82,14 +83,13 @@ $model-img-size: 120px;
           &.item--unliked {
             background-image: url('/assets/images/ic_heart_empty.svg');
           }
-          &.item--none {
-            background-image: url('/assets/images/ic_circle_none.svg');
-          }
           &.item--hired-circle {
             background-image: url('/assets/images/ic_circle_hired.svg');
           }
           &.item--hire,
           &.item--hired {
+            background-image: none;
+
             &:before {
               font-family: 'Open Sans', sans-serif;
               font-size: 11px;
