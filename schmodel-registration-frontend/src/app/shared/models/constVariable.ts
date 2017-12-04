@@ -34,6 +34,8 @@ export class ValidationMessage {
                                 'included on the booking confirmation form. In the event of any inconsistency or contradiction between ' +
                                 'these terms and conditions and the booking confirmation form, the terms set out in the booking' +
                                 ' confirmation form shall prevail.';
+  public static DOUBLE_LIKE_ERROR = `Schmodel's can only be hired for one position, please update.`;
+  public static NO_LIKE_ERROR_BEFORE_HIRE = 'Schmodels can only be hired for one position, per event. Please like this Schmodel for a single position and then click Hire.';
 }
 
 export class ErrorResponse {

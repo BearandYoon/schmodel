@@ -4,7 +4,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { LocalStorageService } from 'ngx-webstorage';
 
 import { ClientService } from '../../core/services';
-import { HireTalent, TermsModalResponse } from '../../shared/models';
+import { HireTalent, TermsModalResponse, ValidationMessage } from '../../shared/models';
 import { environment } from '../../../environments/environment';
 import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
 import * as moment from 'moment';
@@ -110,7 +110,7 @@ export class HireModelComponent implements OnInit {
       }
     }
     if (alreadyLiked) {
-      newTalent.errorMessage = `Schmodel's can only be hired for one position, please update.`;
+      newTalent.errorMessage = ValidationMessage.DOUBLE_LIKE_ERROR;
       this.hireModelData.talents.splice(talentIndex, 1, newTalent);
     } else {
       this.clientService.likeTalent({ applicationId: role.application.id }).subscribe(res => {
@@ -145,24 +145,33 @@ export class HireModelComponent implements OnInit {
 
   confirmHiring(value) {
     const { talent } = value;
-
     const hireTalent: HireTalent = new HireTalent;
-    const roleId = talent.applications[0].roleId;
-    console.log(talent);
 
     hireTalent.talentName = talent.firstName;
     hireTalent.companyName = this.hireModelData.companyName;
     hireTalent.eventDate = this.hireModelData.eventStartDate;
     hireTalent.country = this.hireModelData.eventCountry;
     hireTalent.city = this.hireModelData.eventCity;
-    hireTalent.pay_rate = talent.applications[0].pay;
-    hireTalent.clauses = talent.applications[0].clauses;
 
-    this.hireModelData.roles.map(role => {
-      if (role.id === roleId) {
-        hireTalent.position = role.name;
+    let roleId = -1;
+    talent.applications.map(application => {
+      if (application.liked) {
+        roleId = application.id;
+        hireTalent.pay_rate = application.pay;
+        hireTalent.clauses = application.clauses;
+
+        this.hireModelData.roles.map(role => {
+          if (role.id === roleId) {
+            hireTalent.position = role.name;
+          }
+        });
       }
     });
+
+    if (roleId === -1) {
+      talent.errorMessage = ValidationMessage.NO_LIKE_ERROR_BEFORE_HIRE;
+      return;
+    }
 
     this.confirmModalRef = this.modalService.show(ConfirmModalComponent, this.confirmModalConfig);
     this.confirmModalRef.content.hireTalent = hireTalent;
@@ -170,8 +179,7 @@ export class HireModelComponent implements OnInit {
     this.confirmModalRef.content.onCloseReason.subscribe(result => {
       if (result === TermsModalResponse.AGREE) {
         const data = {
-          // applicationId: talent.applications[0].id,
-          applicationId: 2,
+          applicationId: roleId,
           ip: this.localStorage.retrieve(environment.localStorage.ipAddress)
         };
 
