@@ -19,7 +19,7 @@
   </div>
 </div>
 <div class="message-wrapper" *ngIf="isCreatedApplicationError || isWithdrawnApplicationError">
-  <span class="icon-close"></span>
+  <span class="icon-close" (click)="onCloseMessage()"></span>
   <span class="message">
     <b>Oh snap!</b>
     <br/> {{errorMessage}}
