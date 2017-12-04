@@ -7,6 +7,7 @@ import { ClientService } from '../../core/services';
 import { HireTalent, TermsModalResponse } from '../../shared/models';
 import { environment } from '../../../environments/environment';
 import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-hire-model',
@@ -35,9 +36,6 @@ export class HireModelComponent implements OnInit {
 
   ngOnInit() {
     this.eventId = 1;
-    const pageTitleDom = document.getElementById('page-title');
-    pageTitleDom.style.fontSize = '14px';
-    pageTitleDom.innerHTML = '<strong>R3</strong> | Jan. 13, 2018 | <strong>MARRAKESH</strong>, MA';
 
     const data = {
       'eventId': this.eventId,
@@ -46,10 +44,20 @@ export class HireModelComponent implements OnInit {
     };
 
     this.clientService.getHireSchemodel(data).subscribe(res => {
+      this.updateTitle(res);
       this.transformData(res);
     }, error => {
       console.log(error);
     });
+  }
+
+  updateTitle(data) {
+    const { eventName, eventStartDate, eventEndDate, eventCity, eventCountry } = data;
+    const eventDate = moment(eventEndDate, 'YYYY-MM-DD').format('MMM. DD, YYYY');
+
+    const pageTitleDom = document.getElementById('page-title');
+    pageTitleDom.style.fontSize = '14px';
+    pageTitleDom.innerHTML = `<strong>${eventName}</strong> | ${eventDate} | <strong>${eventCity}</strong>, ${eventCountry}`;
   }
 
   transformData(data) {

@@ -1,6 +1,6 @@
 <section class="section--talent" [ngClass]="{'has-message': !!talent.errorMessage}">
   <div class="content-wrapper">
-    <img class="talent-photo" src="/assets/img/img_home.png">
+    <img class="talent-photo" [attr.src]="talent.photoUrl">
     <div class="talent-content">
       <div class="title-wrapper">
         {{talent.firstName}}
