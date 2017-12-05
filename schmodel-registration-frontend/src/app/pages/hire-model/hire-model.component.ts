@@ -160,21 +160,23 @@ export class HireModelComponent implements OnInit {
     hireTalent.city = this.hireModelData.eventCity;
 
     let roleId = -1;
+    let roleIndex = -1;
     talent.applications.map(application => {
       if (application.liked) {
         roleId = application.id;
         hireTalent.pay_rate = application.pay;
         hireTalent.clauses = application.clauses;
 
-        this.hireModelData.roles.map(role => {
+        this.hireModelData.roles.map((role, index) => {
           if (role.id === roleId) {
+            roleIndex = index;
             hireTalent.position = role.name;
           }
         });
       }
     });
 
-    if (roleId === -1) {
+    if (roleId === -1 || roleIndex === -1) {
       talent.errorMessage = ValidationMessage.NO_LIKE_ERROR_BEFORE_HIRE;
       return;
     }
@@ -192,6 +194,9 @@ export class HireModelComponent implements OnInit {
         this.clientService.hireTalent(data).subscribe(res => {
           if (res && res.applicationIdValid) {
             talent.hired = true;
+            const newRole = Object.assign({}, this.hireModelData.roles[roleIndex]);
+            newRole.hired ++;
+            this.hireModelData.roles.splice(roleIndex, 1, newRole);
           }
         }, error => {
           console.log(error);
