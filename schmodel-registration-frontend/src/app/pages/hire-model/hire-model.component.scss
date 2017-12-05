@@ -20,7 +20,7 @@ $formula-logo-height: 70px;
     margin-left: $page-margin-half;
     margin-right: -$page-margin-half;
 
-    .info-item {
+    role-item {
       display: flex;
       flex: 1;
       background-color: rgba(255, 255, 255, 0.05);
@@ -32,177 +32,6 @@ $formula-logo-height: 70px;
       text-align: right;
       flex-direction: column;
       justify-content: space-between;
-
-      .info-values {
-        font-size: 7px;
-        font-weight: normal;
-        margin: 0;
-        line-height: 1.2em;
-
-        span {
-          white-space: nowrap;
-
-          &:nth-of-type(1) {
-            color: #bcbec0;
-          }
-          &:nth-of-type(2) {
-            color: #ff3066;
-          }
-          &:nth-of-type(3) {
-            color: #00cbe8;
-          }
-        }
-
-        b {
-          font-weight: 800;
-        }
-      }
-    }
-  }
-}
-
-.section--talent {
-  margin-top: 4px;
-  overflow: hidden;
-  position: relative;
-
-  &:last-of-type {
-    margin-bottom: 4px;
-  }
-
-  &.has-message {
-    padding-bottom: 40px;
-  }
-
-  .content-wrapper {
-    display: flex;
-    background-image: url('/assets/images/bg_row_big.png');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-
-    .talent-photo {
-      width: $model-img-size;
-      height: $model-img-size;
-      object-fit: cover;
-    }
-
-    .talent-content {
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-
-      .title-wrapper {
-        display: flex;
-        position: relative;
-        height: 45px;
-        padding-left: 16px;
-        padding-right: 20px;
-        justify-content: space-between;
-        align-items: center;
-        color: white;
-        font-size: 16px;
-        font-weight: bold;
-
-        &:after {
-          content: "";
-          position: absolute;
-          background-image: url('/assets/images/ic_separator_horz.png');
-          background-size: 100% 100%;
-          width: 100%;
-          height: 1px;
-          left: 0;
-          bottom: 0;
-        }
-      }
-
-      .action-wrapper {
-        display: flex;
-        flex: 1;
-
-        .action-item {
-          flex: 1;
-          height: 100%;
-          position: relative;
-          background-repeat: no-repeat;
-          background-position: 50% 50%;
-
-          &:after {
-            content: "";
-            position: absolute;
-            background-image: url('/assets/images/ic_separator_vert.png');
-            background-size: 100% 100%;
-            height: 100%;
-            width: 1px;
-            right: 0;
-            top: 0;
-          }
-
-          &.item--liked {
-            background-image: url('/assets/images/ic_heart_fill.svg');
-          }
-          &.item--unliked {
-            background-image: url('/assets/images/ic_heart_empty.svg');
-          }
-          &.item--none {
-            background-image: url('/assets/images/ic_circle_none.svg');
-          }
-          &.item--hired-circle {
-            background-image: url('/assets/images/ic_circle_hired.svg');
-          }
-          &.item--hire,
-          &.item--hired {
-            &:before {
-              font-family: 'Open Sans', sans-serif;
-              font-size: 11px;
-              font-weight: bold;
-              color: white;
-              position: absolute;
-              width: calc(100% - 10px);
-              height: calc(100% - 10px);
-              left: 5px;
-              top: 5px;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-            }
-          }
-          &.item--hire:before {
-            content: "HIRE";
-          }
-          &.item--hired:before {
-            content: "HIRED";
-            background-color: #4EC8EB;
-          }
-        }
-      }
-    }
-  }
-
-  .message-wrapper {
-    position: absolute;
-    top: $model-img-size;
-    right: 0;
-    width: calc(100% - #{$model-img-size});
-    height: 40px;
-    background-color: #FF4165;
-    color: white;
-    display: flex;
-    align-items: center;
-    padding: 0 5px 0 25px;
-
-    .icon-close {
-      font-weight: bold;
-      font-size: 20px;
-      margin-right: 10px;
-    }
-
-    .message {
-      font-family: 'Open Sans', sans-serif;
-      font-size: 6px;
-
-      b {
-        font-size: 10px;
-      }
     }
   }
 }
@@ -224,4 +53,8 @@ $formula-logo-height: 70px;
     top: 2px;
     transform: translateY(-100%);
   }
+}
+
+.alert-container {
+  margin: 10px 30px;
 }

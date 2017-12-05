@@ -9,42 +9,36 @@
   <div class="modal-body">
     <div class="content-wrapper">
       <div class="comment-wrapper">
-        <p>Please confirm that you want to hire<br> <strong>{{talentName}}</strong> through <strong>{{companyName}}</strong> for:</p>
+        <p>Please confirm that you want to hire<br> <strong>{{hireTalent.talentName}}</strong> through <strong>{{hireTalent.companyName}}</strong> for:</p>
       </div>
       <div class="role-wrapper row custom-border">
         <div class="col-md-4 col-4"> Position:</div>
         <div class="col-md-2 col-2"></div>
-        <div class="col-md-6 col-6 text-left">{{position_field}}</div>
+        <div class="col-md-6 col-6 text-left">{{hireTalent.position}}</div>
 
         <div class="col-md-4 col-4"> Date:</div>
         <div class="col-md-2 col-2"></div>
-        <div class="col-md-6 col-6 text-left">{{date_field}}</div>
+        <div class="col-md-6 col-6 text-left">{{hireTalent.eventDate}}</div>
 
         <div class="col-md-4 col-4"> City/Country:</div>
         <div class="col-md-2 col-2"></div>
-        <div class="col-md-6 col-6 text-left">{{city_country_field}}</div>
+        <div class="col-md-6 col-6 text-left">{{hireTalent.city}}, {{hireTalent.country}}</div>
 
         <div class="col-md-4 col-4"> Pay rate:</div>
         <div class="col-md-2 col-2"></div>
-        <div class="col-md-6 col-6 text-left">€{{pay_rate_field}}</div>
+        <div class="col-md-6 col-6 text-left">€{{hireTalent.pay_rate}}</div>
       </div>
 
       <div class="description-wrapper">
         <span> By clicking Agree, you are binding <strong>FIA FORMULA E</strong> to these<br>
           <span class="terms-conditions" (click)="onTC()">Terms and Conditions</span>
-          and the following extra Terms proposed by <strong>{{talentName}}</strong>, <strong>{{companyName}}</strong>
+          and the following extra Terms proposed by <strong>{{hireTalent.talentName}}</strong>, <strong>{{hireTalent.companyName}}</strong>
         </span>
       </div>
 
       <div class="agreement-wrapper">
-        <p>
-          1. I require qunioa and avocado twice a day.
-        </p>
-        <p>
-          2. I require gluten free food options during my lunch break.
-        </p>
-        <p>
-          3. All photos taken of me need my consent before public use.
+        <p *ngFor="let clause of hireTalent.clauses; let i = index">
+          {{i+1}}. {{clause}}
         </p>
       </div>
     </div>

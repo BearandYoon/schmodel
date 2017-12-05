@@ -1,0 +1,26 @@
+<section class="section--talent" [ngClass]="{'has-message': !!talent.errorMessage}">
+  <div class="content-wrapper">
+    <img class="talent-photo" [attr.src]="talent.photoUrl">
+    <div class="talent-content">
+      <div class="title-wrapper">
+        {{talent.firstName}}
+        <img src="/assets/images/ic_three_dots.svg">
+      </div>
+      <div class="action-wrapper">
+        <div *ngFor="let role of talent.roles; let i = index" class="action-item" [ngClass]="{
+          'item--hired-circle': role.application && role.application.liked && talent.hired,
+          'item--liked': role.application && role.application.liked && !talent.hired,
+          'item--unliked': role.application && !role.application.liked && !talent.hired}" (click)="onClickActionItem(i)"></div>
+        <div *ngIf="!talent.hired" class="action-item item--hire" (click)="onConfirmHiring()"></div>
+        <div *ngIf="talent.hired" class="action-item item--hired"></div>
+      </div>
+    </div>
+  </div>
+  <div class="message-wrapper">
+    <span class="icon-close" (click)="onCloseErrorMessage()"></span>
+    <span class="message">
+      <b>Oh snap!</b><br/>
+      {{talent.errorMessage}}
+    </span>
+  </div>
+</section>

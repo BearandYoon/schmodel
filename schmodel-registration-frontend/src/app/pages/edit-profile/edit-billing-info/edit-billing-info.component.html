@@ -19,15 +19,13 @@
       <alert type="danger" *ngIf="!!message">
         <strong>{{message}}</strong>
       </alert>
+      <p class="validation-error" *ngIf="!editBillingForm.valid">Please complete all the mandatory fields</p>
       <div class="row">
         <div>
-          <p class="validation-error" *ngIf="!editBillingForm.valid">Please complete all the mandatory fields</p>
           <p *ngIf="btnSave">SAVED!</p>
-          <p *ngIf="!btnSave">&nbsp;</p>
           <button type="submit" class="btn btn--save" [disabled]="!editBillingForm.valid">SAVE</button>
         </div>
         <div>
-          <p> &nbsp;</p>
           <button type="button" class="btn btn--cancel" (click)="onCancel()">CANCEL</button>
         </div>
       </div>

@@ -240,7 +240,11 @@ export class HttpHelperService {
     if (error.status === 500) {
       const body = error.json() || '';
       if (body.exception && body.exception === ErrorResponse.TOKEN_EXPIRE) {
-        this.router.navigate(['login']);
+        if (this.router.url.startsWith('/client')) {
+          this.router.navigate(['/client/login']);
+        } else {
+          this.router.navigate(['login']);
+        }
       }
     }
     return Observable.throw(error);

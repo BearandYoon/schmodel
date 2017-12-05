@@ -14,4 +14,44 @@ export class ClientService {
   clientHome() {
     return this.http.get(this.apiRoutingService.getClientHomeAPIUrl(), {}, true, null);
   }
+
+  getHireSchemodel(data) {
+    return this.http.post(
+      this.apiRoutingService.getHireSchemodelAPIUrl(),
+      data,
+      false,
+      true,
+      null
+    );
+  }
+
+  hireTalent(data) {
+    return this.http.post(
+      this.apiRoutingService.getHireTalentAPIUrl(),
+      data,
+      false,
+      true,
+      null
+    );
+  }
+
+  likeTalent(data) {
+    return this.http.post(
+      this.apiRoutingService.getLikeTalentAPIUrl(),
+      data,
+      false,
+      true,
+      null
+    );
+  }
+
+  unlikeTalent(data) {
+    return this.http.post(
+      this.apiRoutingService.getUnlikeTalentAPIUrl(),
+      data,
+      false,
+      true,
+      null
+    );
+  }
 }

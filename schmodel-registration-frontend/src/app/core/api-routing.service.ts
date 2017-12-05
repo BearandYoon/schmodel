@@ -5,7 +5,7 @@ import { environment } from '../../environments/environment';
 export class ApiRoutingService {
   private baseUrl = environment.BASE_API_URL;
 
-  constructor() { }
+  constructor() {}
 
   getResetPwdAPIUrl(): string {
     return this.baseUrl + '/talent/reset-password';
@@ -100,5 +100,21 @@ export class ApiRoutingService {
 
   getViewTalentProfileUrl(): string {
     return this.baseUrl + '/client/talent-profile';
+  }
+
+  getHireSchemodelAPIUrl(): string {
+    return this.baseUrl + '/client/hire-a-schmodel';
+  }
+
+  getHireTalentAPIUrl(): string {
+    return this.baseUrl + 'client/hire';
+  }
+
+  getLikeTalentAPIUrl(): string {
+    return this.baseUrl + 'client/like';
+  }
+
+  getUnlikeTalentAPIUrl(): string {
+    return this.baseUrl + 'client/unlike';
   }
 }

@@ -7,7 +7,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 import { AuthenticationService } from '../../core/services';
 
 import { routerTransition } from '../../router.animations';
-import { ValidationService } from '../../shared/services';
+import { ValidationService, SharedService } from '../../shared/services';
 import { TermsModalComponent } from '../../shared/modules/termsModal/termsModal.component';
 import { AuthUser, ValidationMessage } from '../../shared/models';
 
@@ -34,7 +34,8 @@ export class LoginComponent implements OnInit {
     public router: Router,
     private formBuilder: FormBuilder,
     private modalService: BsModalService,
-    private authService: AuthenticationService
+    private authService: AuthenticationService,
+    private sharedService: SharedService
   ) {
     this.signInForm = this.formBuilder.group({
       'email': ['', [Validators.required, ValidationService.emailValidator]],
@@ -52,6 +53,7 @@ export class LoginComponent implements OnInit {
     this.authUser.email = this.signInForm.value.email;
     this.authUser.password = this.signInForm.value.password;
     this.authService.logIn(this.authUser).subscribe( res => {
+      this.sharedService.getIPAddress();
       this.router.navigate(['']);
     }, error => {
       if (error.status === 401) {
