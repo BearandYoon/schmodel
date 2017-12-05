@@ -18,7 +18,6 @@ const routes: Routes = [
     children: [
       {
         path: 'event-calendar',
-        canActivate: [AuthGuard],
         loadChildren: './pages/event-calendar/event-calendar.module#EventCalendarModule',
         data: {
           title: 'Event Calendar',
@@ -26,8 +25,7 @@ const routes: Routes = [
         }
       },
       {
-        path: 'hire-model',
-        canActivate: [AuthGuard],
+        path: 'hire-a-schmodel',
         loadChildren: './pages/hire-model/hire-model.module#HireModelModule',
         data: {
           title: ' ',
@@ -36,7 +34,6 @@ const routes: Routes = [
       },
       {
         path: '',
-        canActivate: [AuthGuard],
         loadChildren: './pages/client-home/client-home.module#ClientHomeModule'
       }
     ]
