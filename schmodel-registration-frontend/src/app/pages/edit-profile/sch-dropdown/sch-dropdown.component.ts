@@ -133,12 +133,11 @@ export class SchDropdownComponent implements OnInit, ControlValueAccessor {
       }
     } else if (this.category === 'waistSizes') {
       const data = this.profileService.profileData.allBodyWaists;
-      console.log(data);
       if (data) {
         for (const item of data) {
           options.push({
             value: item.id,
-            text: `${item.valueInch / 10}" / ${item.valueCm}cm`
+            text: `${item.valueDeciInch / 10}" / ${item.valueCm}cm`
           });
         }
       }
