@@ -13,7 +13,7 @@
     </div>
 </div>
 <div class="talent-container">  
-  <div class="section--talent" [style.backgroundImage]="'url(/assets/img/bg_eventcalendar'+i+'.png)'" *ngFor="let eventItem of eventItems; let i = index" >
+  <div class="section--talent" [style.backgroundImage]="getRandomImage()" *ngFor="let eventItem of eventItems; let i = index" >
     <div class="talent-calendar">
       <p class="info-values">
         <span><b>{{eventItem[0].data.name}}</b></span><br/>

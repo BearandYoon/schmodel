@@ -24,6 +24,11 @@ export class EventCalendarComponent implements OnInit {
     });
   }
 
+  getRandomImage() {
+    const rand = Math.floor(Math.random() * 15);
+    return 'url(/assets/img/bg_eventcalendar' + rand + '.png)';
+  }
+
   onEvent(i) {
     this.router.navigate(['client/hire-model'], i);
   }
