@@ -1,4 +1,4 @@
-import { Component, OnInit, Pipe } from '@angular/core';
+import { Component, OnInit, Pipe, ChangeDetectorRef } from '@angular/core';
 
 import { Router } from '@angular/router';
 import { ProfileService } from '../../core/services';
@@ -11,16 +11,21 @@ import { ProfileService } from '../../core/services';
 export class EventCalendarComponent implements OnInit {
 
   eventItems: any;
+  bgImgUrls: string[];
 
   constructor(
     public router: Router,
     private profileService: ProfileService,
+    private cdr: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
     this.profileService.getEventCalendar().subscribe(res => {
-      console.log(res);
       this.eventItems = res[0].eventList;
+      this.bgImgUrls = [];
+      this.eventItems.map(x => {
+        this.bgImgUrls.push(this.getRandomImage());
+      });
     });
   }
 
