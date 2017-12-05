@@ -15,10 +15,10 @@ import { TermsModalComponent } from '../../shared/modules';
 import { AuthUser, TermsModalResponse, ValidationMessage } from '../../shared/models';
 
 @Component({
-    selector: 'app-signup',
-    templateUrl: './signup.component.html',
-    styleUrls: ['./signup.component.scss'],
-    animations: [routerTransition()]
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.scss'],
+  animations: [routerTransition()]
 })
 export class SignupComponent implements OnInit {
   signUpForm: any;
@@ -76,7 +76,7 @@ export class SignupComponent implements OnInit {
         this.authUser.password = this.signUpForm.value.password;
         this.authUser.activationCode = this.signUpForm.value.activationCode;
 
-        this.authService.signUp(this.authUser).subscribe( res => {
+        this.authService.signUp(this.authUser).subscribe(res => {
           this.message = '';
           if (!res.activationCodeValid) {
             this.message = ValidationMessage.WRONG_ACTIVATION_CODE;

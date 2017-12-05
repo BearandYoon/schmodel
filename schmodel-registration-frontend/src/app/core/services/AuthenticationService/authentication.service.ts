@@ -10,7 +10,7 @@ export class AuthenticationService {
   constructor(
     private http: HttpHelperService,
     private apiRoutingService: ApiRoutingService
-  ) {}
+  ) { }
 
   signUp(user: AuthUser) {
     return this.http.post(

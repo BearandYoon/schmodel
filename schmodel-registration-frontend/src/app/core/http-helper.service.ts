@@ -13,11 +13,11 @@ export class HttpHelperService {
     private router: Router,
     private http: Http,
     private localStorage: LocalStorageService
-  ) {}
+  ) { }
 
   private checkAuthHeader(response: Response) {
     let res;
-    const authorizationHeader =  response.headers.toJSON()['Authorization'] || response.headers.toJSON()['authorization'];
+    const authorizationHeader = response.headers.toJSON()['Authorization'] || response.headers.toJSON()['authorization'];
     if (authorizationHeader) {
       this.localStorage.store(environment.localStorage.token, authorizationHeader[0]);
     }
@@ -98,7 +98,7 @@ export class HttpHelperService {
       .map((response: Response) => {
         return this.checkAuthHeader(response);
       })
-      .catch( error => {
+      .catch(error => {
         return this.handleError(error);
       });
   }
@@ -132,11 +132,11 @@ export class HttpHelperService {
       requestOptions = this.generateReqOptions(isUrlEncoded, requiredAuth, headers, null, true);
     }
     return this.http
-      .post( url, body, requestOptions)
+      .post(url, body, requestOptions)
       .map((response: Response) => {
         return this.checkAuthHeader(response);
       })
-      .catch( error => {
+      .catch(error => {
         return this.handleError(error);
       });
   }
@@ -165,11 +165,11 @@ export class HttpHelperService {
       body = urlSearchParams.toString();
     }
     return this.http
-      .patch( url, body, this.generateReqOptions(isUrlEncoded, requiredAuth, headers))
+      .patch(url, body, this.generateReqOptions(isUrlEncoded, requiredAuth, headers))
       .map((response: Response) => {
         return this.checkAuthHeader(response);
       })
-      .catch( error => {
+      .catch(error => {
         return this.handleError(error);
       });
   }
@@ -198,11 +198,11 @@ export class HttpHelperService {
       body = urlSearchParams.toString();
     }
     return this.http
-      .put( url, body, this.generateReqOptions(isUrlEncoded, requiredAuth, headers))
+      .put(url, body, this.generateReqOptions(isUrlEncoded, requiredAuth, headers))
       .map((response: Response) => {
         return this.checkAuthHeader(response);
       })
-      .catch( error => {
+      .catch(error => {
         return this.handleError(error);
       });
   }
@@ -226,8 +226,8 @@ export class HttpHelperService {
       .map((response: Response) => {
         return this.checkAuthHeader(response);
       })
-      .catch( error => {
-        return this.handleError(error);
+      .catch(error => {
+        return this.handleError(error)
       });
   }
 

@@ -25,8 +25,8 @@ export class SchDropdownComponent implements OnInit, ControlValueAccessor {
   @Output() onRemove = new EventEmitter();
   onChange: any = () => { };
   onTouched: any = () => { };
-  private data: any = {};
-  private options: any = [];
+  public data: any = {};
+  public options: any = [];
 
   get value() {
     return this._value;

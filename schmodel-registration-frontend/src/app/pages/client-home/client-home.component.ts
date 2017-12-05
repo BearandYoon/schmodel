@@ -32,12 +32,12 @@ export class ClientHomeComponent implements OnInit {
     });
   }
 
+  onCalendar() {
+      this.router.navigate(['client/event-calendar']);
+  }
+
   logout() {
     this.localStorage.clear(environment.localStorage.token);
     this.router.navigate(['client/login']);
-  }
-
-  onCalendar() {
-    this.router.navigate(['client/hire-a-schmodel']);
   }
 }

@@ -21,9 +21,13 @@
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "styles.scss",
+        "../node_modules/font-awesome/css/font-awesome.css",
+        "../node_modules/swiper/dist/css/swiper.css",
         "assets/fonts/fonts.scss"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/swiper/dist/js/swiper.js" 
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

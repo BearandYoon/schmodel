@@ -13,35 +13,46 @@ const routes: Routes = [
   { path: 'change-password', loadChildren: './pages/changepassword/changepassword.module#ChangepasswordModule' },
   {
     path: 'client',
-    canActivate: [AuthGuard],
-    loadChildren: './pages/client-home/client-home.module#ClientHomeModule'
-  },
-  {
-    path: 'client',
     component: LayoutComponent,
     canActivate: [AuthGuard],
     children: [
       {
+        path: 'event-calendar',
+        loadChildren: './pages/event-calendar/event-calendar.module#EventCalendarModule',
+        data: {
+          title: 'Event Calendar',
+          navLeft: 'back'
+        }
+      },
+      {
         path: 'hire-a-schmodel',
-        canActivate: [AuthGuard],
         loadChildren: './pages/hire-model/hire-model.module#HireModelModule',
         data: {
           title: ' ',
           navLeft: 'back'
         }
+      },
+      {
+        path: '',
+        loadChildren: './pages/client-home/client-home.module#ClientHomeModule'
       }
     ]
-  },
-  {
-    path: '',
-    canActivate: [AuthGuard],
-    loadChildren: './pages/home/home.module#HomeModule'
   },
   {
     path: '',
     component: LayoutComponent,
     canActivate: [AuthGuard],
     children: [
+      {
+        path: 'profile',
+        canActivate: [AuthGuard],
+        loadChildren: './pages/profile/profile.module#ProfileModule',
+        data: {
+          title: 'My Profile',
+          navLeft: 'back',
+          navRight: 'settings'
+        }
+      },
       {
         path: 'edit-profile',
         canActivate: [AuthGuard],
@@ -50,6 +61,37 @@ const routes: Routes = [
           title: 'Edit My Profile',
           navLeft: 'back'
         }
+      }, {
+        path: 'apply-for-jobs',
+        canActivate: [AuthGuard],
+        loadChildren: './pages/apply-for-jobs/apply-for-jobs.module#ApplyForJobsModule',
+        data: {
+          title: 'Apply for Jobs',
+          navLeft: 'back'
+        }
+      }, {
+        path: 'my-jobs',
+        canActivate: [AuthGuard],
+        loadChildren: './pages/my-jobs/my-jobs.module#MyJobsModule',
+        data: {
+          title: 'My Jobs',
+          navLeft: 'back'
+        }
+      },
+      {
+        path: 'talent-profile',
+        canActivate: [AuthGuard],
+        loadChildren: './pages/profile/profile.module#ProfileModule',
+        data: {
+          title: 'Schmodel Profile',
+          navLeft: 'back'
+        }
+      },
+      {
+        path: '',
+        canActivate: [AuthGuard],
+        loadChildren: './pages/home/home.module#HomeModule',
+
       }
     ]
   },

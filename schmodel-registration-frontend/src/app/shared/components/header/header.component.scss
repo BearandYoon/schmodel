@@ -1,4 +1,4 @@
-$header-height: 64px;
+$header-height: 10vh;
 $navitem-width: 50px;
 
 header.header--main {
@@ -7,7 +7,7 @@ header.header--main {
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-image: url('/assets/images/bg_row.png');
+  background-image: url('/assets/img/bg_row.png');
   background-repeat: no-repeat;
   background-size: 100% 100%;
   font-family: 'Open Sans', sans-serif;

@@ -1,0 +1,40 @@
+<div class="apply-for-jobs" [ngStyle]="{ 'height' : boardHeight }" [@routerTransition]>
+  <div class="row text-center">
+    <div class="col-md-4 col-4 formula-e">
+      <img src="/assets/img/ic_formulae.png" width="100%">
+    </div>
+
+    <div *ngFor="let i of [0,1,2]" class="col-md-2 col-2 role_bg align-items-center row">
+      <div class="col-md-12" (click)="showDetailDialog(role_title[i] + 'position')">
+        <img src="/assets/img/ic_infor.png" width="60%">
+      </div>
+
+      <div class="col-md-12 role-title-style">
+        <h2> {{role_title[i]}} </h2>
+      </div>
+    </div>
+
+    <div class="col-md-2 col-2 role_bg align-items-center row">
+      <div class="col-md-12" (click)="showDetailDialog('GUEST position')">
+        <img src="/assets/img/ic_infor.png" width="60%">
+      </div>
+
+      <div class="col-md-12 role-title-style">
+        <h4> SCHMODEL GUEST </h4>
+      </div>
+    </div>
+  </div>
+
+  <div *ngFor="let event of eventView" class="app-event-style">
+    <app-event [event_no]="event.id" [event_number]="event.name" [event_start_date]="event.startDate" [event_end_date]="event.endDate"
+      [event_city]="event.city" [event_country_code]="event.country" [roles_data]="event.roles">
+    </app-event>
+  </div>
+
+
+  <div [ngStyle]="{'height' : '50vh'}" class="sticky-footer text-center" *ngIf="flag">
+    <div class="gra-footer-padding">
+      <img src="/assets/img/ic_down.png" (click)="onScrollDown()">
+    </div>
+  </div>
+</div>

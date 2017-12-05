@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { Ng2Webstorage } from 'ngx-webstorage';
 import { ModalModule, AlertModule } from 'ngx-bootstrap';
 import { AppComponent } from './app.component';
@@ -16,10 +17,17 @@ import { TermsModalComponent } from './shared/modules';
 import { MessageModalComponent } from './shared/modules';
 import { ConfirmModalComponent } from './pages/hire-model/confirm-modal/confirm-modal.component';
 import { LayoutModule } from './pages/layout/layout.module';
+import { DialogDetailComponent } from './pages/apply-for-jobs/components/dialog-detail/dialog-detail..component';
+import { DialogJobApplyComponent } from './pages/apply-for-jobs/components/dialog-job-apply/dialog-job-apply.component';
+import { DialogWithdrawComponent } from './pages/apply-for-jobs/components/dialog-withdraw/dialog-withdraw.component';
+import { SwiperModule } from 'angular2-useful-swiper';
 
 @NgModule({
   declarations: [
     AppComponent,
+    DialogDetailComponent,
+    DialogJobApplyComponent,
+    DialogWithdrawComponent,
     TermsModalComponent,
     MessageModalComponent,
     ConfirmModalComponent
@@ -31,7 +39,10 @@ import { LayoutModule } from './pages/layout/layout.module';
     FormsModule,
     HttpModule,
     AppRoutingModule,
+    LayoutModule,
+    HttpClientModule,
     SharedModule,
+    SwiperModule,
     LayoutModule,
     Ng2Webstorage,
     ModalModule.forRoot(),
@@ -45,6 +56,9 @@ import { LayoutModule } from './pages/layout/layout.module';
     SharedService
   ],
   entryComponents: [
+    DialogDetailComponent,
+    DialogJobApplyComponent,
+    DialogWithdrawComponent,
     TermsModalComponent,
     MessageModalComponent,
     ConfirmModalComponent

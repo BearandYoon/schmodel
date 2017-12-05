@@ -54,11 +54,36 @@ export class ApiRoutingService {
     return this.baseUrl + '/talent/edit-my-profile';
   }
 
+  getEventCalendarListInfoUrl(): string {
+    return this.baseUrl + '/client/event-calendar';
+  }
+
   getUploadPhotoUrl(): string {
     return this.baseUrl + '/talent/upload-photo';
   }
+
   getDeletePhotoUrl(): string {
     return this.baseUrl + '/talent/delete-photo';
+  }
+
+  getApplyForJobsUrl(): string {
+    return this.baseUrl + '/talent/apply-for-jobs';
+  }
+
+  getCreateApplicationUrl(): string {
+    return this.baseUrl + '/talent/create-application';
+  }
+
+  getWithdrawApplicationUrl(): string {
+    return this.baseUrl + '/talent/withdraw-application';
+  }
+
+  getIPAddressUrl(): string {
+    return 'https://api.ipify.org/?format=json';
+  }
+
+  getMyJobsUrl(): string {
+    return this.baseUrl + '/talent/my-jobs';
   }
 
   getClientLoginAPIUrl(): string {
@@ -67,6 +92,14 @@ export class ApiRoutingService {
 
   getClientHomeAPIUrl(): string {
     return this.baseUrl + '/client/home';
+  }
+
+  getViewProfileAPIUrl(): string {
+    return this.baseUrl + '/talent/my-profile';
+  }
+
+  getViewTalentProfileUrl(): string {
+    return this.baseUrl + '/client/talent-profile';
   }
 
   getHireSchemodelAPIUrl(): string {
@@ -83,9 +116,5 @@ export class ApiRoutingService {
 
   getUnlikeTalentAPIUrl(): string {
     return this.baseUrl + 'client/unlike';
-  }
-
-  getIPAddressUrl(): string {
-    return 'https://api.ipify.org/?format=json';
   }
 }

@@ -22,18 +22,21 @@ export class ValidationMessage {
   public static TERMS_CONDITIONS_DECLINE = 'Your Schmodel account can be created only if you agree to Terms & Conditions';
   public static CURRENT_PASSWORD_NOT_MATCH = 'The current password you entered does not match our records';
   public static TERMS_CONTENT = 'As required by Department of Employment regulations, Schmodel’s booking confirmation form, containing' +
-                                ' the specific terms of the booking, must be signed and returned by the client and the signed booking ' +
-                                'confirmation form together with these terms and conditions shall form the agreement between ' +
-                                'the parties relating to each booking. \n\n' +
-                                'The failure to sign and/or return the booking confirmation ' +
-                                'form whilst proceeding with the booking will be deemed to be an acceptance by the client of these terms ' +
-                                ' and conditions and they shall apply to and govern the booking between Schmodel and the client. ' +
-                                ' Any amendment and/or variations made to the booking confirmation form by the client shall not be ' +
-                                'valid and binding unless IMG has agreed to such amendment and/or variation in advance and confirmed ' +
-                                'such agreement by signing the booking confirmation form after the amendment and/or variation has been ' +
-                                'included on the booking confirmation form. In the event of any inconsistency or contradiction between ' +
-                                'these terms and conditions and the booking confirmation form, the terms set out in the booking' +
-                                ' confirmation form shall prevail.';
+    ' the specific terms of the booking, must be signed and returned by the client and the signed booking ' +
+    'confirmation form together with these terms and conditions shall form the agreement between ' +
+    'the parties relating to each booking. \n\n' +
+    'The failure to sign and/or return the booking confirmation ' +
+    'form whilst proceeding with the booking will be deemed to be an acceptance by the client of these terms ' +
+    ' and conditions and they shall apply to and govern the booking between Schmodel and the client. ' +
+    ' Any amendment and/or variations made to the booking confirmation form by the client shall not be ' +
+    'valid and binding unless IMG has agreed to such amendment and/or variation in advance and confirmed ' +
+    'such agreement by signing the booking confirmation form after the amendment and/or variation has been ' +
+    'included on the booking confirmation form. In the event of any inconsistency or contradiction between ' +
+    'these terms and conditions and the booking confirmation form, the terms set out in the booking' +
+    ' confirmation form shall prevail.';
+  public static FAIL_GET_APPLY_FOR_JOBS = 'The page could not be loaded. Please log out, log in again and try once more.';
+  public static FAIL_CREATE_APPLICATION = 'The application could not be created. Please log out, log in again and try once more.';
+  public static FAIL_WITHDRAW_APPLICATION = 'The application could not be withdrawn. Please log out, log in again and try once more.';
   public static DOUBLE_LIKE_ERROR = `Schmodel's can only be hired for one position, please update.`;
   public static NO_LIKE_ERROR_BEFORE_HIRE = 'Schmodels can only be hired for one position, per event. Please like this Schmodel for a single position and then click Hire.';
 }

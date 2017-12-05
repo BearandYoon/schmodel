@@ -1,0 +1,176 @@
+$page-margin: 3px;
+$page-margin-half: 1.5px;
+$model-img-size: 120px;
+$formula-logo-height: 70px;
+
+.info-bar {
+    display: flex;
+    padding-top: $page-margin;
+    font-family: 'Open Sans', sans-serif;
+  
+    .formula-logo {
+      width: $model-img-size;
+      height: $formula-logo-height;
+      object-fit: cover;
+    }
+  
+    .info-wrapper {
+      display: flex;
+      flex: 1;
+      margin-left: $page-margin-half;
+      margin-right: -$page-margin-half;
+  
+      .info-item {
+        display: flex;
+        flex: 1;
+        background-color: rgba(255, 255, 255, 0.05);
+        margin: 0 $page-margin-half;
+        padding: 10px 6px 10px 2px;
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+        text-align: center;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+    }
+}
+	
+.section--talent {
+	display: flex;
+	margin-top: 4px;
+	width: 100%;
+	height: $model-img-size; 
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+
+	img {
+		background-repeat: no-repeat;
+	}
+
+	&:last-of-type {
+		margin-bottom: 4px;
+	}
+
+	&:nth-of-type(2n+1) .talent-calendar {
+		background-color: rgba(0, 198, 253, 0.19);	
+	}
+
+	&:nth-of-type(2n) .talent-calendar {
+		background-color: rgba(97, 29, 146, 0.19);	
+	}
+
+	.talent-calendar {
+		width: $model-img-size;
+
+		.info-values {
+			font-weight: normal;
+			margin: 0;
+			line-height: 0.9em;
+			padding: 25px 14px;
+
+			span {
+				white-space: nowrap;
+				color: white;
+
+				&:nth-of-type(1) {
+					display: block;
+					font-size: 25px;
+					margin-bottom: -5px;
+				}
+				&:nth-of-type(2) {
+					font-size: 14px;
+				}
+				&:nth-of-type(3) {
+					font-size: 14px;
+					font-weight: 600;
+				}
+				&:nth-of-type(4) {
+					font-size: 14px;
+				}
+			}
+
+			b {
+				font-weight: 800;
+			}
+		}
+	}
+
+	.talent-content {
+		display: flex;
+		flex: 1;
+
+		.info-item {
+			flex: 1;
+			height: 100%;
+			position: relative;
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+			background-size: 55px 55px;
+			padding: 15px 15px 0px 0px;
+			
+			&:after {
+				content: "";
+				position: absolute;
+				background-image: linear-gradient(rgba(132, 132, 132, 0.04), #887d7d, rgba(255, 255, 255, 0.04));
+				background-size: 100% 100%;
+				height: 100%;
+				width: 1px;
+				right: 0;
+				top: 0;
+			}
+
+			&.item--none {
+				background-image: url('/assets/images/ic_circle_none.svg');
+			}
+
+			p {
+				font-size: 8px;
+				text-align: right;
+				margin: 0;
+				line-height: 3em;
+
+				span {
+					font-size: 20px;
+					vertical-align: -webkit-baseline-middle;
+					font-weight: 800;
+					margin-left: 3px;
+					
+				}
+
+				&:nth-of-type(1) {
+					color: #ffffff;
+				}
+				&:nth-of-type(2) {
+					color: #a6a9ac;
+				}
+				&:nth-of-type(3) {
+					color: #4dc7eb;
+				}
+			}
+		}
+	}
+}
+
+.show-more {
+	width: 100%;
+	height: 70px;
+	position: fixed;
+	bottom: 0;
+	background-color: black;
+	text-align: center;
+  
+	.overlay {
+	  pointer-events: none;
+	  position: absolute;
+	  width: 100%;
+	  max-height: 200px;
+	  left: 0;
+	  top: 2px;
+	  transform: translateY(-100%);
+	}
+  }
+
+
+
+

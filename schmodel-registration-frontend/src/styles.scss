@@ -1,8 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,500,600,700,800');
 @import "fonts";
 
 body {
   background-color: black;
+}
+
+.page-container {
+  height: 100vh;
+  overflow: scroll;
+  position: relative;
 }
 
 app-control-messages div {
@@ -12,11 +19,45 @@ app-control-messages div {
   color: rgba(255, 4, 0, 0.52);
 }
 
+.col-md-2.col-2 {
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+}
+
+.row.align-items-center {
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 5px;
+}
+
 .modal-dialog {
-  position: absolute;
+  position: relative;
+  width: 90%;
+  margin: auto;
+  box-shadow: 20px 20px 40px #000000;
   top: 50% !important;
   left: 50% !important;
   transform: translateY(-50%) translateX(-50%) !important;
+}
+
+.modal-header {
+  border-bottom: 0!important;
+}
+
+.modal-backdrop {
+  background-image: -moz-radial-gradient(center, ellipse cover, rgba(104,95,93,1) 0%, rgba(0,0,0,1) 85%); /* FF3.6-15 */
+  background-image: -webkit-radial-gradient(center, ellipse cover, rgba(104,95,93,1) 0%,rgba(0,0,0,1) 85%); /* Chrome10-25,Safari5.1-6 */
+  background-image: radial-gradient(ellipse at center, rgba(104,95,93,1) 0%,rgba(0,0,0,1) 85%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#685f5d', endColorstr='#000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+  opacity: 0.8!important;
+}
+.modal-content {
+  border: 0!important;
+}
+
+.modal {
+  border-bottom: 0!important;
 }
 
 input:-webkit-autofill,
@@ -43,6 +84,16 @@ input:-webkit-autofill:active {
   }
 }
 
+@media (min-width: 576px) {
+  .modal-dialog {
+    position: absolute;
+    max-width: 500px;
+    margin: auto;
+    top: 50% !important;
+    left: 50% !important;
+  }
+}
+
 button {
   background: none;
   border: none;
@@ -53,7 +104,16 @@ button {
   flex: 1;
 }
 
+ 
 #page-title b,
 #page-title strong {
   font-weight: 700;
 }
+
+.swiper-pagination-bullet {
+    background: #eee !important;
+}
+.swiper-pagination-bullet-active{
+    background: #007aff !important;
+}
+
