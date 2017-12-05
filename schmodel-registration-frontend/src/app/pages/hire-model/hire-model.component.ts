@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { LocalStorageService } from 'ngx-webstorage';
@@ -29,6 +30,8 @@ export class HireModelComponent implements OnInit {
   hireModelData: any = {};
 
   constructor(
+    private route: ActivatedRoute,
+    private router: Router,
     private modalService: BsModalService,
     private clientService: ClientService,
     private localStorage: LocalStorageService
@@ -36,19 +39,26 @@ export class HireModelComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.eventId = 1;
     this.message = '';
-    const data = {
-      'eventId': this.eventId,
-      'photoWidth': Math.round(window.innerWidth / 3),
-      'photoHeight': Math.round(window.innerWidth / 3)
-    };
+    this.route.queryParams.subscribe(res => {
+      if (res && res.eventId) {
+        this.eventId = res.eventId;
 
-    this.clientService.getHireSchemodel(data).subscribe(res => {
-      this.updateTitle(res);
-      this.transformData(res);
-    }, error => {
-      console.log(error);
+        const data = {
+          'eventId': this.eventId,
+          'photoWidth': Math.round(window.innerWidth / 3),
+          'photoHeight': Math.round(window.innerWidth / 3)
+        };
+
+        this.clientService.getHireSchemodel(data).subscribe(res => {
+          this.updateTitle(res);
+          this.transformData(res);
+        }, error => {
+          console.log(error);
+        });
+      } else {
+        this.router.navigate(['client/event-calendar']);
+      }
     });
   }
 
