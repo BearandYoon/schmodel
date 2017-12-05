@@ -36,11 +36,10 @@ export class HireModelComponent implements OnInit {
 
   ngOnInit() {
     this.eventId = 1;
-
     const data = {
       'eventId': this.eventId,
-      'photoWidth': 100,
-      'photoHeight': 100
+      'photoWidth': Math.round(window.innerWidth / 3),
+      'photoHeight': Math.round(window.innerWidth / 3)
     };
 
     this.clientService.getHireSchemodel(data).subscribe(res => {
