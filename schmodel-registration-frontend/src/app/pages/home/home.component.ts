@@ -85,9 +85,7 @@ export class HomeComponent implements OnInit {
         this.upcoming = res.upcomingJobCount;
         this.photo_url = res.photoUrl;
         this.isProfileLoaded = true;
-      } else {
-        this.message = 'The page could not be loaded. Please log out, log in again and try once more';
-      }
+      } 
     }, err => {
       this.message = 'The page could not be loaded. Please log out, log in again and try once more.';
     });
