@@ -190,7 +190,9 @@ export class HireModelComponent implements OnInit {
         };
 
         this.clientService.hireTalent(data).subscribe(res => {
-          talent.hired = true;
+          if (res && res.applicationIdValid) {
+            talent.hired = true;
+          }
         }, error => {
           console.log(error);
           this.message = ValidationMessage.GENERIC_ERROR_MESSAGE;
