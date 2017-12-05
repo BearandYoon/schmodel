@@ -41,6 +41,7 @@ export class HireModelComponent implements OnInit {
   ngOnInit() {
     this.message = '';
     this.route.queryParams.subscribe(res => {
+      console.log(res);
       if (res && res.eventId) {
         this.eventId = res.eventId;
 
@@ -50,9 +51,12 @@ export class HireModelComponent implements OnInit {
           'photoHeight': Math.round(window.innerWidth / 3)
         };
 
-        this.clientService.getHireSchemodel(data).subscribe(res => {
-          this.updateTitle(res);
-          this.transformData(res);
+        this.clientService.getHireSchemodel(data).subscribe(response => {
+          console.log('======', response);
+
+          if (response.eventIdValid)
+          this.updateTitle(response);
+          this.transformData(response);
         }, error => {
           console.log(error);
         });
