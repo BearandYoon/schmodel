@@ -21,7 +21,6 @@ import { environment } from '../../../environments/environment';
 export class HomeComponent implements OnInit {
   isCompletedProfile: boolean;
   isProfileLoaded: boolean;
-  isHomeProfileLoaded: boolean;
   beforeTitle: string;
   termsModalRef: BsModalRef;
   termsContent: string;
@@ -63,7 +62,7 @@ export class HomeComponent implements OnInit {
     this.message = '';
     this.isCompletedProfile = false;
     this.isProfileLoaded = false;
-    this.isHomeProfileLoaded = true;
+    
   }
 
   ngOnInit() {
@@ -75,14 +74,8 @@ export class HomeComponent implements OnInit {
     }
     this.profileService.isProfileComplete().subscribe(res => {
       this.isCompletedProfile = res.profileComplete;
-      this.isHomeProfileLoaded = false;
-    }, err => {
-      this.message = 'The page could not be loaded. Please log out, log in again and try once more.';
-    });
-
-    this.profileService.getAfterProfile().subscribe(res => {
-      console.log(res);
-      if (res !== null) {
+      this.profileService.getAfterProfile().subscribe(res => {
+      if (res.firstName !== null && res.firstName !== null) {
         this.firstName = res.firstName;
         this.lastName = res.lastName;
         this.applications = res.applicationCount;
@@ -95,6 +88,12 @@ export class HomeComponent implements OnInit {
     }, err => {
       this.message = 'The page could not be loaded. Please log out, log in again and try once more.';
     });
+     
+    }, err => {
+      this.message = 'The page could not be loaded. Please log out, log in again and try once more.';
+    });
+
+
 
   }
 
