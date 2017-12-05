@@ -24,6 +24,7 @@ export class HireModelComponent implements OnInit {
     ignoreBackdropClick: true
   };
   eventId: number;
+  message: string;
 
   hireModelData: any = {};
 
@@ -36,6 +37,7 @@ export class HireModelComponent implements OnInit {
 
   ngOnInit() {
     this.eventId = 1;
+    this.message = '';
     const data = {
       'eventId': this.eventId,
       'photoWidth': Math.round(window.innerWidth / 3),
@@ -97,6 +99,7 @@ export class HireModelComponent implements OnInit {
   }
 
   handleLikeTalent(value) {
+    this.message = '';
     const { role, talent } = value;
     const talentIndex = this.hireModelData.talents.indexOf(talent);
     const roleIndex = talent.roles.indexOf(role);
@@ -115,6 +118,7 @@ export class HireModelComponent implements OnInit {
   }
 
   handleUnlikeTalent(value) {
+    this.message = '';
     const { role, talent } = value;
     const talentIndex = this.hireModelData.talents.indexOf(talent);
     const roleIndex = talent.roles.indexOf(role);
@@ -132,6 +136,7 @@ export class HireModelComponent implements OnInit {
   }
 
   confirmHiring(value) {
+    this.message = '';
     const { talent } = value;
 
     let numLikes = 0;
@@ -188,6 +193,7 @@ export class HireModelComponent implements OnInit {
           talent.hired = true;
         }, error => {
           console.log(error);
+          this.message = ValidationMessage.GENERIC_ERROR_MESSAGE;
         });
       }
     });
