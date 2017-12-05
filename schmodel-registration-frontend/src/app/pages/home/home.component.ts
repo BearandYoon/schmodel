@@ -67,6 +67,9 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    const scrollLeft = document.documentElement.scrollLeft;
+    window.scrollTo(scrollLeft, 0);
+
     this.isCompletedProfile = false;
     this.isProfileLoaded = false;
     this.termsContent = ValidationMessage.TERMS_CONTENT;
