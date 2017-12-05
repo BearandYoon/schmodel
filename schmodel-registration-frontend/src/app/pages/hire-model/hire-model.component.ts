@@ -71,7 +71,8 @@ export class HireModelComponent implements OnInit {
     pageTitleDom.innerHTML = `<strong>${eventName}</strong> | ${eventDate} | <strong>${eventCity}</strong>, ${eventCountry}`;
   }
 
-  transformData(data) {
+  calculateLikesAndHired() {
+    const data = this.hireModelData;
     for (const role of data.roles) {
       role.applicants = 0;
       role.liked = 0;
@@ -80,17 +81,22 @@ export class HireModelComponent implements OnInit {
         for (const application of talent.applications) {
           if (application.roleId === role.id) {
             role.applicants ++;
-            if (application.liked) {
-              role.liked ++;
-              if (talent.hired) {
+            if (talent.hired) {
+              if (application.liked) {
                 role.hired ++;
               }
+            } else if (application.liked) {
+              role.liked ++;
             }
           }
         }
       }
     }
 
+    data.roles = data.roles.slice();
+  }
+
+  transformData(data) {
     for (const talent of data.talents) {
       talent.roles = [];
       for (const role of data.roles) {
@@ -104,8 +110,7 @@ export class HireModelComponent implements OnInit {
     }
     this.hireModelData = data;
 
-    // add empty column
-    data.roles.push({});
+    this.calculateLikesAndHired();
   }
 
   handleLikeTalent(value) {
@@ -118,9 +123,7 @@ export class HireModelComponent implements OnInit {
     this.clientService.likeTalent({ applicationId: role.application.id }).subscribe(res => {
       if (res.applicationIdValid) {
         role.application.liked = true;
-        role.liked ++;
-        this.hireModelData.roles[roleIndex].liked ++;
-        this.hireModelData.talents.splice(talentIndex, 1, newTalent);
+        this.calculateLikesAndHired();
       }
     }, error => {
       console.log(error);
@@ -136,9 +139,7 @@ export class HireModelComponent implements OnInit {
     this.clientService.unlikeTalent({ applicationId: role.application.id }).subscribe(res => {
       if (res.applicationIdValid) {
         role.application.liked = false;
-        role.liked --;
-        this.hireModelData.roles[roleIndex].liked --;
-        this.hireModelData.talents.splice(talentIndex, 1, newTalent);
+        this.calculateLikesAndHired();
       }
     }, error => {
       console.log(error);
@@ -202,6 +203,7 @@ export class HireModelComponent implements OnInit {
         this.clientService.hireTalent(data).subscribe(res => {
           if (res && res.applicationIdValid) {
             talent.hired = true;
+            this.calculateLikesAndHired();
           }
         }, error => {
           console.log(error);
