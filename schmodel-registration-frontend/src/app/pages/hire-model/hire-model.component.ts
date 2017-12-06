@@ -166,7 +166,6 @@ export class HireModelComponent implements OnInit {
     }
 
     const hireTalent: HireTalent = new HireTalent;
-    console.log(talent);
 
     hireTalent.talentName = talent.firstName;
     hireTalent.companyName = this.hireModelData.companyName;
@@ -177,7 +176,7 @@ export class HireModelComponent implements OnInit {
     let roleId = -1;
     talent.applications.map(application => {
       if (application.liked) {
-        roleId = application.id;
+        roleId = application.roleId;
         hireTalent.pay_rate = application.pay;
         hireTalent.clauses = application.clauses;
 

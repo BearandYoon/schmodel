@@ -30,13 +30,18 @@
       </div>
 
       <div class="description-wrapper">
-        <span> By clicking Agree, you are binding <strong>FIA FORMULA E</strong> to these<br>
-          <span class="terms-conditions" (click)="onTC()">Terms and Conditions</span>
+        <span>
+          By clicking Agree, you are binding <strong>FIA FORMULA E</strong> to these
+        </span>
+        <span class="terms-conditions" (click)="showTermsAndConditions()">
+            Terms and Conditions
+          </span>
+        <span *ngIf="hireTalent.clauses.length">
           and the following extra Terms proposed by <strong>{{hireTalent.talentName}}</strong>, <strong>{{hireTalent.companyName}}</strong>
         </span>
       </div>
 
-      <div class="agreement-wrapper">
+      <div class="agreement-wrapper" *ngIf="hireTalent.clauses.length">
         <p *ngFor="let clause of hireTalent.clauses; let i = index">
           {{i+1}}. {{clause}}
         </p>

@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-import { BsModalRef } from 'ngx-bootstrap/modal';
 import { Subject } from 'rxjs/Subject';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
-import { HireTalent } from '../../../shared/models';
+import { HireTalent, ValidationMessage } from '../../../shared/models';
+import { TermsModalComponent } from '../../../shared/modules/termsModal/termsModal.component';
 
 @Component({
   selector: 'app-confirm-modal',
@@ -15,13 +17,24 @@ export class ConfirmModalComponent implements OnInit {
   public dialogTitle: string;
   public onCloseReason: Subject<string>;
 
+  termsModalRef: BsModalRef;
+  termsContent: string;
+  termsModalConfig = {
+    animated: true,
+    keyboard: false,
+    backdrop: true,
+    ignoreBackdropClick: true
+  };
+
   constructor(
+    private modalService: BsModalService,
     public bsModalRef: BsModalRef
   ) { }
 
   ngOnInit() {
     this.dialogTitle = 'Hiring Confirmation';
     this.onCloseReason = new Subject();
+    this.termsContent = ValidationMessage.TERMS_CONTENT;
   }
 
   onConfirm() {
@@ -34,6 +47,13 @@ export class ConfirmModalComponent implements OnInit {
     this.bsModalRef.hide();
   }
 
-  onTC() {
+  showTermsAndConditions() {
+    this.termsModalRef = this.modalService.show(TermsModalComponent, this.termsModalConfig);
+    this.termsModalRef.content.termsContent = this.termsContent;
+    this.termsModalRef.content.isBtnAgree = false;
+
+    this.termsModalRef.content.onCloseReason.subscribe(result => {
+      console.log('Terms Modal Close Reason = ', result);
+    });
   }
 }
