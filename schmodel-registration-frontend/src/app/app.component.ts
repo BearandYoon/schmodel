@@ -16,10 +16,10 @@ import { HttpHelperService } from './core/http-helper.service';
 export class AppComponent {
   title = 'app';
 
-  @HostListener('document:touchmove', ['$event'])
-  onTouchMove(ev: KeyboardEvent) {
-    ev.preventDefault();
-  }
+  // @HostListener('document:touchmove', ['$event'])
+  // onTouchMove(ev: KeyboardEvent) {
+  //   ev.preventDefault();
+  // }
 
   constructor(private http: HttpClient) {
   }
