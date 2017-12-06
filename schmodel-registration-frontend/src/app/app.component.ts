@@ -7,7 +7,10 @@ import { HttpHelperService } from './core/http-helper.service';
 
 @Component({
   host: {
-    '(document:touchmove)': 'onTouchMove($event)'
+    '(document:gestureend)': 'onGestureEnd($event)',
+    '(document:gesturechange)': 'onGestureChange($event)',
+    '(document:touchstart)': 'onTouchStart($event)',
+    '(document:dblclick)': 'onDoubleClick($event)'
   },
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -16,10 +19,27 @@ import { HttpHelperService } from './core/http-helper.service';
 export class AppComponent {
   title = 'app';
 
-  // @HostListener('document:touchmove', ['$event'])
-  // onTouchMove(ev: KeyboardEvent) {
-  //   ev.preventDefault();
-  // }
+  @HostListener('document:gestureend', ['$event'])
+  onGestureEnd(ev) {
+    ev.preventDefault();
+  }
+
+  @HostListener('document:gesturechange', ['$event'])
+  onGestureChnage(ev) {
+    ev.preventDefault();
+  }
+
+  @HostListener('document:touchstart', ['$event'])
+  onTouchStart(ev) {
+    if(ev.touches.length > 1){
+      ev.preventDefault();
+    }
+  }
+
+  @HostListener('document:dblclick', ['$event'])
+  onDoubleClick(ev) {
+    ev.preventDefault();
+  }
 
   constructor(private http: HttpClient) {
   }
