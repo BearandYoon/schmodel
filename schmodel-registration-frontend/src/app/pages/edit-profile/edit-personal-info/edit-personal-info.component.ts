@@ -33,7 +33,7 @@ export class EditPersonalInfoComponent implements OnInit {
       'dateOfBirth': ['', [Validators.required]],
       'residentialAddressCountryId': ['', [Validators.required]],
       'residentialAddressCity': ['', [Validators.required]],
-      'residentialAddressState': ['', [Validators.required]],
+      'residentialAddressState': ['', []],
       'residentialAddressLine1': ['', [Validators.required]],
       'residentialAddressLine2': ['', []],
       'residentialAddressZipCode': ['', [Validators.required]],
