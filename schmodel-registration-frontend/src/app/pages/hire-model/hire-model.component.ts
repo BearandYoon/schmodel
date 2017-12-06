@@ -174,9 +174,11 @@ export class HireModelComponent implements OnInit {
     hireTalent.city = this.hireModelData.eventCity;
 
     let roleId = -1;
+    let applicationId = -1;
     talent.applications.map(application => {
       if (application.liked) {
         roleId = application.roleId;
+        applicationId = application.id;
         hireTalent.pay_rate = application.pay;
         hireTalent.clauses = application.clauses;
 
@@ -199,7 +201,7 @@ export class HireModelComponent implements OnInit {
     this.confirmModalRef.content.onCloseReason.subscribe(result => {
       if (result === TermsModalResponse.AGREE) {
         const data = {
-          applicationId: roleId,
+          applicationId: applicationId,
           ip: this.localStorage.retrieve(environment.localStorage.ipAddress)
         };
 
