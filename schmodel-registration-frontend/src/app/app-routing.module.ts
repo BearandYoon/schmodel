@@ -33,6 +33,14 @@ const routes: Routes = [
         }
       },
       {
+        path: 'talent-profile',
+        loadChildren: './pages/profile/profile.module#ProfileModule',
+        data: {
+          title: 'Schmodel Profile',
+          navLeft: 'back'
+        }
+      },
+      {
         path: '',
         loadChildren: './pages/client-home/client-home.module#ClientHomeModule'
       }
@@ -75,15 +83,6 @@ const routes: Routes = [
         loadChildren: './pages/my-jobs/my-jobs.module#MyJobsModule',
         data: {
           title: 'My Jobs',
-          navLeft: 'back'
-        }
-      },
-      {
-        path: 'talent-profile',
-        canActivate: [AuthGuard],
-        loadChildren: './pages/profile/profile.module#ProfileModule',
-        data: {
-          title: 'Schmodel Profile',
           navLeft: 'back'
         }
       },

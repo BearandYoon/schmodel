@@ -1,8 +1,8 @@
 <section class="section--talent" [ngClass]="{'has-message': !!talent.errorMessage}">
   <div class="content-wrapper">
-    <img class="talent-photo" [attr.src]="talent.photoUrl">
+    <img class="talent-photo" [attr.src]="talent.photoUrl" (click)="onProfile()">
     <div class="talent-content">
-      <div class="title-wrapper">
+      <div class="title-wrapper" (click)="onProfile()">
         {{talent.firstName}}
         <img src="/assets/images/ic_three_dots.svg">
       </div>

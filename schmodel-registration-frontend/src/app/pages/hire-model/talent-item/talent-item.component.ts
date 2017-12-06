@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'talent-item',
@@ -12,10 +13,11 @@ export class TalentItemComponent implements OnInit {
   @Output() handleLikeTalent: EventEmitter<any> = new EventEmitter();
   @Output() handleUnlikeTalent: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+  constructor(
+    public router: Router,
+  ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onClickActionItem(index) {
     if (this.talent.hired) {
@@ -40,4 +42,7 @@ export class TalentItemComponent implements OnInit {
     this.confirmHiring.emit({ talent: this.talent });
   }
 
+  onProfile() {
+    this.router.navigate(['client/talent-profile'], { queryParams: { talentId: this.talent.id }});
+  }
 }
