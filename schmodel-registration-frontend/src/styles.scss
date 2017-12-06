@@ -6,7 +6,7 @@ body {
   background-color: black;
 }
 
-// don't add normal css into global css file. please customize that
+// for home page
 //.page-container {
 //  height: 100vh;
 //  overflow: scroll;
@@ -31,34 +31,42 @@ app-control-messages div {
   margin-bottom: 5px;
 }
 
+// for sergey
+//.modal-dialog {
+//  position: relative;
+//  width: 90%;
+//  margin: auto;
+//  box-shadow: 20px 20px 40px #000000;
+//  top: 50% !important;
+//  left: 50% !important;
+//  transform: translateY(-50%) translateX(-50%) !important;
+//}
+//
+//.modal-header {
+//  border-bottom: 0!important;
+//}
+//
+//.modal-backdrop {
+//  background-image: -moz-radial-gradient(center, ellipse cover, rgba(104,95,93,1) 0%, rgba(0,0,0,1) 85%); /* FF3.6-15 */
+//  background-image: -webkit-radial-gradient(center, ellipse cover, rgba(104,95,93,1) 0%,rgba(0,0,0,1) 85%); /* Chrome10-25,Safari5.1-6 */
+//  background-image: radial-gradient(ellipse at center, rgba(104,95,93,1) 0%,rgba(0,0,0,1) 85%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+//  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#685f5d', endColorstr='#000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+//
+//  opacity: 0.8!important;
+//}
+//.modal-content {
+//  border: 0!important;
+//}
+//
+//.modal {
+//  border-bottom: 0!important;
+//}
+
 .modal-dialog {
-  position: relative;
-  width: 90%;
-  margin: auto;
-  box-shadow: 20px 20px 40px #000000;
+  position: absolute;
   top: 50% !important;
   left: 50% !important;
   transform: translateY(-50%) translateX(-50%) !important;
-}
-
-.modal-header {
-  border-bottom: 0!important;
-}
-
-.modal-backdrop {
-  background-image: -moz-radial-gradient(center, ellipse cover, rgba(104,95,93,1) 0%, rgba(0,0,0,1) 85%); /* FF3.6-15 */
-  background-image: -webkit-radial-gradient(center, ellipse cover, rgba(104,95,93,1) 0%,rgba(0,0,0,1) 85%); /* Chrome10-25,Safari5.1-6 */
-  background-image: radial-gradient(ellipse at center, rgba(104,95,93,1) 0%,rgba(0,0,0,1) 85%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#685f5d', endColorstr='#000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-
-  opacity: 0.8!important;
-}
-.modal-content {
-  border: 0!important;
-}
-
-.modal {
-  border-bottom: 0!important;
 }
 
 input:-webkit-autofill,
