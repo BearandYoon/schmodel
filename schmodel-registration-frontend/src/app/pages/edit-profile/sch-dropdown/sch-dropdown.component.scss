@@ -16,6 +16,9 @@ select {
 select.select--chestCircSizes,
 select.select--chestCupSizes {
   width: calc(50% - 4px);
+  @media screen and (max-width: 570px) {
+    width: 100%;
+  }
 }
 
 select.select--citizenships,
