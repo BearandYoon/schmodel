@@ -119,6 +119,7 @@ $topnav-background-color: #222;
 
   .action-container {
     font-family: "Open Sans Bold";
+    margin-bottom: 16px;
 
     .bordered-btn {
       color: rgba(255, 255, 255, 0.8);
@@ -141,9 +142,19 @@ $topnav-background-color: #222;
       padding-bottom: 20px;
     }
 
-    .btn-register-container a {
-      font-size: 14px;
-      color: #FFFFFF;
+    .btn-register-container {
+      display: flex;
+      flex-direction: column;
+      a {
+        font-size: 14px;
+        color: #FFFFFF;
+      }
+    }
+
+    .terms-condition {
+      font-family: "Open Sans Light";
+      font-size: 12px;
+      margin: auto;
     }
   }
 }

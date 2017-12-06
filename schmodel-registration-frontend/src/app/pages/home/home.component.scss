@@ -15,7 +15,7 @@
     margin: auto;
     width: 49.5%;
   }
-  
+
   .danger {
       height:22px;
       padding: 0px;
@@ -163,16 +163,17 @@
     text-align: center;
     color: #ffffff;
     margin-top: 10vh;
-
+    display: flex;
+    flex-direction: column;
 
     .logout-text {
        font-weight: 700;
-       margin-bottom: 0;
+       margin: auto;
     }
     .terms-condition {
       font-weight: 200;
       font-size: 14px;
-      margin-bottom: 20px;
+      margin: 0 auto 20px;
     }
   }
 }
@@ -211,7 +212,7 @@
       color: #ffffff;
       .terms-condition {
         font-size: 12px;
-        margin-bottom: 15px;
+        margin: 0 auto 15px;
       }
     }
   }
@@ -228,7 +229,7 @@
       .terms-condition {
         font-weight: 200;
         font-size: 12px;
-        margin-bottom: 20px;
+        margin: 0 auto 20px;
       }
     }
   }
