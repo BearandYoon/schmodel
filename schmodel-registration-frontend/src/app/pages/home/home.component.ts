@@ -77,8 +77,9 @@ export class HomeComponent implements OnInit {
     }
     this.profileService.isProfileComplete().subscribe(res => {
       this.isCompletedProfile = res.profileComplete;
+      this.isProfileLoaded = false;
       this.profileService.getAfterProfile().subscribe(res => {
-      if (res.firstName !== null && res.firstName !== null) {
+      if (this.isCompletedProfile) {
         this.firstName = res.firstName;
         this.lastName = res.lastName;
         this.applications = res.applicationCount;
