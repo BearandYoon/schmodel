@@ -27,7 +27,7 @@ export class EditBillingInfoComponent implements OnInit {
       'addressLine2': ['', []],
       'addressCountryId': ['', [Validators.required]],
       'addressCity': ['', [Validators.required]],
-      'addressState': ['', [Validators.required]],
+      'addressState': ['', []],
       'addressZipCode': ['', [Validators.required]],
     });
   }
