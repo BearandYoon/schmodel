@@ -13,6 +13,17 @@ export class ProfileService {
     private apiRoutingService: ApiRoutingService
   ) { }
 
+  replaceEmptyStringWithNull(data) {
+    const newData = Object.assign({}, data);
+    for (const key in newData) {
+      if (newData[key] === '') {
+        newData[key] = null;
+      }
+    }
+
+    return newData;
+  }
+
   isProfileComplete() {
     return this.http.get(this.apiRoutingService.getIsProfileCompleteAPIUrl(), {}, true, null);
   }
@@ -90,7 +101,7 @@ export class ProfileService {
   updateBillingInfo(data) {
     return this.http.post(
       this.apiRoutingService.getProfileUpdateBillingInfoUrl(),
-      data,
+      this.replaceEmptyStringWithNull(data),
       false,
       true,
       null
@@ -100,7 +111,7 @@ export class ProfileService {
   updatePersonalInfo(data) {
     return this.http.post(
       this.apiRoutingService.getProfileUpdatePersonalInfoUrl(),
-      data,
+      this.replaceEmptyStringWithNull(data),
       false,
       true,
       null
