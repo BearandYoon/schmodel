@@ -6,11 +6,12 @@ body {
   background-color: black;
 }
 
-.page-container {
-  height: 100vh;
-  overflow: scroll;
-  position: relative;
-}
+// don't add normal css into global css file. please customize that
+//.page-container {
+//  height: 100vh;
+//  overflow: scroll;
+//  position: relative;
+//}
 
 app-control-messages div {
   position: absolute;
@@ -104,7 +105,7 @@ button {
   flex: 1;
 }
 
- 
+
 #page-title b,
 #page-title strong {
   font-weight: 700;

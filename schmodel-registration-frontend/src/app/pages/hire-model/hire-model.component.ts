@@ -52,11 +52,10 @@ export class HireModelComponent implements OnInit {
         };
 
         this.clientService.getHireSchemodel(data).subscribe(response => {
-          console.log('======', response);
-
-          if (response.eventIdValid)
-          this.updateTitle(response);
-          this.transformData(response);
+          if (response.eventIdValid) {
+            this.updateTitle(response);
+            this.transformData(response);
+          }
         }, error => {
           console.log(error);
         });
