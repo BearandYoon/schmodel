@@ -67,11 +67,11 @@ export class HireModelComponent implements OnInit {
 
   updateTitle(data) {
     const { eventName, eventStartDate, eventEndDate, eventCity, eventCountry } = data;
-    const eventDate = moment(eventEndDate, 'YYYY-MM-DD').format('MMM. DD, YYYY');
+    const eventDate = moment(eventEndDate, 'YYYY-MM-DD').format('DD MMMM YYYY');
 
     const pageTitleDom = document.getElementById('page-title');
     pageTitleDom.style.fontSize = '14px';
-    pageTitleDom.innerHTML = `<strong>${eventName}</strong> | ${eventDate} | <strong>${eventCity}</strong>, ${eventCountry}`;
+    pageTitleDom.innerHTML = `<strong>${eventName}</strong> | ${eventDate} | <strong>${eventCity.toUpperCase()}</strong>, ${eventCountry}`;
   }
 
   calculateLikesAndHired() {
