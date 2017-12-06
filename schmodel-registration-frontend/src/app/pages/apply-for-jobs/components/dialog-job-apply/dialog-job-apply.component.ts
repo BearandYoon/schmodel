@@ -12,7 +12,8 @@ import { Subject } from 'rxjs/Subject';
 export class DialogJobApplyComponent implements OnInit {
 
   public position_field: string = "";
-  public city_country_field: string = "";
+  public city_field: string = "";
+  public country_field: string = "";
   public pay_rate_field: number;
   public dialogTitle: string = "";
   public onCloseReason: Subject<string>;
