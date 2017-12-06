@@ -12,7 +12,7 @@
       </div>
     </div>
 </div>
-<div class="talent-container">  
+<div class="talent-container">
   <div class="section--talent" [style.backgroundImage]="bgImgUrls[i]" *ngFor="let eventItem of eventItems; let i = index" >
     <div class="talent-calendar">
       <p class="info-values">
@@ -23,7 +23,7 @@
       </p>
     </div>
 
-    <div class="talent-content"  (click)="onEvent(i)">
+    <div class="talent-content"  (click)="onEvent(eventItem[0].data.id)">
 
       <div class="info-item" [ngClass]="{'item--none': (eventItem[1].data.jobs == 0)}">
         <p *ngIf="!(eventItem[1].data.jobs == 0)">JOBS<span>{{eventItem[1].data.jobs | number: '2.'}}</span></p>
@@ -41,15 +41,14 @@
         <p *ngIf="!(eventItem[3].data.jobs == 0)">JOBS<span>{{eventItem[3].data.jobs | number: '2.'}}</span></p>
         <p *ngIf="!(eventItem[3].data.jobs == 0)">APPLICANTS<span>{{eventItem[3].data.applicants | number: '2.'}}</span></p>
         <p *ngIf="!(eventItem[3].data.jobs == 0)">HIRED<span>{{eventItem[3].data.hired | number: '2.'}}</span></p>
-      </div>  
+      </div>
 
     </div>
-    
+
   </div>
- 
+
   <div class="show-more">
     <img class="overlay" src="/assets/images/img_gradient_overlay.png">
     <img src="/assets/images/ic_arrow_down.svg">
   </div>
 </div>
- 
