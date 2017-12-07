@@ -14,4 +14,7 @@ export class RoleItemComponent implements OnInit {
   ngOnInit() {
   }
 
+  pad(d) {
+    return (d < 10) ? '0' + d.toString() : d.toString();
+  }
 }
