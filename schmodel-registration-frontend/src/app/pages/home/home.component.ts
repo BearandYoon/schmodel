@@ -113,10 +113,16 @@ export class HomeComponent implements OnInit {
   }
 
   onJobs() {
+    if (this.isCompletedProfile === false) {
+      return;
+    }
     this.router.navigate(['my-jobs']);
   }
 
   onApply() {
+    if (this.isCompletedProfile === false) {
+      return;
+    }
     this.router.navigate(['apply-for-jobs']);
   }
 
