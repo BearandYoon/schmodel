@@ -62,7 +62,6 @@ export class HomeComponent implements OnInit {
     this.message = '';
     this.isCompletedProfile = false;
     this.isProfileLoaded = false;
-    
   }
 
   ngOnInit() {
@@ -88,17 +87,13 @@ export class HomeComponent implements OnInit {
         this.upcoming = res.upcomingJobCount;
         this.photo_url = res.photoUrl;
         this.isProfileLoaded = true;
-      } 
+      }
     }, err => {
       this.message = 'The page could not be loaded. Please log out, log in again and try once more.';
     });
-     
     }, err => {
       this.message = 'The page could not be loaded. Please log out, log in again and try once more.';
     });
-
-
-
   }
 
   logout() {
@@ -107,7 +102,7 @@ export class HomeComponent implements OnInit {
   }
 
   onEdit() {
-    this.router.navigate(['edit-profile']);
+    this.router.navigate(['edit-my-profile']);
   }
 
   onView() {
