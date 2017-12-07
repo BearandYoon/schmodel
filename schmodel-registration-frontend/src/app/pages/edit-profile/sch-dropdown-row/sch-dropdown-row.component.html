@@ -1,6 +1,6 @@
 <div class="row" [ngClass]="{'row--multi': !!allowAddCategory}">
-  <label>{{label}}
-    <span *ngIf="!!description"><br/>{{description}}</span>
+  <label>{{label}}&nbsp;
+    <span *ngIf="!!description"><br/>{{description}}</span>&nbsp;&nbsp;
   </label>
   <div class="dropdown-wrapper">
     <sch-dropdown *ngFor="let item of items; let i = index" [category]="item" [excludedValues]="excludedValues[i]" [allowRemove]="!!allowAddCategory" (onRemove)="onRemoveDropdown(i)" [ngModel]="values[i]" (ngModelChange)="onValueChange($event, i)"></sch-dropdown>
