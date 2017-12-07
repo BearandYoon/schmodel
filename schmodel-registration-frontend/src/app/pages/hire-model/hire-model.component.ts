@@ -69,8 +69,7 @@ export class HireModelComponent implements OnInit {
     const eventDate = this.formatEventDate(eventStartDate, eventEndDate);
 
     const pageTitleDom = document.getElementById('page-title');
-    pageTitleDom.style.fontSize = '14px';
-    pageTitleDom.innerHTML = `<strong>${eventName}</strong> | ${eventDate} | <strong>${eventCity.toUpperCase()}</strong>, ${eventCountry}`;
+    pageTitleDom.innerHTML = `<p style="font-size:14px;margin:0;"><strong>${eventName}</strong> | ${eventDate} | <strong>${eventCity.toUpperCase()}</strong>, ${eventCountry}</p>`;
   }
 
   formatEventDate(startDate, endDate) {
