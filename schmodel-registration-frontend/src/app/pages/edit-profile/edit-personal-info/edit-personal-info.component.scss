@@ -23,3 +23,19 @@ section {
   font-size: 10px;
   color: rgba(255, 4, 0, 0.52);
 }
+
+.phone-number-label {
+  display: inline-block;
+  width: 130px;
+}
+
+.phone-number-group {
+  position: relative;
+  width: calc(100% - 130px);
+  input {
+    display: inline-block;
+    position: absolute;
+    left: 65px;
+    width: calc(100% - 65px);
+  }
+}
