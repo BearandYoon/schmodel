@@ -6,7 +6,7 @@
   <p class="title" *ngIf="!isCompletedProfile && !isProfileLoaded">Complete Your Profile</p>
   <p class="title" *ngIf="isCompletedProfile && isProfileLoaded">Welcome back {{firstName}}-{{lastName}}</p>
 
-  <p class="content-text" *ngIf="!isCompletedProfile && !isProfileLoaded">Please complete your profile so you can start applying to jobs.</p>
+  <p class="content-text" *ngIf="!isCompletedProfile && !isProfileLoaded">{{beforeTitle}}</p>
   <div class="content-wrapper" *ngIf="isProfileLoaded && isCompletedProfile">
     <div class="profile-content">
       <div class="profile-image">
