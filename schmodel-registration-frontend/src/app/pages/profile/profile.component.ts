@@ -27,6 +27,8 @@ export class ProfileComponent implements OnInit {
     this.profile = null;
   }
   ngOnInit() {
+    const scrollLeft = document.documentElement.scrollLeft;
+    window.scrollTo(scrollLeft, 0);
     this.isOwnProfile = false;
     this.profile = null;
     this.activatedRoute.queryParams.subscribe((params: Params) => {
