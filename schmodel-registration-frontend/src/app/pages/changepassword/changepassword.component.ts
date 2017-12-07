@@ -35,6 +35,8 @@ export class ChangepasswordComponent implements OnInit {
   }
 
   ngOnInit() {
+    const scrollLeft = document.documentElement.scrollLeft;
+    window.scrollTo(scrollLeft, 0);
     this.activatedRoute.queryParams.subscribe((params: Params) => {
       const token = params['token'];
       this.tokenUser.token = token;

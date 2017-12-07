@@ -41,6 +41,8 @@ export class ForgotComponent implements OnInit {
   }
 
   ngOnInit() {
+    const scrollLeft = document.documentElement.scrollLeft;
+    window.scrollTo(scrollLeft, 0);
     this.activatedRoute.queryParams.subscribe((params: Params) => {
       const token = params['token'];
       if(token != null)
