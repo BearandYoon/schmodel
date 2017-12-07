@@ -35,7 +35,8 @@ export class ProfileComponent implements OnInit {
 	    this._profileService.viewTalentProfile(this.talentId).subscribe( res => {
 	    	console.log(res);
       		if ( res !== null) {
-        		this.profile = res;
+            this.profile = res;
+            console.log(res);
       		} else {
         		this.message = 'Something went wrong.';
       		}
