@@ -57,4 +57,25 @@ export class ProfileComponent implements OnInit {
     }
 
   }
+  
+  getCitizen(citizen) {
+    const countries = [];
+    if ( citizen != null ) {
+      citizen.map(element => {
+        countries.push(element.name);
+      });
+    }
+    return countries.join(', ');
+  }
+
+  getLanguage(language) {
+    const languages = [];
+    if ( language != null ) {
+      language.map(element => {
+        languages.push(element.name);
+      });
+    }
+    return languages.join(', ');
+  }
+  
 }

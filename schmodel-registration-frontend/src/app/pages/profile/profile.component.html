@@ -18,19 +18,24 @@
   <div class="profile-text" *ngIf="profile">
     <div>
       <p><label>Date of Birth:</label><span>{{profile.dateOfBirth | date : 'd MMMM yyyy'}}</span></p>
-      <p><label>Residence:</label><span>{{profile.residentialAddressCity}}</span></p>
-      <p><label>Citizenship:</label><span *ngFor="let citizenship of profile.citizenships">{{citizenship.name}} </span></p>
-      <p><label>Languages:</label><span *ngFor="let language of profile.languages">{{language.name}} </span></p>
+      <p><label>Residence:</label><span>{{profile.residentialAddressCity}}</span><span *ngIf="profile.residentialAddressCountry">, {{profile.residentialAddressCountry.name}}</span></p>
+      <p><label>Citizenship:</label><span>{{getCitizen(profile.citizenships)}} </span></p>
+      <p><label>Languages:</label><span>{{getLanguage(profile.languages)}} </span></p>
       <p class="work-proficiency"><small >(working proficiency)</small></p>
     </div>
     <div *ngIf="profile.bodyHeight">
       <p><label>Height:</label><span>{{profile.bodyHeight.valueInch}}"  ({{profile.bodyHeight.valueCm}}cm)</span></p>
-      <p><label>Bust/Chest:</label><span>{{profile.bodyChestCircumference.ukValue}}-{{profile.bodyChestCupSize.ukValue}}" ({{profile.bodyChestCircumference.euValue}}-{{profile.bodyChestCupSize.euValue}}EU)</span></p>
-      <p><label>Waist:</label><span>{{profile.bodyWaist.valueInch}}" ({{profile.bodyWaist.valueCm}} cm)</span></p>
-      <p><label>Weight:</label><span>{{profile.bodyWeight.valueLb}} ({{profile.bodyWeight.valueHg}} kg)</span></p>
-      <p><label>Dress:</label><span>{{profile.dressSize.ukValue}} ({{profile.dressSize.euValue}} EU)</span></p>
+      <p><label>Band Size:</label><span>UK {{profile.bodyChestCircumference.ukValue}}/EU {{profile.bodyChestCircumference.euValue}}/US {{profile.bodyChestCircumference.euValue}}</span></p>
+      <p><label>Cup Size:</label><span>UK {{profile.bodyChestCupSize.ukValue}}/ EU {{profile.bodyChestCupSize.euValue}}/US {{profile.bodyChestCupSize.usValue}}</span></p>
+      <p><label>Waist:</label><span>{{profile.bodyWaist.valueDeciInch}}" ({{profile.bodyWaist.valueCm}} cm)</span></p>
+      <p><label>Weight:</label><span>{{profile.bodyWeight.valueLb}}lbs ({{profile.bodyWeight.valueHg}} kg)</span></p>
+      <p><label>Dress Size:</label><span>UK {{profile.dressSize.ukValue}}/EU {{profile.dressSize.euValue}}/US {{profile.dressSize.euValue}}</span></p>
       <p><label>Hair color:</label><span>{{profile.hairColor.name}}</span></p>
       <p><label>Eye color:</label><span>{{profile.eyeColor.name}}</span></p>
+    </div>
+    <div>
+      <small>BIOGRAPHY</small>
+      <p>{{profile.biography}}</p>
     </div>
     <div>
       <p><i class="fa fa-twitter" aria-hidden="true"></i><span>{{profile.twitterUsername}}</span></p>
@@ -39,13 +44,9 @@
       <p><i class="fa fa-linkedin" aria-hidden="true"></i><span>{{profile.linkedinUsername}}</span></p>
     </div>
     <div>
-      <small>BIOGRAPHY</small>
-      <p>{{profile.biography}}</p>
-    </div>
-    <div>
       <small *ngIf="isOwnProfile">MY TERMS & CONDITIONS</small>
       <small *ngIf="!isOwnProfile">TERMS & CONDITIONS</small>
-      <p *ngFor="let item of profile.talentClauses;let i = index ">{{i+1}}.{{item.clause}}</p>
+      <p *ngFor="let item of profile.clauses;let i = index ">{{i+1}}.{{item}}</p>
     </div>
     <div *ngIf="profile.billingCompanyRegistrationCountry">
       <small>BILLING INFORMATION</small>
