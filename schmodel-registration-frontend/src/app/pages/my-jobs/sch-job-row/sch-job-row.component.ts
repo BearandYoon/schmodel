@@ -18,6 +18,8 @@ export class SchJobRowComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    const scrollLeft = document.documentElement.scrollLeft;
+    window.scrollTo(scrollLeft, 0);
     console.log(this.event_role);
   }
 

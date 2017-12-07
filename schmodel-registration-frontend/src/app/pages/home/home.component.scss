@@ -6,16 +6,17 @@
   background-image: url("/assets/img/bg_home_page.png");
   background-position: center top;
   width: 100%;
-  //min-height: 100vh;
+  min-height: 100vh;
   padding: 18px 0 0;
   font-family: 'Open Sans', sans-serif;
+  position: relative;
 
   .img-logo {
     display: block;
     margin: auto;
     width: 49.5%;
   }
-
+  
   .danger {
       height:22px;
       padding: 0px;
@@ -34,7 +35,6 @@
     text-align: center;
     padding: 20px;
     white-space: pre-wrap;
-    margin: 0;
   }
 
   .content-wrapper {
@@ -84,13 +84,16 @@
         margin-right: 2px;
         img {
           width : 100%;
+          object-fit: cover;
         }
       }
       .profile-info {
         background-image: url("/assets/img/bg_home_ract.png");
         background-size: cover;
         width: 30%;
-
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
 
         .profile-title {
           padding: 6px 0;
@@ -101,11 +104,18 @@
           h2 {
             font-size: 14px;
             font-weight: bold;
+            line-height: 40px;
           }
         }
 
         .profile-upcoming {
           font-weight: bold;
+          position: relative;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
 
           span {
             font-size: 70px;
@@ -119,10 +129,27 @@
             color: rgba(255, 255,255, .6);
             margin-bottom: 8px;
           }
+
+          &:before {
+            content: "";
+            background-image: url('/assets/img/ic_divider.png');
+            position: absolute;
+            display: block;
+            background-size: 100% 100%;
+            height: 1px;
+            top: 0;
+            left: 0;
+            width: 100%;
+           }
         }
 
         .profile-applications {
           font-weight: bold;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          //justify-content: center;
+          position: relative;
 
           span {
             font-size: 70px;
@@ -136,16 +163,21 @@
             margin-bottom: 0px;
             margin-top: -2px;
           }
+          
+          &:before {
+            content: "";
+            background-image: url('/assets/img/ic_divider.png');
+            display: block;
+            background-size: 100% 100%;
+            height: 1px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+          }
         }
       }
     }
-  }
-
-  .divider {
-    background-image: url('/assets/img/ic_divider.png');
-    display: block;
-    background-size: 100% auto;
-    height: 1px;
   }
 
   .content-text {
@@ -159,21 +191,21 @@
 
   .page-footer {
     width: 100%;
-    position: absolute;
+    position: relative;
     bottom: 0;
     text-align: center;
     color: #ffffff;
-    display: flex;
-    flex-direction: column;
+    margin-top: 10vh;
+
 
     .logout-text {
        font-weight: 700;
-       margin: auto;
+       margin-bottom: 0;
     }
     .terms-condition {
       font-weight: 200;
       font-size: 14px;
-      margin: 0 auto 20px;
+      margin-bottom: 20px;
     }
   }
 }
@@ -200,8 +232,8 @@
     }
 
     .content-text {
-      padding: 20px;
-      font-size: 14px;
+      padding: 30px;
+      font-size: 12px;
     }
 
     .page-footer {
@@ -211,8 +243,8 @@
       text-align: center;
       color: #ffffff;
       .terms-condition {
-        font-size: 12px;
-        margin: 0 auto 15px;
+        font-size: 10px;
+        margin-bottom: 15px;
       }
     }
   }
@@ -229,9 +261,34 @@
       .terms-condition {
         font-weight: 200;
         font-size: 12px;
-        margin: 0 auto 20px;
+        margin-bottom: 20px;
       }
     }
   }
 }
 
+@media (max-width: 375px) {
+  .profile-info {
+
+    .profile-title {
+      
+      h2 {
+        line-height: 35px !important;
+      }
+    }
+
+    .profile-upcoming {
+      
+      span {
+        font-size: 60px !important;
+      }
+    }
+
+    .profile-applications {
+
+      span {
+        font-size: 60px !important; 
+      }
+    }
+  }
+}

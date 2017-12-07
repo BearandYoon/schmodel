@@ -20,6 +20,8 @@ export class EventCalendarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    const scrollLeft = document.documentElement.scrollLeft;
+    window.scrollTo(scrollLeft, 0);
     this.profileService.getEventCalendar().subscribe(res => {
       this.eventItems = res[0].eventList;
       this.bgImgUrls = [];

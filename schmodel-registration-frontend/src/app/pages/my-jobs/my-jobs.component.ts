@@ -37,6 +37,8 @@ export class MyJobsComponent implements OnInit {
     }
 
     ngOnInit() {
+        const scrollLeft = document.documentElement.scrollLeft;
+        window.scrollTo(scrollLeft, 0);
         this.myjobService.getMyJobInfor().subscribe(res => {
             this.response = null;
             this.response = res;

@@ -43,6 +43,8 @@ export class ClientLoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    const scrollLeft = document.documentElement.scrollLeft;
+    window.scrollTo(scrollLeft, 0);
     this.message = '';
     this.termsContent = ValidationMessage.TERMS_CONTENT;
   }
