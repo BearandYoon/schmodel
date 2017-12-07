@@ -84,6 +84,7 @@
         margin-right: 2px;
         img {
           width : 100%;
+          object-fit: cover;
         }
       }
       .profile-info {
@@ -266,3 +267,28 @@
   }
 }
 
+@media (max-width: 375px) {
+  .profile-info {
+
+    .profile-title {
+      
+      h2 {
+        line-height: 35px !important;
+      }
+    }
+
+    .profile-upcoming {
+      
+      span {
+        font-size: 60px !important;
+      }
+    }
+
+    .profile-applications {
+
+      span {
+        font-size: 60px !important; 
+      }
+    }
+  }
+}
