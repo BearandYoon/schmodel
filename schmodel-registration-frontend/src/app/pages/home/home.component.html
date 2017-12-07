@@ -1,13 +1,13 @@
-<div class="page-container">
+<div class="page-container" *ngIf="isHomePageLoaded">
   <div class="logo-container">
     <img class="img-logo" src="assets/img/img_logo.png">
   </div>
 
-  <p class="title" *ngIf="!isCompletedProfile && !isProfileLoaded">Complete Your Profile</p>
-  <p class="title" *ngIf="isCompletedProfile && isProfileLoaded">Welcome back {{firstName}}-{{lastName}}</p>
+  <p class="title" *ngIf="!isCompletedProfile">Complete Your Profile</p>
+  <p class="title" *ngIf="isCompletedProfile">Welcome back {{firstName}}-{{lastName}}</p>
 
-  <p class="content-text" *ngIf="!isCompletedProfile && !isProfileLoaded">Please complete your profile so you can start applying to jobs.</p>
-  <div class="content-wrapper" *ngIf="isProfileLoaded && isCompletedProfile">
+  <p class="content-text" *ngIf="!isCompletedProfile">Please complete your profile so you can start applying to jobs.</p>
+  <div class="content-wrapper" *ngIf="isCompletedProfile">
     <div class="profile-content">
       <div class="profile-image">
         <img [src]="photo_url" />
@@ -55,7 +55,7 @@
     </div>
   </div>
 
-  <div class="content-wrapper" *ngIf="!isProfileLoaded && !isCompletedProfile">
+  <div class="content-wrapper" *ngIf="!isCompletedProfile">
 
     <div class="btn-edit-profile common-pattern" (click)="onEdit()">
       <div class="btn-text">

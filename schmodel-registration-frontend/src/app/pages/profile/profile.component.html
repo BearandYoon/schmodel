@@ -2,7 +2,7 @@
   <div class="danger">
       <span class="message">{{message}}</span>
   </div>  
- <div class="profile-page" >
+ <div class="profile-page"  *ngIf="profile">
   <swiper [config]="config">
       <div class="swiper-wrapper">
         <div class="swiper-slide" *ngFor="let photo of profile['photoUrls']"><img [src]="photo"></div>
@@ -15,21 +15,22 @@
       <h1>{{profile['firstName']}}-{{profile['lastName']}}</h1>
     </div>
   </div>
-  <div class="profile-text" *ngIf="profile">
+  <div class="profile-text">
     <div>
       <p><label>Date of Birth:</label><span>{{profile.dateOfBirth | date : 'd MMMM yyyy'}}</span></p>
       <p><label>Residence:</label><span>{{profile.residentialAddressCity}}</span><span *ngIf="profile.residentialAddressCountry">, {{profile.residentialAddressCountry.name}}</span></p>
+      <p><label>Phone number:</label><span>+{{profile.phoneCountryCode}}{{profile.phoneNumber}}</span>
       <p><label>Citizenship:</label><span>{{getCitizen(profile.citizenships)}} </span></p>
       <p><label>Languages:</label><span>{{getLanguage(profile.languages)}} </span></p>
       <p class="work-proficiency"><small >(working proficiency)</small></p>
     </div>
     <div *ngIf="profile.bodyHeight">
       <p><label>Height:</label><span>{{profile.bodyHeight.valueInch}}"  ({{profile.bodyHeight.valueCm}}cm)</span></p>
-      <p><label>Band Size:</label><span>UK {{profile.bodyChestCircumference.ukValue}}/EU {{profile.bodyChestCircumference.euValue}}/US {{profile.bodyChestCircumference.euValue}}</span></p>
-      <p><label>Cup Size:</label><span>UK {{profile.bodyChestCupSize.ukValue}}/ EU {{profile.bodyChestCupSize.euValue}}/US {{profile.bodyChestCupSize.usValue}}</span></p>
+      <p><label>Band size:</label><span>UK {{profile.bodyChestCircumference.ukValue}} / EU {{profile.bodyChestCircumference.euValue}} / US {{profile.bodyChestCircumference.usValue}}</span></p>
+      <p><label>Cup size:</label><span>UK {{profile.bodyChestCupSize.ukValue}} / EU {{profile.bodyChestCupSize.euValue}} / US {{profile.bodyChestCupSize.usValue}}</span></p>
       <p><label>Waist:</label><span>{{profile.bodyWaist.valueDeciInch}}" ({{profile.bodyWaist.valueCm}} cm)</span></p>
       <p><label>Weight:</label><span>{{profile.bodyWeight.valueLb}}lbs ({{profile.bodyWeight.valueHg}} kg)</span></p>
-      <p><label>Dress Size:</label><span>UK {{profile.dressSize.ukValue}}/EU {{profile.dressSize.euValue}}/US {{profile.dressSize.euValue}}</span></p>
+      <p><label>Dress size:</label><span>UK {{profile.dressSize.ukValue}} / EU {{profile.dressSize.euValue}} / US {{profile.dressSize.usValue}}</span></p>
       <p><label>Hair color:</label><span>{{profile.hairColor.name}}</span></p>
       <p><label>Eye color:</label><span>{{profile.eyeColor.name}}</span></p>
     </div>

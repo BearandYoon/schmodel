@@ -24,10 +24,11 @@ export class ProfileComponent implements OnInit {
   ) {
     this.message = '';
     this.talentId = 0;
-    this.profile = {};
+    this.profile = null;
   }
   ngOnInit() {
     this.isOwnProfile = false;
+    this.profile = null;
     this.activatedRoute.queryParams.subscribe((params: Params) => {
         this.talentId = params['talentId'];
       });

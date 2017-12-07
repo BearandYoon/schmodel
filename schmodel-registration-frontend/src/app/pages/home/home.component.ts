@@ -20,7 +20,7 @@ import { environment } from '../../../environments/environment';
 
 export class HomeComponent implements OnInit {
   isCompletedProfile: boolean;
-  isProfileLoaded: boolean;
+  isHomePageLoaded: boolean;
   beforeTitle: string;
   termsModalRef: BsModalRef;
   termsContent: string;
@@ -61,8 +61,7 @@ export class HomeComponent implements OnInit {
     this.photo_url = '';
     this.message = '';
     this.isCompletedProfile = false;
-    this.isProfileLoaded = false;
-    
+    this.isHomePageLoaded = false;
   }
 
   ngOnInit() {
@@ -70,33 +69,34 @@ export class HomeComponent implements OnInit {
     window.scrollTo(scrollLeft, 0);
 
     this.isCompletedProfile = false;
-    this.isProfileLoaded = false;
+    this.isHomePageLoaded = false;
+
     this.termsContent = ValidationMessage.TERMS_CONTENT;
     if (this.sharedService.fromSignup) {
       this.beforeTitle = ValidationMessage.BEFORE_COMPLETE_HOME_TITLE_ONCE_SIGNUP;
     }
     this.profileService.isProfileComplete().subscribe(res => {
       this.isCompletedProfile = res.profileComplete;
-      this.isProfileLoaded = false;
-      this.profileService.getAfterProfile().subscribe(res => {
-      if (this.isCompletedProfile) {
-        this.firstName = res.firstName;
-        this.lastName = res.lastName;
-        this.applications = res.applicationCount;
-        this.upcoming = res.upcomingJobCount;
-        this.photo_url = res.photoUrl;
-        this.isProfileLoaded = true;
-      } 
+      if(this.isCompletedProfile) {
+      	this.profileService.getAfterProfile().subscribe(res => {
+	       this.firstName = res.firstName;
+	       this.lastName = res.lastName;
+	       this.applications = res.applicationCount;
+	       this.upcoming = res.upcomingJobCount;
+	       this.photo_url = res.photoUrl;
+    	   this.isHomePageLoaded = true;
+	    }, err => {
+	        this.isHomePageLoaded = true;
+	      	this.message = 'The page could not be loaded. Please log out, log in again and try once more.';
+    	});
+      } else {
+        this.isHomePageLoaded = true;
+      }
     }, err => {
+      this.isHomePageLoaded = true;
       this.message = 'The page could not be loaded. Please log out, log in again and try once more.';
     });
-     
-    }, err => {
-      this.message = 'The page could not be loaded. Please log out, log in again and try once more.';
-    });
-
-
-
+  
   }
 
   logout() {
