@@ -33,7 +33,6 @@
 
   .modal-body {
     background-color: #ebecec;
-    height: 40vh;
     overflow: auto;
     padding: 20px;
     font-size: 9px;
@@ -89,6 +88,10 @@
       padding: 10px 0 10px 0px;
       width: 75%;
       margin: auto;
+
+      p {
+        margin-bottom: 0;
+      }
       
       .terms-conditions {
         font-size: 9px;
