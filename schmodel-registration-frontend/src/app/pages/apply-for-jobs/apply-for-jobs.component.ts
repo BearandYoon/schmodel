@@ -21,9 +21,7 @@ import { ValidationMessage } from '../../shared/models';
 export class ApplyForJobsComponent implements OnInit {
 
     public showDialog = false;
-    public style_height: Array<any> = [];
     public role_title: string[];
-    public flag = false;
     detailDlgRef: BsModalRef;
     detailDlgContent: string;
     detailDlgConfig = {
@@ -33,7 +31,7 @@ export class ApplyForJobsComponent implements OnInit {
         ignoreBackdropClick: false
     };
 
-    public boardHeight: string = '';
+
     public bottomHeight: string = '';
 
     public eventView: Array<any> = [];
@@ -42,13 +40,6 @@ export class ApplyForJobsComponent implements OnInit {
         private detailDlgService: BsModalService,
         private jobService: JobService
     ) {
-        this.style_height.push(
-            {
-                boardHeight: '90vh',
-            }, {
-                boardHeight: '100%',
-            },
-        );
     }
 
     ngOnInit() {
@@ -61,8 +52,6 @@ export class ApplyForJobsComponent implements OnInit {
                 this.showFailLoadingDialog();
             }
         });
-        this.flag = true;
-        this.boardHeight = this.style_height[0].boardHeight;
         this.role_title = ["PR", "HOST", "GRID", "SCHMODEL GUEST"];
         this.detailDlgContent = 'A Schmodel PR (sometimes also called a Brand Ambassador) is a person who is hired by an organization' +
             ' or company to represent a brand in a positive light and by doing so help to increase brand awareness and sales. ' +
@@ -78,8 +67,6 @@ export class ApplyForJobsComponent implements OnInit {
     }
 
     onScrollDown() {
-        this.flag = false;
-        this.boardHeight = this.style_height[1].boardHeight;
     }
 
     showDetailDialog(title: string) {
