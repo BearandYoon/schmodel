@@ -80,5 +80,35 @@ export class ProfileComponent implements OnInit {
     }
     return languages.join(', ');
   }
+
+  getValue(profile, type) {
+
+    if(type==='bodyHeight' && profile.bodyHeight) {
+      return  `${Math.floor(profile.bodyHeight.valueInch / 12)}'${profile.bodyHeight.valueInch % 12}" / ${profile.bodyHeight.valueCm}cm`;
+    }
+    else if(type==='bodyChestCircumference' && profile.bodyChestCircumference) {
+      return `UK ${profile.bodyChestCircumference.ukValue} / EU ${profile.bodyChestCircumference.euValue} / US ${profile.bodyChestCircumference.usValue}`;
+    }
+    else if(type==='bodyChestCupSize' && profile.bodyChestCupSize) {
+      return `UK ${profile.bodyChestCupSize.ukValue} / EU ${profile.bodyChestCupSize.euValue} / US ${profile.bodyChestCupSize.usValue}`;
+    }
+    else if(type==='bodyWaist' && profile.bodyWaist) {
+     return `${profile.bodyWaist.valueDeciInch / 10}" / ${profile.bodyWaist.valueCm}cm`;
+    }
+    else if(type==='bodyWeight' && profile.bodyWeight) {
+      return `${profile.bodyWeight.valueLb} lbs / ${profile.bodyWeight.valueHg/10} kg`;
+    }
+    else if(type==='dressSize' && profile.dressSize) {
+      return `UK ${profile.dressSize.ukValue} / EU ${profile.dressSize.euValue} / US ${profile.dressSize.usValue}`;
+    }
+    else if(type==='hairColor' && profile.hairColor) {
+      return `${profile.hairColor.name}`;
+    }
+    else if(type==='eyeColor' && profile.eyeColor) {
+      return `${profile.eyeColor.name}`;
+    }
+
+    return '';
+  }
   
 }
