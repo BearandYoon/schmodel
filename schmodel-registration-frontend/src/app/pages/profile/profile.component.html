@@ -45,10 +45,10 @@
       <p>{{profile.biography}}</p>
     </div>
     <div>
-      <p><i class="fa fa-twitter" aria-hidden="true"></i><span>{{profile.twitterUsername}}</span></p>
-      <p><i class="fa fa-instagram" aria-hidden="true"></i><span>{{profile.instagramUsername}}</span></p>
-      <p><i class="fa fa-facebook" aria-hidden="true"></i><span>{{profile.facebookUsername}}</span></p>
-      <p><i class="fa fa-linkedin" aria-hidden="true"></i><span>{{profile.linkedinUsername}}</span></p>
+      <p *ngIf="profile.twitterUsername"><i class="fa fa-twitter" aria-hidden="true"></i><span>{{profile.twitterUsername}}</span></p>
+      <p *ngIf="profile.instagramUsername"><i class="fa fa-instagram" aria-hidden="true"></i><span>{{profile.instagramUsername}}</span></p>
+      <p *ngIf="profile.facebookUsername"><i class="fa fa-facebook" aria-hidden="true"></i><span>{{profile.facebookUsername}}</span></p>
+      <p *ngIf="profile.linkedinUsername"><i class="fa fa-linkedin" aria-hidden="true"></i><span>{{profile.linkedinUsername}}</span></p>
     </div>
     <div>
       <small *ngIf="isOwnProfile">MY TERMS & CONDITIONS</small>
