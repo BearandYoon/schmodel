@@ -35,10 +35,12 @@
     <sch-input-row  formControlName="residentialAddressLine1" label="Address *" maxlength="40"></sch-input-row>
     <sch-input-row formControlName="residentialAddressLine2" label="Address Line 2" maxlength="40"></sch-input-row>
     <sch-input-row  formControlName="residentialAddressZipCode" label="Post/Zip code *" maxlength="10"></sch-input-row>
-    <div class="row  ">
-      <label>Phone number *</label>
-      <phone-code-select formControlName="phoneCountryCode" [preferredCountries]="['us', 'gb']"></phone-code-select>
-      <input [attr.placeholder]="getPhoneNumberPlaceHolder(editPersonalForm.value.phoneCountryCode)" maxLength="10" formControlName="phoneNumber">
+    <div class="row">
+      <label class="phone-number-label">Phone number *</label>
+      <div class="phone-number-group">
+        <phone-code-select formControlName="phoneCountryCode" [preferredCountries]="['us', 'gb']"></phone-code-select>
+        <input [attr.placeholder]="getPhoneNumberPlaceHolder(editPersonalForm.value.phoneCountryCode)" maxLength="10" formControlName="phoneNumber">
+      </div>
     </div>
   </div>
   <div class="form-group form-group--bio">
