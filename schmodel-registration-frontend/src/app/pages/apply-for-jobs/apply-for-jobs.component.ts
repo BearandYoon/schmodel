@@ -47,6 +47,7 @@ export class ApplyForJobsComponent implements OnInit {
         this.jobService.getApplyForJobs((success, response) => {
             if (success) {
                 this.eventView = response;
+                console.log(response);
             }
             else {
                 this.showFailLoadingDialog();
