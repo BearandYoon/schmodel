@@ -50,17 +50,15 @@ $profileTextColor: #ffffff;
         :last-child {
            border: none;
         }
+
         div {
             border-bottom: 2px solid rgba(255,255,255,.5);
             padding: 22px 0 22px 0;
             
             > small {
-                font-family: 'Open Sans', sans-serif;
                 color: #afb2b3;
             }
-            .work-proficiency {
-                margin-top: -8px;
-            }
+
             p {
                 display:table;
                 margin-bottom: 0px;
@@ -76,7 +74,17 @@ $profileTextColor: #ffffff;
                 i {
                     margin-right: 11px;
                 }
+
+                &:last-of-type {
+                    label {
+                        span {
+                            font-size: 11px;
+                        }
+                    }
+                }
+
             }
+
             h1 {
                 margin-bottom: 0px;
                 padding-bottom: 6px;
