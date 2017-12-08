@@ -59,7 +59,7 @@ export class EventCalendarComponent implements OnInit {
       if (moment(start).isSame(end, 'month')) {
         period = moment(start).get('date') + ' - ' + moment(end).get('date') + ' ' + moment(start).format('MMMM') + ' ' + moment(start).get('year');
       } else {
-        period = moment(start).format('DD MMMM') + ' ' + moment(end).format('DD MMMM') + ' ' + moment(start).get('year');
+        period = moment(start).format('DD MMMM') + '-' + moment(end).format('DD MMMM') + ' ' + moment(start).get('year');
       }
     } else {
       period = moment(start).format('DD MMMM YYYY') + ' - ' + moment(end).format('DD MMMM YYYY');
