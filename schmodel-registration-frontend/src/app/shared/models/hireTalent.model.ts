@@ -1,5 +1,6 @@
 export class HireTalent {
   companyName: string;
+  billingCompanyName: string;
   talentName: string;
   eventDate: string;
   country: string;
@@ -10,6 +11,7 @@ export class HireTalent {
 
   constructor() {
     this.companyName = '';
+    this.billingCompanyName = '';
     this.talentName = '';
     this.eventDate = '';
     this.country = '';

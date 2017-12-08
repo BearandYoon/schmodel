@@ -9,7 +9,7 @@
   <div class="modal-body">
     <div class="content-wrapper">
       <div class="comment-wrapper">
-        <p>Please confirm that you want to hire<br> <strong>{{hireTalent.talentName}}</strong> through <strong>{{hireTalent.companyName}}</strong> for:</p>
+        <p>Please confirm that you want to hire<br> <strong>{{hireTalent.talentName}}</strong> through <strong>{{hireTalent.billingCompanyName}}</strong> for:</p>
       </div>
       <div class="role-wrapper row custom-border">
         <div class="col-md-4 col-4"> Position:</div>
@@ -31,13 +31,13 @@
 
       <div class="description-wrapper">
         <span>
-          By clicking Agree, you are binding <strong>FIA FORMULA E</strong> to these
+          By clicking Agree, you are binding <strong>{{hireTalent.companyName}}</strong> to these
         </span>
         <span class="terms-conditions" (click)="showTermsAndConditions()">
             Terms and Conditions
           </span>
         <span *ngIf="hireTalent.clauses.length">
-          and the following extra Terms proposed by <strong>{{hireTalent.talentName}}</strong>, <strong>{{hireTalent.companyName}}</strong>
+          and the following extra Terms proposed by <strong>{{hireTalent.talentName}}</strong>, <strong>{{hireTalent.billingCompanyName}}</strong>
         </span>
       </div>
 

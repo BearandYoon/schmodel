@@ -204,6 +204,7 @@ export class HireModelComponent implements OnInit {
         applicationId = application.id;
         hireTalent.pay_rate = application.pay;
         hireTalent.clauses = application.clauses;
+        hireTalent.billingCompanyName = application.billingCompanyName;
 
         this.hireModelData.roles.map(role => {
           if (role.id === roleId) {
