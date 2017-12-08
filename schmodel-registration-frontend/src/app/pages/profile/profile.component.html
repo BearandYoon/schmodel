@@ -32,8 +32,15 @@
     </div>
     <div *ngIf="profile">
       <p><label>Height:</label><span>{{getValue(profile,'bodyHeight')}}</span></p>
-      <p><label>Band size:</label><span>{{getValue(profile,'bodyChestCircumference')}}</span></p>
-      <p><label>Cup size:</label><span>{{getValue(profile,'bodyChestCupSize')}}</span></p>
+      <!-- <p><label>Band size:</label><span>{{getValue(profile,'bodyChestCircumference')}}</span></p>
+      <p><label>Cup size:</label><span>{{getValue(profile,'bodyChestCupSize')}}</span></p> -->
+      <p>
+        <label>Bust/Chest</label>
+        <span>
+          {{getValue(profile,'bodyChestCircumference')}}<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;{{getValue(profile,'bodyChestCupSize')}}
+        </span>
+      </p>
       <p><label>Waist:</label><span>{{getValue(profile,'bodyWaist')}}</span></p>
       <p><label>Weight:</label><span>{{getValue(profile,'bodyWeight')}}</span></p>
       <p><label>Dress size:</label><span>{{getValue(profile,'dressSize')}}</span></p>

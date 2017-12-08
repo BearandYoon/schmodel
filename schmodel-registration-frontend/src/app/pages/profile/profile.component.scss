@@ -66,17 +66,21 @@ $profileTextColor: #ffffff;
             p {
                 display:table;
                 margin-bottom: 0px;
-                font-weight: 500;
+                font-size: 15px;
                 
                 label {
                     display: table-cell;
+
                     width : 120px;
+                    font-weight: 500;
                 }
                 span {
                     display: table-cell;
+                    font-weight: 200;
+                    font-size: 14px;
                 }
                 i {
-                    margin-right: 11px;
+                    margin-right: 14px;
                 }
 
                 &:last-of-type {
