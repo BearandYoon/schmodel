@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit {
     const talentId: number = 1;
     switch (navRight) {
       case 'settings':
-        this.router.navigate(['/edit-profile']);
+        this.router.navigate(['/edit-my-profile']);
         break;
       default:
     }

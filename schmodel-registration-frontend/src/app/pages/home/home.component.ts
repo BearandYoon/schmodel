@@ -74,6 +74,8 @@ export class HomeComponent implements OnInit {
     this.termsContent = ValidationMessage.TERMS_CONTENT;
     if (this.sharedService.fromSignup) {
       this.beforeTitle = ValidationMessage.BEFORE_COMPLETE_HOME_TITLE_ONCE_SIGNUP;
+    } else {
+      this.beforeTitle = ValidationMessage.BEFORE_COMPLETE_HOME_TITLE;
     }
     this.profileService.isProfileComplete().subscribe(res => {
       this.isCompletedProfile = res.profileComplete;
@@ -96,7 +98,6 @@ export class HomeComponent implements OnInit {
       this.isHomePageLoaded = true;
       this.message = 'The page could not be loaded. Please log out, log in again and try once more.';
     });
-  
   }
 
   logout() {
@@ -105,7 +106,7 @@ export class HomeComponent implements OnInit {
   }
 
   onEdit() {
-    this.router.navigate(['edit-profile']);
+    this.router.navigate(['edit-my-profile']);
   }
 
   onView() {

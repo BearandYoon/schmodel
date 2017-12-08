@@ -6,7 +6,7 @@
   <p class="title" *ngIf="!isCompletedProfile">Complete Your Profile</p>
   <p class="title" *ngIf="isCompletedProfile">Welcome back {{firstName}}-{{lastName}}</p>
 
-  <p class="content-text" *ngIf="!isCompletedProfile">Please complete your profile so you can start applying to jobs.</p>
+  <p class="content-text" *ngIf="!isCompletedProfile">{{beforeTitle}}</p>
   <div class="content-wrapper" *ngIf="isCompletedProfile">
     <div class="profile-content">
       <div class="profile-image">
@@ -84,7 +84,7 @@
   </div>
 
   <p class="content-text">Only Schmodels with an activation code can apply for jobs (until further notice)</p>
-  <div class="danger">
+  <div class="danger" *ngIf="message.length">
     <span class="message">{{message}}</span>
   </div>
 

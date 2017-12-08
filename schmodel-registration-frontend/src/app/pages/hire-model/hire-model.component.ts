@@ -41,7 +41,6 @@ export class HireModelComponent implements OnInit {
   ngOnInit() {
     this.message = '';
     this.route.queryParams.subscribe(res => {
-      console.log(res);
       if (res && res.eventId) {
         this.eventId = res.eventId;
 
@@ -67,11 +66,36 @@ export class HireModelComponent implements OnInit {
 
   updateTitle(data) {
     const { eventName, eventStartDate, eventEndDate, eventCity, eventCountry } = data;
-    const eventDate = moment(eventEndDate, 'YYYY-MM-DD').format('DD MMMM YYYY');
+    const eventDate = this.formatEventDate(eventStartDate, eventEndDate);
 
     const pageTitleDom = document.getElementById('page-title');
-    pageTitleDom.style.fontSize = '14px';
-    pageTitleDom.innerHTML = `<strong>${eventName}</strong> | ${eventDate} | <strong>${eventCity.toUpperCase()}</strong>, ${eventCountry}`;
+    pageTitleDom.innerHTML = `<p style="font-size:14px;margin:0;"><strong>${eventName}</strong> | ${eventDate} | <strong>${eventCity.toUpperCase()}</strong>, ${eventCountry}</p>`;
+  }
+
+  formatEventDate(startDate, endDate) {
+    let eventDate = '';
+    if (moment(startDate).isSame(endDate)) {
+      eventDate = moment(startDate, 'YYYY-MM-DD').format('DD MMMM YYYY');
+    } else {
+      eventDate = this.getDifferenceDate(startDate, endDate);
+    }
+
+    return eventDate;
+  }
+
+  getDifferenceDate(start, end) {
+    let period = '';
+    if (moment(start).isSame(end, 'year')) {
+      if (moment(start).isSame(end, 'month')) {
+        period = moment(start).get('date') + ' - ' + moment(end).get('date') + ' ' + moment(start).format('MMMM') + ' ' + moment(start).get('year');
+      } else {
+        period = moment(start).format('DD MMMM') + ' ' + moment(end).format('DD MMMM') + ' ' + moment(start).get('year');
+      }
+    } else {
+      period = moment(start).format('DD MMMM YYYY') + ' - ' + moment(end).format('DD MMMM YYYY');
+    }
+
+    return period;
   }
 
   calculateLikesAndHired() {

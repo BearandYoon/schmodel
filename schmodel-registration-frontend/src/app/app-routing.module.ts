@@ -62,7 +62,7 @@ const routes: Routes = [
         }
       },
       {
-        path: 'edit-profile',
+        path: 'edit-my-profile',
         canActivate: [AuthGuard],
         loadChildren: './pages/edit-profile/edit-profile.module#EditProfileModule',
         data: {

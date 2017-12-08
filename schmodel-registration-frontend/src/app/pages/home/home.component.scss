@@ -16,10 +16,10 @@
     margin: auto;
     width: 49.5%;
   }
-  
+
   .danger {
       height:22px;
-      padding: 0px;
+      padding: 0;
       font-size: 16px;
       background-color: transparent;
       margin-top: 15px;
@@ -35,6 +35,7 @@
     text-align: center;
     padding: 20px;
     white-space: pre-wrap;
+    margin: 0;
   }
 
   .content-wrapper {
@@ -163,7 +164,7 @@
             margin-bottom: 0px;
             margin-top: -2px;
           }
-          
+
           &:before {
             content: "";
             background-image: url('/assets/img/ic_divider.png');
@@ -181,7 +182,7 @@
   }
 
   .content-text {
-    padding: 40px 69px;
+    padding: 20px 69px;
     color: #ffffff;
     font-weight: 100;
     text-align: center;
@@ -191,21 +192,22 @@
 
   .page-footer {
     width: 100%;
-    position: relative;
+    position: absolute;
     bottom: 0;
     text-align: center;
     color: #ffffff;
     margin-top: 10vh;
-
+    display: flex;
+    flex-direction: column;
 
     .logout-text {
-       font-weight: 700;
-       margin-bottom: 0;
+      font-weight: 700;
+      margin: auto;
     }
     .terms-condition {
       font-weight: 200;
       font-size: 14px;
-      margin-bottom: 20px;
+      margin: 0 auto 20px;
     }
   }
 }
@@ -232,7 +234,7 @@
     }
 
     .content-text {
-      padding: 30px;
+      padding: 20px;
       font-size: 12px;
     }
 
@@ -271,14 +273,14 @@
   .profile-info {
 
     .profile-title {
-      
+
       h2 {
         line-height: 35px !important;
       }
     }
 
     .profile-upcoming {
-      
+
       span {
         font-size: 60px !important;
       }
@@ -287,7 +289,7 @@
     .profile-applications {
 
       span {
-        font-size: 60px !important; 
+        font-size: 60px !important;
       }
     }
   }

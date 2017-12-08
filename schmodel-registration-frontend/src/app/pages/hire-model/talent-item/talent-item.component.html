@@ -3,7 +3,7 @@
     <img class="talent-photo" [attr.src]="talent.photoUrl" (click)="onProfile()">
     <div class="talent-content">
       <div class="title-wrapper" (click)="onProfile()">
-        {{talent.firstName}}
+        {{talent.firstName}} {{talent.lastName}}
       </div>
       <div class="action-wrapper">
         <div *ngFor="let role of talent.roles; let i = index" class="action-item" [ngClass]="{
