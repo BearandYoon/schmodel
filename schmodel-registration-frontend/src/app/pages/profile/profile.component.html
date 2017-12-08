@@ -12,7 +12,7 @@
   </swiper>
   <div class="profile-title">
     <div class="title-detail">
-      <h1>{{profile['firstName']}} {{profile['lastName']}}</h1>
+      <h1>{{profile['firstName']}}</h1>
     </div>
   </div>
   <div class="profile-text">
@@ -30,18 +30,18 @@
       </p>
       <!-- <p class="work-proficiency"><small >(working proficiency)</small></p> -->
     </div>
-    <div *ngIf="profile.bodyHeight">
-      <p><label>Height:</label><span>{{profile.bodyHeight.valueInch}}"  ({{profile.bodyHeight.valueCm}}cm)</span></p>
-      <p><label>Band size:</label><span>UK {{profile.bodyChestCircumference.ukValue}} / EU {{profile.bodyChestCircumference.euValue}} / US {{profile.bodyChestCircumference.usValue}}</span></p>
-      <p><label>Cup size:</label><span>UK {{profile.bodyChestCupSize.ukValue}} / EU {{profile.bodyChestCupSize.euValue}} / US {{profile.bodyChestCupSize.usValue}}</span></p>
-      <p><label>Waist:</label><span>{{profile.bodyWaist.valueDeciInch}}" ({{profile.bodyWaist.valueCm}} cm)</span></p>
-      <p><label>Weight:</label><span>{{profile.bodyWeight.valueLb}}lbs ({{profile.bodyWeight.valueHg/10}} kg)</span></p>
-      <p><label>Dress size:</label><span>UK {{profile.dressSize.ukValue}} / EU {{profile.dressSize.euValue}} / US {{profile.dressSize.usValue}}</span></p>
-      <p><label>Hair color:</label><span>{{profile.hairColor.name}}</span></p>
-      <p><label>Eye color:</label><span>{{profile.eyeColor.name}}</span></p>
+    <div *ngIf="profile">
+      <p><label>Height:</label><span>{{getValue(profile,'bodyHeight')}}</span></p>
+      <p><label>Band size:</label><span>{{getValue(profile,'bodyChestCircumference')}}</span></p>
+      <p><label>Cup size:</label><span>{{getValue(profile,'bodyChestCupSize')}}</span></p>
+      <p><label>Waist:</label><span>{{getValue(profile,'bodyWaist')}}</span></p>
+      <p><label>Weight:</label><span>{{getValue(profile,'bodyWeight')}}</span></p>
+      <p><label>Dress size:</label><span>{{getValue(profile,'dressSize')}}</span></p>
+      <p><label>Hair color:</label><span>{{getValue(profile,'hairColor')}}</span></p>
+      <p><label>Eye color:</label><span>{{getValue(profile,'eyeColor')}}</span></p>
     </div>
     <div>
-      <small>BIOGRAPHY</small>
+      <small  class="heading">BIOGRAPHY</small>
       <p>{{profile.biography}}</p>
     </div>
     <div>
@@ -51,12 +51,12 @@
       <p><i class="fa fa-linkedin" aria-hidden="true"></i><span>{{profile.linkedinUsername}}</span></p>
     </div>
     <div>
-      <small *ngIf="isOwnProfile">MY TERMS & CONDITIONS</small>
-      <small *ngIf="!isOwnProfile">TERMS & CONDITIONS</small>
+      <small  class="heading" *ngIf="isOwnProfile">MY TERMS & CONDITIONS</small>
+      <small  class="heading" *ngIf="!isOwnProfile">TERMS & CONDITIONS</small>
       <p *ngFor="let item of profile.clauses;let i = index ">{{i+1}}. {{item}}</p>
     </div>
     <div *ngIf="profile.billingCompanyRegistrationCountry">
-      <small>BILLING INFORMATION</small>
+      <small class="heading">BILLING INFORMATION</small>
       <p><label>Company name:</label><span>{{profile.billingCompanyName}}</span></p>
       <p><label>Registered:</label><span>{{profile.billingCompanyRegistrationCountry.name}}</span></p>
       <p><label>VAT No.:</label><span>{{profile.billingCompanyVatNumber}}</span></p>

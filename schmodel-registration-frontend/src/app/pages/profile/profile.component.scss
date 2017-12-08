@@ -16,6 +16,10 @@ $profileTextColor: #ffffff;
     background-size: cover;
     background-position: center top;
     color: $profileTextColor;
+
+    .heading {
+      font-weight: bold;
+    }
   
     swiper {
         width: 100%;

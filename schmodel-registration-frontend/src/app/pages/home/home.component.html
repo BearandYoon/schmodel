@@ -4,7 +4,7 @@
   </div>
 
   <p class="title" *ngIf="!isCompletedProfile">Complete Your Profile</p>
-  <p class="title" *ngIf="isCompletedProfile">Welcome back {{firstName}}-{{lastName}}</p>
+  <p class="title" *ngIf="isCompletedProfile">Welcome back <span class="user-name">{{firstName}}</span></p>
 
   <p class="content-text" *ngIf="!isCompletedProfile">{{beforeTitle}}</p>
   <div class="content-wrapper" *ngIf="isCompletedProfile">
