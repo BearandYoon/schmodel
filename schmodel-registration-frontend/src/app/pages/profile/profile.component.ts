@@ -24,10 +24,13 @@ export class ProfileComponent implements OnInit {
   ) {
     this.message = '';
     this.talentId = 0;
-    this.profile = {};
+    this.profile = null;
   }
   ngOnInit() {
+    const scrollLeft = document.documentElement.scrollLeft;
+    window.scrollTo(scrollLeft, 0);
     this.isOwnProfile = false;
+    this.profile = null;
     this.activatedRoute.queryParams.subscribe((params: Params) => {
         this.talentId = params['talentId'];
       });
@@ -57,4 +60,25 @@ export class ProfileComponent implements OnInit {
     }
 
   }
+  
+  getCitizen(citizen) {
+    const countries = [];
+    if ( citizen != null ) {
+      citizen.map(element => {
+        countries.push(element.name);
+      });
+    }
+    return countries.join(', ');
+  }
+
+  getLanguage(language) {
+    const languages = [];
+    if ( language != null ) {
+      language.map(element => {
+        languages.push(element.name);
+      });
+    }
+    return languages.join(', ');
+  }
+  
 }

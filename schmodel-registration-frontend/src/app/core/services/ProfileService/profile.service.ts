@@ -29,8 +29,8 @@ export class ProfileService {
   }
   
   viewProfile() {
-    const photoWidth = Math.round(window.innerWidth / 2);
-    const photoHeight = Math.round(window.innerWidth / 2);
+    const photoWidth = Math.round(window.innerWidth);
+    const photoHeight = Math.round(window.innerWidth);
      return this.http.post(
       this.apiRoutingService.getViewProfileAPIUrl(),
       {
@@ -44,8 +44,8 @@ export class ProfileService {
   }
   
   viewTalentProfile(talentId) {
-    const photoWidth = Math.round(window.innerWidth / 2);
-    const photoHeight = Math.round(window.innerWidth / 2);
+    const photoWidth = Math.round(window.innerWidth);
+    const photoHeight = Math.round(window.innerWidth);
     return this.http.post(
       this.apiRoutingService.getViewTalentProfileUrl(),
 	  {

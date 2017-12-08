@@ -21,6 +21,8 @@ export class ClientHomeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    const scrollLeft = document.documentElement.scrollLeft;
+    window.scrollTo(scrollLeft, 0);
     this.clientService.clientHome().subscribe(res => {
       console.log(res);
     }, error => {
