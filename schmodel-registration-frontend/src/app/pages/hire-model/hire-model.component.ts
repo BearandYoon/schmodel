@@ -192,7 +192,7 @@ export class HireModelComponent implements OnInit {
 
     hireTalent.talentName = talent.firstName;
     hireTalent.companyName = this.hireModelData.companyName;
-    hireTalent.eventDate = moment(this.hireModelData.eventStartDate, 'YYYY-MM-DD').format('DD MMMM YYYY');
+    hireTalent.eventDate = moment(this.hireModelData.eventStartDate, 'YYYY-MM-DD').format('D MMMM YYYY');
     hireTalent.country = this.hireModelData.eventCountry;
     hireTalent.city = this.hireModelData.eventCity;
 
