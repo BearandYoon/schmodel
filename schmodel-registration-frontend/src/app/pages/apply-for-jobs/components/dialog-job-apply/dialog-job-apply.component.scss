@@ -33,7 +33,6 @@
 
   .modal-body {
     background-color: #ebecec;
-    height: 40vh;
     overflow: auto;
     padding: 20px;
     font-size: 9px;
@@ -42,7 +41,6 @@
     .content-wrapper {
       width: 80%;
       margin:auto;
-      //padding: 10px 10px 0px 10px;
     }
 
     .role-wrapper {
@@ -89,6 +87,10 @@
       padding: 10px 0 10px 0px;
       width: 75%;
       margin: auto;
+
+      p {
+        margin-bottom: 0;
+      }
       
       .terms-conditions {
         font-size: 9px;
