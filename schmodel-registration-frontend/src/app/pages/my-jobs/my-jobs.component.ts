@@ -12,29 +12,11 @@ import { MyJobService } from '../../core/services';
 })
 export class MyJobsComponent implements OnInit {
 
-    public style_height: Array<any> = [];
-    public boardHeight: string = '';
-    public flag: boolean;
     public response: any = '';
 
     constructor(
         private myjobService: MyJobService
-    ) {
-        this.style_height.push(
-            {
-                boardHeight: '90vh',
-            }, {
-                boardHeight: '100%',
-            },
-        );
-        this.flag = true;
-        this.boardHeight = '90vh';
-    }
-
-    onScrollDown() {
-        this.flag = false;
-        this.boardHeight = this.style_height[1].boardHeight;
-    }
+    ) {}
 
     ngOnInit() {
         const scrollLeft = document.documentElement.scrollLeft;

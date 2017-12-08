@@ -1,4 +1,4 @@
-<div class="my-jobs" [ngStyle]="{ 'height' : boardHeight }" [@routerTransition]>
+<div class="my-jobs" [@routerTransition]>
 
   <div *ngIf="(response.upcomingJobs == undefined) || (response.upcomingJobs != undefined && response.upcomingJobs.length == 0)"
     class="title"> NO UPCOMING JOBS</div>
@@ -12,9 +12,4 @@
 
   <app-sch-job-row [event_role]="response.previousJobs"></app-sch-job-row>
 
-  <div [ngStyle]="{'height' : '90vh'}" class="sticky-footer" *ngIf="flag && ((response.previousJobs != undefined && response.previousJobs.length != 0) || (response.upcomingJobs != undefined && response.upcomingJobs.length != 0))">
-    <div class="gra-footer-padding">
-      <img src="/assets/img/ic_down.png" (click)="onScrollDown()">
-    </div>
-  </div>
 </div>
