@@ -17,7 +17,8 @@
     <div class="talent-calendar">
       <p class="info-values">
         <span><b>{{eventItem[0].data.name}}</b></span><br/>
-        <span>{{eventItem[0].data.formattedDate}}</span><br/>
+        <!-- <span>{{eventItem[0].data.formattedDate}}</span><br/> -->
+        <span>{{formatEventDate(eventItem[0].data.startDate, eventItem[0].data.endDate)}}</span><br/>
         <span>{{eventItem[0].data.city | uppercase}}</span><br/>
         <span>{{eventItem[0].data.country.name}}</span>
       </p>
