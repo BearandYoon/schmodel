@@ -5,7 +5,14 @@
     <p class="title">Reset Password</p>
     <div class="content-wrapper">
       <div class="content-container">
-        <p *ngIf="tokenValid" class="alert"> The link to reset your password has expired, please try again below </p>
+        <!-- <p *ngIf="tokenValid" class="alert"> The link to reset your password has expired, please try again below </p> -->
+        <div *ngIf="tokenValid" class="message-wrapper">
+          <span class="icon-close" (click)="onCloseErrorMessage()"></span>
+          <span class="message">
+            <b>Oh snap!</b><br/>
+            {{errorMessage}}
+          </span>
+        </div>
         <p class="comment">
             Forgot your password?<br>
             No problem, just enter your email below and we'll send you a link to reset your password

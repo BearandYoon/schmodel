@@ -1,5 +1,5 @@
 @import "../login/login.component.scss";
-
+$model-img-size: 120px;
 .page-container {
   background-image: url("/assets/img/bg_reset_pass.png");
 
@@ -259,6 +259,34 @@
     }
     .img-logo {
       width: 450px;
+    }
+  }
+}
+
+.message-wrapper {
+  position: absolute;
+  top: $model-img-size;
+  right: 0;
+  width: calc(100% - #{$model-img-size});
+  height: 40px;
+  background-color: #FF4165;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 5px 0 25px;
+
+  .icon-close {
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 10px;
+  }
+
+  .message {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 6px;
+
+    b {
+      font-size: 10px;
     }
   }
 }
