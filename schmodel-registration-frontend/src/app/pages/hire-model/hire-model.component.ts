@@ -25,6 +25,7 @@ export class HireModelComponent implements OnInit {
     ignoreBackdropClick: true
   };
   eventId: number;
+  errorMessage = '';
 
   hireModelData: any = {};
 
@@ -38,6 +39,7 @@ export class HireModelComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.errorMessage = '';
     this.route.queryParams.subscribe(res => {
       if (res && res.eventId) {
         this.eventId = res.eventId;
@@ -55,6 +57,7 @@ export class HireModelComponent implements OnInit {
           }
         }, error => {
           console.log(error);
+          this.errorMessage = ValidationMessage.BACKEND_CONNECTION_ERROR;
         });
       } else {
         this.router.navigate(['client/event-calendar']);
