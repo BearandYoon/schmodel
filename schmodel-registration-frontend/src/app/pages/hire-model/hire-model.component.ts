@@ -25,7 +25,6 @@ export class HireModelComponent implements OnInit {
     ignoreBackdropClick: true
   };
   eventId: number;
-  message: string;
 
   hireModelData: any = {};
 
@@ -39,7 +38,6 @@ export class HireModelComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.message = '';
     this.route.queryParams.subscribe(res => {
       if (res && res.eventId) {
         this.eventId = res.eventId;
@@ -141,7 +139,6 @@ export class HireModelComponent implements OnInit {
   }
 
   handleLikeTalent(value) {
-    this.message = '';
     const { role, talent } = value;
     const talentIndex = this.hireModelData.talents.indexOf(talent);
     const roleIndex = talent.roles.indexOf(role);
@@ -158,7 +155,6 @@ export class HireModelComponent implements OnInit {
   }
 
   handleUnlikeTalent(value) {
-    this.message = '';
     const { role, talent } = value;
     const talentIndex = this.hireModelData.talents.indexOf(talent);
     const roleIndex = talent.roles.indexOf(role);
@@ -174,7 +170,6 @@ export class HireModelComponent implements OnInit {
   }
 
   confirmHiring(value) {
-    this.message = '';
     const { talent } = value;
 
     let numLikes = 0;
@@ -236,7 +231,7 @@ export class HireModelComponent implements OnInit {
           }
         }, error => {
           console.log(error);
-          this.message = ValidationMessage.GENERIC_ERROR_MESSAGE;
+          talent.errorMessage = ValidationMessage.BACKEND_CONNECTION_ERROR;
         });
       }
     });
