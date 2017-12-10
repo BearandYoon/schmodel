@@ -22,10 +22,8 @@ $topnav-background-color: #222;
   }
 
   .content-wrapper {
-    //flex: 0 0 350;
     align-items: flex-end;
     display: flex;
-    //min-height: 350px;
   }
 
   .content-container {
@@ -121,6 +119,35 @@ $topnav-background-color: #222;
   .action-container {
     font-family: "Open Sans Bold";
     margin-bottom: 16px;
+
+    .message-wrapper {
+      width: 100%;
+      min-height: 40px;
+      background-color: #FF4165;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 5px 10px;
+      margin-bottom: 10px;
+
+      .icon-close {
+        font-weight: bold;
+        font-size: 20px;
+        margin-right: 10px;
+      }
+
+      .message {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 10px;
+        text-align: left;
+        line-height: 12px;
+
+        b {
+          font-size: 15px;
+          line-height: 14px;
+        }
+      }
+    }
 
     .bordered-btn {
       color: rgba(255, 255, 255, 0.8);

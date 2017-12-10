@@ -102,11 +102,7 @@ export class SignupComponent implements OnInit {
           this.sharedService.fromSignup = true;
           this.router.navigate(['']);
         }, err => {
-          if (err.status === 500) {
-            this.message = ValidationMessage.BACKEND_CONNECTION_ERROR;
-          } else {
-            this.message = ValidationMessage.GENERIC_ERROR_MESSAGE;
-          }
+          this.message = ValidationMessage.BACKEND_CONNECTION_ERROR;
         });
       } else {
         this.message = ValidationMessage.TERMS_CONDITIONS_DECLINE;
