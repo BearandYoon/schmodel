@@ -34,7 +34,7 @@ export class ForgotComponent implements OnInit {
     });
     this.emailValid = false;
     this.isSubmitting = false;
-    this.tokenValid = true;
+    this.tokenValid = false;
   }
   onChangeInput() {
     this.message = '';
@@ -42,12 +42,14 @@ export class ForgotComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.errorMessage = '';
     const scrollLeft = document.documentElement.scrollLeft;
     window.scrollTo(scrollLeft, 0);
     this.activatedRoute.queryParams.subscribe((params: Params) => {
       const token = params['token'];
       if (token != null) {
         this.tokenValid = true;
+        this.errorMessage = '';
       } else {
         this.errorMessage = ValidationMessage.RESET_TOKEN_EXPIRE;
       }

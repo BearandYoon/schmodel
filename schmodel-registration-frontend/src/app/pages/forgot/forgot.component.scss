@@ -1,5 +1,5 @@
 @import "../login/login.component.scss";
-$model-img-size: 120px;
+$model-img-size: 150px;
 .page-container {
   background-image: url("/assets/img/bg_reset_pass.png");
 
@@ -267,7 +267,8 @@ $model-img-size: 120px;
   position: absolute;
   top: $model-img-size;
   right: 0;
-  width: calc(100% - #{$model-img-size});
+  // width: calc(100% - #{$model-img-size});
+  width: 100%;
   height: 40px;
   background-color: #FF4165;
   color: white;

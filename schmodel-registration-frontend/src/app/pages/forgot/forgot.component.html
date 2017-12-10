@@ -6,7 +6,7 @@
     <div class="content-wrapper">
       <div class="content-container">
         <!-- <p *ngIf="tokenValid" class="alert"> The link to reset your password has expired, please try again below </p> -->
-        <div *ngIf="tokenValid" class="message-wrapper">
+        <div *ngIf="errorMessage" class="message-wrapper">
           <span class="icon-close" (click)="onCloseErrorMessage()"></span>
           <span class="message">
             <b>Oh snap!</b><br/>
