@@ -5,6 +5,7 @@ import { LocalStorageService } from 'ngx-webstorage';
 import { ClientService } from '../../core/services';
 import { routerTransition } from '../../router.animations';
 import { environment } from '../../../environments/environment';
+import { ValidationMessage } from '../../shared/models';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,7 @@ import { environment } from '../../../environments/environment';
 })
 
 export class ClientHomeComponent implements OnInit {
+  errorMessage = '';
   constructor(
     public router: Router,
     private localStorage: LocalStorageService,
@@ -21,16 +23,15 @@ export class ClientHomeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.errorMessage = '';
     const scrollLeft = document.documentElement.scrollLeft;
     window.scrollTo(scrollLeft, 0);
     this.clientService.clientHome().subscribe(res => {
-      console.log(res);
     }, error => {
-      console.log(error);
       if (error.status === 401) {
         this.router.navigate(['client/login']);
       }
-      this.router.navigate(['client/login']);
+      this.errorMessage = ValidationMessage.BACKEND_CONNECTION_ERROR;
     });
   }
 
@@ -41,5 +42,9 @@ export class ClientHomeComponent implements OnInit {
   logout() {
     this.localStorage.clear(environment.localStorage.token);
     this.router.navigate(['client/login']);
+  }
+
+  onCloseErrorMessage() {
+    this.errorMessage = '';
   }
 }

@@ -3,6 +3,13 @@
     <img class="img-logo" src="assets/img/img_logo.png">
   </div>
   <div class="content-wrapper">
+    <div class="message-wrapper" *ngIf="errorMessage">
+      <span class="icon-close" (click)="onCloseErrorMessage()"></span>
+      <span class="message">
+        <b>Oh snap!</b><br/>
+        {{errorMessage}}
+      </span>
+    </div>
     <div class="btn-edit-profile common-pattern" (click)="onCalendar()">
       <div class="btn-text"><span>Event Calendar</span></div>
       <div class="btn-icon"><img src="assets/img/ic_app_jobs.png" /></div>
