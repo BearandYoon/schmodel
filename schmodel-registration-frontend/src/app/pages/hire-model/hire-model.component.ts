@@ -239,4 +239,8 @@ export class HireModelComponent implements OnInit {
       }
     });
   }
+
+  onCloseErrorMessage() {
+    this.errorMessage = '';
+  }
 }
