@@ -146,6 +146,7 @@ export class HireModelComponent implements OnInit {
     const talentIndex = this.hireModelData.talents.indexOf(talent);
     const roleIndex = talent.roles.indexOf(role);
     const newTalent = Object.assign({}, talent);
+    talent.errorMessage = '';
 
     this.clientService.likeTalent({ applicationId: role.application.id }).subscribe(res => {
       if (res.applicationIdValid) {
@@ -154,6 +155,7 @@ export class HireModelComponent implements OnInit {
       }
     }, error => {
       console.log(error);
+      talent.errorMessage = ValidationMessage.BACKEND_CONNECTION_ERROR;
     });
   }
 
@@ -162,6 +164,8 @@ export class HireModelComponent implements OnInit {
     const talentIndex = this.hireModelData.talents.indexOf(talent);
     const roleIndex = talent.roles.indexOf(role);
     const newTalent = Object.assign({}, talent);
+    talent.errorMessage = '';
+
     this.clientService.unlikeTalent({ applicationId: role.application.id }).subscribe(res => {
       if (res.applicationIdValid) {
         role.application.liked = false;
@@ -169,6 +173,7 @@ export class HireModelComponent implements OnInit {
       }
     }, error => {
       console.log(error);
+      talent.errorMessage = ValidationMessage.BACKEND_CONNECTION_ERROR;
     });
   }
 

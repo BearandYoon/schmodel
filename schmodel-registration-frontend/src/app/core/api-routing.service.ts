@@ -111,10 +111,10 @@ export class ApiRoutingService {
   }
 
   getLikeTalentAPIUrl(): string {
-    return this.baseUrl + '/client/like';
+    return this.baseUrl + '/client/like1';
   }
 
   getUnlikeTalentAPIUrl(): string {
-    return this.baseUrl + '/client/unlike';
+    return this.baseUrl + '/client/unlike1';
   }
 }
