@@ -22,6 +22,15 @@ section {
     position: relative;
     color: white;
 
+    .spinner-container {
+      text-align: center;
+      width: 100%;
+      z-index: 999;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
     .item-bg {
       overflow: hidden;
       width: 100%;

@@ -6,6 +6,9 @@
   </div>
   <p>Please upload your head shot, full length and profile photos to complete your profile.</p>
   <div *ngFor="let val of photo_section_infor; let i = index; trackBy:trackByFn" class="item">
+    <div class="spinner-container" *ngIf="val.isUploading">
+      <i class="fa fa-spinner fa-pulse fa-2x fa-fw loading-page"></i>
+    </div>
     <button *ngIf="val.flag" class="btn-close" (click)="onClose(i)">
       <span class="icon-close"></span>
     </button>
