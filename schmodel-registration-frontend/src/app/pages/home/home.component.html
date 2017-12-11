@@ -88,7 +88,7 @@
     <span class="message">{{message}}</span>
   </div>
 
-  <div class="page-footer">
+  <div class="page-footer" [ngClass]="isCompletedProfile ? '' : 'unCompleted'">
     <p class="logout-text" (click)="logout()">LOG-OUT</p>
     <p class="terms-condition" (click)="showTermsAndConditions()">Terms & Conditions</p>
   </div>
