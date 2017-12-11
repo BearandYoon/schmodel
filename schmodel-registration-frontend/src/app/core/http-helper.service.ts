@@ -9,6 +9,8 @@ import { environment } from '../../environments/environment';
 
 @Injectable()
 export class HttpHelperService {
+  public serverError: boolean = false;
+
   constructor(
     private router: Router,
     private http: Http,
@@ -75,6 +77,8 @@ export class HttpHelperService {
         search.set(key, customParam[key]);
       }
     }
+
+    this.serverError = false;
 
     return new RequestOptions({ headers, withCredentials: true, search });
   }
@@ -245,8 +249,13 @@ export class HttpHelperService {
         } else {
           this.router.navigate(['login']);
         }
+      } else {
+        this.serverError = true;
       }
+    } else if (error.status === 504) {
+      this.serverError = true;
     }
+
     return Observable.throw(error);
   }
 }
