@@ -16,6 +16,10 @@ $profileTextColor: #ffffff;
     background-size: cover;
     background-position: center top;
     color: $profileTextColor;
+
+    .heading {
+      font-weight: bold;
+    }
   
     swiper {
         width: 100%;
@@ -50,33 +54,45 @@ $profileTextColor: #ffffff;
         :last-child {
            border: none;
         }
+
         div {
             border-bottom: 2px solid rgba(255,255,255,.5);
             padding: 22px 0 22px 0;
             
             > small {
-                font-family: 'Open Sans', sans-serif;
                 color: #afb2b3;
             }
-            .work-proficiency {
-                margin-top: -8px;
-            }
+
             p {
                 display:table;
                 margin-bottom: 0px;
-                font-weight: 500;
+                font-size: 15px;
                 
                 label {
                     display: table-cell;
+
                     width : 120px;
+                    font-weight: 500;
                 }
                 span {
                     display: table-cell;
+                    font-weight: 200;
+                    font-size: 14px;
                 }
                 i {
-                    margin-right: 11px;
+                    margin-right: 14px;
                 }
+
+                &:last-of-type {
+                    label {
+                        span {
+                            font-size: 11px;
+                        }
+                    }
+                }
+
             }
+
             h1 {
                 margin-bottom: 0px;
                 padding-bottom: 6px;

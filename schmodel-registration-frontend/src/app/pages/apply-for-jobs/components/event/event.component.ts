@@ -64,6 +64,7 @@ export class EventComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
 
+    this.event_city = this.event_city.toUpperCase();
     this.event_number = this.event_number.replace('FE Race ', 'R');
 
     //race background 

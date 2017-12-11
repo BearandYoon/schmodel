@@ -8,6 +8,7 @@ import { routerTransition } from '../../router.animations';
 import { ProfileService } from '../../core/services';
 import { SharedService } from '../../shared/services';
 import { ValidationMessage, TermsModalResponse } from '../../shared/models';
+import { ErrorResponse } from '../../shared/models';
 import { TermsModalComponent, MessageModalComponent } from '../../shared/modules';
 import { environment } from '../../../environments/environment';
 
@@ -95,8 +96,13 @@ export class HomeComponent implements OnInit {
         this.isHomePageLoaded = true;
       }
     }, err => {
-      this.isHomePageLoaded = true;
-      this.message = 'The page could not be loaded. Please log out, log in again and try once more.';
+      const body = err.json() || '';
+      if (err.status === 500 && body.exception && body.exception === ErrorResponse.TOKEN_EXPIRE) {
+            this.router.navigate(['login']);
+      } else {
+       		this.isHomePageLoaded = true;
+       		this.message = 'The page could not be loaded. Please log out, log in again and try once more.';
+      } 
     });
   }
 

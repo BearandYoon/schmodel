@@ -24,9 +24,7 @@ export class ClientHomeComponent implements OnInit {
     const scrollLeft = document.documentElement.scrollLeft;
     window.scrollTo(scrollLeft, 0);
     this.clientService.clientHome().subscribe(res => {
-      console.log(res);
     }, error => {
-      console.log(error);
       if (error.status === 401) {
         this.router.navigate(['client/login']);
       }

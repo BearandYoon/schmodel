@@ -36,6 +36,10 @@
     padding: 20px;
     white-space: pre-wrap;
     margin: 0;
+
+    .user-name {
+      font-weight: bold;
+    }
   }
 
   .content-wrapper {
@@ -192,7 +196,7 @@
 
   .page-footer {
     width: 100%;
-    position: absolute;
+    position: relative;
     bottom: 0;
     text-align: center;
     color: #ffffff;

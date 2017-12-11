@@ -1,4 +1,4 @@
-<div class="apply-for-jobs" [ngStyle]="{ 'height' : boardHeight }" [@routerTransition]>
+<div class="apply-for-jobs" [@routerTransition]>
   <div class="row text-center">
     <div class="col-md-4 col-4 formula-e">
       <img src="/assets/img/ic_formulae.png" width="100%">
@@ -29,12 +29,5 @@
     <app-event [event_no]="event.id" [event_number]="event.name" [event_start_date]="event.startDate" [event_end_date]="event.endDate"
       [event_city]="event.city" [event_country_code]="event.country" [roles_data]="event.roles">
     </app-event>
-  </div>
-
-
-  <div [ngStyle]="{'height' : '50vh'}" class="sticky-footer text-center" *ngIf="flag">
-    <div class="gra-footer-padding">
-      <img src="/assets/img/ic_down.png" (click)="onScrollDown()">
-    </div>
   </div>
 </div>

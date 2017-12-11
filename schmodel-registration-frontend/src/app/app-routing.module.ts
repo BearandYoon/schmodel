@@ -4,18 +4,14 @@ import { AuthGuard } from './shared';
 import { LayoutComponent } from './pages/layout';
 
 const routes: Routes = [
-  { path: 'login', loadChildren: './pages/login/login.module#LoginModule' },
-  { path: 'client/login', loadChildren: './pages/client-login/client-login.module#ClientLoginModule' },
-  { path: 'signup', loadChildren: './pages/signup/signup.module#SignupModule' },
-  { path: 'not-found', loadChildren: './pages/not-found/not-found.module#NotFoundModule' },
-  { path: 'forgot', loadChildren: './pages/forgot/forgot.module#ForgotModule' },
-  { path: 'reset-token', loadChildren: './pages/setpassword/setpassword.module#SetpasswordModule' },
-  { path: 'change-password', loadChildren: './pages/changepassword/changepassword.module#ChangepasswordModule' },
   {
     path: 'client',
     component: LayoutComponent,
-    canActivate: [AuthGuard],
     children: [
+      {
+        path: 'login',
+        loadChildren: './pages/client-login/client-login.module#ClientLoginModule'
+      },
       {
         path: 'event-calendar',
         loadChildren: './pages/event-calendar/event-calendar.module#EventCalendarModule',
@@ -49,8 +45,31 @@ const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
-    canActivate: [AuthGuard],
     children: [
+      {
+        path: 'login',
+        loadChildren: './pages/login/login.module#LoginModule'
+      },
+      {
+        path: 'signup',
+        loadChildren: './pages/signup/signup.module#SignupModule'
+      },
+      {
+        path: 'not-found',
+        loadChildren: './pages/not-found/not-found.module#NotFoundModule'
+      },
+      {
+        path: 'forgot',
+        loadChildren: './pages/forgot/forgot.module#ForgotModule'
+      },
+      {
+        path: 'reset-token',
+        loadChildren: './pages/setpassword/setpassword.module#SetpasswordModule'
+      },
+      {
+        path: 'change-password',
+        loadChildren: './pages/changepassword/changepassword.module#ChangepasswordModule'
+      },
       {
         path: 'profile',
         canActivate: [AuthGuard],
@@ -69,7 +88,8 @@ const routes: Routes = [
           title: 'Edit My Profile',
           navLeft: 'back'
         }
-      }, {
+      },
+      {
         path: 'apply-for-jobs',
         canActivate: [AuthGuard],
         loadChildren: './pages/apply-for-jobs/apply-for-jobs.module#ApplyForJobsModule',
@@ -77,7 +97,8 @@ const routes: Routes = [
           title: 'Apply for Jobs',
           navLeft: 'back'
         }
-      }, {
+      },
+      {
         path: 'my-jobs',
         canActivate: [AuthGuard],
         loadChildren: './pages/my-jobs/my-jobs.module#MyJobsModule',
