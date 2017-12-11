@@ -106,9 +106,5 @@ export class EventRoleComponent implements OnInit {
       this.image_url = this.ic_disabled;
       this.price = null;
     }
-
-    if (this.price === 0) {
-      this.price = null;
-    }
   }
 }
