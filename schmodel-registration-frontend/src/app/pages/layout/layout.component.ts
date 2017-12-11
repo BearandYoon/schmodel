@@ -14,7 +14,7 @@ export class LayoutComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private httpHelperService: HttpHelperService
+    public httpHelperService: HttpHelperService
   ) {
     router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {

@@ -26,6 +26,7 @@ export class HireModelComponent implements OnInit {
   };
   eventId: number;
   message: string;
+  errorMessage: string;
 
   hireModelData: any = {};
 
