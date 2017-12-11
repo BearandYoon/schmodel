@@ -23,13 +23,9 @@
             <p class="forgot-pass" [routerLink]="['/forgot']">Forgot Password?</p>
           </div>
           <div class="action-container">
-            <div class="message-wrapper" *ngIf="message">
-              <span class="icon-close" (click)="onCloseErrorMessage()"></span>
-              <span class="message">
-                <b>Oh snap!</b><br/>
-                {{message}}
-              </span>
-            </div>
+            <alert type="danger" *ngIf="message">
+              <strong>{{message}}</strong>
+            </alert>
             <div class="btn-login-container">
               <button class="btn bordered-btn" type="submit" [disabled]="!signInForm.valid"> Login </button>
             </div>

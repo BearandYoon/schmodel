@@ -58,8 +58,6 @@ export class LoginComponent implements OnInit {
     }, error => {
       if (error.status === 401) {
         this.message = ValidationMessage.INVALID_CREDENTIALS;
-      } else {
-        this.message = ValidationMessage.BACKEND_CONNECTION_ERROR;
       }
       console.log(error);
     });
@@ -73,9 +71,5 @@ export class LoginComponent implements OnInit {
     this.termsModalRef.content.onCloseReason.subscribe(result => {
       console.log('Terms Modal Close Reason = ', result);
     });
-  }
-
-  onCloseErrorMessage() {
-    this.message = '';
   }
 }

@@ -65,10 +65,6 @@ export class SignupComponent implements OnInit {
     }
   }
 
-  onCloseErrorMessage() {
-    this.message = '';
-  }
-
   showTermsAndConditions() {
     this.termsModalRef = this.modalService.show(TermsModalComponent, this.termsModalConfig);
     this.termsModalRef.content.termsContent = this.termsContent;
@@ -102,7 +98,7 @@ export class SignupComponent implements OnInit {
           this.sharedService.fromSignup = true;
           this.router.navigate(['']);
         }, err => {
-          this.message = ValidationMessage.BACKEND_CONNECTION_ERROR;
+          this.message = ValidationMessage.GENERIC_ERROR_MESSAGE;
         });
       } else {
         this.message = ValidationMessage.TERMS_CONDITIONS_DECLINE;

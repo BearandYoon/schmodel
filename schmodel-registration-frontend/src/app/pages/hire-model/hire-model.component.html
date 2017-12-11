@@ -1,3 +1,9 @@
+<div class="alert-container">
+  <alert type="danger" *ngIf="message">
+    <strong>{{message}}</strong>
+  </alert>
+</div>
+
 <div class="message-wrapper" *ngIf="errorMessage">
   <span class="icon-close" (click)="onCloseErrorMessage()"></span>
   <span class="message">

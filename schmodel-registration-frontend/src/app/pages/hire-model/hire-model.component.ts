@@ -25,7 +25,7 @@ export class HireModelComponent implements OnInit {
     ignoreBackdropClick: true
   };
   eventId: number;
-  errorMessage = '';
+  message: string;
 
   hireModelData: any = {};
 
@@ -39,7 +39,7 @@ export class HireModelComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.errorMessage = '';
+    this.message = '';
     this.route.queryParams.subscribe(res => {
       if (res && res.eventId) {
         this.eventId = res.eventId;
@@ -57,7 +57,6 @@ export class HireModelComponent implements OnInit {
           }
         }, error => {
           console.log(error);
-          this.errorMessage = ValidationMessage.BACKEND_CONNECTION_ERROR;
         });
       } else {
         this.router.navigate(['client/event-calendar']);
@@ -142,11 +141,11 @@ export class HireModelComponent implements OnInit {
   }
 
   handleLikeTalent(value) {
+    this.message = '';
     const { role, talent } = value;
     const talentIndex = this.hireModelData.talents.indexOf(talent);
     const roleIndex = talent.roles.indexOf(role);
     const newTalent = Object.assign({}, talent);
-    talent.errorMessage = '';
 
     this.clientService.likeTalent({ applicationId: role.application.id }).subscribe(res => {
       if (res.applicationIdValid) {
@@ -155,17 +154,15 @@ export class HireModelComponent implements OnInit {
       }
     }, error => {
       console.log(error);
-      talent.errorMessage = ValidationMessage.BACKEND_CONNECTION_ERROR;
     });
   }
 
   handleUnlikeTalent(value) {
+    this.message = '';
     const { role, talent } = value;
     const talentIndex = this.hireModelData.talents.indexOf(talent);
     const roleIndex = talent.roles.indexOf(role);
     const newTalent = Object.assign({}, talent);
-    talent.errorMessage = '';
-
     this.clientService.unlikeTalent({ applicationId: role.application.id }).subscribe(res => {
       if (res.applicationIdValid) {
         role.application.liked = false;
@@ -173,11 +170,11 @@ export class HireModelComponent implements OnInit {
       }
     }, error => {
       console.log(error);
-      talent.errorMessage = ValidationMessage.BACKEND_CONNECTION_ERROR;
     });
   }
 
   confirmHiring(value) {
+    this.message = '';
     const { talent } = value;
 
     let numLikes = 0;
@@ -239,13 +236,9 @@ export class HireModelComponent implements OnInit {
           }
         }, error => {
           console.log(error);
-          talent.errorMessage = ValidationMessage.BACKEND_CONNECTION_ERROR;
+          this.message = ValidationMessage.GENERIC_ERROR_MESSAGE;
         });
       }
     });
-  }
-
-  onCloseErrorMessage() {
-    this.errorMessage = '';
   }
 }
