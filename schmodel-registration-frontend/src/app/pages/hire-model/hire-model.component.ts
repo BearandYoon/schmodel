@@ -5,6 +5,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { LocalStorageService } from 'ngx-webstorage';
 
 import { ClientService } from '../../core/services';
+import { SharedService } from '../../shared/services';
 import { HireTalent, TermsModalResponse, ValidationMessage } from '../../shared/models';
 import { environment } from '../../../environments/environment';
 import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
@@ -35,7 +36,8 @@ export class HireModelComponent implements OnInit {
     private router: Router,
     private modalService: BsModalService,
     private clientService: ClientService,
-    private localStorage: LocalStorageService
+    private localStorage: LocalStorageService,
+    private sharedService: SharedService
   ) {
   }
 
@@ -67,38 +69,12 @@ export class HireModelComponent implements OnInit {
 
   updateTitle(data) {
     const { eventName, eventStartDate, eventEndDate, eventCity, eventCountry } = data;
-    const eventDate = this.formatEventDate(eventStartDate, eventEndDate);
+    const eventDate = this.sharedService.formatEventDate(eventStartDate, eventEndDate);
 
     const pageTitleDom = document.getElementById('page-title');
     pageTitleDom.innerHTML = `<p style="font-size:14px;margin:0;"><strong>${eventName}</strong> | ${eventDate} | <strong>${eventCity.toUpperCase()}</strong>, ${eventCountry}</p>`;
   }
-
-  formatEventDate(startDate, endDate) {
-    let eventDate = '';
-    if (moment(startDate).isSame(endDate)) {
-      eventDate = moment(startDate, 'YYYY-MM-DD').format('DD MMMM YYYY');
-    } else {
-      eventDate = this.getDifferenceDate(startDate, endDate);
-    }
-
-    return eventDate;
-  }
-
-  getDifferenceDate(start, end) {
-    let period = '';
-    if (moment(start).isSame(end, 'year')) {
-      if (moment(start).isSame(end, 'month')) {
-        period = moment(start).get('date') + ' - ' + moment(end).get('date') + ' ' + moment(start).format('MMMM') + ' ' + moment(start).get('year');
-      } else {
-        period = moment(start).format('DD MMMM') + ' ' + moment(end).format('DD MMMM') + ' ' + moment(start).get('year');
-      }
-    } else {
-      period = moment(start).format('DD MMMM YYYY') + ' - ' + moment(end).format('DD MMMM YYYY');
-    }
-
-    return period;
-  }
-
+  
   calculateLikesAndHired() {
     const data = this.hireModelData;
     for (const role of data.roles) {
