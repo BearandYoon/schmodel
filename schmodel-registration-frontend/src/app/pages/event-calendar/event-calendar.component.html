@@ -19,7 +19,7 @@
       </p>
     </div>
     <ng-container *ngFor="let eventHeader of eventItems?.eventHeaders; let j = index">
-      <div class="talent-content" (click)="onEvent(eventItem[i].data.id)" *ngIf=" j != 0 ">
+      <div class="talent-content" (click)="onEvent(eventItem[0].data.id)" *ngIf=" j != 0 ">
         <div class="info-item" [ngClass]="{'item--none': (eventItem[j].data.jobs == 0)}">
           <p *ngIf="!(eventItem[j].data.jobs == 0)">JOBS<span>{{eventItem[j].data.jobs | number: '2.'}}</span></p>
           <p *ngIf="!(eventItem[j].data.jobs == 0)">APPLICANTS<span>{{eventItem[j].data.applicants | number: '2.'}}</span></p>
