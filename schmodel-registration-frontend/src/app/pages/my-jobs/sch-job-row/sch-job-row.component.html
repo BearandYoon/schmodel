@@ -32,8 +32,8 @@
 
           <div *ngFor="let schedule of event.workSchedules" class="workschedule row col-md-12 col-12 row">
             <div class="col-md-6 col-6 text-left"> {{schedule.day | date: 'd MMMM y'}}</div>
-            <div class="col-md-3 col-3 text-right"> {{schedule.startTime}} </div>
-            <div class="col-md-3 col-3 text-right"> {{schedule.endTime}} </div>
+            <div class="col-md-3 col-3 text-right"> {{formatAMPM(schedule.startTime)}} </div>
+            <div class="col-md-3 col-3 text-right"> {{formatAMPM(schedule.endTime)}} </div>
           </div>
         </div>
 
