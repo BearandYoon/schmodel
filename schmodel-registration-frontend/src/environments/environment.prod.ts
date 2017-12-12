@@ -2,7 +2,6 @@ export const environment = {
   production: true,
   BASE_API_URL: '/api',
   localStorage: {
-    token: 'schModel',
-    ipAddress: 'ipAddress'
+    token: 'schModel'
   }
 };

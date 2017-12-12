@@ -7,8 +7,6 @@ import { ApiRoutingService } from '../../api-routing.service';
 @Injectable()
 export class JobService {
 
-  ipAddress: string = '';
-
   constructor(
     private http: HttpHelperService,
     private ip_http: Http,
@@ -51,15 +49,6 @@ export class JobService {
       true,
       null
     );
-  }
-
-  getIPAddress() {
-    this.ip_http.get(this.apiRoutingService.getIPAddressUrl())
-      .subscribe((res: Response) => {
-        if (res.json() || res.json().ip) {
-          this.ipAddress = res.json().ip;
-        }
-      });
   }
 
 }

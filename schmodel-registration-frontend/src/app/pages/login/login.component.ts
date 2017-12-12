@@ -53,7 +53,6 @@ export class LoginComponent implements OnInit {
     this.authUser.email = this.signInForm.value.email;
     this.authUser.password = this.signInForm.value.password;
     this.authService.logIn(this.authUser).subscribe( res => {
-      this.sharedService.getIPAddress();
       this.router.navigate(['']);
     }, error => {
       if (error.status === 401) {
