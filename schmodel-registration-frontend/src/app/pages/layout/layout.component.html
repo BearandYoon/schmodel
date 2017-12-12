@@ -3,4 +3,5 @@
   <div class="page-content">
     <router-outlet></router-outlet>
   </div>
+  <app-error-toast [ngClass]="{'show': httpHelperService.serverError}" toastMessage="We're experiencing technical difficulties. We've logged this error and we'll be working to fix it right away. Please try again later." (closeToast)="onCloseErrorMessage()"></app-error-toast>
 </div>

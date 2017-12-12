@@ -3,9 +3,8 @@
     <div class="col-md-12">
       <img (click)="openDialog()" src={{image_url}} width="85%">
     </div>
-    <div *ngIf="price; else elseBlock" class="col-md-12" style="padding-top:18%">
-      <p> &nbsp;{{price | number : fractionSize}}€&nbsp; </p>
+    <div class="col-md-12" style="padding-top:18%">
+      <p> &nbsp;€{{price | number : fractionSize}}&nbsp; </p>
     </div>
   </div>
 </div>
-<ng-template #elseBlock> &nbsp; </ng-template>

@@ -35,6 +35,7 @@ export class ConfirmModalComponent implements OnInit {
     this.dialogTitle = 'Hiring Confirmation';
     this.onCloseReason = new Subject();
     this.termsContent = ValidationMessage.TERMS_CONTENT;
+    console.log(this.hireTalent);
   }
 
   onConfirm() {

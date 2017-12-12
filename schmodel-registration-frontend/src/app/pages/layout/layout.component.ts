@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { HttpHelperService } from '../../core/http-helper.service';
 
 @Component({
   selector: 'app-layout',
@@ -12,7 +13,8 @@ export class LayoutComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    public httpHelperService: HttpHelperService
   ) {
     router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
@@ -28,4 +30,9 @@ export class LayoutComponent implements OnInit {
   
   ngOnInit() {
   }
+
+  onCloseErrorMessage() {
+    this.httpHelperService.serverError = false;
+  }
+
 }

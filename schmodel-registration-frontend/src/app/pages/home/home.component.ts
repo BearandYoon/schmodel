@@ -80,18 +80,18 @@ export class HomeComponent implements OnInit {
     }
     this.profileService.isProfileComplete().subscribe(res => {
       this.isCompletedProfile = res.profileComplete;
-      if(this.isCompletedProfile) {
-      	this.profileService.getAfterProfile().subscribe(res => {
-	       this.firstName = res.firstName;
-	       this.lastName = res.lastName;
-	       this.applications = res.applicationCount;
-	       this.upcoming = res.upcomingJobCount;
-	       this.photo_url = res.photoUrl;
-    	   this.isHomePageLoaded = true;
-	    }, err => {
-	        this.isHomePageLoaded = true;
-	      	this.message = 'The page could not be loaded. Please log out, log in again and try once more.';
-    	});
+      if (this.isCompletedProfile) {
+        this.profileService.getAfterProfile().subscribe(response => {
+        this.firstName = response.firstName;
+        this.lastName = response.lastName;
+        this.applications = response.applicationCount;
+        this.upcoming = response.upcomingJobCount;
+        this.photo_url = response.photoUrl;
+        this.isHomePageLoaded = true;
+        }, err => {
+          this.isHomePageLoaded = true;
+          this.message = 'The page could not be loaded. Please log out, log in again and try once more.';
+        });
       } else {
         this.isHomePageLoaded = true;
       }
@@ -100,9 +100,9 @@ export class HomeComponent implements OnInit {
       if (err.status === 500 && body.exception && body.exception === ErrorResponse.TOKEN_EXPIRE) {
             this.router.navigate(['login']);
       } else {
-       		this.isHomePageLoaded = true;
-       		this.message = 'The page could not be loaded. Please log out, log in again and try once more.';
-      } 
+        this.isHomePageLoaded = true;
+        this.message = 'The page could not be loaded. Please log out, log in again and try once more.';
+      }
     });
   }
 

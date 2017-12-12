@@ -4,6 +4,13 @@
   </alert>
 </div>
 
+<div class="message-wrapper" *ngIf="errorMessage">
+  <span class="icon-close" (click)="onCloseErrorMessage()"></span>
+  <span class="message">
+      <b>Oh snap!</b><br/>
+      {{errorMessage}}
+    </span>
+</div>
 <div class="info-bar">
   <img class="formula-logo" src="/assets/images/ic_formula_e.svg">
   <div class="info-wrapper">
@@ -13,8 +20,4 @@
 </div>
 <div class="talents-container">
   <talent-item *ngFor="let talent of hireModelData.talents" [talent]="talent" (confirmHiring)="confirmHiring($event)" (handleLikeTalent)="handleLikeTalent($event)" (handleUnlikeTalent)="handleUnlikeTalent($event)"></talent-item>
-  <!-- <div class="show-more">
-    <img class="overlay" src="/assets/images/img_gradient_overlay.png">
-    <img src="/assets/images/ic_arrow_down.svg">
-  </div> -->
 </div>

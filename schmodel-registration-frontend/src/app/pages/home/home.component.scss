@@ -200,7 +200,6 @@
     bottom: 0;
     text-align: center;
     color: #ffffff;
-    margin-top: 10vh;
     display: flex;
     flex-direction: column;
 
@@ -252,6 +251,10 @@
         font-size: 10px;
         margin-bottom: 15px;
       }
+    }
+
+    .page-footer.unCompleted {
+      position: absolute;
     }
   }
 }

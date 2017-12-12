@@ -13,6 +13,7 @@ $topnav-background-color: #222;
   padding: 30px 30px 0;
   display: flex;
   flex-flow: column wrap;
+  justify-content: space-between;
 
   .img-logo {
     display: block;
@@ -21,10 +22,8 @@ $topnav-background-color: #222;
   }
 
   .content-wrapper {
-    flex: 1 0 0;
     align-items: flex-end;
     display: flex;
-    min-height: 350px;
   }
 
   .content-container {

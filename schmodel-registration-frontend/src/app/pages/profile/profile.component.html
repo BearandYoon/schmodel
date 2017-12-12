@@ -18,7 +18,9 @@
   <div class="profile-text">
     <div>
       <p><label>Date of Birth:</label><span>{{profile.dateOfBirth | date : 'd MMMM yyyy'}}</span></p>
-      <p><label>Residence:</label><span>{{profile.residentialAddressCity}}</span><span *ngIf="profile.residentialAddressCountry">, {{profile.residentialAddressCountry.name}}</span></p>
+      <p><label>Residence:</label>
+        <span *ngIf="!profile.residentialAddressCountry">{{profile.residentialAddressCity}}</span>
+        <span *ngIf="profile.residentialAddressCountry">{{profile.residentialAddressCity}}, {{profile.residentialAddressCountry.name}}</span></p>
       <p><label>Phone number:</label><span>+{{profile.phoneCountryCode}}{{profile.phoneNumber}}</span>
       <p><label>Citizenship:</label><span>{{getCitizen(profile.citizenships)}} </span></p>
       <p>

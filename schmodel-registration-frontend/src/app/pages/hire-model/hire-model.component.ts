@@ -26,6 +26,7 @@ export class HireModelComponent implements OnInit {
   };
   eventId: number;
   message: string;
+  errorMessage: string;
 
   hireModelData: any = {};
 
@@ -192,7 +193,7 @@ export class HireModelComponent implements OnInit {
 
     hireTalent.talentName = talent.firstName;
     hireTalent.companyName = this.hireModelData.companyName;
-    hireTalent.eventDate = this.hireModelData.eventStartDate;
+    hireTalent.eventDate = moment(this.hireModelData.eventStartDate, 'YYYY-MM-DD').format('D MMMM YYYY');
     hireTalent.country = this.hireModelData.eventCountry;
     hireTalent.city = this.hireModelData.eventCity;
 
@@ -204,6 +205,7 @@ export class HireModelComponent implements OnInit {
         applicationId = application.id;
         hireTalent.pay_rate = application.pay;
         hireTalent.clauses = application.clauses;
+        hireTalent.billingCompanyName = application.billingCompanyName;
 
         this.hireModelData.roles.map(role => {
           if (role.id === roleId) {

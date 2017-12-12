@@ -48,7 +48,8 @@ export class EditTalentPhotosComponent implements OnInit {
         photoHeight: 0,
         flag: false,
         backImg: '/assets/images/ic_photo_head.svg',
-        backSize: '80% auto', backPos: '50% 100%'
+        backSize: '80% auto', backPos: '50% 100%',
+        isUploading: false
       }, {
         text: 'Full Length Photo',
         photoUrl: '',
@@ -59,7 +60,8 @@ export class EditTalentPhotosComponent implements OnInit {
         flag: false,
         backImg: '/assets/images/ic_photo_fullbody.svg',
         backSize: '35% auto',
-        backPos: '50% 50%'
+        backPos: '50% 50%',
+        isUploading: false
       }, {
         text: 'Profile Photo',
         photoUrl: '',
@@ -70,7 +72,8 @@ export class EditTalentPhotosComponent implements OnInit {
         flag: false,
         backImg: '/assets/images/ic_photo_profile.svg',
         backSize: '65% auto',
-        backPos: '50% 100%'
+        backPos: '50% 100%',
+        isUploading: false
       }, {
         text: 'Additional Photo',
         photoUrl: '',
@@ -81,7 +84,8 @@ export class EditTalentPhotosComponent implements OnInit {
         flag: false,
         backImg: '',
         backSize: '',
-        backPos: ''
+        backPos: '',
+        isUploading: false
       }, {
         text: 'Additional Photo',
         photoUrl: '',
@@ -92,7 +96,8 @@ export class EditTalentPhotosComponent implements OnInit {
         flag: false,
         backImg: '',
         backSize: '',
-        backPos: ''
+        backPos: '',
+        isUploading: false
       }, {
         text: 'Additional Photo',
         uphotoUrl: '',
@@ -103,7 +108,8 @@ export class EditTalentPhotosComponent implements OnInit {
         flag: false,
         backImg: '',
         backSize: '',
-        backPos: ''
+        backPos: '',
+        isUploading: false
       }
     );
 
@@ -133,10 +139,13 @@ export class EditTalentPhotosComponent implements OnInit {
 
   onClose(num: number) {
     this.message = '';
+    this.photo_section_infor[num].isUploading = true;
     this.profileService.deletePhoto(this.photo_section_infor[num].photoId).subscribe( res => {
       this.photo_section_infor[num].flag = false;
       this.photo_section_infor[num].photoUrl = '';
+      this.photo_section_infor[num].isUploading = false;
     }, error => {
+      this.photo_section_infor[num].isUploading = false;
       this.message = ValidationMessage.GENERIC_ERROR_MESSAGE;
     });
   }
@@ -176,6 +185,7 @@ export class EditTalentPhotosComponent implements OnInit {
             this.data.photoWidth = Math.round(window.innerWidth / 3);
             this.data.photoHeight = Math.round(window.innerWidth / 3);
             this.data.photoTypeId = this.photo_section_infor[this.no_tmp].photoTypeId;
+            this.photo_section_infor[this.no_tmp].isUploading = true;
 
             this.profileService.uploadPhoto(
               this.data.file,
@@ -185,8 +195,10 @@ export class EditTalentPhotosComponent implements OnInit {
                 this.photo_section_infor[this.no_tmp].photoUrl = res.photoUrl;
                 this.photo_section_infor[this.no_tmp].photoId = res.photoId;
                 this.photo_section_infor[this.no_tmp].photo = res.photoUrl;
+              this.photo_section_infor[this.no_tmp].isUploading = false;
             }, error => {
               this.message = ValidationMessage.GENERIC_ERROR_MESSAGE;
+              this.photo_section_infor[this.no_tmp].isUploading = false;
             });
           }
         }.bind(this);
