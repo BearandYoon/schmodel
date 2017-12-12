@@ -1,13 +1,16 @@
-@import "../login/login.component.scss";
-
 .page-container {
   background-image: url("/assets/img/bg_home_page.png");
   background-size: auto;
   padding: 0;
-  justify-content: start;
 
   .logo-container {
     padding: 30px 30px 0;
+
+    .img-logo {
+      display: block;
+      margin: auto;
+      width: 60%;
+    }
   }
 
   .content-wrapper {
@@ -62,6 +65,10 @@
 
 @media (max-width: 426px) {
   .page-container {
+    .img-logo {
+      width: 52.5%;
+    }
+
     .content-wrapper {
       font-size: 18px;
 
@@ -79,9 +86,6 @@
     .content-text {
       padding: 30px;
       font-size: 12px;
-    }
-
-    .page-footer {
     }
   }
 }
