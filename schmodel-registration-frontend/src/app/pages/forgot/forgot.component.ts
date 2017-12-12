@@ -6,7 +6,7 @@ import { routerTransition } from '../../router.animations';
 import { ValidationService } from '../../shared/services';
 
 import { AuthenticationService } from '../../core/services';
-import { ResetUser } from '../../shared/models';
+import { ResetUser, ValidationMessage } from '../../shared/models';
 
 @Component({
   selector: 'app-forgot',
@@ -21,6 +21,7 @@ export class ForgotComponent implements OnInit {
   isSubmitting: boolean;
   emailValid: boolean;
   tokenValid: boolean;
+  errorMessage: string;
 
   constructor(
     public router: Router,
@@ -41,26 +42,35 @@ export class ForgotComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.errorMessage = '';
     const scrollLeft = document.documentElement.scrollLeft;
     window.scrollTo(scrollLeft, 0);
     this.activatedRoute.queryParams.subscribe((params: Params) => {
       const token = params['token'];
-      if(token != null)
+      if (token != null) {
         this.tokenValid = true;
+        this.errorMessage = '';
+      } else {
+        this.errorMessage = ValidationMessage.RESET_TOKEN_EXPIRE;
+      }
     });
   }
-    // reset password feature
-    onReset() {
-      this.resetUser.email = this.forgotForm.value.email;
-      this.isSubmitting = true;
-      this.resetPwdService.resetPwd(this.resetUser).subscribe( res => {
-          this.emailValid = true;
-          this.message = 'If we found your email address in our database, we just sent you an email with instructions on how to reset your password';
-          return;
-        // this.router.navigate(['']);
-      }, err => {
-        this.emailValid = false;
-        this.message = 'Something went wrong.';
-      });
-    }
+
+  onCloseErrorMessage() {
+    this.errorMessage = '';
+  }
+     // reset password feature
+  onReset() {
+    this.resetUser.email = this.forgotForm.value.email;
+    this.isSubmitting = true;
+    this.resetPwdService.resetPwd(this.resetUser).subscribe( res => {
+        this.emailValid = true;
+        this.message = 'If we found your email address in our database, we just sent you an email with instructions on how to reset your password';
+        return;
+      // this.router.navigate(['']);
+    }, err => {
+      this.emailValid = false;
+      this.message = 'Something went wrong.';
+    });
+  }
 }

@@ -25,9 +25,10 @@ export class EventCalendarComponent implements OnInit {
     const scrollLeft = document.documentElement.scrollLeft;
     window.scrollTo(scrollLeft, 0);
     this.profileService.getEventCalendar().subscribe(res => {
-      this.eventItems = res[0].eventList;
+      console.log(res);
+      this.eventItems = res;
       this.bgImgUrls = [];
-      this.eventItems.map(x => {
+      this.eventItems.eventList.map(x => {
         this.bgImgUrls.push(this.getRandomImage());
       });
     });
