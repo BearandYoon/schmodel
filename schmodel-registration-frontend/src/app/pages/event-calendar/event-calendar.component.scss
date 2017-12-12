@@ -43,6 +43,7 @@ $formula-logo-height: 70px;
 	height: $model-img-size; 
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
+	-webkit-overflow-scrolling: touch;
 
 	img {
 		background-repeat: no-repeat;
@@ -80,6 +81,8 @@ $formula-logo-height: 70px;
 				}
 				&:nth-of-type(2) {
 					font-size: 13px;
+					white-space: inherit;
+					word-wrap: break-word !important;
 				}
 				&:nth-of-type(3) {
 					font-size: 13px;
@@ -152,24 +155,77 @@ $formula-logo-height: 70px;
 	}
 }
 
-.show-more {
-	width: 100%;
-	height: 70px;
-	position: fixed;
-	bottom: 0;
-	background-color: black;
-	text-align: center;
-  
-	.overlay {
-	  pointer-events: none;
-	  position: absolute;
-	  width: 100%;
-	  max-height: 200px;
-	  left: 0;
-	  top: 2px;
-	  transform: translateY(-100%);
+@media screen and (max-width: 374px) {
+	.info-bar {
+		img {
+			width: 115px !important;
+		}
 	}
-  }
+
+	.talent-calendar {
+		width: 115px !important;
+	}
+
+	.talent-content {
+		-webkit-overflow-scrolling: touch;
+		.info-item {
+			padding-right: 6px !important;
+			
+			p {
+				span {
+					font-size: 8px !important;
+					vertical-align: inherit !important;
+				}
+			}
+			
+		}
+	}
+}
+
+@media screen and (min-width: 375px) and (max-width: 424px) {
+	.info-bar {
+		img {
+			width: 115px !important;
+		}
+	}
+
+	.talent-calendar {
+		width: 115px !important;
+	}
+
+	.talent-content {
+		-webkit-overflow-scrolling: touch;
+
+		.info-item {
+			padding-right: 6px !important;
+			
+			P {
+				span {
+					font-size: 15px !important;
+				}
+			}
+			
+		}
+	}
+}
+// .show-more {
+// 	width: 100%;
+// 	height: 70px;
+// 	position: fixed;
+// 	bottom: 0;
+// 	background-color: black;
+// 	text-align: center;
+  
+// 	.overlay {
+// 	  pointer-events: none;
+// 	  position: absolute;
+// 	  width: 100%;
+// 	  max-height: 200px;
+// 	  left: 0;
+// 	  top: 2px;
+// 	  transform: translateY(-100%);
+// 	}
+//   }
 
 
 

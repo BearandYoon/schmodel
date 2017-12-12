@@ -3,7 +3,7 @@
     <div class="info-wrapper">
       <ng-container *ngFor="let eventHeader of eventItems?.eventHeaders; let i = index">
           <div class="info-item" *ngIf=" i != 0 ">
-            {{eventHeader.data}}            
+            {{eventHeader.data | uppercase}}            
           </div>
       </ng-container>
     </div>
@@ -30,8 +30,8 @@
 
   </div>
 
-  <div class="show-more">
+  <!-- <div class="show-more">
     <img class="overlay" src="/assets/images/img_gradient_overlay.png">
     <img src="/assets/images/ic_arrow_down.svg">
-  </div>
+  </div> -->
 </div>
