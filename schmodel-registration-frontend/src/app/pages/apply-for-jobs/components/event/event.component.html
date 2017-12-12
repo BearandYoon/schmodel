@@ -4,8 +4,7 @@
     <div class="col-md-4 col-4" [ngStyle]="{'background-color': title_border_style }">
       <div class="race_title_style text-left">
         <h1> {{event_number}} </h1>
-        <time *ngIf="event_start_date == event_end_date"> {{event_start_date | date: 'd MMMM y' }}</time>
-        <time *ngIf="event_start_date != event_end_date"> {{event_start_date | date: 'd' }} - {{event_end_date | date: 'd MMMM y' }}</time>
+        <time> {{sharedService.formatEventDate(event_start_date, event_end_date)}}</time>
 
         <h3> {{event_city}} </h3>
         <p> {{event_country_code}} </p>

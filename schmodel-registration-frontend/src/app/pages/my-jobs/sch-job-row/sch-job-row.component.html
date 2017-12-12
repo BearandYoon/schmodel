@@ -3,8 +3,7 @@
     <header accordion-heading (click)="onCollapse(i)" [attr.aria-expanded]="!isCollapsed">
       <div>
         <h1> FIA Formual E {{event.eventName}} </h1>
-        <time *ngIf="event.eventStartDate == event.eventEndDate"> {{event.eventStartDate | date: 'yMMMMd' }}</time>
-        <time *ngIf="event.eventStartDate != event.eventEndDate"> {{event.eventStartDate | date: 'd' }} - {{event.eventEndDate | date: 'yMMMMd' }}</time>
+        <time> {{sharedService.formatEventDate(event.eventStartDate, event.eventEndDate)}}</time>
         <p>
           <strong>{{event.eventCity.toUpperCase()}},</strong> {{event.eventCountry}}</p>
       </div>

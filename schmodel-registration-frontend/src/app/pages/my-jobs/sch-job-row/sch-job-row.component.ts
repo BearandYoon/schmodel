@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewEncapsulation, TemplateRef } from '@angular/core';
 
 import { routerTransition } from '../../../router.animations';
+import { SharedService } from '../../../shared/services';
 
 @Component({
   selector: 'app-sch-job-row',
@@ -15,7 +16,7 @@ export class SchJobRowComponent implements OnInit {
   public collapse_no: number = -1;
   public isCollapsed: boolean = false;
 
-  constructor() { }
+  constructor(private sharedService: SharedService) { }
 
   ngOnInit() {
     this.formatAMPM("20:09:00");
