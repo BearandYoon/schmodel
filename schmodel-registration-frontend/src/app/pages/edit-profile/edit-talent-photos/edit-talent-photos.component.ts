@@ -178,6 +178,7 @@ export class EditTalentPhotosComponent implements OnInit {
           if (this.data.file.size >= 5 * 1024 * 1024) {
             this.messageModalRef = this.dlgService.show(MessageModalComponent, this.messageModalConfig);
             this.messageModalRef.content.messageContent = this.messageContent;
+            this.messageModalRef.content.messageTitle = "Error";
             this.messageModalRef.content.isBtnCancel = false;
             this.messageModalRef.content.onCloseReason.subscribe(result => {});
           } else {
