@@ -156,6 +156,28 @@ $topnav-background-color: #222;
       font-size: 12px;
       margin: auto;
     }
+
+    .message-wrapper {
+      margin-bottom: 20px;
+      height: 40px;
+      background-color: #FF4165;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 0 5px 0 10px;
+      .icon-close {
+        font-weight: bold;
+        font-size: 20px;
+        margin-right: 10px;
+      }
+      .message {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 6px;
+        b {
+          font-size: 10px;
+        }
+      }
+    }
   }
 }
 
@@ -229,25 +251,3 @@ $topnav-background-color: #222;
 }
 
 .required:before { content:" *"; }
-
-.message-wrapper {
-  margin-bottom: 20px;
-  height: 40px;
-  background-color: #FF4165;
-  color: white;
-  display: flex;
-  align-items: center;
-  padding: 0 5px 0 10px;
-  .icon-close {
-    font-weight: bold;
-    font-size: 20px;
-    margin-right: 10px;
-  }
-  .message {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 6px;
-    b {
-      font-size: 10px;
-    }
-  }
-}
