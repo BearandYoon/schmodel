@@ -35,179 +35,211 @@ $formula-logo-height: 70px;
       }
     }
 }
-	
-.section--talent {
-	display: flex;
-	margin-top: 4px;
-	width: 100%;
-	height: $model-img-size; 
-	background-repeat: no-repeat;
-	background-size: 100% 100%;
-	-webkit-overflow-scrolling: touch;
-
-	img {
-		background-repeat: no-repeat;
-	}
-
-	&:last-of-type {
-		margin-bottom: 4px;
-	}
-
-	&:nth-of-type(2n+1) .talent-calendar {
-		background-color: rgba(0, 198, 253, 0.19);	
-	}
-
-	&:nth-of-type(2n) .talent-calendar {
-		background-color: rgba(97, 29, 146, 0.19);	
-	}
-
-	.talent-calendar {
-		width: $model-img-size;
-
-		.info-values {
-			font-weight: normal;
-			margin: 0;
-			line-height: 0.9em;
-			padding: 25px 12px;
-
-			span {
-				white-space: nowrap;
-				color: white;
-
-				&:nth-of-type(1) {
-					display: block;
-					font-size: 24px;
-					margin-bottom: -5px;
-				}
-				&:nth-of-type(2) {
-					font-size: 13px;
-					white-space: inherit;
-					word-wrap: break-word !important;
-				}
-				&:nth-of-type(3) {
-					font-size: 13px;
-					font-weight: 600;
-				}
-				&:nth-of-type(4) {
-					font-size: 13px;
-				}
-			}
-
-			b {
-				font-weight: 800;
-			}
-		}
-	}
-
-	.talent-content {
+.talent-container {
+	.section--talent {
 		display: flex;
-		flex: 1;
+		margin-top: 4px;
+		width: 100%;
+		height: $model-img-size; 
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+		//-webkit-overflow-scrolling: touch;
 
-		.info-item {
-			flex: 1;
-			height: 100%;
-			position: relative;
+		img {
 			background-repeat: no-repeat;
-			background-position: 50% 50%;
-			background-size: 55px 55px;
-			padding: 15px 8px 0px 0px;
-			
-			&:after {
-				content: "";
-				position: absolute;
-				background-image: linear-gradient(rgba(132, 132, 132, 0.04), #887d7d, rgba(255, 255, 255, 0.04));
-				background-size: 100% 100%;
-				height: 100%;
-				width: 1px;
-				right: 0;
-				top: 0;
-			}
+		}
 
-			&.item--none {
-				background-image: url('/assets/images/ic_circle_none.svg');
-			}
+		&:last-of-type {
+			margin-bottom: 4px;
+		}
 
-			p {
-				font-size: 8px;
-				text-align: right;
+		&:nth-of-type(2n+1) .talent-calendar {
+			background-color: rgba(0, 198, 253, 0.19);	
+		}
+
+		&:nth-of-type(2n) .talent-calendar {
+			background-color: rgba(97, 29, 146, 0.19);	
+		}
+
+		.talent-calendar {
+			width: $model-img-size;
+
+			.info-values {
+				font-weight: normal;
 				margin: 0;
-				line-height: 3em;
+				line-height: 16px;
+				padding: 15px 12px;
 
 				span {
-					font-size: 20px;
-					vertical-align: -webkit-baseline-middle;
+					white-space: nowrap;
+					color: white;
+
+					&:nth-of-type(1) {
+						display: block;
+						font-size: 24px;
+						line-height: 17px;
+						margin-bottom: 4px;
+					}
+					&:nth-of-type(2) {
+						font-size: 13px;
+						white-space: inherit;
+						word-wrap: break-word !important;
+					}
+					&:nth-of-type(3) {
+						font-size: 13px;
+						font-weight: 600;
+					}
+					&:nth-of-type(4) {
+						font-size: 13px;
+					}
+				}
+
+				b {
 					font-weight: 800;
-					margin-left: 3px;
-					
+				}
+			}
+		}
+
+		.talent-content {
+			display: flex;
+			flex: 1;
+			flex-flow: column wrap;
+
+			.info-item {
+				flex: 1;
+				height: 100%;
+				position: relative;
+				background-repeat: no-repeat;
+				background-position: 50% 50%;
+				background-size: 55px 55px;
+				padding: 15px 13px 0px 0px;
+				
+				&:after {
+					content: "";
+					position: absolute;
+					background-image: linear-gradient(rgba(132, 132, 132, 0.04), #887d7d, rgba(255, 255, 255, 0.04));
+					//background: -webkit-linear-gradient(rgba(132, 132, 132, 0.04), #887d7d, rgba(255, 255, 255, 0.04));
+					background-size: 100% 100%;
+					height: 100%;
+					width: 1px;
+					right: 0;
+					top: 0;
 				}
 
-				&:nth-of-type(1) {
-					color: #ffffff;
+				&.item--none {
+					background-image: url('/assets/images/ic_circle_none.svg');
 				}
-				&:nth-of-type(2) {
-					color: #a6a9ac;
-				}
-				&:nth-of-type(3) {
-					color: #4dc7eb;
+
+				p {
+					font-size: 8px;
+					text-align: right;
+					margin: 0;
+					line-height: 3em;
+
+					span {
+						font-size: 20px;
+						vertical-align: -webkit-baseline-middle;
+						font-weight: 800;
+						margin-left: 3px;
+						
+					}
+
+					&:nth-of-type(1) {
+						color: #ffffff;
+					}
+					&:nth-of-type(2) {
+						color: #a6a9ac;
+					}
+					&:nth-of-type(3) {
+						color: #4dc7eb;
+					}
 				}
 			}
 		}
 	}
 }
 
-@media screen and (max-width: 374px) {
+@media screen and (min-width: 320px) and (max-width: 414px) {
 	.info-bar {
 		img {
-			width: 115px !important;
+			width: 100px !important;
 		}
 	}
+	.section--talent {
+		height: 105px !important;
 
-	.talent-calendar {
-		width: 115px !important;
-	}
+		.talent-calendar {
+			width: 100px !important;
 
-	.talent-content {
-		-webkit-overflow-scrolling: touch;
-		.info-item {
-			padding-right: 6px !important;
-			
-			p {
+			.info-values {
+				padding: 10px 9px !important;
+
 				span {
-					font-size: 8px !important;
-					vertical-align: inherit !important;
+					&:nth-of-type(1) {
+						font-size: 18px !important;
+						line-height: 16px !important;
+					}
 				}
 			}
-			
+		}
+	
+		.talent-content {
+			.info-item {
+				padding-right: 6px !important;
+				
+				p {
+					span {
+						margin-left: 3px;
+						font-size: 9px !important;
+						vertical-align: baseline !important;
+					}
+				}
+				
+			}
 		}
 	}
 }
 
-@media screen and (min-width: 375px) and (max-width: 424px) {
-	.info-bar {
-		img {
-			width: 115px !important;
-		}
-	}
+// @media screen and (min-width: 375px) and (max-width: 424px) {
+// 	.info-bar {
+// 		img {
+// 			width: 100px !important;
+// 		}
+// 	}
 
-	.talent-calendar {
-		width: 115px !important;
-	}
+// 	.talent-calendar {
+// 		width: 100px !important;
+// 	}
 
-	.talent-content {
-		-webkit-overflow-scrolling: touch;
+// 	.talent-calendar {
+// 		width: 100px !important;
 
-		.info-item {
-			padding-right: 6px !important;
+// 		.info-values {
+// 			padding: 10px 9px !important;
+
+// 			&:nth-of-type(1) {
+// 				font-size: 18px;
+// 			}
 			
-			P {
-				span {
-					font-size: 15px !important;
-				}
-			}
+// 		}
+// 	}
+
+// 	.talent-content {
+
+// 		.info-item {
+// 			padding: 10px 9px !important;
 			
-		}
-	}
-}
+// 			P {
+// 				span {
+// 					font-size: 15px !important;
+// 				}
+// 			}
+			
+// 		}
+// 	}
+// }
+
+
 // .show-more {
 // 	width: 100%;
 // 	height: 70px;
