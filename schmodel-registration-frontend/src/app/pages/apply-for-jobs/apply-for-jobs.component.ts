@@ -66,9 +66,6 @@ export class ApplyForJobsComponent implements OnInit {
             'taking into account the requirements of every company.';
     }
 
-    onScrollDown() {
-    }
-
     showDetailDialog(title: string) {
         this.detailDlgRef = this.detailDlgService.show(DialogDetailComponent, this.detailDlgConfig);
         this.detailDlgRef.content.dialogContent = this.detailDlgContent;
