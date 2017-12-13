@@ -48,8 +48,9 @@ p {
 }
 
 .apply-for-jobs {
+    height: 90vh;
     background-image: url(/assets/img/bg_pattern.png);
-    overflow: hidden;
+    overflow-y: scroll;
 }
 
 .role-border-style {
@@ -111,6 +112,13 @@ p {
     background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* IE10+ */
     background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* W3C */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0089fff1', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+}
+
+.table-header {
+    z-index: 999;
+    top: 0;
+    position: sticky;
+    background-image: url(/assets/img/bg_pattern.png);    
 }
 
 @media (max-width: 325px) {

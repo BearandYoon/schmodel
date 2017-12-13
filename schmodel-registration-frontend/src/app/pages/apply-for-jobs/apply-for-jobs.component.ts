@@ -21,6 +21,7 @@ import { ValidationMessage } from '../../shared/models';
 export class ApplyForJobsComponent implements OnInit {
 
     public showDialog = false;
+    public stickyFlag = false;
     public role_title: string[];
     detailDlgRef: BsModalRef;
     detailDlgContent: string;
@@ -41,7 +42,7 @@ export class ApplyForJobsComponent implements OnInit {
         private jobService: JobService
     ) {
     }
-
+    
     ngOnInit() {
         this.jobService.getApplyForJobs((success, response) => {
             if (success) {
