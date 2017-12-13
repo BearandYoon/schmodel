@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { BsModalService } from "ngx-bootstrap/modal";
@@ -43,6 +43,16 @@ export class ApplyForJobsComponent implements OnInit {
     ) {
     }
     
+    @HostListener('window:scroll', ['$event'])
+    onPageScroll(event) {
+        console.log(event);
+        if(event.target.scrollTop >= 10) {
+            this.stickyFlag = true;
+        } else {
+            this.stickyFlag = false;
+        }
+    }
+
     ngOnInit() {
         this.jobService.getApplyForJobs((success, response) => {
             if (success) {

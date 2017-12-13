@@ -3,6 +3,11 @@ $page-margin-half: 1.5px;
 $model-img-size: 120px;
 $formula-logo-height: 70px;
 
+.event-calender {
+	height: 90vh;
+	overflow-y: scroll;
+}
+
 .info-bar {
     display: flex;
     padding-top: $page-margin;
