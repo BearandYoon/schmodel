@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
@@ -28,6 +28,7 @@ export class HireModelComponent implements OnInit {
   eventId: number;
   message: string;
   errorMessage: string;
+  stickyFlag = false;
 
   hireModelData: any = {};
 
@@ -39,6 +40,16 @@ export class HireModelComponent implements OnInit {
     private localStorage: LocalStorageService,
     private sharedService: SharedService
   ) {
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onPageScroll(event) {
+    console.log(event);
+    if(event.target.scrollTop >= 10) {
+        this.stickyFlag = true;
+    } else {
+        this.stickyFlag = false;
+    }
   }
 
   ngOnInit() {

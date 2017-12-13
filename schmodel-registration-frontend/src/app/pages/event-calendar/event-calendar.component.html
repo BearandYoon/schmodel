@@ -1,33 +1,33 @@
-<div class="info-bar">
-    <img class="formula-logo" src="/assets/images/ic_formula_e.svg">
-    <div class="info-wrapper">
-      <ng-container *ngFor="let eventHeader of eventItems?.eventHeaders; let i = index">
-          <div class="info-item" *ngIf=" i != 0 ">
-            {{eventHeader.data | uppercase}}            
+<div (scroll)="onPageScroll($event)" class="event-calender">  
+  <div class="{{stickyFlag ? 'info-bar table-header' : 'info-bar'}}">
+      <img class="formula-logo" src="/assets/images/ic_formula_e.svg">
+      <div class="info-wrapper">
+        <ng-container *ngFor="let eventHeader of eventItems?.eventHeaders; let i = index">
+            <div class="info-item" *ngIf=" i != 0 ">
+              {{eventHeader.data | uppercase}}            
+            </div>
+        </ng-container>
+      </div>
+  </div>
+  <div class="talent-container">
+    <div class="section--talent" [style.backgroundImage]="bgImgUrls[i]" *ngFor="let eventItem of eventItems?.eventList; let i = index" >
+      <div class="talent-calendar">
+        <p class="info-values">
+          <span><b>{{eventItem[0].data.name}}</b></span><br/>
+          <span>{{sharedService.formatEventDate(eventItem[0].data.startDate, eventItem[0].data.endDate)}}</span><br/>
+          <span>{{eventItem[0].data.city | uppercase}}</span><br/>
+          <span>{{eventItem[0].data.country.name}}</span>
+        </p>
+      </div>
+      <ng-container *ngFor="let eventHeader of eventItems?.eventHeaders; let j = index">
+        <div class="talent-content" (click)="onEvent(eventItem[0].data.id)" *ngIf=" j != 0 ">
+          <div class="info-item" [ngClass]="{'item--none': (eventItem[j].data.jobs == 0)}">
+            <p *ngIf="!(eventItem[j].data.jobs == 0)">JOBS<span>{{eventItem[j].data.jobs | number: '2.'}}</span></p>
+            <p *ngIf="!(eventItem[j].data.jobs == 0)">APPLICANTS<span>{{eventItem[j].data.applicants | number: '2.'}}</span></p>
+            <p *ngIf="!(eventItem[j].data.jobs == 0)">HIRED<span>{{eventItem[j].data.hired | number: '2.'}}</span></p>
           </div>
+        </div>
       </ng-container>
     </div>
-</div>
-<div class="talent-container">
-  <div class="section--talent" [style.backgroundImage]="bgImgUrls[i]" *ngFor="let eventItem of eventItems?.eventList; let i = index" >
-    <div class="talent-calendar">
-      <p class="info-values">
-        <span><b>{{eventItem[0].data.name}}</b></span><br/>
-        <span>{{sharedService.formatEventDate(eventItem[0].data.startDate, eventItem[0].data.endDate)}}</span><br/>
-        <span>{{eventItem[0].data.city | uppercase}}</span><br/>
-        <span>{{eventItem[0].data.country.name}}</span>
-      </p>
-    </div>
-    <ng-container *ngFor="let eventHeader of eventItems?.eventHeaders; let j = index">
-      <div class="talent-content" (click)="onEvent(eventItem[0].data.id)" *ngIf=" j != 0 ">
-        <div class="info-item" [ngClass]="{'item--none': (eventItem[j].data.jobs == 0)}">
-          <p *ngIf="!(eventItem[j].data.jobs == 0)">JOBS<span>{{eventItem[j].data.jobs | number: '2.'}}</span></p>
-          <p *ngIf="!(eventItem[j].data.jobs == 0)">APPLICANTS<span>{{eventItem[j].data.applicants | number: '2.'}}</span></p>
-          <p *ngIf="!(eventItem[j].data.jobs == 0)">HIRED<span>{{eventItem[j].data.hired | number: '2.'}}</span></p>
-        </div>
-      </div>
-    </ng-container>
-
   </div>
-
 </div>

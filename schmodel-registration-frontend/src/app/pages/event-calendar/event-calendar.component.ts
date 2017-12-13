@@ -1,4 +1,4 @@
-import { Component, OnInit, Pipe, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Pipe, ChangeDetectorRef, HostListener } from '@angular/core';
 import * as moment from 'moment';
 
 import { Router } from '@angular/router';
@@ -12,6 +12,7 @@ import { SharedService } from '../../shared/services';
 })
 export class EventCalendarComponent implements OnInit {
 
+  stickyFlag = false;
   eventItems: any;
   bgImgUrls: string[];
 
@@ -21,6 +22,15 @@ export class EventCalendarComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     private sharedService: SharedService
   ) { }
+
+  @HostListener('window:scroll', ['$event'])
+  onPageScroll(event) {
+      if(event.target.scrollTop >= 10) {
+          this.stickyFlag = true;
+      } else {
+          this.stickyFlag = false;
+      }
+  }
 
   ngOnInit() {
     const scrollLeft = document.documentElement.scrollLeft;
