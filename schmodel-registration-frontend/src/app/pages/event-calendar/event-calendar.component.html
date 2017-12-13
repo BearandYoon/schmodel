@@ -1,5 +1,5 @@
-<div class="event-calender">  
-  <div class="info-bar">
+<div (scroll)="onPageScroll($event)" class="event-calender">  
+  <div class="{{stickyFlag ? 'info-bar table-header' : 'info-bar'}}">
       <img class="formula-logo" src="/assets/images/ic_formula_e.svg">
       <div class="info-wrapper">
         <ng-container *ngFor="let eventHeader of eventItems?.eventHeaders; let i = index">

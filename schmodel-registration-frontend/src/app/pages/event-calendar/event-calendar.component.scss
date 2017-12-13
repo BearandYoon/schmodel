@@ -8,6 +8,14 @@ $formula-logo-height: 70px;
 	overflow-y: scroll;
 }
 
+.table-header {
+    z-index: 999;
+	top: 0;
+	width: 100%;
+    position: fixed;
+	background-image: url(/assets/img/bg_pattern.png);
+}
+
 .info-bar {
     display: flex;
     padding-top: $page-margin;
