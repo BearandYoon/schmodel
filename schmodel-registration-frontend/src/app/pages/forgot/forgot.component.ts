@@ -49,7 +49,7 @@ export class ForgotComponent implements OnInit {
       const token = params['token'];
       if (token != null) {
         this.tokenValid = true;
-        this.errorMessage = '';
+        this.errorMessage = ValidationMessage.RESET_TOKEN_EXPIRE;
       } else {
         this.errorMessage = ValidationMessage.RESET_TOKEN_EXPIRE;
       }
@@ -58,6 +58,7 @@ export class ForgotComponent implements OnInit {
 
   onCloseErrorMessage() {
     this.errorMessage = '';
+    this.tokenValid = null;
   }
      // reset password feature
   onReset() {
