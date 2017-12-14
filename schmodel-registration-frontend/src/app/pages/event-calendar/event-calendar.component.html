@@ -13,7 +13,7 @@
     <div class="section--talent" [style.backgroundImage]="bgImgUrls[i]" *ngFor="let eventItem of eventItems?.eventList; let i = index" >
       <div class="talent-calendar">
         <p class="info-values">
-          <span><b>{{eventItem[0].data.name}}</b></span><br/>
+          <span><b>{{eventItem[0].data.name}}</b></span>
           <span>{{sharedService.formatEventDate(eventItem[0].data.startDate, eventItem[0].data.endDate)}}</span><br/>
           <span>{{eventItem[0].data.city | uppercase}}</span><br/>
           <span>{{eventItem[0].data.country.name}}</span>
