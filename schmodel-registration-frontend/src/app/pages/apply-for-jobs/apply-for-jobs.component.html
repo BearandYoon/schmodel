@@ -4,17 +4,17 @@
       <img src="/assets/img/ic_formulae.png" width="100%">
     </div>
 
-    <div *ngFor="let i of [0,1,2]" class="col-md-2 col-2 role_bg align-items-center row">
+    <div *ngFor="let i of [0,1,2]" class="col-md-2 col-2 role_bg row">
       <div class="col-md-12" (click)="showDetailDialog(role_title[i] + ' position')">
         <img src="/assets/img/ic_infor.png" width="100%">
       </div>
 
-      <div class="col-md-12 role-title-style">
+      <div class="col-md-12 align-bottom role-title-style">
         <h2> {{role_title[i]}} </h2>
       </div>
     </div>
 
-    <div class="col-md-2 col-2 role_bg align-items-center row">
+    <div class="col-md-2 col-2 role_bg row">
       <div class="col-md-12" (click)="showDetailDialog('GUEST position')">
         <img src="/assets/img/ic_infor.png" width="100%">
       </div>
