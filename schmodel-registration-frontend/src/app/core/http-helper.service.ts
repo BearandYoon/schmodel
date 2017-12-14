@@ -251,9 +251,11 @@ export class HttpHelperService {
         }
       } else {
         this.serverError = true;
+        return Observable.never();
       }
     } else if (error.status === 504) {
       this.serverError = true;
+      return Observable.never();
     }
 
     return Observable.throw(error);

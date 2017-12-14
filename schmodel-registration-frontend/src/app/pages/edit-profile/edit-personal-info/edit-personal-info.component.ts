@@ -86,7 +86,7 @@ export class EditPersonalInfoComponent implements OnInit {
     const monthOfBirth = this.editPersonalForm.value.month;
     const yearOfBirth = this.editPersonalForm.value.year;
 
-    return new Date(`${dayOfBirth}-${monthOfBirth}-${yearOfBirth}`);
+    return new Date(`${yearOfBirth}-${monthOfBirth}-${dayOfBirth}`);
   }
 
   initializePersonalForm() {

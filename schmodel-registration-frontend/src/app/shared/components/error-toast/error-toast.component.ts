@@ -8,6 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } fro
 })
 export class ErrorToastComponent implements OnInit {
 
+  @Input() toastTitle: string = '';
   @Input() toastMessage: string = '';
   @Output() closeToast: EventEmitter<any> = new EventEmitter();
 
