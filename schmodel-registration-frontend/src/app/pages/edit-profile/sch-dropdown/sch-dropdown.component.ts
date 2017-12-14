@@ -189,5 +189,4 @@ export class SchDropdownComponent implements OnInit, ControlValueAccessor {
       this.options = this.data.options.filter(option => this.excludedValues.indexOf('' + option.value) < 0);
     }
   }
-  
 }

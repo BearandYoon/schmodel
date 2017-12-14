@@ -30,7 +30,9 @@ export class EditPersonalInfoComponent implements OnInit {
     this.editPersonalForm = formBuilder.group({
       'firstName': ['', [Validators.required]],
       'lastName': ['', [Validators.required]],
-      'dateOfBirth': ['', [Validators.required]],
+      'day': ['', [Validators.required]],
+      'month': ['', [Validators.required]],
+      'year': ['', [Validators.required]],
       'residentialAddressCountryId': ['', [Validators.required]],
       'residentialAddressCity': ['', [Validators.required]],
       'residentialAddressState': ['', []],
@@ -80,14 +82,11 @@ export class EditPersonalInfoComponent implements OnInit {
   }
 
   toDateFormatString() {
-    const parts = this.editPersonalForm.value.dateOfBirth.split('|');
-    return `${parts[2]}-${parts[1]}-${parts[0]}`;
-  }
+    const dayOfBirth = this.editPersonalForm.value.day;
+    const monthOfBirth = this.editPersonalForm.value.month;
+    const yearOfBirth = this.editPersonalForm.value.year;
 
-  toDateFormatValue(dateStr) {
-    if (!dateStr) return null;
-    const parts = dateStr.split('-');
-    return `${parts[2]}|${parts[1]}|${parts[0]}`;
+    return new Date(`${dayOfBirth}-${monthOfBirth}-${yearOfBirth}`);
   }
 
   initializePersonalForm() {
@@ -120,7 +119,17 @@ export class EditPersonalInfoComponent implements OnInit {
       linkedinUsername,
       biography
     } = this.profileService.profileData;
-    const dateOfBirthValue = this.toDateFormatValue(dateOfBirth);
+
+    let dayOfBirth = '';
+    let monthOfBirth = '';
+    let yearOfBirth = '';
+    if (dateOfBirth) {
+      const parts = dateOfBirth.split('-');
+      dayOfBirth = parts[2];
+      monthOfBirth = parts[1];
+      yearOfBirth = parts[0];
+    }
+
     const citizenshipIds = citizenships.map(e => e.id).join('|');
     const languageIds = languages.map(e => e.id).join('|');
     const residentialAddressCountryId = residentialAddressCountry ? residentialAddressCountry.id : null;
@@ -136,7 +145,9 @@ export class EditPersonalInfoComponent implements OnInit {
     this.editPersonalForm.setValue({
       firstName,
       lastName,
-      dateOfBirth: dateOfBirthValue,
+      day: dayOfBirth,
+      month: monthOfBirth,
+      year: yearOfBirth,
       residentialAddressCountryId,
       residentialAddressCity,
       residentialAddressState,
@@ -204,6 +215,9 @@ export class EditPersonalInfoComponent implements OnInit {
   onSubmit() {
     this.message = '';
     const data = {...this.editPersonalForm.value};
+    delete data.day;
+    delete data.month;
+    delete data.year;
     data.dateOfBirth = this.toDateFormatString();
     data.citizenshipIds = data.citizenshipIds.split('|');
     data.languageIds = data.languageIds.split('|');

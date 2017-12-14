@@ -2,11 +2,10 @@
   <div class="collapse_section" *ngFor="let event of event_role; let i = index">
     <header accordion-heading (click)="onCollapse(i)" [attr.aria-expanded]="!isCollapsed">
       <div>
-        <h1> Formual E {{event.eventName}} </h1>
-        <time *ngIf="event.eventStartDate == event.eventEndDate"> {{event.eventStartDate | date: 'yMMMMd' }}</time>
-        <time *ngIf="event.eventStartDate != event.eventEndDate"> {{event.eventStartDate | date: 'd' }} - {{event.eventEndDate | date: 'yMMMMd' }}</time>
+        <h1> FIA Formula E {{event.eventName}} </h1>
+        <time> {{sharedService.formatEventDate(event.eventStartDate, event.eventEndDate)}}</time>
         <p>
-          <strong>{{event.eventCity}},</strong> {{event.eventCountry}}</p>
+          <strong>{{event.eventCity.toUpperCase()}},</strong> {{event.eventCountry}}</p>
       </div>
       <span *ngIf="collapse_no != i" class="icon icon-plus-circle"></span>
       <span *ngIf="collapse_no == i" class="icon icon-minus-circle"></span>
@@ -32,8 +31,8 @@
 
           <div *ngFor="let schedule of event.workSchedules" class="workschedule row col-md-12 col-12 row">
             <div class="col-md-6 col-6 text-left"> {{schedule.day | date: 'd MMMM y'}}</div>
-            <div class="col-md-3 col-3 text-right"> {{schedule.startTime}} </div>
-            <div class="col-md-3 col-3 text-right"> {{schedule.endTime}} </div>
+            <div class="col-md-3 col-3 text-right"> {{formatAMPM(schedule.startTime)}} </div>
+            <div class="col-md-3 col-3 text-right"> {{formatAMPM(schedule.endTime)}} </div>
           </div>
         </div>
 

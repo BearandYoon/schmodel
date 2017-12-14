@@ -4,9 +4,11 @@ app-error-toast {
   left: 0;
   width: 100%;
   overflow: hidden;
+  pointer-events: none;
 
   &.show .toast-wrapper {
     transform: none;
+    pointer-events: auto;
   }
 
   .toast-wrapper {

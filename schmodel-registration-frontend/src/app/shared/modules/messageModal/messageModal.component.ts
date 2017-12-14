@@ -10,6 +10,7 @@ import { Subject } from 'rxjs/Subject';
 })
 export class MessageModalComponent implements OnInit {
   messageContent: String;
+  messageTitle: String = "Error";
   isBtnCancel: boolean;
   public onCloseReason: Subject<string>;
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { BsModalService } from "ngx-bootstrap/modal";
@@ -21,6 +21,7 @@ import { ValidationMessage } from '../../shared/models';
 export class ApplyForJobsComponent implements OnInit {
 
     public showDialog = false;
+    public stickyFlag = false;
     public role_title: string[];
     detailDlgRef: BsModalRef;
     detailDlgContent: string;
@@ -41,9 +42,17 @@ export class ApplyForJobsComponent implements OnInit {
         private jobService: JobService
     ) {
     }
+    
+    @HostListener('window:scroll', ['$event'])
+    onPageScroll(event) {
+        if(event.target.scrollTop >= 10) {
+            this.stickyFlag = true;
+        } else {
+            this.stickyFlag = false;
+        }
+    }
 
     ngOnInit() {
-        this.jobService.getIPAddress();
         this.jobService.getApplyForJobs((success, response) => {
             if (success) {
                 this.eventView = response;
@@ -65,9 +74,6 @@ export class ApplyForJobsComponent implements OnInit {
             'to self-branding or personal brand management. Professional figures such as good-will and non-profit ambassadors, ' +
             'promotional models, testimonials and brand advocates have formed as an extension of the same concept, ' +
             'taking into account the requirements of every company.';
-    }
-
-    onScrollDown() {
     }
 
     showDetailDialog(title: string) {
