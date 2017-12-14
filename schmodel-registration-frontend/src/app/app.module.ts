@@ -17,7 +17,7 @@ import { TermsModalComponent } from './shared/modules';
 import { MessageModalComponent } from './shared/modules';
 import { ConfirmModalComponent } from './pages/hire-model/confirm-modal/confirm-modal.component';
 import { LayoutModule } from './pages/layout/layout.module';
-import { DialogDetailComponent } from './pages/apply-for-jobs/components/dialog-detail/dialog-detail..component';
+import { DialogDetailComponent } from './pages/apply-for-jobs/components/dialog-detail/dialog-detail.component';
 import { DialogJobApplyComponent } from './pages/apply-for-jobs/components/dialog-job-apply/dialog-job-apply.component';
 import { DialogWithdrawComponent } from './pages/apply-for-jobs/components/dialog-withdraw/dialog-withdraw.component';
 import { SwiperModule } from 'angular2-useful-swiper';

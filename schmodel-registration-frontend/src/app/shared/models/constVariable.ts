@@ -37,6 +37,20 @@ export class ValidationMessage {
     'included on the booking confirmation form. In the event of any inconsistency or contradiction between ' +
     'these terms and conditions and the booking confirmation form, the terms set out in the booking' +
     ' confirmation form shall prevail.';
+  public static PR_DESCRIPTION = 'A Schmodel PR (sometimes also called a Brand Ambassador) is a person who is hired by an organization' +
+    ' or company to represent a brand in a positive light and by doing so help to increase brand awareness and sales. ' +
+    'The brand ambassador is meant to embody the corporate identity in appearance, demeanor, values and ethics. ' +
+    'The key element of brand ambassadors is their ability to use promotional strategies that ' +
+    'will strengthen the customer-product-service relationship and influence a large audience to buy and consume more. ' +
+    'Predominantly, a brand ambassador is known as a positive spokesperson, ' +
+    'an opinion leader or a community influencer, appointed as an internal or external agent to boost product or service sales ' +
+    'and create brand awareness. Today, brand ambassador as a term has expanded beyond celebrity branding ' +
+    'to self-branding or personal brand management. Professional figures such as good-will and non-profit ambassadors, ' +
+    'promotional models, testimonials and brand advocates have formed as an extension of the same concept, ' +
+    'taking into account the requirements of every company.';
+  public static HOST_DESCRIPTION = 'Host role description text TBD.';
+  public static GRID_DESCRIPTION = 'Grid role description text TBD.';
+  public static SCHMODEL_GUEST_DESCRIPTION = 'Schmodel Guest role description text TBD.';
   public static FAIL_GET_APPLY_FOR_JOBS = 'The page could not be loaded. Please log out, log in again and try once more.';
   public static FAIL_CREATE_APPLICATION = 'The application could not be created. Please log out, log in again and try once more.';
   public static FAIL_WITHDRAW_APPLICATION = 'The application could not be withdrawn. Please log out, log in again and try once more.';
