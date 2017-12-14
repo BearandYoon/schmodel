@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DialogDetailComponent } from './dialog-detail..component';
+import { DialogDetailComponent } from './dialog-detail.component';
 
 describe('TermsModalComponent', () => {
   let component: DialogDetailComponent;
