@@ -19,6 +19,7 @@ export class ChangepasswordComponent implements OnInit {
   missMatchPass: string;
   token: string;
   tokenUser: TokenUser = new TokenUser();
+  tokenValid: boolean;
 
   constructor(
     public router: Router,
@@ -37,12 +38,14 @@ export class ChangepasswordComponent implements OnInit {
   ngOnInit() {
     const scrollLeft = document.documentElement.scrollLeft;
     window.scrollTo(scrollLeft, 0);
+    this.tokenValid = false;
     this.activatedRoute.queryParams.subscribe((params: Params) => {
       const token = params['token'];
       this.tokenUser.token = token;
 
       this.authService.validateToken(this.tokenUser).subscribe( res => {
        if (res.tokenValid === true) {
+          this.tokenValid = true;
           this.router.navigate(['/change-password'], { queryParams: { token: token }});
         } else if (res.tokenValid !== true) {
           this.router.navigate(['/forgot'], { queryParams: { token: token }});
