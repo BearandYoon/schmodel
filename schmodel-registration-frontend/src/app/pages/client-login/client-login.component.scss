@@ -127,6 +127,33 @@
         margin: auto;
       }
     }
+
+    .message-wrapper {
+      width: calc(100% + 60px);
+      margin-left: -30px;
+      margin-bottom: 15px;
+      text-align: left;
+      min-height: 40px;
+      background-color: #FF4165;
+      color: white;
+      align-items: center;
+      padding: 0 5px 0 25px;
+      display: flex;
+
+      .icon-close {
+        font-weight: bold;
+        font-size: 20px;
+        margin-right: 10px;
+      }
+
+      .message {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 12px;
+        b {
+          font-size: 14px;
+        }
+      }
+    }
   }
 }
 
@@ -142,6 +169,13 @@
     .content-container {
       .comment {
         font-size: 35px;
+      }
+    }
+
+    .action-container {
+      .message-wrapper {
+        width: calc(100% + 100px);
+        margin-left: -50px;
       }
     }
   }
