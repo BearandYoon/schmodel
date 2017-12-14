@@ -46,21 +46,7 @@ export class HireModelComponent implements OnInit {
     this.route.queryParams.subscribe(res => {
       if (res && res.eventId) {
         this.eventId = res.eventId;
-
-        const data = {
-          'eventId': this.eventId,
-          'photoWidth': Math.round(window.innerWidth / 3),
-          'photoHeight': Math.round(window.innerWidth / 3)
-        };
-
-        this.clientService.getHireSchemodel(data).subscribe(response => {
-          if (response.eventIdValid) {
-            this.updateTitle(response);
-            this.transformData(response);
-          }
-        }, error => {
-          console.log(error);
-        });
+        this.getHireSchemodel();
       } else {
         this.router.navigate(['client/event-calendar']);
       }
@@ -74,7 +60,24 @@ export class HireModelComponent implements OnInit {
     const pageTitleDom = document.getElementById('page-title');
     pageTitleDom.innerHTML = `<p style="font-size:14px;margin:0;"><strong>${eventName}</strong> | ${eventDate} | <strong>${eventCity.toUpperCase()}</strong>, ${eventCountry}</p>`;
   }
-  
+
+  getHireSchemodel() {
+    const data = {
+      'eventId': this.eventId,
+      'photoWidth': Math.round(window.innerWidth / 3),
+      'photoHeight': Math.round(window.innerWidth / 3)
+    };
+
+    this.clientService.getHireSchemodel(data).subscribe(response => {
+      if (response.eventIdValid) {
+        this.updateTitle(response);
+        this.transformData(response);
+      }
+    }, error => {
+      console.log(error);
+    });
+  }
+
   calculateLikesAndHired() {
     const data = this.hireModelData;
     for (const role of data.roles) {
@@ -82,15 +85,15 @@ export class HireModelComponent implements OnInit {
       role.liked = 0;
       role.hired = 0;
       for (const talent of data.talents) {
+        if (talent.contractRoleId && talent.contractRoleId === role.id) {
+          role.hired++;
+        }
         for (const application of talent.applications) {
           if (application.roleId === role.id) {
             role.applicants ++;
-            if (talent.hired) {
-              if (application.liked) {
-                role.hired ++;
-              }
-            } else if (application.liked) {
-              role.liked ++;
+
+            if (application.liked) {
+              role.liked++;
             }
           }
         }
@@ -127,7 +130,7 @@ export class HireModelComponent implements OnInit {
     this.clientService.likeTalent({ applicationId: role.application.id }).subscribe(res => {
       if (res.applicationIdValid) {
         role.application.liked = true;
-        this.calculateLikesAndHired();
+        this.getHireSchemodel();
       }
     }, error => {
       console.log(error);
@@ -143,7 +146,7 @@ export class HireModelComponent implements OnInit {
     this.clientService.unlikeTalent({ applicationId: role.application.id }).subscribe(res => {
       if (res.applicationIdValid) {
         role.application.liked = false;
-        this.calculateLikesAndHired();
+        this.getHireSchemodel();
       }
     }, error => {
       console.log(error);
@@ -207,8 +210,8 @@ export class HireModelComponent implements OnInit {
 
         this.clientService.hireTalent(data).subscribe(res => {
           if (res && res.applicationIdValid) {
-            talent.hired = true;
-            this.calculateLikesAndHired();
+            talent.contractRoleId = roleId;
+            this.getHireSchemodel();
           }
         }, error => {
           console.log(error);
