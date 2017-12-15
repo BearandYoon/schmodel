@@ -19,7 +19,7 @@
 
         <div class="col-md-4 col-4"> Pay rate:</div>
         <div class="col-md-2 col-2"></div>
-        <div class="col-md-6 col-6 text-left">€{{pay_rate_field | number}}</div>
+        <div class="col-md-6 col-6 text-left">€{{pay_rate_field | number : fractionSize}}</div>
       </div>
 
       <div class="workschedule-wrapper row custom-border">
