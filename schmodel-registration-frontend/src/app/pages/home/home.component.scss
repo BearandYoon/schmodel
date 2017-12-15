@@ -191,7 +191,7 @@
   }
 
   .content-text {
-    padding: 20px 69px;
+    padding: 20px 69px 0 69px;
     color: #ffffff;
     font-weight: 100;
     text-align: center;
@@ -202,6 +202,7 @@
   .page-footer {
     width: 100%;
     position: relative;
+    margin-top: 20px;
     bottom: 0;
     text-align: center;
     color: #ffffff;

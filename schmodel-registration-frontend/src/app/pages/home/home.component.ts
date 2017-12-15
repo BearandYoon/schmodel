@@ -47,6 +47,7 @@ export class HomeComponent implements OnInit {
   public upcoming: number;
   public photo_url: string;
   public message: string;
+  public hasActivationCode : boolean;
 
   constructor(
     public router: Router,
@@ -63,6 +64,7 @@ export class HomeComponent implements OnInit {
     this.message = '';
     this.isCompletedProfile = false;
     this.isHomePageLoaded = false;
+    this.hasActivationCode=false;
   }
 
   ngOnInit() {
@@ -88,6 +90,7 @@ export class HomeComponent implements OnInit {
         this.upcoming = response.upcomingJobCount;
         this.photo_url = response.photoUrl;
         this.isHomePageLoaded = true;
+        this.hasActivationCode =response.hasActivationCode;
         }, err => {
           this.isHomePageLoaded = true;
           this.message = 'The page could not be loaded. Please log out, log in again and try once more.';
@@ -127,7 +130,7 @@ export class HomeComponent implements OnInit {
   }
 
   onApply() {
-    if (this.isCompletedProfile === false) {
+    if (this.isCompletedProfile === false || this.hasActivationCode===false) {
       return;
     }
     this.router.navigate(['apply-for-jobs']);
