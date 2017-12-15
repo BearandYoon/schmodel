@@ -48,7 +48,7 @@ export class EditProfileComponent implements OnInit {
   }
 
   hasActivationCode() {
-    return (this.profileService.profileData && this.profileService.profileData.hasActivationCode)
+    return this.profileService.profileData.hasActivationCode;
   }
 
   onCollapseSection(sectionTemplate: TemplateRef<any>): void {
