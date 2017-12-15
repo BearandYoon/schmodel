@@ -64,10 +64,9 @@ app-control-messages div {
 }
 
 .modal-dialog {
-  position: relative;
+  position: absolute;
   top: 50% !important;
-  margin: auto;
-  width: 90%;
+  left: 50% !important;
   box-shadow: 20px 20px 40px #000000;
   transform: translateY(-50%) translateX(-50%) !important;
 }
