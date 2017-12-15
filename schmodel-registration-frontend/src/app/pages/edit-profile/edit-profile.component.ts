@@ -39,11 +39,16 @@ export class EditProfileComponent implements OnInit {
   ) {
     this.profileService.profileData = null;
     this.profileService.getProfileInfo(success => {
+      console.log({success});
       this.hasError = !success;
     });
   }
 
   ngOnInit() {
+  }
+
+  hasActivationCode() {
+    return (this.profileService.profileData && this.profileService.profileData.hasActivationCode)
   }
 
   onCollapseSection(sectionTemplate: TemplateRef<any>): void {

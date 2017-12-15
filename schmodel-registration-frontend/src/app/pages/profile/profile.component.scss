@@ -17,6 +17,25 @@ $profileTextColor: #ffffff;
     background-position: center top;
     color: $profileTextColor;
 
+    .content-text {
+        padding: 20px 69px;
+        color: #ffffff;
+        font-weight: 100;
+        text-align: center;
+        font-size: 14px;
+        margin: 0;
+      }
+    
+      .page-footer {
+        width: 100%;
+        position: relative;
+        bottom: 0;
+        text-align: center;
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+      }
+
     .heading {
       font-weight: bold;
     }
@@ -47,6 +66,9 @@ $profileTextColor: #ffffff;
             }
         }
     }
+
+ 
+
     .profile-text {
         padding-left: 40px;
         padding-right: 40px;

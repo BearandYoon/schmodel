@@ -14,6 +14,9 @@
     <edit-billing-info *ngIf="!hasError && panel.component=='edit-billing-info'" (collapseSection)="onCollapseSection(sectionTemplate)"></edit-billing-info>
   </accordion-group>
 </accordion>
+<div class="edit-profile__page-footer" *ngIf="!hasActivationCode()">
+  <p class="edit-profile__content-text">Only Schmodels with an activation code can apply for jobs (until further notice)</p>  
+</div>
 <div class="alert-wrapper" *ngIf="hasError">
   <alert type="danger">
     <strong>We could not load your profile details. Please log out and log in again.</strong>
