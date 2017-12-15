@@ -5,7 +5,7 @@
 
 h1 {
   font-family: 'Open Sans', sans-serif;
-  font-size: 24px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 800;
   color: white;
@@ -29,14 +29,28 @@ p, time {
   margin-bottom: 0px;
 }
 
-.row {
-  margin-left: 0px;
-  margin-right: 0px;
+.event-row {
   margin-bottom: 5px;
+  display: flex;
+  flex-direction: row;
+
+  & > .row {
+    flex: 1;
+  }
 }
 
-.row.evet-role-style {
-  margin: 0 0 0 0;
+.event-info {
+  min-width: 100px;
+  padding: 0 10px;
+}
+
+.row {
+  margin: 0;
+}
+
+.event-role-style {
+  flex: 1;
+  display: flex;
 }
 
 .event-role {
@@ -44,6 +58,7 @@ p, time {
 }
 
 .custom-border {
+  padding: 0 5px;
   border-right: 1px;
   border-style: solid;
   border-left: 0;
