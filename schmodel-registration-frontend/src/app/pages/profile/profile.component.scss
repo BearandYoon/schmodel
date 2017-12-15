@@ -12,15 +12,12 @@ $profileTextColor: #ffffff;
 }
 
 .profile-page {
-    background-image: url('/assets/img/bg_my_profile.png');
-    background-size: cover;
-    background-position: center top;
     color: $profileTextColor;
 
     .heading {
       font-weight: bold;
     }
-  
+
     swiper {
         width: 100%;
         .swiper-pagination {
@@ -31,13 +28,13 @@ $profileTextColor: #ffffff;
         }
         img {
             width: 100%;
-            height: auto;            
+            height: auto;
         }
     }
     .profile-title {
         border-bottom: 2px solid rgba(255,255,255,.5);
         padding: 22px 0 22px 0;
-        
+
         .title-detail {
             padding-left: 40px;
             padding-right: 40px;
@@ -53,7 +50,7 @@ $profileTextColor: #ffffff;
     .profile-text {
         padding-left: 40px;
         padding-right: 40px;
-       
+
         :last-child {
            border: none;
         }
@@ -61,7 +58,7 @@ $profileTextColor: #ffffff;
         div {
             border-bottom: 2px solid rgba(255,255,255,.5);
             padding: 22px 0 22px 0;
-            
+
             > small {
                 font-size: 17px;
                 color: #afb2b3;
@@ -71,7 +68,7 @@ $profileTextColor: #ffffff;
                 display:table;
                 margin-bottom: 0px;
                 font-size: 15px;
-                
+
                 label {
                     display: table-cell;
 
