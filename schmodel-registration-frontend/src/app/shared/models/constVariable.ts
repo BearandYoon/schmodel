@@ -54,7 +54,7 @@ export class ValidationMessage {
   public static FAIL_GET_APPLY_FOR_JOBS = 'The page could not be loaded. Please log out, log in again and try once more.';
   public static FAIL_CREATE_APPLICATION = 'The application could not be created. Please log out, log in again and try once more.';
   public static FAIL_WITHDRAW_APPLICATION = 'The application could not be withdrawn. Please log out, log in again and try once more.';
-  public static DOUBLE_LIKE_ERROR = `Schmodel's can only be hired for one position, please update.`;
+  public static DOUBLE_LIKE_ERROR = `A Schmodel can only be hired for one position. Please like this Schmodel for only one position and then click on Hire again.`;
   public static NO_LIKE_ERROR_BEFORE_HIRE = 'Schmodels can only be hired for one position, per event. Please like this Schmodel for a single position and then click Hire.';
 }
 
