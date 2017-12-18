@@ -82,6 +82,7 @@ export class HomeComponent implements OnInit {
     }
     this.profileService.isProfileComplete().subscribe(res => {
       this.isCompletedProfile = res.profileComplete;
+      this.hasActivationCode =res.hasActivationCode;
       if (this.isCompletedProfile) {
         this.profileService.getAfterProfile().subscribe(response => {
         this.firstName = response.firstName;
@@ -90,7 +91,6 @@ export class HomeComponent implements OnInit {
         this.upcoming = response.upcomingJobCount;
         this.photo_url = response.photoUrl;
         this.isHomePageLoaded = true;
-        this.hasActivationCode =response.hasActivationCode;
         }, err => {
           this.isHomePageLoaded = true;
           this.message = 'The page could not be loaded. Please log out, log in again and try once more.';
@@ -131,9 +131,10 @@ export class HomeComponent implements OnInit {
 
   onApply() {
     if (this.isCompletedProfile === false || this.hasActivationCode===false) {
-      return;
+      return false;
+    }else{
+      this.router.navigate(['apply-for-jobs']);
     }
-    this.router.navigate(['apply-for-jobs']);
   }
 
   showTermsAndConditions() {
