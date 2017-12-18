@@ -123,14 +123,14 @@ export class HomeComponent implements OnInit {
   }
 
   onJobs() {
-    if (this.isCompletedProfile === true && this.hasActivationCode===true) {
+    if (this.hasActivationCode===true) {
       this.router.navigate(['my-jobs']);
     }
     return false;
   }
 
   onApply() {
-    if (this.isCompletedProfile === true && this.hasActivationCode===true) {
+    if (this.hasActivationCode===true) {
         this.router.navigate(['apply-for-jobs']);
     } 
     return false;
