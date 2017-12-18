@@ -1,127 +1,90 @@
-h1 {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 18px;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: 800;
-    color: white;
-} 
-
-h2 {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 12px;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: 800;
-    color: white;
-    margin-bottom: 0px;
-}
-
-h3 {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 9px;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 0px;
-}
-
-h4 {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 10px;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: 800;
-    color: white;
-    margin-bottom: 0px;
-}
-
-p {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 10px;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: 300;
-    color: white;
-    margin-bottom: 0px;
-}
+$page-margin: 3px;
+$page-margin-half: 1.5px;
+$model-img-size: 120px;
+$formula-logo-height: 70px;
+$header-font-color: #fff;
 
 .apply-for-jobs {
     height: 90vh;
-    background-image: url(/assets/img/bg_pattern.png);
     overflow-y: scroll;
-}
 
-.role-item {
-    padding: 5px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-}
+    .table-header {
+        z-index: 999;
+        top: 0;
+        width: 100%;
+        position: fixed;
+        background-image: url(/assets/img/bg_pattern.png);
+    }
 
-.info-icon {
-    max-width: 16px;
-}
+    .info-header {
+        display: flex;
+        flex-direction: row;
+        padding-top: $page-margin;
+        font-family: 'Open Sans', sans-serif;
 
-.role_bg {
-    background-color: rgba(255, 255, 255, 0.03);
-    border-style:solid;
-    border-width:1px;
-    border-color:rgba(0, 0, 0, 1);
-    text-align: center;
-}
+        .info-logo {
+            width: $model-img-size;
+            height: $formula-logo-height;
+            object-fit: cover;
+        }
 
-.col-md-12 {
-    padding-left: 0px;
-    padding-right: 0px;
-}
+        .info-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            flex: 1;
+            text-align: center;
+            color: $header-font-color;
+            background-color: rgba(255, 255, 255, 0.03);
+            margin: 0 $page-margin-half;
+    
+            img {
+                width: auto;
+                height: 15px;
+                align-self: center;
+            }
 
-.row {
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-bottom: 4px;
-}
+            span {
+                font-size: 12px;
+                font-weight: bold;
+            }
 
-.formula-e {
-    width: 100px;
-    padding-top: 2px;
-    padding-left: 2px;
-    padding-right: 0px;
-}
+            &:last-of-type {
+                img {
+                    margin-top: 3px;
+                }
+                span {
+                    font-size: 9px;
+                }
+            }
+        }
+    }
 
-.app-event-style {
-    margin-left: 2px;
-}
+    app-event:nth-of-type(2n) .event-calendar {
+        background-color: rgba(97, 29, 146, 0.19);
+    }
 
-.table-header {
-    width: 100%;
-    z-index: 999;
-    top: 0;
-    position: fixed;
-    background-image: url(/assets/img/bg_pattern.png);
-}
-
-.content-header {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 4px;
-
-    & > .row {
-        flex: 1;
-        margin: 0;
+    app-event:nth-of-type(2n+1) .event-calendar {
+        background-color:rgba(0, 198, 253, 0.19);
     }
 }
 
-@media (max-width: 325px) {
-    h4 {
-        font-family: 'Open Sans', sans-serif;
-        font-size: 8px;
-        font-style: normal;
-        font-variant: normal;
-        font-weight: 800;
-        color: white;
-        margin-bottom: 0px;
+@media screen and (min-width: 320px) and (max-width: 414px) {
+	.info-logo {
+    	width: 100px !important;
+    }
+
+    app-event {
+        .event-calendar {
+            width: 100px !important;
+            
+            .info-values {
+                span {
+                    &:first-of-type {
+                        font-size: 18px !important;
+                    }
+                }
+            }
+        }
     }
 }

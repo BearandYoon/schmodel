@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { BsModalService } from "ngx-bootstrap/modal";
@@ -15,7 +15,8 @@ import { ValidationMessage } from '../../shared/models';
     selector: 'app-apply-for-jobs',
     templateUrl: './apply-for-jobs.component.html',
     styleUrls: ['./apply-for-jobs.component.scss'],
-    animations: [routerTransition()]
+    animations: [routerTransition()],
+    encapsulation: ViewEncapsulation.None
 })
 
 export class ApplyForJobsComponent implements OnInit {
@@ -76,14 +77,21 @@ export class ApplyForJobsComponent implements OnInit {
             'taking into account the requirements of every company.';
     }
 
-    showDetailDialog(title: string) {
+    showDetailDialog(index) {
+        let title = '';
+        if (index === 3) {
+            title = 'GUEST position';
+        } else {
+            title = `${this.role_title[index]} position`;
+        }
+
         this.detailDlgRef = this.detailDlgService.show(DialogDetailComponent, this.detailDlgConfig);
         this.detailDlgRef.content.dialogContent = this.detailDlgContent;
         this.detailDlgRef.content.dialogTitle = title;
 
         this.detailDlgRef.content.onCloseReason.subscribe(result => {
             console.log('Detail Dialog close reason = ', result);
-        })
+        });
     }
 
     showFailLoadingDialog() {

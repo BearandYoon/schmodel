@@ -1,35 +1,13 @@
 <div (scroll)="onPageScroll($event)" class="apply-for-jobs" [@routerTransition]>
-  <div class="{{stickyFlag ? 'text-center table-header content-header' : 'text-center content-header'}}">
-    <div class="formula-e">
-      <img src="/assets/img/ic_formulae.png" width="100%">
-    </div>
-
-    <div class="row ">
-      <div *ngFor="let i of [0,1,2]" class="col-md-3 col-3 role-item role_bg align-items-center">
-        <div class="info-icon" (click)="showDetailDialog(role_title[i] + ' position')">
-          <img src="/assets/img/ic_infor.png" width="100%">
-        </div>
-
-        <div>
-          <h2> {{role_title[i]}} </h2>
-        </div>
-      </div>
-
-      <div class="col-md-3 col-3 role_bg align-items-center role-item">
-        <div class="info-icon" (click)="showDetailDialog('GUEST position')">
-          <img src="/assets/img/ic_infor.png" width="100%">
-        </div>
-
-        <div>
-          <h4> SCHMODEL GUEST </h4>
-        </div>
+    <div class="{{stickyFlag ? 'info-header table-header' : 'info-header'}}">
+      <img class="info-logo" src="/assets/images/ic_formula_e.svg">
+      <div *ngFor="let title of role_title; let i = index" class="info-wrapper" (click)="showDetailDialog(i)">
+        <img src="/assets/img/ic_infor.png">
+        <span>{{title}}</span>
       </div>
     </div>
-  </div>
 
-  <div *ngFor="let event of eventView" class="app-event-style">
-    <app-event [event_no]="event.id" [event_number]="event.name" [event_start_date]="event.startDate" [event_end_date]="event.endDate"
+    <app-event *ngFor="let event of eventView" [event_no]="event.id" [event_number]="event.name" [event_start_date]="event.startDate" [event_end_date]="event.endDate"
       [event_city]="event.city" [event_country_code]="event.country" [roles_data]="event.roles">
     </app-event>
-  </div>
 </div>

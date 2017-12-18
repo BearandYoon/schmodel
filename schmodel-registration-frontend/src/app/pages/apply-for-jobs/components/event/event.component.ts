@@ -37,7 +37,7 @@ export class EventComponent implements OnInit, OnChanges {
   private light_blue: string = 'rgba(78, 200, 235, 0.1)';
   private light_purple: string = 'rgba(53, 20, 77, 0.1)';
 
-  constructor(private sharedService: SharedService ) {
+  constructor(public sharedService: SharedService ) {
     this.race_bg_urls.push(
       { imagePath: '/assets/img/bg_r1_2.png' },
       { imagePath: '/assets/img/bg_r3.png' },
