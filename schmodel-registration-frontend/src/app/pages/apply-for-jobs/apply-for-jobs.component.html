@@ -1,5 +1,13 @@
+<div *ngIf="stickyFlag" class="info-header--apply-for-job table-header">
+  <img class="info-logo" src="/assets/images/ic_formula_e.svg">
+  <div *ngFor="let title of role_title; let i = index" class="info-wrapper" (click)="showDetailDialog(i)">
+    <img src="/assets/img/ic_infor.png">
+    <span>{{title}}</span>
+  </div>
+</div>
+
 <div (scroll)="onPageScroll($event)" class="apply-for-jobs" [@routerTransition]>
-    <div class="{{stickyFlag ? 'info-header table-header' : 'info-header'}}">
+    <div *ngIf="!stickyFlag" class="info-header--apply-for-job">
       <img class="info-logo" src="/assets/images/ic_formula_e.svg">
       <div *ngFor="let title of role_title; let i = index" class="info-wrapper" (click)="showDetailDialog(i)">
         <img src="/assets/img/ic_infor.png">

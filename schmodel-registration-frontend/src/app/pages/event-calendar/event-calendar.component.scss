@@ -23,7 +23,7 @@ $formula-logo-height: 70px;
   
     .formula-logo {
       width: $model-img-size;
-      height: $formula-logo-height;
+      min-height: $formula-logo-height;
       object-fit: cover;
     }
   

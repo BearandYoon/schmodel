@@ -4,70 +4,73 @@ $model-img-size: 120px;
 $formula-logo-height: 70px;
 $header-font-color: #fff;
 
+.info-header--apply-for-job {
+    display: flex;
+    flex-direction: row;
+    padding-top: $page-margin;
+    font-family: 'Open Sans', sans-serif;
+
+    .info-logo {
+        width: $model-img-size;
+        min-height: $formula-logo-height;
+        object-fit: cover;
+    }
+
+    .info-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        flex: 1;
+        text-align: center;
+        color: $header-font-color;
+        background-color: rgba(255, 255, 255, 0.03);
+        margin: 0 $page-margin-half;
+
+        img {
+            width: auto;
+            height: 15px;
+            align-self: center;
+        }
+
+        span {
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        &:last-of-type {
+            img {
+                margin-top: 3px;
+            }
+            span {
+                font-size: 9px;
+            }
+        }
+    }
+}
+
+.table-header {
+    z-index: 999;
+    top: 0;
+    width: 100%;
+    position: fixed;
+    background-image: url(/assets/img/bg_pattern.png);
+}
+
 .apply-for-jobs {
     height: 90vh;
     overflow-y: scroll;
 
-    .table-header {
-        z-index: 999;
-        top: 0;
-        width: 100%;
-        position: fixed;
-        background-image: url(/assets/img/bg_pattern.png);
-    }
-
-    .info-header {
-        display: flex;
-        flex-direction: row;
-        padding-top: $page-margin;
-        font-family: 'Open Sans', sans-serif;
-
-        .info-logo {
-            width: $model-img-size;
-            height: $formula-logo-height;
-            object-fit: cover;
-        }
-
-        .info-wrapper {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            flex: 1;
-            text-align: center;
-            color: $header-font-color;
-            background-color: rgba(255, 255, 255, 0.03);
-            margin: 0 $page-margin-half;
-    
-            img {
-                width: auto;
-                height: 15px;
-                align-self: center;
-            }
-
-            span {
-                font-size: 12px;
-                font-weight: bold;
-            }
-
-            &:last-of-type {
-                img {
-                    margin-top: 3px;
-                }
-                span {
-                    font-size: 9px;
-                }
-            }
-        }
-    }
-
     app-event:nth-of-type(2n) .event-calendar {
         background-color: rgba(97, 29, 146, 0.19);
     }
-
+    
     app-event:nth-of-type(2n+1) .event-calendar {
         background-color:rgba(0, 198, 253, 0.19);
     }
 }
+
+
+
 
 @media screen and (min-width: 320px) and (max-width: 414px) {
 	.info-logo {
