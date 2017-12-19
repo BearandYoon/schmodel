@@ -18,7 +18,7 @@ $formula-logo-height: 70px;
 
 .event-sch-guest {
 	flex: none !important;
-	width: 270px !important;
+	width: 273px !important;
 }
 
 .info-bar {
@@ -179,8 +179,6 @@ $formula-logo-height: 70px;
 			}
 		}
 	}
-
-	
 }
 
 @media screen and (min-width: 320px) and (max-width: 414px) {
@@ -226,8 +224,19 @@ $formula-logo-height: 70px;
 
 	.event-sch-guest {
 		flex: none;
-		width: 250px !important;
+		width: 253px !important;
 
+		.talent-content {
+			.info-item {
+				padding-right: 13px !important;
+				p {
+					span {
+						font-size: 20px !important;
+						vertical-align: -webkit-baseline-middle !important;
+					}
+				}		
+			}
+		}
 	}
 }
 
