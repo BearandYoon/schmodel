@@ -11,6 +11,16 @@ section {
     margin-top: 6px;
     text-align: center;
   }
+
+  span {
+    font-size: 14px;
+    width: 100%;
+    color: white;
+    margin-bottom: 6px;
+    margin-top: 6px;
+    text-align: center;
+  }
+
   .alert-wrapper {
     margin: auto;
     padding: 10px 0 0;
@@ -62,6 +72,7 @@ section {
         top: 55%;
         left: 50%;
         transform: translate(-50%, -50%);
+        max-width: 50px;
         font-size: 10px;
 
         .icon-plus-circle {
