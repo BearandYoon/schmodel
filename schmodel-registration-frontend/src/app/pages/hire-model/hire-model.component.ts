@@ -45,7 +45,7 @@ export class HireModelComponent implements OnInit {
   @HostListener('window:scroll', ['$event'])
   onPageScroll(event) {
     console.log(event);
-    if(event.target.scrollTop >= 10) {
+    if (event.target.scrollTop >= 10) {
         this.stickyFlag = true;
     } else {
         this.stickyFlag = false;
@@ -206,11 +206,7 @@ export class HireModelComponent implements OnInit {
     });
 
     if (roleId === -1) {
-      if (talent.roles.length > 1) {
-        talent.errorMessage = ValidationMessage.NO_LIKE_ERROR_BEFORE_HIRE;
-      } else {
-        talent.errorMessage = ValidationMessage.ONE_ROLE_NO_LIKE_ERROR_BEFORE_HIRE;
-      }
+      talent.errorMessage = ValidationMessage.ONE_ROLE_NO_LIKE_ERROR_BEFORE_HIRE;
       return;
     }
 
