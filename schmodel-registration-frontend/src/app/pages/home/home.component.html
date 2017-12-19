@@ -37,7 +37,7 @@
         <img src="assets/img/ic_app_jobs.png" />
       </div>
     </div>
-    <div class="btn-apply-job common-pattern" (click)="onApply()" [ngClass]="isCompletedProfile && hasActivationCode ? '' : 'unCompleted'">
+    <div class="btn-apply-job common-pattern" (click)="onApply()" [ngClass]="hasActivationCode ? '' : 'unCompleted'">
       <div class="btn-text">
         <span>Apply for Jobs</span>
       </div>
@@ -45,7 +45,7 @@
         <img src="assets/img/ic_edit_jobs.png" />
       </div>
     </div>
-    <div class="btn-my-job common-pattern" (click)="onJobs()" [ngClass]="isCompletedProfile ? '' : 'unCompleted'">
+    <div class="btn-my-job common-pattern" (click)="onJobs()" [ngClass]="hasActivationCode ? '' : 'unCompleted'">
       <div class="btn-text">
         <span>My Jobs</span>
       </div>
@@ -65,7 +65,7 @@
         <img src="assets/img/ic_app_jobs.png" />
       </div>
     </div>
-    <div class="btn-apply-job common-pattern"  (click)="onApply()" [ngClass]="isCompletedProfile ? '' : 'unCompleted'">
+    <div class="btn-apply-job common-pattern unCompleted">
       <div class="btn-text">
         <span>Apply for Jobs</span>
       </div>
@@ -73,7 +73,7 @@
         <img src="assets/img/ic_edit_jobs.png" />
       </div>
     </div>
-    <div class="btn-my-job common-pattern" (click)="onJobs()" [ngClass]="isCompletedProfile ? '' : 'unCompleted'">
+    <div class="btn-my-job common-pattern unCompleted">
       <div class="btn-text">
         <span>My Jobs</span>
       </div>

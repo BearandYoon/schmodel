@@ -82,6 +82,7 @@ export class HomeComponent implements OnInit {
     }
     this.profileService.isProfileComplete().subscribe(res => {
       this.isCompletedProfile = res.profileComplete;
+      this.hasActivationCode =res.hasActivationCode;
       if (this.isCompletedProfile) {
         this.profileService.getAfterProfile().subscribe(response => {
         this.firstName = response.firstName;
@@ -90,7 +91,6 @@ export class HomeComponent implements OnInit {
         this.upcoming = response.upcomingJobCount;
         this.photo_url = response.photoUrl;
         this.isHomePageLoaded = true;
-        this.hasActivationCode =response.hasActivationCode;
         }, err => {
           this.isHomePageLoaded = true;
           this.message = 'The page could not be loaded. Please log out, log in again and try once more.';
@@ -123,17 +123,21 @@ export class HomeComponent implements OnInit {
   }
 
   onJobs() {
-    if (this.isCompletedProfile === false) {
-      return;
+    if (this.hasActivationCode===true) {
+      this.router.navigate(['my-jobs']);
     }
-    this.router.navigate(['my-jobs']);
+    return false;
   }
 
   onApply() {
-    if (this.isCompletedProfile === false || this.hasActivationCode===false) {
-      return;
-    }
-    this.router.navigate(['apply-for-jobs']);
+    if (this.hasActivationCode===true) {
+        this.router.navigate(['apply-for-jobs']);
+    } 
+    return false;
+  }
+
+  isLinkEnabled() {
+    return this.isCompletedProfile === true && this.hasActivationCode===true;
   }
 
   showTermsAndConditions() {
