@@ -130,16 +130,15 @@ $formula-logo-height: 70px;
 				flex: 1;
 				height: 100%;
 				position: relative;
-				background-repeat: no-repeat;
-				background-position: 50% 50%;
-				background-size: 55px 55px;
+				//background-repeat: no-repeat;
+				//background-position: 50% 50%;
+				//background-size: 55px 55px;
 				padding: 15px 13px 0px 0px;
 				
 				&:after {
 					content: "";
 					position: absolute;
 					background-image: linear-gradient(rgba(132, 132, 132, 0.04), #887d7d, rgba(255, 255, 255, 0.04));
-					//background: -webkit-linear-gradient(rgba(132, 132, 132, 0.04), #887d7d, rgba(255, 255, 255, 0.04));
 					background-size: 100% 100%;
 					height: 100%;
 					width: 1px;

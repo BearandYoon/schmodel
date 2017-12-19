@@ -25,7 +25,7 @@ export class EventCalendarComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   onPageScroll(event) {
-      if(event.target.scrollTop >= 10) {
+      if(event.target.scrollTop > 60) {
           this.stickyFlag = true;
       } else {
           this.stickyFlag = false;
