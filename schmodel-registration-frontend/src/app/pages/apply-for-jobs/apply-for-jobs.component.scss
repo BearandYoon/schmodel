@@ -4,6 +4,13 @@ $model-img-size: 120px;
 $formula-logo-height: 70px;
 $header-font-color: #fff;
 
+.sticky-show {
+    display: flex !important;
+}
+.sticky-hide {
+    visibility: hidden !important;
+}
+
 .info-header--apply-for-job {
     display: flex;
     flex-direction: row;
@@ -49,6 +56,7 @@ $header-font-color: #fff;
 }
 
 .table-header {
+    display: none;
     z-index: 999;
     top: 0;
     width: 100%;
@@ -59,6 +67,7 @@ $header-font-color: #fff;
 .apply-for-jobs {
     height: 90vh;
     overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 
     app-event:nth-of-type(2n) .event-calendar {
         background-color: rgba(97, 29, 146, 0.19);
