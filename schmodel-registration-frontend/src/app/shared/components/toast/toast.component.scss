@@ -19,7 +19,10 @@ app-toast {
     align-items: center;
     margin-bottom: 1rem;
     padding: 2px 5px 3px 25px;
-    transition: transform 0.5s;
+
+    &.animatable {
+      transition: transform 0.5s;
+    }
 
     &.success {
       background-color: #98CB58;

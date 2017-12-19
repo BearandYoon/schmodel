@@ -1,4 +1,4 @@
-<div class="toast-wrapper" [ngClass]="{'success': toastType == 'success'}">
+<div class="toast-wrapper" [ngClass]="{'success': toastType == 'success', 'animatable': animatable}">
   <span class="icon-close" (click)="onCloseToast()"></span>
   <span class="message">
     <b *ngIf="toastTitle">{{toastTitle}}<br/></b>

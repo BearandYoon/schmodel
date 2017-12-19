@@ -20,7 +20,7 @@ export class EditTalentPhotosComponent implements OnInit {
   public no_tmp: number;
   public myFile: number;
   private data: any;
-  message: string;
+  status: any = null;
 
   messageModalRef: BsModalRef;
   messageContent: string;
@@ -37,7 +37,7 @@ export class EditTalentPhotosComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.message = '';
+    this.status = null;
     this.photo_section_infor.push(
       {
         text: 'Headshot Photo',
@@ -138,15 +138,22 @@ export class EditTalentPhotosComponent implements OnInit {
   }
 
   onClose(num: number) {
-    this.message = '';
+    this.status = null;
     this.photo_section_infor[num].isUploading = true;
     this.profileService.deletePhoto(this.photo_section_infor[num].photoId).subscribe( res => {
       this.photo_section_infor[num].flag = false;
       this.photo_section_infor[num].photoUrl = '';
       this.photo_section_infor[num].isUploading = false;
+      this.status = {
+        success: true,
+        message: 'Successfully removed'
+      };
     }, error => {
       this.photo_section_infor[num].isUploading = false;
-      this.message = ValidationMessage.GENERIC_ERROR_MESSAGE;
+      this.status = {
+        success: false,
+        message: ValidationMessage.GENERIC_ERROR_MESSAGE
+      };
     });
   }
 
@@ -155,7 +162,7 @@ export class EditTalentPhotosComponent implements OnInit {
   }
 
   onUploadFile(num: number) {
-    this.message = '';
+    this.status = null;
     const event = new MouseEvent('click', {bubbles: true});
     this.no_tmp = num;
     this.myFile = null;
@@ -173,8 +180,8 @@ export class EditTalentPhotosComponent implements OnInit {
       reader.onload = (event: any) => {
         const image = new Image();
         image.src = event.target.result;
-        image.onload = function () {
-          this.message = '';
+        image.onload = () => {
+          this.status = null;
           if (this.data.file.size >= 5 * 1024 * 1024) {
             this.messageModalRef = this.dlgService.show(MessageModalComponent, this.messageModalConfig);
             this.messageModalRef.content.messageContent = this.messageContent;
@@ -196,12 +203,19 @@ export class EditTalentPhotosComponent implements OnInit {
                 this.photo_section_infor[this.no_tmp].photoId = res.photoId;
                 this.photo_section_infor[this.no_tmp].photo = res.photoUrl;
               this.photo_section_infor[this.no_tmp].isUploading = false;
+              this.status = {
+                success: true,
+                message: 'Successfully uploaded'
+              };
             }, error => {
-              this.message = ValidationMessage.GENERIC_ERROR_MESSAGE;
+              this.status = {
+                success: false,
+                message: ValidationMessage.GENERIC_ERROR_MESSAGE
+              };
               this.photo_section_infor[this.no_tmp].isUploading = false;
             });
           }
-        }.bind(this);
+        };
       };
       reader.readAsDataURL(event.target.files[0]);
     }

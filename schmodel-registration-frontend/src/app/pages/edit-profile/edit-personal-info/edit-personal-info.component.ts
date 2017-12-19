@@ -18,10 +18,9 @@ export class EditPersonalInfoComponent implements OnInit {
   @Output() collapseSection: EventEmitter<any> = new EventEmitter();
 
   editPersonalForm: FormGroup;
-  btnSave: boolean;
   socialInvalid: boolean = false;
-  message: string;
-
+  status: any = null;
+  
   constructor(
     private formBuilder: FormBuilder,
     private profileService: ProfileService,
@@ -91,7 +90,7 @@ export class EditPersonalInfoComponent implements OnInit {
   }
 
   initializePersonalForm() {
-    this.message = '';
+    this.status = null;
     const {
       firstName,
       lastName,
@@ -198,27 +197,32 @@ export class EditPersonalInfoComponent implements OnInit {
   }
 
   onChange(event: any) {
-    this.btnSave = false;
+    this.status = null;
   }
 
   onSubmit() {
-    this.message = '';
+    this.status = null;
     const data = {...this.editPersonalForm.value};
     data.dateOfBirth = this.toDateFormatString();
     data.citizenshipIds = data.citizenshipIds.split('|');
     data.languageIds = data.languageIds.split('|');
     this.profileService.updatePersonalInfo(data).subscribe( res => {
       this.profileService.getProfileInfo();
-      this.btnSave = true;
+      this.status = {
+        success: true,
+        message: 'Successfully Saved!'
+      };
     }, error => {
-      this.message = ValidationMessage.GENERIC_ERROR_MESSAGE;
-      console.log(error);
+      this.status = {
+        success: false,
+        message: ValidationMessage.GENERIC_ERROR_MESSAGE
+      };
     });
   }
 
   onCancel() {
     this.initializePersonalForm();
-    this.btnSave = false;
+    this.status = null;
     this.collapseSection.emit();
   }
 }

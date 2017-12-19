@@ -8,6 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } fro
 })
 export class ToastComponent implements OnInit {
 
+  @Input() animatable: boolean = false;
   @Input() toastType: string = 'error';
   @Input() toastTitle: string = '';
   @Input() toastMessage: string = '';
