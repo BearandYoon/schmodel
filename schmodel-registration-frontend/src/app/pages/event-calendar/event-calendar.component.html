@@ -3,14 +3,14 @@
       <img class="formula-logo" src="/assets/images/ic_formula_e.svg">
       <div class="info-wrapper">
         <ng-container *ngFor="let eventHeader of eventItems?.eventHeaders; let i = index">
-            <div class="info-item" *ngIf=" i != 0 ">
+            <div class="header-item" *ngIf=" i != 0 " [ngClass]="{'header-sch-guest' : (eventItems?.eventHeaders.length == 2)}">
               {{eventHeader.data | uppercase}}            
             </div>
         </ng-container>
       </div>
   </div>
   <div class="talent-container">
-    <div class="section--talent" [style.backgroundImage]="bgImgUrls[i]" *ngFor="let eventItem of eventItems?.eventList; let i = index" >
+    <div class="section--talent" [style.backgroundImage]="bgImgUrls[i]" *ngFor="let eventItem of eventItems?.eventList; let i = index" [ngClass]="{'event-sch-guest' : (eventItems?.eventHeaders.length == 2)}">
       <div class="talent-calendar">
         <p class="info-values">
           <span><b>{{eventItem[0].data.name}}</b></span>
