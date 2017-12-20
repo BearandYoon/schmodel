@@ -1,10 +1,12 @@
 <section>
-  <div class="alert-wrapper">
-    <alert type="danger" *ngIf="message">
-      <strong>{{message}}</strong>
-    </alert>
-  </div>
-  <p>Please upload your head shot, full length and profile photos to complete your profile.</p>
+  <app-toast
+    *ngIf="status"
+    [toastType]="status.success ? 'success' : 'error'"
+    [toastTitle]="status.success ? 'Success!' : 'Error!'"
+    [toastMessage]="status.message"
+    (closeToast)="status = null"
+  ></app-toast>
+  <span>Please upload your head shot, full length and profile photos to complete your profile.</span>
   <div *ngFor="let val of photo_section_infor; let i = index; trackBy:trackByFn" class="item">
     <div class="spinner-container" *ngIf="val.isUploading">
       <i class="fa fa-spinner fa-pulse fa-2x fa-fw loading-page"></i>

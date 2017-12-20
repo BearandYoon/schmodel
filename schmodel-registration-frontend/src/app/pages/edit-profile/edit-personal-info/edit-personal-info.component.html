@@ -1,5 +1,5 @@
 <section>
-  <p class="mandatory"> Fields marked with * are mandatory</p>
+  <p class="mandatory"> Fields marked with * are mandatory.</p>
 
   <form [formGroup]="editPersonalForm" (submit)="onSubmit()" (change)="onChange($event)" (keypress)="onChange($event)">
     <div class="form-group form-group--personal">
@@ -34,7 +34,7 @@
     <div class="form-group form-group--location">
       <p>
         <b>USUAL RESIDENCE</b><br/>
-        <span>This address may be different from 'billing address'</span>
+        <span>This address may be different from 'billing address'.</span>
       </p>
       <sch-dropdown-row  formControlName="residentialAddressCountryId" label="Country *" [items]="['countries']"></sch-dropdown-row>
       <sch-input-row   formControlName="residentialAddressCity" label="City *" maxlength="15"></sch-input-row>
@@ -60,7 +60,7 @@
 
       <div class=" form-group--location">
       <p>
-        <span>* Please provide at least 2 links to social media sites that you use</span>
+        <span>* Please provide at least 2 links to social media sites that you use.</span>
       </p>
       </div>
 
@@ -68,22 +68,19 @@
       <sch-input-row formControlName="instagramUsername" label="Instagram" maxlength="50"></sch-input-row>
       <sch-input-row formControlName="facebookUsername" label="Facebook" maxlength="50"></sch-input-row>
       <sch-input-row formControlName="linkedinUsername" label="LinkedIn" maxlength="50"></sch-input-row>
-      <p *ngIf="socialInvalid" class="validation-error">Please provide the details of at least two social media accounts</p>
+      <p *ngIf="socialInvalid" class="validation-error">Please provide the details of at least two social media accounts.</p>
     </div>
     <div class="form-group form-group--submit">
-      <alert type="danger" *ngIf="message">
-        <strong>{{message}}</strong>
-      </alert>
+      <app-toast
+        *ngIf="status"
+        [toastType]="status.success ? 'success' : 'error'"
+        [toastTitle]="status.success ? 'Success!' : 'Error!'"
+        [toastMessage]="status.message"
+        (closeToast)="status = null"
+      ></app-toast>
       <div class="row">
-        <div>
-          <p *ngIf="btnSave">SAVED!</p>
-          <p *ngIf="!btnSave">&nbsp;</p>
-          <button type="submit" class="btn btn--save" [disabled]="!editPersonalForm.valid">SAVE</button>
-        </div>
-        <div>
-          <p> &nbsp;</p>
-          <button type="button" class="btn btn--cancel" (click)="onCancel()">CANCEL</button>
-        </div>
+        <button type="submit" class="btn btn--save" [disabled]="!editPersonalForm.valid">SAVE</button>
+        <button type="button" class="btn btn--cancel" (click)="onCancel()">CANCEL</button>
       </div>
     </div>
   </form>

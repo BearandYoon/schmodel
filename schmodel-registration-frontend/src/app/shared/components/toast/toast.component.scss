@@ -1,4 +1,4 @@
-app-error-toast {
+app-toast {
   width: 100%;
   overflow: hidden;
 
@@ -18,15 +18,22 @@ app-error-toast {
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
-    padding: 0 5px 0 25px;
-    transition: transform 0.5s;
-    
+    padding: 2px 5px 3px 25px;
+
+    &.animatable {
+      transition: transform 0.5s;
+    }
+
+    &.success {
+      background-color: #98CB58;
+    }
+
     .icon-close {
       font-weight: bold;
       font-size: 20px;
       margin-right: 10px;
     }
-  
+
     .message {
       font-family: 'Open Sans', sans-serif;
       font-size: 12px;

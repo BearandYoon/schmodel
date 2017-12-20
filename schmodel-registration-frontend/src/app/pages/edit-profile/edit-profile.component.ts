@@ -38,13 +38,12 @@ export class EditProfileComponent implements OnInit {
     public profileService: ProfileService
   ) {
     this.profileService.profileData = null;
-    this.profileService.getProfileInfo(success => {
-      console.log({success});
-      this.hasError = !success;
-    });
   }
 
   ngOnInit() {
+    this.profileService.getProfileInfo(success => {
+      this.hasError = !success;
+    });
   }
 
   hasActivationCode() {

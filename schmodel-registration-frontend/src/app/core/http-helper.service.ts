@@ -241,6 +241,7 @@ export class HttpHelperService {
    * @returns {any}
    */
   private handleError(error: Response | any) {
+    let skipThrowingError = false;
     if (error.status === 500) {
       const body = error.json() || '';
       if (body.exception && body.exception === ErrorResponse.TOKEN_EXPIRE) {
@@ -251,10 +252,20 @@ export class HttpHelperService {
         }
       } else {
         this.serverError = true;
-        return Observable.never();
+        skipThrowingError = true;
       }
     } else if (error.status === 504) {
       this.serverError = true;
+      skipThrowingError = true;
+    }
+
+    // go ahead to throw error for upload photo
+    // const url = error.url;
+    // if (url.endsWith('talent/upload-photo')) {
+    //   skipThrowingError = false;
+    // }
+
+    if (skipThrowingError) {
       return Observable.never();
     }
 

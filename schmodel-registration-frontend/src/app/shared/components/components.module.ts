@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HeaderComponent } from './header/header.component';
 import { PhoneCodeSelectComponent } from './phone-code-select/phone-code-select.component';
-import { ErrorToastComponent } from './error-toast/error-toast.component';
+import { ToastComponent } from './toast/toast.component';
 
 @NgModule({
   imports: [
@@ -15,12 +15,12 @@ import { ErrorToastComponent } from './error-toast/error-toast.component';
   declarations: [
     HeaderComponent,
     PhoneCodeSelectComponent,
-    ErrorToastComponent
+    ToastComponent
   ],
   exports: [
     HeaderComponent,
     PhoneCodeSelectComponent,
-    ErrorToastComponent
+    ToastComponent
   ]
 })
 export class ComponentsModule { }

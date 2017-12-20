@@ -25,7 +25,7 @@ export class EventCalendarComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   onPageScroll(event) {
-      if(event.target.scrollTop >= 10) {
+      if(event.target.scrollTop > 60) {
           this.stickyFlag = true;
       } else {
           this.stickyFlag = false;
@@ -36,7 +36,6 @@ export class EventCalendarComponent implements OnInit {
     const scrollLeft = document.documentElement.scrollLeft;
     window.scrollTo(scrollLeft, 0);
     this.profileService.getEventCalendar().subscribe(res => {
-      console.log(res);
       this.eventItems = res;
       this.bgImgUrls = [];
       this.eventItems.eventList.map(x => {

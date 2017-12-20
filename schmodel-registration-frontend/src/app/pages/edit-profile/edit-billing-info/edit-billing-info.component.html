@@ -1,5 +1,5 @@
 <section>
-    <p class="mandatory"> Fields marked with * are mandatory</p>
+    <p class="mandatory"> Fields marked with * are mandatory.</p>
 
     <form [formGroup]="editBillingForm" (submit)="onSubmit()" (change)="onChange($event)" (keypress)="onChange($event)">
     <div class="form-group">
@@ -16,20 +16,16 @@
       <sch-input-row formControlName="addressZipCode" label="Zip/Post code *" maxlength="10"></sch-input-row>
     </div>
     <div class="form-group form-group--submit">
-      <alert type="danger" *ngIf="!!message">
-        <strong>{{message}}</strong>
-      </alert>
-      <!--<p class="validation-error" *ngIf="!editBillingForm.valid">Please complete all the mandatory fields</p>-->
+      <app-toast
+        *ngIf="status"
+        [toastType]="status.success ? 'success' : 'error'"
+        [toastTitle]="status.success ? 'Success!' : 'Error!'"
+        [toastMessage]="status.message"
+        (closeToast)="status = null"
+      ></app-toast>
       <div class="row">
-        <div>
-          <p *ngIf="btnSave">SAVED!</p>
-          <p *ngIf="!btnSave">&nbsp;</p>
-          <button type="submit" class="btn btn--save" [disabled]="!editBillingForm.valid">SAVE</button>
-        </div>
-        <div>
-          <p> &nbsp;</p>
-          <button type="button" class="btn btn--cancel" (click)="onCancel()">CANCEL</button>
-        </div>
+        <button type="submit" class="btn btn--save" [disabled]="!editBillingForm.valid">SAVE</button>
+        <button type="button" class="btn btn--cancel" (click)="onCancel()">CANCEL</button>
       </div>
     </div>
   </form>

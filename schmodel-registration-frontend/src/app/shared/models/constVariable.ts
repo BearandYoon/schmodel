@@ -17,8 +17,8 @@ export class ValidationMessage {
   public static WRONG_ACTIVATION_CODE = 'Enter a valid activation code or register without an activation code';
   public static EMPTY_FIELDS = 'Please complete all the mandatory fields to register';
   public static RESET_TOKEN_EXPIRE = 'The link to reset your password has expired, please try again below. ';
-  public static BEFORE_COMPLETE_HOME_TITLE = 'Please complete your profile so you can start applying to jobs';
-  public static BEFORE_COMPLETE_HOME_TITLE_ONCE_SIGNUP = `Your Schmodel account has been created!\nPlease complete your profile so you can start applying to jobs`;
+  public static BEFORE_COMPLETE_HOME_TITLE = 'Please complete your profile so you can start applying to jobs.';
+  public static BEFORE_COMPLETE_HOME_TITLE_ONCE_SIGNUP = `Your Schmodel account has been created!\nPlease complete your profile so you can start applying to jobs.`;
   public static DECLINE_TERMS = 'Your Schmodel account can be created only if you agree to Terms & Conditions';
   public static LOGOUT = 'Are you sure you want to logout?';
   public static EDIT_PROFILE_PHOTO_UPLOAD_ERROR = 'We can only accept photos smaller than 5MB. Please select another photo and try again.';
@@ -56,6 +56,7 @@ export class ValidationMessage {
   public static FAIL_WITHDRAW_APPLICATION = 'The application could not be withdrawn. Please log out, log in again and try once more.';
   public static DOUBLE_LIKE_ERROR = `A Schmodel can only be hired for one position. Please like this Schmodel for only one position and then click on Hire again.`;
   public static NO_LIKE_ERROR_BEFORE_HIRE = 'Schmodels can only be hired for one position, per event. Please like this Schmodel for a single position and then click Hire.';
+  public static ONE_ROLE_NO_LIKE_ERROR_BEFORE_HIRE = 'Please like the Schmodel and then click hire.';
 }
 
 export class ErrorResponse {

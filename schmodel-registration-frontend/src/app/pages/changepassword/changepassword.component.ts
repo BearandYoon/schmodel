@@ -42,6 +42,7 @@ export class ChangepasswordComponent implements OnInit {
     this.activatedRoute.queryParams.subscribe((params: Params) => {
       const token = params['token'];
       this.tokenUser.token = token;
+      this.token = token;
 
       this.authService.validateToken(this.tokenUser).subscribe( res => {
        if (res.tokenValid === true) {
