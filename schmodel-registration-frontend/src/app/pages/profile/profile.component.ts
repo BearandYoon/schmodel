@@ -108,7 +108,7 @@ export class ProfileComponent implements OnInit {
       return `${profile.eyeColor.name}`;
     }
 
-    return '';
+    return profile && profile[type]? profile[type]: '';
   }
   
 }
