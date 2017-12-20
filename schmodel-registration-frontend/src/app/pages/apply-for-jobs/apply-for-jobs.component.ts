@@ -43,16 +43,15 @@ export class ApplyForJobsComponent implements OnInit {
         private jobService: JobService
     ) {
     }
-    
+
     @HostListener('window:scroll', ['$event'])
     onPageScroll(event) {
-        if(event.target.scrollTop >= 10) {
+        if (event.target.scrollTop > 60) {
             this.stickyFlag = true;
         } else {
             this.stickyFlag = false;
         }
     }
-
     ngOnInit() {
         this.jobService.getApplyForJobs((success, response) => {
             if (success) {
