@@ -18,7 +18,7 @@ export class ValidationMessage {
   public static EMPTY_FIELDS = 'Please complete all the mandatory fields to register';
   public static RESET_TOKEN_EXPIRE = 'The link to reset your password has expired, please try again below. ';
   public static BEFORE_COMPLETE_HOME_TITLE = 'Please complete your profile so you can start applying to jobs.';
-  public static BEFORE_COMPLETE_HOME_TITLE_ONCE_SIGNUP = `Your Schmodel account has been created!\nPlease complete your profile so you can start applying to jobs`;
+  public static BEFORE_COMPLETE_HOME_TITLE_ONCE_SIGNUP = `Your Schmodel account has been created!\nPlease complete your profile so you can start applying to jobs.`;
   public static DECLINE_TERMS = 'Your Schmodel account can be created only if you agree to Terms & Conditions';
   public static LOGOUT = 'Are you sure you want to logout?';
   public static EDIT_PROFILE_PHOTO_UPLOAD_ERROR = 'We can only accept photos smaller than 5MB. Please select another photo and try again.';
