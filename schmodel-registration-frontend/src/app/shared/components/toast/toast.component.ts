@@ -1,13 +1,15 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'app-error-toast',
-  templateUrl: './error-toast.component.html',
-  styleUrls: ['./error-toast.component.scss'],
+  selector: 'app-toast',
+  templateUrl: './toast.component.html',
+  styleUrls: ['./toast.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class ErrorToastComponent implements OnInit {
+export class ToastComponent implements OnInit {
 
+  @Input() animatable: boolean = false;
+  @Input() toastType: string = 'error';
   @Input() toastTitle: string = '';
   @Input() toastMessage: string = '';
   @Output() closeToast: EventEmitter<any> = new EventEmitter();

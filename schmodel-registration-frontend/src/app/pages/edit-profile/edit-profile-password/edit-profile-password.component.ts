@@ -14,8 +14,7 @@ export class EditProfilePasswordComponent implements OnInit {
 
   @Output() collapseSection: EventEmitter<any> = new EventEmitter();
   editPasswordForm: FormGroup;
-  btnSave: boolean;
-  message: string;
+  status: any = null;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -29,7 +28,7 @@ export class EditProfilePasswordComponent implements OnInit {
   }
 
   onChange(event: any) {
-    this.btnSave = false;
+    this.status = null;
   }
 
   ngOnInit() {
@@ -37,7 +36,7 @@ export class EditProfilePasswordComponent implements OnInit {
   }
 
   initializePasswordForm() {
-    this.message = '';
+    this.status = null;
     this.editPasswordForm.setValue({
       oldPassword: '',
       newPassword: '',
@@ -61,12 +60,14 @@ export class EditProfilePasswordComponent implements OnInit {
   }
 
   onSubmit() {
-    this.message = '';
+    this.status = null;
     const { oldPassword, newPassword } = this.editPasswordForm.value;
     this.profileService.updatePassword(oldPassword, newPassword).subscribe( res => {
-      console.log(res);
       if (res.oldPasswordValid && res.newPasswordValid) {
-        this.btnSave = true;
+        this.status = {
+          success: true,
+          message: 'Successfully Saved!'
+        };
         this.profileService.getProfileInfo();
       }
 
@@ -74,8 +75,10 @@ export class EditProfilePasswordComponent implements OnInit {
         this.editPasswordForm.get('oldPassword').setErrors({'currentPasswordNotMatching': true});
       }
     }, error => {
-      this.message = ValidationMessage.GENERIC_ERROR_MESSAGE;
-      console.log(error);
+      this.status = {
+        success: false,
+        message: ValidationMessage.GENERIC_ERROR_MESSAGE
+      };
     });
   }
 
@@ -84,7 +87,7 @@ export class EditProfilePasswordComponent implements OnInit {
     this.editPasswordForm.get('oldPassword').setErrors(null);
     this.editPasswordForm.get('newPassword').setErrors(null);
     this.editPasswordForm.get('confirmPassword').setErrors(null);
-    this.btnSave = false;
+    this.status = null;
     this.collapseSection.emit();
   }
 }
