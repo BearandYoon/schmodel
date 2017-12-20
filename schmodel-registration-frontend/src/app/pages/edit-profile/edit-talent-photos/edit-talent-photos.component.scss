@@ -4,7 +4,16 @@ section {
   padding: 4px 0 18px;
 
   p {
-    font-size: 10px;
+    font-size: 14px;
+    width: 100%;
+    color: white;
+    margin-bottom: 6px;
+    margin-top: 6px;
+    text-align: center;
+  }
+
+  span {
+    font-size: 14px;
     width: 100%;
     color: white;
     margin-bottom: 6px;
@@ -76,7 +85,6 @@ section {
       input {
         display: none;
       }
-
     }
   }
 }
