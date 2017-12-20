@@ -117,7 +117,8 @@ $model-img-size: 100px;
   }
 
   .event-guest {
-    width: 253px;
+    flex: none !important;
+    width: 153px;
   }
   .message-wrapper {
     position: absolute;

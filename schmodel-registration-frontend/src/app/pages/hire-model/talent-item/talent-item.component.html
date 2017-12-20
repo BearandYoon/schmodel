@@ -1,5 +1,5 @@
 <section class="section--talent" [ngClass]="{'has-message': !!talent.errorMessage}">
-  <div class="content-wrapper" [ngClass]="{'event-guest' : guestFlag}">
+  <div class="content-wrapper">
     <img class="talent-photo" [attr.src]="talent.photoUrl" (click)="onProfile()">
     <div class="talent-content">
       <div class="title-wrapper" (click)="onProfile()">
@@ -7,6 +7,7 @@
       </div>
       <div class="action-wrapper">
         <div *ngFor="let role of talent.roles; let i = index" class="action-item" [ngClass]="{
+          'event-guest' : guestFlag,
           'item--hired-circle': talent.contractRoleId === role.id,
           'item--liked': role.application && role.application.liked && !talent.contractRoleId,
           'item--unliked': role.application && !role.application.liked && !talent.contractRoleId}" (click)="onClickActionItem(i)"></div>
