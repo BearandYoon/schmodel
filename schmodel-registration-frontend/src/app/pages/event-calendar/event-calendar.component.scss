@@ -17,6 +17,10 @@ $formula-logo-height: 70px;
 	background-image: url(/assets/img/bg_pattern.png);
 }
 
+.event-sch-guest {
+	flex: none !important;
+	width: 273px !important;
+}
 .sticky-show {
     display: flex !important;
 }
@@ -41,7 +45,7 @@ $formula-logo-height: 70px;
       margin-left: $page-margin-half;
       margin-right: -$page-margin-half;
   
-      .info-item {
+      .header-item {
         display: flex;
         flex: 1;
         background-color: rgba(255, 255, 255, 0.05);
@@ -53,7 +57,12 @@ $formula-logo-height: 70px;
         text-align: center;
         flex-direction: column;
         justify-content: flex-end;
-      }
+	  }
+	  
+	  .header-sch-guest {
+		flex: none !important;
+		width: 150px;
+	  }
     }
 }
 .talent-container {
@@ -61,7 +70,7 @@ $formula-logo-height: 70px;
 		display: flex;
 		margin-top: 4px;
 		width: 100%;
-		height: $model-img-size; 
+		//height: $model-img-size; 
 		background-repeat: no-repeat;
 		background-size: 100% 100%;
 		//-webkit-overflow-scrolling: touch;
@@ -180,6 +189,7 @@ $formula-logo-height: 70px;
 }
 
 @media screen and (min-width: 320px) and (max-width: 414px) {
+	
 	.info-bar {
 		img {
 			width: 100px !important;
@@ -218,39 +228,21 @@ $formula-logo-height: 70px;
 			}
 		}
 	}
+
+	.event-sch-guest {
+		flex: none;
+		width: 253px !important;
+
+		.talent-content {
+			.info-item {
+				padding-right: 13px !important;
+				p {
+					span {
+						font-size: 20px !important;
+						vertical-align: -webkit-baseline-middle !important;
+					}
+				}		
+			}
+		}
+	}
 }
-
-// @media screen and (min-width: 375px) and (max-width: 424px) {
-// 	.info-bar {
-// 		img {
-// 			width: 100px !important;
-// 		}
-// 	}
-
-// 	.talent-calendar {
-// 		width: 100px !important;
-// 	}
-
-// 	.talent-calendar {
-// 		width: 100px !important;
-
-// 		.info-values {
-// 			padding: 10px 9px !important;
-
-// 			&:nth-of-type(1) {
-// 				font-size: 18px;
-// 			}
-			
-// 		}
-// 	}
-
-// 	.talent-content {
-
-// 		.info-item {
-// 			padding: 10px 9px !important;
-			
-
-
-
-
-

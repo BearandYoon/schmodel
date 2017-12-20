@@ -15,7 +15,7 @@
 <div class="info-bar table-header" [ngClass]="{'sticky-show' : stickyFlag}">
   <img class="formula-logo" src="/assets/images/ic_formula_e.svg">
   <div class="info-wrapper">
-    <role-item *ngFor="let role of hireModelData.roles" [role]="role"></role-item>
+    <role-item *ngFor="let role of hireModelData.roles" [role]="role" [ngClass]="{'header-guest' : guestFlag }"></role-item>
     <role-item></role-item>
   </div>
 </div>
@@ -24,11 +24,11 @@
   <div class="info-bar" [ngClass]="{'sticky-hide' : stickyFlag}">
     <img class="formula-logo" src="/assets/images/ic_formula_e.svg">
     <div class="info-wrapper">
-      <role-item *ngFor="let role of hireModelData.roles" [role]="role"></role-item>
+      <role-item *ngFor="let role of hireModelData.roles" [role]="role" [ngClass]="{'header-guest' : guestFlag }"></role-item>
       <role-item></role-item>
     </div>
   </div>
   <div class="talents-container">
-    <talent-item *ngFor="let talent of hireModelData.talents" [talent]="talent" (confirmHiring)="confirmHiring($event)" (handleLikeTalent)="handleLikeTalent($event)" (handleUnlikeTalent)="handleUnlikeTalent($event)"></talent-item>
+    <talent-item *ngFor="let talent of hireModelData.talents" [guestFlag]="guestFlag" [talent]="talent" (confirmHiring)="confirmHiring($event)" (handleLikeTalent)="handleLikeTalent($event)" (handleUnlikeTalent)="handleUnlikeTalent($event)"></talent-item>
   </div>
 </div>

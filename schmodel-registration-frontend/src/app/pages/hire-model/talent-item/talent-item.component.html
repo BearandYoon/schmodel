@@ -7,6 +7,7 @@
       </div>
       <div class="action-wrapper">
         <div *ngFor="let role of talent.roles; let i = index" class="action-item" [ngClass]="{
+          'event-guest' : guestFlag,
           'item--hired-circle': talent.contractRoleId === role.id,
           'item--liked': role.application && role.application.liked && !talent.contractRoleId,
           'item--unliked': role.application && !role.application.liked && !talent.contractRoleId}" (click)="onClickActionItem(i)"></div>

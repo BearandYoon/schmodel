@@ -29,6 +29,7 @@ export class HireModelComponent implements OnInit {
   message: string;
   errorMessage: string;
   stickyFlag = false;
+  guestFlag = false;
 
   hireModelData: any = {};
 
@@ -63,7 +64,6 @@ export class HireModelComponent implements OnInit {
       }
     });
   }
-
   updateTitle(data) {
     const { eventName, eventStartDate, eventEndDate, eventCity, eventCountry } = data;
     const eventDate = this.sharedService.formatEventDate(eventStartDate, eventEndDate);
@@ -127,6 +127,12 @@ export class HireModelComponent implements OnInit {
       }
     }
     this.hireModelData = data;
+
+    if (this.hireModelData.roles.length === 1) {
+      this.guestFlag = true;
+    } else {
+      this.guestFlag = false;
+    }
 
     this.calculateLikesAndHired();
   }

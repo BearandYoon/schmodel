@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class TalentItemComponent implements OnInit {
 
   @Input() talent: any = {};
+  @Input() guestFlag: boolean;
   @Output() confirmHiring: EventEmitter<any> = new EventEmitter();
   @Output() handleLikeTalent: EventEmitter<any> = new EventEmitter();
   @Output() handleUnlikeTalent: EventEmitter<any> = new EventEmitter();
