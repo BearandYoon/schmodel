@@ -206,11 +206,7 @@ export class HireModelComponent implements OnInit {
     });
 
     if (roleId === -1) {
-      if (talent.roles.length > 1) {
-        talent.errorMessage = ValidationMessage.NO_LIKE_ERROR_BEFORE_HIRE;
-      } else {
-        talent.errorMessage = ValidationMessage.ONE_ROLE_NO_LIKE_ERROR_BEFORE_HIRE;
-      }
+      talent.errorMessage = ValidationMessage.ONE_ROLE_NO_LIKE_ERROR_BEFORE_HIRE;
       return;
     }
 
