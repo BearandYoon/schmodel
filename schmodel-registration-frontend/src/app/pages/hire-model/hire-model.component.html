@@ -11,8 +11,17 @@
       {{errorMessage}}
     </span>
 </div>
+
+<div class="info-bar table-header" [ngClass]="{'sticky-show' : stickyFlag}">
+  <img class="formula-logo" src="/assets/images/ic_formula_e.svg">
+  <div class="info-wrapper">
+    <role-item *ngFor="let role of hireModelData.roles" [role]="role"></role-item>
+    <role-item></role-item>
+  </div>
+</div>
+
 <div (scroll)="onPageScroll($event)" class="hire-model-page">
-  <div class="{{stickyFlag ? 'info-bar table-header' : 'info-bar'}}">
+  <div class="info-bar" [ngClass]="{'sticky-hide' : stickyFlag}">
     <img class="formula-logo" src="/assets/images/ic_formula_e.svg">
     <div class="info-wrapper">
       <role-item *ngFor="let role of hireModelData.roles" [role]="role"></role-item>
