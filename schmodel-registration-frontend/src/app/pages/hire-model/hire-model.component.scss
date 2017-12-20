@@ -54,5 +54,9 @@ $formula-logo-height: 70px;
       flex-direction: column;
       justify-content: space-between;
     }
+    .header-guest {
+      flex: none !important;
+      width: 150px;
+    }
   }
 }

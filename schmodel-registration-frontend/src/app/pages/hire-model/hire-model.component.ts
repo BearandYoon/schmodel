@@ -29,6 +29,7 @@ export class HireModelComponent implements OnInit {
   message: string;
   errorMessage: string;
   stickyFlag = false;
+  guestFlag = false;
 
   hireModelData: any = {};
 
@@ -45,7 +46,7 @@ export class HireModelComponent implements OnInit {
   @HostListener('window:scroll', ['$event'])
   onPageScroll(event) {
     console.log(event);
-    if(event.target.scrollTop > 60) {
+    if (event.target.scrollTop > 60) {
         this.stickyFlag = true;
     } else {
         this.stickyFlag = false;
@@ -63,7 +64,6 @@ export class HireModelComponent implements OnInit {
       }
     });
   }
-
   updateTitle(data) {
     const { eventName, eventStartDate, eventEndDate, eventCity, eventCountry } = data;
     const eventDate = this.sharedService.formatEventDate(eventStartDate, eventEndDate);
@@ -127,6 +127,12 @@ export class HireModelComponent implements OnInit {
       }
     }
     this.hireModelData = data;
+
+    if (this.hireModelData.roles.length === 1) {
+      this.guestFlag = true;
+    } else {
+      this.guestFlag = false;
+    }
 
     this.calculateLikesAndHired();
   }

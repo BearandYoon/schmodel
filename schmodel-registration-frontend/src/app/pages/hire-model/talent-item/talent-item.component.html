@@ -1,5 +1,5 @@
 <section class="section--talent" [ngClass]="{'has-message': !!talent.errorMessage}">
-  <div class="content-wrapper">
+  <div class="content-wrapper" [ngClass]="{'event-guest' : guestFlag}">
     <img class="talent-photo" [attr.src]="talent.photoUrl" (click)="onProfile()">
     <div class="talent-content">
       <div class="title-wrapper" (click)="onProfile()">
