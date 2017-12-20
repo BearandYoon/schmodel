@@ -13,8 +13,8 @@ export class EditBillingInfoComponent implements OnInit {
 
   @Output() collapseSection: EventEmitter<any> = new EventEmitter();
   editBillingForm: FormGroup;
-  btnSave: boolean;
-  message: string = '';
+  status: any = null;
+
   constructor(
     private formBuilder: FormBuilder,
     private profileService: ProfileService
@@ -64,23 +64,29 @@ export class EditBillingInfoComponent implements OnInit {
   }
 
   onChange(event: any) {
-    this.btnSave = false;
+    this.status = null;
   }
 
   onSubmit() {
-    this.message = '';
+    this.status = null;
     const data = {...this.editBillingForm.value};
     this.profileService.updateBillingInfo(data).subscribe( res => {
-      this.btnSave = true;
+      this.status = {
+        success: true,
+        message: 'Successfully Saved!'
+      };
       this.profileService.getProfileInfo();
     }, error => {
-      this.message = ValidationMessage.GENERIC_ERROR_MESSAGE;
+      this.status = {
+        success: false,
+        message: ValidationMessage.GENERIC_ERROR_MESSAGE
+      };
     });
   }
 
   onCancel() {
     this.initializeBillInfo();
-    this.btnSave = false;
+    this.status = null;
     this.collapseSection.emit();
   }
 }

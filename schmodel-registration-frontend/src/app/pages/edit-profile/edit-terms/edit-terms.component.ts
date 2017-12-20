@@ -17,18 +17,17 @@ import { ValidationMessage } from '../../../shared/models';
 export class EditTermsComponent implements OnInit {
   @Output() collapseSection: EventEmitter<any> = new EventEmitter();
 
-  btnSave: boolean;
   editTermsForm: FormGroup;
   items: any = [];
   termsModalRef: BsModalRef;
   termsContent: string;
-  message: string = null;
   termsModalConfig = {
     animated: true,
     keyboard: false,
     backdrop: true,
     ignoreBackdropClick: true
   };
+  status: any = null;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -49,7 +48,7 @@ export class EditTermsComponent implements OnInit {
   ngOnInit() {
     this.initializeEditTermsForm();
     this.termsContent = ValidationMessage.TERMS_CONTENT;
-    this.btnSave = false;
+    this.status = null;
   }
 
   initializeEditTermsForm() {
@@ -85,7 +84,7 @@ export class EditTermsComponent implements OnInit {
   }
 
   onAddTerm() {
-    this.btnSave = false;
+    this.status = null;
     this.items = this.editTermsForm.get('items') as FormArray;
     const itemsLength = this.items.length;
     if (itemsLength && this.items._value[itemsLength - 1].term === '') {
@@ -95,17 +94,17 @@ export class EditTermsComponent implements OnInit {
   }
 
   onChange(event: any) {
-    this.btnSave = false;
+    this.status = null;
   }
 
   onRemoveTerm(index) {
-    this.btnSave = false;
+    this.status = null;
     this.items = this.editTermsForm.get('items') as FormArray;
     this.items.removeAt(index);
   }
 
   onSubmit() {
-    this.message = null;
+    this.status = null;
 
     if (!this.editTermsForm.value) {
       return;
@@ -115,16 +114,22 @@ export class EditTermsComponent implements OnInit {
       clauses: this.editTermsForm.value.items.map(e => e.term)
     };
     this.profileService.updateTerms(data).subscribe( res => {
-      this.btnSave = true;
+      this.status = {
+        success: true,
+        message: 'Successfully Saved!'
+      };
       this.profileService.getProfileInfo();
     }, error => {
-      this.message = ValidationMessage.GENERIC_ERROR_MESSAGE;
+      this.status = {
+        success: false,
+        message: ValidationMessage.GENERIC_ERROR_MESSAGE
+      };
     });
   }
 
   onCancel() {
     this.initializeEditTermsForm();
-    this.btnSave = false;
+    this.status = null;
     this.collapseSection.emit();
   }
 }
