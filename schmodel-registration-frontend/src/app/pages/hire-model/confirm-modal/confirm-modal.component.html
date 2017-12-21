@@ -9,7 +9,8 @@
   <div class="modal-body">
     <div class="content-wrapper">
       <div class="comment-wrapper">
-        <p>Please confirm that you want to hire<br> <strong>{{hireTalent.talentName}}</strong> through <strong>{{hireTalent.billingCompanyName}}</strong> for:</p>
+        <p *ngIf="hireTalent.billingCompanyName">Please confirm that you want to hire<br> <strong>{{hireTalent.talentName}}</strong> through <strong>{{hireTalent.billingCompanyName}}</strong> for:</p>
+        <p *ngIf="!hireTalent.billingCompanyName">Please confirm that you want to hire<br> <strong>{{hireTalent.talentName}}</strong> for:</p> 
       </div>
       <div class="role-wrapper row custom-border">
         <div class="col-md-4 col-4"> Position:</div>
@@ -36,8 +37,11 @@
         <span class="terms-conditions" (click)="showTermsAndConditions()">
             Terms and Conditions
           </span>
-        <span *ngIf="hireTalent.clauses.length">
+        <span *ngIf="hireTalent.clauses.length && hireTalent.billingCompanyName">
           and the following extra Terms proposed by <strong>{{hireTalent.talentName}}</strong>, <strong>{{hireTalent.billingCompanyName}}</strong>
+        </span>
+        <span *ngIf="hireTalent.clauses.length && !hireTalent.billingCompanyName">
+          and the following extra Terms proposed by <strong>{{hireTalent.talentName}}</strong>
         </span>
       </div>
 
