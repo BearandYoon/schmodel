@@ -19,7 +19,6 @@
       <app-toast
         *ngIf="status"
         [toastType]="status.success ? 'success' : 'error'"
-        [toastTitle]="status.success ? 'Success!' : 'Error!'"
         [toastMessage]="status.message"
         (closeToast)="status = null"
       ></app-toast>

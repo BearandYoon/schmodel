@@ -57,6 +57,8 @@ export class ValidationMessage {
   public static DOUBLE_LIKE_ERROR = `A Schmodel can only be hired for one position. Please like this Schmodel for only one position and then click on Hire again.`;
   public static NO_LIKE_ERROR_BEFORE_HIRE = 'Schmodels can only be hired for one position, per event. Please like this Schmodel for a single position and then click Hire.';
   public static ONE_ROLE_NO_LIKE_ERROR_BEFORE_HIRE = 'Please like the Schmodel and then click hire.';
+  public static PERSONAL_INFO_SAVE_SUCCESS = 'Your Personal Information has been saved.';
+  public static PERSONAL_INFO_SAVE_ERROR = 'Sorry, we couldn’t update your Personal Information. Please try again.';
 }
 
 export class ErrorResponse {

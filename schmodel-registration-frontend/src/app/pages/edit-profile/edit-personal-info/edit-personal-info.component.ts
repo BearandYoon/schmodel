@@ -224,12 +224,12 @@ export class EditPersonalInfoComponent implements OnInit {
       this.profileService.getProfileInfo();
       this.status = {
         success: true,
-        message: 'Successfully Saved!'
+        message: ValidationMessage.PERSONAL_INFO_SAVE_SUCCESS
       };
     }, error => {
       this.status = {
         success: false,
-        message: ValidationMessage.GENERIC_ERROR_MESSAGE
+        message: ValidationMessage.PERSONAL_INFO_SAVE_ERROR
       };
     });
   }
