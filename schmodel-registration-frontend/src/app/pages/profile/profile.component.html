@@ -66,17 +66,17 @@
         <small class="heading" *ngIf="!isOwnProfile">TERMS & CONDITIONS</small>
         <p *ngFor="let item of profile.clauses;let i = index ">{{i+1}}. {{item}}</p>
       </div>
-      <div *ngIf="profile.billingCompanyRegistrationCountry">
+      <div *ngIf="profile">
         <small class="heading">BILLING INFORMATION</small>
-        <p><label>Company Name:</label><span>{{profile.billingCompanyName}}</span></p>
-        <p><label>Registered:</label><span>{{profile.billingCompanyRegistrationCountry.name}}</span></p>
-        <p><label>VAT No.:</label><span>{{profile.billingCompanyVatNumber}}</span></p>
+        <p><label>Company Name:</label><span>{{getValue(profile, 'billingCompanyName')}}</span></p>
+        <p><label>Registered:</label><span>{{getValue(profile.billingCompanyRegistrationCountry,'name')}}</span></p>
+        <p><label>VAT No.:</label><span>{{getValue(profile, 'billingCompanyVatNumber')}}</span></p>
         <br/>
-        <p><label>Billing Address:</label><span>{{profile.billingAddressLine1}}</span></p>
-        <p><label>Country:</label><span>{{profile.billingAddressCountry.name}}</span></p>
-        <p><label>City:</label><span>{{profile.billingAddressCity}}</span></p>
-        <p><label>State/Pro.:</label><span>{{profile.billingAddressState}}</span></p>
-        <p><label>Zip/Postal:</label><span>{{profile.billingAddressZipCode}}</span></p>
+        <p><label>Billing Address:</label><span>{{getValue(profile,'billingAddressLine1')}}</span></p>
+        <p><label>Country:</label><span>{{getValue(profile.billingAddressCountry,'name')}}</span></p>
+        <p><label>City:</label><span>{{getValue(profile,'billingAddressCity')}}</span></p>
+        <p><label>State/Pro.:</label><span>{{getValue(profile,'billingAddressState')}}</span></p>
+        <p><label>Zip/Postal:</label><span>{{getValue(profile,'billingAddressZipCode')}}</span></p>
       </div>
     </div>
   </div>
