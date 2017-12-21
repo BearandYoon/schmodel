@@ -138,7 +138,19 @@ $model-img-size: 150px;
     }
 
     .btn-submit-container {
-      padding: 27px 0 53px 0;
+      padding: 27px 0 10px 0;
+    }
+
+    .btn-login-container {
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 53px;
+      text-transform: capitalize;
+      a {
+        font-size: 14px;
+        color: #FFFFFF;
+        margin: auto;
+      }
     }
   }
 }
