@@ -8,6 +8,11 @@ accordion.edit-profile {
     margin-top: 4px;
     font-family: 'AkzidenzGroteskBE', Arial, sans-serif;
 
+    app-toast {
+      position: relative;
+      top: 4px;
+    }
+
     &[ng-reflect-is-disabled="true"] {
       header {
         opacity: 0.5;

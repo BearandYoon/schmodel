@@ -16,12 +16,6 @@
       modify or invalidate any part of the Schmodel <u (click)="onTC()">Terms and Conditions</u>.
     </p>
     <div class="form-group form-group--submit">
-      <app-toast
-        *ngIf="status"
-        [toastType]="status.success ? 'success' : 'error'"
-        [toastMessage]="status.message"
-        (closeToast)="status = null"
-      ></app-toast>
       <div class="row">
         <button type="submit" class="btn btn--save" [disabled]="!editTermsForm.valid">SAVE</button>
         <button type="button" class="btn btn--cancel" (click)="onCancel()">CANCEL</button>
@@ -29,3 +23,9 @@
     </div>
   </form>
 </section>
+<app-toast
+  *ngIf="status"
+  [toastType]="status.success ? 'success' : 'error'"
+  [toastMessage]="status.message"
+  (closeToast)="status = null"
+></app-toast>
