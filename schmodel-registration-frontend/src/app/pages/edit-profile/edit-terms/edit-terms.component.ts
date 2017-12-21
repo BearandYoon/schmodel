@@ -116,7 +116,7 @@ export class EditTermsComponent implements OnInit {
     this.profileService.updateTerms(data).subscribe( res => {
       this.status = {
         success: true,
-        message: ValidationMessage.PERSONAL_INFO_SAVE_SUCCESS
+        message: ValidationMessage.TERMS_SAVE_SUCCESS
       };
       this.profileService.getProfileInfo();
     }, error => {

@@ -66,7 +66,7 @@ export class EditProfilePasswordComponent implements OnInit {
       if (res.oldPasswordValid && res.newPasswordValid) {
         this.status = {
           success: true,
-          message: ValidationMessage.PERSONAL_INFO_SAVE_SUCCESS
+          message: ValidationMessage.PASSWORD_SAVE_SUCCESS
         };
         this.profileService.getProfileInfo();
       }

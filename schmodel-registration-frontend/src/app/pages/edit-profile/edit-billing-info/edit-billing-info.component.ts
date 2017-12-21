@@ -73,7 +73,7 @@ export class EditBillingInfoComponent implements OnInit {
     this.profileService.updateBillingInfo(data).subscribe( res => {
       this.status = {
         success: true,
-        message: ValidationMessage.PERSONAL_INFO_SAVE_SUCCESS
+        message: ValidationMessage.BILLING_INFO_SAVE_SUCCESS
       };
       this.profileService.getProfileInfo();
     }, error => {
