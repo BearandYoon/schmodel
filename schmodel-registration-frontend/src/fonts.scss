@@ -25,6 +25,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-check:before {
+  content: "\e904";
+}
+.icon-check-circle:before {
+  content: "\e90b";
+}
 .icon-minus-circle:before {
   content: "\e907";
 }
@@ -42,9 +48,6 @@
 }
 .icon-arrow-right:before {
   content: "\e903";
-}
-.icon-check:before {
-  content: "\e904";
 }
 .icon-close:before {
   content: "\e905";

@@ -66,7 +66,7 @@ export class EditProfilePasswordComponent implements OnInit {
       if (res.oldPasswordValid && res.newPasswordValid) {
         this.status = {
           success: true,
-          message: 'Successfully Saved!'
+          message: ValidationMessage.PASSWORD_SAVE_SUCCESS
         };
         this.profileService.getProfileInfo();
       }
@@ -77,7 +77,7 @@ export class EditProfilePasswordComponent implements OnInit {
     }, error => {
       this.status = {
         success: false,
-        message: ValidationMessage.GENERIC_ERROR_MESSAGE
+        message: ValidationMessage.PERSONAL_INFO_SAVE_ERROR
       };
     });
   }

@@ -1,7 +1,7 @@
 <div class="toast-wrapper" [ngClass]="{'success': toastType == 'success', 'animatable': animatable}">
-  <span class="icon-close" (click)="onCloseToast()"></span>
+  <span class="icon" [ngClass]="{'icon-close': toastType == 'error', 'icon-check': toastType == 'success'}" (click)="onCloseToast()"></span>
   <span class="message">
-    <b *ngIf="toastTitle">{{toastTitle}}<br/></b>
+    <b *ngIf="toastTitle != null">{{toastTitle ? toastTitle : (toastType == 'success' ? 'Oh Ya!' : 'Oh snap!')}}<br/></b>
     {{toastMessage}}
   </span>
 </div>

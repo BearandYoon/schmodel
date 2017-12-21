@@ -71,13 +71,6 @@
       <p *ngIf="socialInvalid" class="validation-error">Please provide the details of at least two social media accounts.</p>
     </div>
     <div class="form-group form-group--submit">
-      <app-toast
-        *ngIf="status"
-        [toastType]="status.success ? 'success' : 'error'"
-        [toastTitle]="status.success ? 'Success!' : 'Error!'"
-        [toastMessage]="status.message"
-        (closeToast)="status = null"
-      ></app-toast>
       <div class="row">
         <button type="submit" class="btn btn--save" [disabled]="!editPersonalForm.valid">SAVE</button>
         <button type="button" class="btn btn--cancel" (click)="onCancel()">CANCEL</button>
@@ -85,3 +78,9 @@
     </div>
   </form>
 </section>
+<app-toast
+  *ngIf="status"
+  [toastType]="status.success ? 'success' : 'error'"
+  [toastMessage]="status.message"
+  (closeToast)="status = null"
+></app-toast>
