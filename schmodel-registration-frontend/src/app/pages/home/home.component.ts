@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { LocalStorageService } from 'ngx-webstorage';
+
 
 import { routerTransition } from '../../router.animations';
 import { ProfileService } from '../../core/services';
@@ -25,6 +26,7 @@ export class HomeComponent implements OnInit {
   beforeTitle: string;
   termsModalRef: BsModalRef;
   termsContent: string;
+  status: any = null;
   termsModalConfig = {
     animated: true,
     keyboard: true,
@@ -54,7 +56,8 @@ export class HomeComponent implements OnInit {
     private localStorage: LocalStorageService,
     private modalService: BsModalService,
     private profileService: ProfileService,
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    private activatedRoute: ActivatedRoute
   ) {
     this.firstName = '';
     this.lastName = '';
@@ -73,6 +76,15 @@ export class HomeComponent implements OnInit {
 
     this.isCompletedProfile = false;
     this.isHomePageLoaded = false;
+
+    this.activatedRoute.queryParams.subscribe((params: Params) => {
+      if(params['resetPwd']) {
+        this.status = {
+          success: params['resetPwd'],
+          message: ValidationMessage.RESET_PASSWORD_SUCCESS
+        };
+      }
+    });
 
     this.termsContent = ValidationMessage.TERMS_CONTENT;
     if (this.sharedService.fromSignup) {

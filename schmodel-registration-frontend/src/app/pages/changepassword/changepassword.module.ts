@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChangepasswordRoutingModule } from './changepassword-routing.module';
 import { ChangepasswordComponent } from './changepassword.component';
 import { AuthenticationService } from '../../core/services';
+import { ProfileService } from '../../core/services';
 import { SharedModule } from '../../shared/modules';
 
 @NgModule({
@@ -19,7 +20,8 @@ import { SharedModule } from '../../shared/modules';
         ChangepasswordComponent
     ],
     providers: [
-      AuthenticationService
+        ProfileService,
+        AuthenticationService
     ]
 })
 export class ChangepasswordModule {
