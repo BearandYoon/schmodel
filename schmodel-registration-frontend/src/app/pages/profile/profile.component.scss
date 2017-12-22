@@ -36,8 +36,8 @@ $profileTextColor: #ffffff;
         padding: 22px 0 22px 0;
 
         .title-detail {
-            padding-left: 40px;
-            padding-right: 40px;
+            padding-left: 20px;
+            padding-right: 20px;
             > small {
                 font-family: 'Open Sans', sans-serif;
                 color: #afb2b3;
@@ -48,8 +48,8 @@ $profileTextColor: #ffffff;
  
 
     .profile-text {
-        padding-left: 40px;
-        padding-right: 40px;
+        padding-left: 20px;
+        padding-right: 20px;
 
         :last-child {
            border: none;
