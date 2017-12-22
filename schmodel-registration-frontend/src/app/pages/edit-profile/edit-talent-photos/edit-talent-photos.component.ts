@@ -20,7 +20,9 @@ export class EditTalentPhotosComponent implements OnInit {
   public no_tmp: number;
   public myFile: number;
   private data: any;
+  private photo_upload_cnt: number;
   status: any = null;
+  isCompleted: number;
 
   messageModalRef: BsModalRef;
   messageContent: string;
@@ -114,9 +116,11 @@ export class EditTalentPhotosComponent implements OnInit {
     );
 
     let i_add = 3;
+    this.isCompleted = 0;
     for (let i = 0; i < this.profileService.profileData.photos.length; i++) {
       this.data = this.profileService.profileData.photos[i];
       if (this.data.photoTypeId < 4) {
+        this.isCompleted ++;
         this.photo_section_infor[this.data.photoTypeId - 1].photoId = this.data.id;
         this.photo_section_infor[this.data.photoTypeId - 1].photoUrl = this.data.url;
         this.photo_section_infor[this.data.photoTypeId - 1].flag = true;
@@ -144,6 +148,9 @@ export class EditTalentPhotosComponent implements OnInit {
       this.photo_section_infor[num].flag = false;
       this.photo_section_infor[num].photoUrl = '';
       this.photo_section_infor[num].isUploading = false;
+      if(num < 3) {
+        this.isCompleted --;
+      }
       this.status = {
         success: true,
         message: 'Successfully removed'
@@ -203,11 +210,14 @@ export class EditTalentPhotosComponent implements OnInit {
                 this.photo_section_infor[this.no_tmp].photoUrl = res.photoUrl;
                 this.photo_section_infor[this.no_tmp].photoId = res.photoId;
                 this.photo_section_infor[this.no_tmp].photo = res.photoUrl;
-              this.photo_section_infor[this.no_tmp].isUploading = false;
-              this.status = {
-                success: true,
-                message: 'Successfully uploaded'
-              };
+                this.photo_section_infor[this.no_tmp].isUploading = false;
+                if(this.no_tmp < 3) {
+                  this.isCompleted ++;
+                }
+                this.status = {
+                  success: true,
+                  message: 'Successfully uploaded'
+                };
             }, error => {
               this.status = {
                 success: false,
