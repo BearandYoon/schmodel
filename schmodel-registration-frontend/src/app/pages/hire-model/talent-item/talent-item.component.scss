@@ -138,6 +138,11 @@ $model-img-size: 100px;
       margin-right: 10px;
     }
 
+    .toast-position {
+      position: absolute;
+      top: 0;
+    }
+
     .message {
       font-family: 'Open Sans', sans-serif;
       font-size: 6px;

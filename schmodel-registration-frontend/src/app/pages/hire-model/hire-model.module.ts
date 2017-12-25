@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { AlertModule } from 'ngx-bootstrap';
 
+import { ComponentsModule } from '../../shared/components/components.module';
 import { HireModelComponent } from './hire-model.component';
 import { HireModelRoutingModule } from './hire-model-routing.module';
 import { ProfileService, ClientService } from '../../core/services';
@@ -13,7 +14,8 @@ import { RoleItemComponent } from './role-item/role-item.component';
   imports: [
     CommonModule,
     AlertModule,
-    HireModelRoutingModule
+    HireModelRoutingModule,
+    ComponentsModule,
   ],
   declarations: [
     HireModelComponent,
