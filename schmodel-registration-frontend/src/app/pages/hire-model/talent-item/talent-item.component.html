@@ -1,4 +1,4 @@
-<section class="section--talent" [ngClass]="{'has-message': !!talent.errorMessage}">
+<section class="section--talent">
   <div class="content-wrapper">
     <img class="talent-photo" [attr.src]="talent.photoUrl" (click)="onProfile()">
     <div class="talent-content">
@@ -17,20 +17,12 @@
       
     </div>
   </div>
-  <div class="message-wrapper">
-  <!-- <span class="icon-close" (click)="onCloseErrorMessage()"></span>   -->
-  <app-toast class="toast-position"
-  *ngIf="talent.errorMessage"
-  [toastType]="error"
-  [toastMessage]="talent.errorMessage"
-  (closeToast)="onCloseErrorMessage()"
-  ></app-toast>
-</div>
-  <!-- <div class="message-wrapper">
-    <span class="icon-close" (click)="onCloseErrorMessage()"></span>
-    <span class="message">
-      <b>Oh snap!</b><br/>
-      {{talent.errorMessage}}
-    </span>
-  </div> -->
+  <div class="toast-wrapper">
+    <app-toast class="toast-position"
+    *ngIf="talent.errorMessage"
+    toastType="error"
+    [toastMessage]="talent.errorMessage"
+    (closeToast)="onCloseErrorMessage()"
+    ></app-toast>
+  </div>
 </section>
