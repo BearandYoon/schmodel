@@ -49,7 +49,7 @@ export class EditTermsComponent implements OnInit {
     this.initializeEditTermsForm();
     this.termsContent = ValidationMessage.TERMS_CONTENT;
     this.status = null;
-  }
+   }
 
   initializeEditTermsForm() {
     this.editTermsForm = null;
