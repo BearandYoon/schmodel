@@ -4,9 +4,9 @@ $model-img-size: 120px;
 $formula-logo-height: 70px;
 
 .event-calender {
-	height: 90vh;
-	overflow-y: scroll;
-	overflow-x: hidden;
+	// height: 90vh;
+	// overflow-y: scroll;
+	overflow: hidden;
 }
 
 .table-header {
