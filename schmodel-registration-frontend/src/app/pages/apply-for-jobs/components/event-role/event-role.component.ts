@@ -8,7 +8,7 @@ import { routerTransition } from '../../../../router.animations';
 
 import { JobService } from '../../../../core/services';
 
-enum ButtonStatus { Disabled, Checked, Apply }
+enum ButtonStatus { Disabled, Checked, Apply, Hired }
 
 @Component({
   selector: 'app-event-role',
@@ -43,6 +43,7 @@ export class EventRoleComponent implements OnInit {
   private ic_checked: string = "/assets/img/ic_checked.png";
   private ic_apply: string = "/assets/img/ic_apply.png";
   private ic_disabled: string = "/assets/img/ic_disabled.png";
+  private ic_hired: string = "/assets/img/ic_hired.png";
   private dialogConfig = {
     animated: true,
     keyboard: true,
@@ -105,6 +106,8 @@ export class EventRoleComponent implements OnInit {
     } else if (this.status === ButtonStatus.Disabled) {
       this.image_url = this.ic_disabled;
       this.price = null;
+    } else if (this.status === ButtonStatus.Hired) {
+      this.image_url = this.ic_hired;
     }
   }
 }
