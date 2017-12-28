@@ -1,4 +1,7 @@
 <div class="event-role" [@routerTransition] (click)="openDialog()">
   <img src={{image_url}}>
-  <span>€{{price | number : '1.0-2'}}</span>
+  <span>
+  	<p [hidden]="status===0">€{{price | number : '1.0-2'}}</p>
+  	<p [hidden]="status!==0">&nbsp;</p>
+  </span>
 </div>
