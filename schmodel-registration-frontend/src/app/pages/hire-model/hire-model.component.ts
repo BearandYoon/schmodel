@@ -30,6 +30,7 @@ export class HireModelComponent implements OnInit {
   errorMessage: string;
   stickyFlag = false;
   guestFlag = false;
+  status: any = null;
 
   hireModelData: any = {};
 
