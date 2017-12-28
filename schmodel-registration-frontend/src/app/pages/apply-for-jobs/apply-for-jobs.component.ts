@@ -46,7 +46,7 @@ export class ApplyForJobsComponent implements OnInit {
 
     @HostListener('window:scroll', ['$event'])
     onPageScroll(event) {
-        if (event.target.scrollTop > 60) {
+        if (event.target.scrollingElement.scrollTop > 60) {
             this.stickyFlag = true;
         } else {
             this.stickyFlag = false;
