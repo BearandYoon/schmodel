@@ -23,17 +23,15 @@ export class MyJobsComponent implements OnInit {
         const scrollLeft = document.documentElement.scrollLeft;
         window.scrollTo(scrollLeft, 0);
         this.isLoading = true;
-        setTimeout(() => {
-            this.myjobService.getMyJobInfor().subscribe(res => {
-                this.isLoading = false;
-                this.response = null;
-                this.response = res;
-                console.log(res);
-            }, error => {
-                this.isLoading = false;
-                console.log(error);
-            });
-        }, 1000);
+        this.myjobService.getMyJobInfor().subscribe(res => {
+            this.isLoading = false;
+            this.response = null;
+            this.response = res;
+            console.log(res);
+        }, error => {
+            this.isLoading = false;
+            console.log(error);
+        });
 
     }
 }
