@@ -28,6 +28,7 @@ export class EditTermsComponent implements OnInit {
     ignoreBackdropClick: true
   };
   status: any = null;
+  untouched = true;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -95,6 +96,7 @@ export class EditTermsComponent implements OnInit {
 
   onChange(event: any) {
     this.status = null;
+    this.untouched = false;
   }
 
   onRemoveTerm(index) {
