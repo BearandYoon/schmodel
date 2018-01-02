@@ -12,7 +12,7 @@ export class ValidationMessage {
   public static INVALID_PASSWORD_1 = 'Enter a valid password';
   public static INVALID_CREDENTIALS = 'Invalid Credentials';
   public static ALREADY_REGISTERED = 'You have already registered. Please login.';
-  public static NON_MATCHING_PASSWORD = 'Passwords do not match';
+  public static NON_MATCHING_PASSWORD = 'Passwords do not match.';
   public static INVALID_PASSWORD = 'Password must be at least 6 characters';
   public static WRONG_ACTIVATION_CODE = 'Enter a valid activation code or register without an activation code';
   public static EMPTY_FIELDS = 'Please complete all the mandatory fields to register';
