@@ -91,5 +91,6 @@ export class EditBillingInfoComponent implements OnInit {
     this.initializeBillInfo();
     this.status = null;
     this.collapseSection.emit();
+    this.untouched = true;
   }
 }

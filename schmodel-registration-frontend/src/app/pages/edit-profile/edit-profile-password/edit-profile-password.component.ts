@@ -91,5 +91,6 @@ export class EditProfilePasswordComponent implements OnInit {
     this.editPasswordForm.get('confirmPassword').setErrors(null);
     this.status = null;
     this.collapseSection.emit();
+    this.untouched = true;
   }
 }

@@ -240,5 +240,6 @@ export class EditPersonalInfoComponent implements OnInit {
     this.initializePersonalForm();
     this.status = null;
     this.collapseSection.emit();
+    this.untouched = true;
   }
 }
