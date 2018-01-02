@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
   beforeTitle: string;
   termsModalRef: BsModalRef;
   termsContent: string;
+  status: any = null;
   termsModalConfig = {
     animated: true,
     keyboard: true,
@@ -75,6 +76,15 @@ export class HomeComponent implements OnInit {
 
     this.isCompletedProfile = false;
     this.isHomePageLoaded = false;
+
+    this.activatedRoute.queryParams.subscribe((params: Params) => {
+      if(params['resetPwd']) {
+        this.status = {
+          success: params['resetPwd'],
+          message: ValidationMessage.RESET_PASSWORD_SUCCESS
+        };
+      }
+    });
 
     this.termsContent = ValidationMessage.TERMS_CONTENT;
     if (this.sharedService.fromSignup) {

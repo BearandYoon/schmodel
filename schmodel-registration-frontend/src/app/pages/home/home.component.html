@@ -1,10 +1,17 @@
 <div class="page-container" *ngIf="isHomePageLoaded">
+  
   <div class="logo-container">
     <img class="img-logo" src="assets/img/img_logo.png">
   </div>
 
   <p class="title" *ngIf="!isCompletedProfile">Complete Your Profile</p>
   <p class="title" *ngIf="isCompletedProfile">Welcome back <span class="user-name">{{firstName}}</span></p>
+
+  <app-toast  *ngIf="status"
+  [toastType]="status.success ? 'success' : 'error'"
+  [toastMessage]="status.message"
+  (closeToast)="status = null"
+  ></app-toast>
 
   <p class="content-text" *ngIf="!isCompletedProfile">{{beforeTitle}}</p>
   <div class="content-wrapper" *ngIf="isCompletedProfile">
