@@ -101,6 +101,7 @@ export class EditTermsComponent implements OnInit {
 
   onRemoveTerm(index) {
     this.status = null;
+    this.untouched = false;
     this.items = this.editTermsForm.get('items') as FormArray;
     this.items.removeAt(index);
   }
