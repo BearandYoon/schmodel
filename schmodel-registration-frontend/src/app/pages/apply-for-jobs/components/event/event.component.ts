@@ -86,6 +86,12 @@ export class EventComponent implements OnInit, OnChanges {
       } else {
         this.event_role_status[this.roles_data[i].id - 1] = 2;
       }
+
+      if (this.roles_data[i].hired == true) {
+        this.event_role_status = [0, 0, 0, 0];
+        this.event_role_status[this.roles_data[i].id - 1] = 3;
+        return;
+      }
     }
   }
 

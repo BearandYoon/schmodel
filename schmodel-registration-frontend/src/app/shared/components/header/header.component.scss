@@ -3,9 +3,12 @@ $navitem-width: 50px;
 
 header.header--main {
   width: 100%;
-  height: $header-height;
+//  height: $header-height;
+  height: 73px;
+  position: relative;
   display: flex;
   flex-direction: row;
+  z-index: 100;
   align-items: center;
   background-image: url('/assets/img/bg_row.png');
   background-repeat: no-repeat;
