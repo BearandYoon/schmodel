@@ -28,9 +28,16 @@
             </div>
           </div>
           <div class="action-container">
-            <alert type="danger" *ngIf="message">
+            <div class="message-wrapper" *ngIf="message">
+              <span class="icon-close" (click)="message='';"></span>
+              <span class="message">
+                <b>Oh snap!</b><br/>
+                {{message}}
+              </span>
+            </div>
+            <!-- <alert type="danger" *ngIf="message">
               <strong>{{message}}</strong>
-            </alert>
+            </alert> -->
             <div class="btn-login-container">
               <button class="btn bordered-btn" type="submit" [disabled]="!signUpForm.valid"> Create Schmodel Account </button>
             </div>
