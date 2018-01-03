@@ -22,3 +22,12 @@ div {
     width: 90%;
   }
 }
+
+.spinner-container {
+  text-align: center;
+  width: 100%;
+  z-index: 999;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}

@@ -13,20 +13,25 @@ import { MyJobService } from '../../core/services';
 export class MyJobsComponent implements OnInit {
 
     public response: any = '';
+    public isLoading = false;
 
     constructor(
         private myjobService: MyJobService
-    ) {}
+    ) { }
 
     ngOnInit() {
         const scrollLeft = document.documentElement.scrollLeft;
         window.scrollTo(scrollLeft, 0);
+        this.isLoading = true;
         this.myjobService.getMyJobInfor().subscribe(res => {
+            this.isLoading = false;
             this.response = null;
             this.response = res;
             console.log(res);
         }, error => {
+            this.isLoading = false;
             console.log(error);
         });
+
     }
 }
