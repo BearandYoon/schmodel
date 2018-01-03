@@ -103,6 +103,9 @@
       font-size: 9px;
       font-weight: 600;
       text-align: justify;
+      height: 100px;
+      overflow: scroll;
+      -webkit-overflow-scrolling: touch;
     }
 
     .action-wrapper {
