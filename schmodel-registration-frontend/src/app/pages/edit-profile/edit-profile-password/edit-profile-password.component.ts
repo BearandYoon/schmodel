@@ -75,10 +75,6 @@ export class EditProfilePasswordComponent implements OnInit {
         this.editPasswordForm.get('oldPassword').setErrors({'currentPasswordNotMatching': true});
       }
     }, error => {
-      this.status = {
-        success: false,
-        message: ValidationMessage.PERSONAL_INFO_SAVE_ERROR
-      };
     });
   }
 
