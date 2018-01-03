@@ -65,7 +65,6 @@ export class EditBillingInfoComponent implements OnInit {
   }
 
   onChange(event: any) {
-    console.log('test');
     this.status = null;
     this.untouched = false;
   }
