@@ -21,7 +21,7 @@ export class JobService {
       null
     ).subscribe(res => {
       if (callback) {
-        callback(true, res.eventView ? res.eventView : []);
+        callback(true, res.events ? res.events : []);
       }
     }, error => {
       console.log(error);

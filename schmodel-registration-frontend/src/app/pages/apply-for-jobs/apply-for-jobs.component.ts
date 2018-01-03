@@ -36,7 +36,7 @@ export class ApplyForJobsComponent implements OnInit {
 
     public bottomHeight: string = '';
 
-    public eventView: Array<any> = [];
+    public events: Array<any> = [];
 
     constructor(
         private detailDlgService: BsModalService,
@@ -55,7 +55,7 @@ export class ApplyForJobsComponent implements OnInit {
     ngOnInit() {
         this.jobService.getApplyForJobs((success, response) => {
             if (success) {
-                this.eventView = response;
+                this.events = response;
                 console.log(response);
             }
             else {
