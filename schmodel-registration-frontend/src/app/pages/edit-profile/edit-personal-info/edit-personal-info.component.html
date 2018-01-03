@@ -72,7 +72,7 @@
     </div>
     <div class="form-group form-group--submit">
       <div class="row">
-        <button type="submit" class="btn btn--save" [disabled]="!editPersonalForm.valid">SAVE</button>
+        <button type="submit" class="btn btn--save" [disabled]="!editPersonalForm.valid || untouched || status">SAVE</button>
         <button type="button" class="btn btn--cancel" (click)="onCancel()">CANCEL</button>
       </div>
     </div>
@@ -82,5 +82,5 @@
   *ngIf="status"
   [toastType]="status.success ? 'success' : 'error'"
   [toastMessage]="status.message"
-  (closeToast)="status = null"
+  (closeToast)="status = null;untouched = true"
 ></app-toast>
