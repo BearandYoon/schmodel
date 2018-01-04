@@ -123,10 +123,6 @@ export class EditTermsComponent implements OnInit {
       };
       this.profileService.getProfileInfo();
     }, error => {
-      this.status = {
-        success: false,
-        message: ValidationMessage.PERSONAL_INFO_SAVE_ERROR
-      };
     });
   }
 
