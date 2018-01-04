@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
+import { Component, AfterViewInit, Input, Output, ViewChild, ElementRef, EventEmitter, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-toast',
@@ -6,17 +6,26 @@ import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } fro
   styleUrls: ['./toast.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class ToastComponent implements OnInit {
+export class ToastComponent implements AfterViewInit {
+  @ViewChild('toastWrapper') toastWrapper: ElementRef;
 
-  @Input() animatable: boolean = false;
-  @Input() toastType: string = 'error';
-  @Input() toastTitle: string = '';
-  @Input() toastMessage: string = '';
+  @Input() animatable = false;
+  @Input() toastType = 'error';
+  @Input() toastTitle = '';
+  @Input() toastMessage = '';
   @Output() closeToast: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
-  ngOnInit() {
+  ngAfterViewInit() {
+    const toastElement = this.toastWrapper.nativeElement;
+    const windowHeight = window.innerHeight;
+    const toastRect = toastElement.getBoundingClientRect();
+    if (toastRect.y + toastRect.height > windowHeight) {
+      toastElement.scrollIntoView({behavior: 'smooth', block: 'end'});
+    } else if (toastRect.y < 0) {
+      toastElement.scrollIntoView({behavior: 'smooth', block: 'start'});
+    }
   }
 
   onCloseToast() {
