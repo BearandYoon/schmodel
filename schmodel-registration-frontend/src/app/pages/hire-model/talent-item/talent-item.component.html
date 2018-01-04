@@ -17,12 +17,11 @@
       
     </div>
   </div>
-  <div class="toast-wrapper">
-    <app-toast class="toast-position"
-    *ngIf="talent.errorMessage"
-    toastType="error"
-    [toastMessage]="talent.errorMessage"
-    (closeToast)="onCloseErrorMessage()"
-    ></app-toast>
-  </div>
+
+  <app-toast
+  *ngIf="talent.errorMessage"
+  toastType="error"
+  [toastMessage]="talent.errorMessage"
+  (closeToast)="onCloseErrorMessage()"
+  ></app-toast>
 </section>
