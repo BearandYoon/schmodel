@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {NavigationEnd, Router} from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
@@ -11,13 +11,10 @@ export class HeaderComponent implements OnInit {
 
   @Input() pageData: any = {};
 
-  constructor(private location: Location, private router: Router) { }
-
-  ngOnInit() {
-  }
-
-  handleLeftNavClick() {
-    const navLeft: String = this.pageData.navLeft;
+  constructor(
+    private location: Location,
+    private router: Router
+  ) {
     this.router.events.filter(event => event instanceof NavigationEnd)
       .subscribe(ev => {
         const previousUrl: any = ev;
@@ -25,6 +22,13 @@ export class HeaderComponent implements OnInit {
           this.router.navigate(['/']);
         }
       });
+  }
+
+  ngOnInit() {
+  }
+
+  handleLeftNavClick() {
+    const navLeft: String = this.pageData.navLeft;
     switch (navLeft) {
       case 'back':
         this.location.back();
