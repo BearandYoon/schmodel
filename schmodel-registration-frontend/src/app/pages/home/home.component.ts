@@ -68,6 +68,7 @@ export class HomeComponent implements OnInit {
     this.isCompletedProfile = false;
     this.isHomePageLoaded = false;
     this.hasActivationCode=false;
+    this.status = null;
   }
 
   ngOnInit() {
@@ -78,7 +79,7 @@ export class HomeComponent implements OnInit {
     this.isHomePageLoaded = false;
 
     this.activatedRoute.queryParams.subscribe((params: Params) => {
-      if(params['resetPwd']) {
+      if(params['resetPwd'] == 'true') {
         this.status = {
           success: params['resetPwd'],
           message: ValidationMessage.RESET_PASSWORD_SUCCESS
@@ -144,7 +145,7 @@ export class HomeComponent implements OnInit {
   onApply() {
     if (this.hasActivationCode===true) {
         this.router.navigate(['apply-for-jobs']);
-    } 
+    }
     return false;
   }
 
