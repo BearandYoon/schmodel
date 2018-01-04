@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
 
   onSignIn() {
     this.message = '';
-    this.authUser.email = this.signInForm.value.email;
+    this.authUser.email = this.signInForm.value.email.toLowerCase();
     this.authUser.password = this.signInForm.value.password;
     this.authService.logIn(this.authUser).subscribe( res => {
       this.router.navigate(['']);

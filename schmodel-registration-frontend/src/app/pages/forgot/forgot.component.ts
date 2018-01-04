@@ -62,7 +62,7 @@ export class ForgotComponent implements OnInit {
   }
      // reset password feature
   onReset() {
-    this.resetUser.email = this.forgotForm.value.email;
+    this.resetUser.email = this.forgotForm.value.email.toLowerCase();
     this.isSubmitting = true;
     this.resetPwdService.resetPwd(this.resetUser).subscribe( res => {
         this.emailValid = true;

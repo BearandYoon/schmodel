@@ -72,7 +72,7 @@ export class SignupComponent implements OnInit {
 
     this.termsModalRef.content.onCloseReason.subscribe(result => {
       if (result === TermsModalResponse.AGREE) {
-        this.authUser.email = this.signUpForm.value.email;
+        this.authUser.email = this.signUpForm.value.email.toLowerCase();
         this.authUser.password = this.signUpForm.value.password;
         this.authUser.activationCode = this.signUpForm.value.activationCode;
 
