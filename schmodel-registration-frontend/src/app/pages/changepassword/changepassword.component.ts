@@ -64,7 +64,7 @@ export class ChangepasswordComponent implements OnInit {
 
   onChangePwd() {
     if (this.changePwdForm.value.password !== this.changePwdForm.value.confirmPass) {
-      this.missMatchPass = 'Passwords do not match. Please try again';
+      this.missMatchPass = 'Passwords do not match. Please try again.';
     } else {
       this.user.newPassword = this.changePwdForm.value.password;
       this.user.token = this.token;
