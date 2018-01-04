@@ -51,7 +51,7 @@ export class ClientLoginComponent implements OnInit {
 
   onSignIn() {
     this.message = '';
-    this.authUser.email = this.signInForm.value.email;
+    this.authUser.email = this.signInForm.value.email.toLowerCase();
     this.authUser.password = this.signInForm.value.password;
     this.authService.clientLogin(this.authUser).subscribe( res => {
       console.log('successfully logged in as client');
