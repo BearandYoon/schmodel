@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import {NavigationEnd, Router} from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
@@ -18,6 +18,13 @@ export class HeaderComponent implements OnInit {
 
   handleLeftNavClick() {
     const navLeft: String = this.pageData.navLeft;
+    this.router.events.filter(event => event instanceof NavigationEnd)
+      .subscribe(ev => {
+        const previousUrl: any = ev;
+        if(previousUrl.url.indexOf('resetPwd') !== -1) {
+          this.router.navigate(['/']);
+        }
+      });
     switch (navLeft) {
       case 'back':
         this.location.back();

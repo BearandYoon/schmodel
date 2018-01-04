@@ -229,10 +229,6 @@ export class EditPersonalInfoComponent implements OnInit {
         message: ValidationMessage.PERSONAL_INFO_SAVE_SUCCESS
       };
     }, error => {
-      this.status = {
-        success: false,
-        message: ValidationMessage.PERSONAL_INFO_SAVE_ERROR
-      };
     });
   }
 
