@@ -15,6 +15,7 @@ export class EditProfilePasswordComponent implements OnInit {
   @Output() collapseSection: EventEmitter<any> = new EventEmitter();
   editPasswordForm: FormGroup;
   status: any = null;
+  untouched = true;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -29,6 +30,7 @@ export class EditProfilePasswordComponent implements OnInit {
 
   onChange(event: any) {
     this.status = null;
+    this.untouched = false;
   }
 
   ngOnInit() {
@@ -89,5 +91,6 @@ export class EditProfilePasswordComponent implements OnInit {
     this.editPasswordForm.get('confirmPassword').setErrors(null);
     this.status = null;
     this.collapseSection.emit();
+    this.untouched = true;
   }
 }

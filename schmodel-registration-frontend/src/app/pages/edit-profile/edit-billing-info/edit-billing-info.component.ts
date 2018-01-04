@@ -14,6 +14,7 @@ export class EditBillingInfoComponent implements OnInit {
   @Output() collapseSection: EventEmitter<any> = new EventEmitter();
   editBillingForm: FormGroup;
   status: any = null;
+  untouched = true;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -65,6 +66,7 @@ export class EditBillingInfoComponent implements OnInit {
 
   onChange(event: any) {
     this.status = null;
+    this.untouched = false;
   }
 
   onSubmit() {
@@ -88,5 +90,6 @@ export class EditBillingInfoComponent implements OnInit {
     this.initializeBillInfo();
     this.status = null;
     this.collapseSection.emit();
+    this.untouched = true;
   }
 }

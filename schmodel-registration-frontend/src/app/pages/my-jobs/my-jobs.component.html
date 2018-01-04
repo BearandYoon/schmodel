@@ -1,15 +1,18 @@
 <div class="my-jobs" [@routerTransition]>
+  <div class="spinner-container" *ngIf="isLoading">
+    <i class="fa fa-spinner fa-pulse fa-2x fa-fw loading-page"></i>
+  </div>
+  <div [hidden]="isLoading">
+    <div *ngIf="(response.upcomingJobs == undefined) || (response.upcomingJobs != undefined && response.upcomingJobs.length == 0)"
+      class="title"> NO UPCOMING JOBS</div>
+    <div *ngIf="response.upcomingJobs != undefined && response.upcomingJobs.length != 0" class="title"> UPCOMING JOBS</div>
 
-  <div *ngIf="(response.upcomingJobs == undefined) || (response.upcomingJobs != undefined && response.upcomingJobs.length == 0)"
-    class="title"> NO UPCOMING JOBS</div>
-  <div *ngIf="response.upcomingJobs != undefined && response.upcomingJobs.length != 0" class="title"> UPCOMING JOBS</div>
+    <app-sch-job-row [event_role]="response.upcomingJobs"></app-sch-job-row>
 
-  <app-sch-job-row [event_role]="response.upcomingJobs"></app-sch-job-row>
+    <div *ngIf="(response.previousJobs == undefined) || (response.previousJobs != undefined && response.previousJobs.length == 0)"
+      class="title"> NO PREVIOUS JOBS</div>
+    <div *ngIf="response.previousJobs != undefined && response.previousJobs.length != 0" class="title"> PREVIOUS JOBS</div>
 
-  <div *ngIf="(response.previousJobs == undefined) || (response.previousJobs != undefined && response.previousJobs.length == 0)"
-    class="title"> NO PREVIOUS JOBS</div>
-  <div *ngIf="response.previousJobs != undefined && response.previousJobs.length != 0" class="title"> PREVIOUS JOBS</div>
-
-  <app-sch-job-row [event_role]="response.previousJobs"></app-sch-job-row>
-
+    <app-sch-job-row [event_role]="response.previousJobs"></app-sch-job-row>
+  </div>
 </div>

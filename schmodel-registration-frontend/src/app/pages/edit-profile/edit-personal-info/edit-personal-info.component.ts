@@ -20,7 +20,8 @@ export class EditPersonalInfoComponent implements OnInit {
   editPersonalForm: FormGroup;
   socialInvalid: boolean = false;
   status: any = null;
-  
+  untouched = true;
+
   constructor(
     private formBuilder: FormBuilder,
     private profileService: ProfileService,
@@ -209,6 +210,7 @@ export class EditPersonalInfoComponent implements OnInit {
 
   onChange(event: any) {
     this.status = null;
+    this.untouched = false;
   }
 
   onSubmit() {
@@ -238,5 +240,6 @@ export class EditPersonalInfoComponent implements OnInit {
     this.initializePersonalForm();
     this.status = null;
     this.collapseSection.emit();
+    this.untouched = true;
   }
 }
