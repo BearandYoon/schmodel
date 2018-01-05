@@ -30,8 +30,6 @@ export class EventComponent implements OnInit, OnChanges {
   public event_role_workschedule: Array<any> = [];
   public bg_url: string = '';
   public title_border_style: string = '';
-  public isCreatedApplicationError: boolean = false;
-  public isWithdrawnApplicationError: boolean = false;
   public errorMessage = '';
 
   private light_blue: string = 'rgba(78, 200, 235, 0.1)';
@@ -95,18 +93,6 @@ export class EventComponent implements OnInit, OnChanges {
     }
   }
 
-  onCreatedApplicationError(errorOccured: boolean) {
-    this.isCreatedApplicationError = errorOccured;
-    this.errorMessage = ValidationMessage.FAIL_CREATE_APPLICATION;
-  }
-
-  onWithdrawnApplicationError(errorOccured: boolean) {
-    this.isWithdrawnApplicationError = errorOccured;
-    this.errorMessage = ValidationMessage.FAIL_WITHDRAW_APPLICATION;
-  }
-
   onCloseMessage() {
-    this.isCreatedApplicationError = false;
-    this.isWithdrawnApplicationError = false;
   }
 }

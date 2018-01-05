@@ -19,8 +19,6 @@ enum ButtonStatus { Disabled, Checked, Apply, Hired }
 
 export class EventRoleComponent implements OnInit {
 
-  @Output() onCreatedApplicationError = new EventEmitter<boolean>();
-  @Output() onWithdrawnApplicationError = new EventEmitter<boolean>();
   @Input() event_id: number;
   @Input() role_id: number;
   @Input() price: number;
@@ -63,11 +61,9 @@ export class EventRoleComponent implements OnInit {
           const data = { 'eventId': this.event_id, 'jobRoleId': this.role_id };
           this.jobService.createApplication(data).subscribe(res => {
             this.status = ButtonStatus.Checked;
-            this.onCreatedApplicationError.emit(false);
             this.ngOnChanges();
           }, error => {
             console.log(error);
-            this.onCreatedApplicationError.emit(true);
           });
         }
       });
@@ -78,11 +74,9 @@ export class EventRoleComponent implements OnInit {
           const data = { 'eventId': this.event_id, 'jobRoleId': this.role_id };
           this.jobService.withdrawApplication(data).subscribe(res => {
             this.status = ButtonStatus.Apply;
-            this.onWithdrawnApplicationError.emit(false);
             this.ngOnChanges();
           }, error => {
             console.log(error);
-            this.onWithdrawnApplicationError.emit(true);
           });
         }
       });
