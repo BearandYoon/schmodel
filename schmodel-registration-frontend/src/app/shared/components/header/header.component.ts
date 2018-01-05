@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import {Component, OnInit, Input, NgZone} from '@angular/core';
+import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
@@ -13,16 +13,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private location: Location,
-    private router: Router
-  ) {
-    this.router.events.filter(event => event instanceof NavigationEnd)
-      .subscribe(ev => {
-        const previousUrl: any = ev;
-        if(previousUrl.url.indexOf('resetPwd') !== -1) {
-          this.router.navigate(['/']);
-        }
-      });
-  }
+    private router: Router,
+  ) {}
 
   ngOnInit() {
   }

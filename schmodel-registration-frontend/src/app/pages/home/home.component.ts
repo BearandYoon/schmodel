@@ -57,7 +57,8 @@ export class HomeComponent implements OnInit {
     private modalService: BsModalService,
     private profileService: ProfileService,
     private sharedService: SharedService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private localSt: LocalStorageService,
   ) {
     this.firstName = '';
     this.lastName = '';
@@ -77,13 +78,16 @@ export class HomeComponent implements OnInit {
 
     this.isCompletedProfile = false;
     this.isHomePageLoaded = false;
-
+    const toastStatus = this.localSt.retrieve('toastStatus');
     this.activatedRoute.queryParams.subscribe((params: Params) => {
-      if(params['resetPwd'] == 'true') {
+      if (params['resetPwd'] === 'true' && !toastStatus) {
         this.status = {
           success: params['resetPwd'],
           message: ValidationMessage.RESET_PASSWORD_SUCCESS
         };
+        this.localSt.store('toastStatus', true);
+      } else {
+        this.status = null;
       }
     });
 

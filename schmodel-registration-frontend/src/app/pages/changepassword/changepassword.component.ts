@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
+import { LocalStorageService } from 'ngx-webstorage';
 
 import { routerTransition } from '../../router.animations';
 import { ValidationService } from '../../shared/services';
@@ -25,7 +26,8 @@ export class ChangepasswordComponent implements OnInit {
     public router: Router,
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder,
-    private authService: AuthenticationService
+    private authService: AuthenticationService,
+    private localSt: LocalStorageService,
   ) {
     this.changePwdForm = this.formBuilder.group({
       'password': ['', [Validators.required, ValidationService.passwordValidator]],
@@ -70,6 +72,7 @@ export class ChangepasswordComponent implements OnInit {
       this.user.token = this.token;
       this.authService.changePwd(this.user).subscribe( res => {
         if (res.tokenValid === true && res.newPasswordValid === true) {
+          this.localSt.store('toastStatus', false);
           this.router.navigate(['/'], { queryParams: { resetPwd: true}});
         } else {
           this.message = 'Invalid token. Unable to change password';
