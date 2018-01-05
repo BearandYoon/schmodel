@@ -5,6 +5,10 @@ $formula-logo-height: 70px;
 
 .hire-model-page {
   overflow-x: hidden;
+
+  .talents-container {
+    height: calc(90vh - 80px);
+  }
 }
 
 .table-header {
