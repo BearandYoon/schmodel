@@ -10,7 +10,14 @@ $header-font-color: #fff;
 .sticky-hide {
     visibility: hidden !important;
 }
-
+.event-guest {
+    flex: none !important;
+    width: 150px;
+}
+.header-guest {
+    flex: none !important;
+	width: 272px !important;
+}
 .info-header--apply-for-job {
     display: flex;
     flex-direction: row;
@@ -87,6 +94,10 @@ $header-font-color: #fff;
     	width: 100px !important;
     }
 
+    .header-guest {
+        flex: none !important;
+        width: 252px !important;
+    }
     app-event {
         .event-calendar {
             width: 100px !important;

@@ -2,7 +2,7 @@ import { Component, OnInit, HostListener, ViewEncapsulation } from '@angular/cor
 import { Router } from '@angular/router';
 
 import { BsModalService } from "ngx-bootstrap/modal";
-import { BsModalRef } from "ngx-bootstrap/modal";
+import { BsModalRef } from 'ngx-bootstrap/modal';
 
 import { routerTransition } from '../../router.animations';
 import { DialogDetailComponent } from './components/dialog-detail/dialog-detail.component';
@@ -32,11 +32,10 @@ export class ApplyForJobsComponent implements OnInit {
         backdrop: true,
         ignoreBackdropClick: false
     };
-
-
     public bottomHeight: string = '';
-
+    public roleNames: Array<any> = [];
     public events: Array<any> = [];
+    public guestFlag = false;
 
     constructor(
         private detailDlgService: BsModalService,
@@ -53,37 +52,39 @@ export class ApplyForJobsComponent implements OnInit {
         }
     }
     ngOnInit() {
-        this.jobService.getApplyForJobs((success, response) => {
-            if (success) {
-                this.events = response;
-                console.log(response);
-            }
-            else {
+        this.jobService.getApplyForJobs().subscribe( res => {
+            if (res) {
+                this.events = res.events;
+                this.events.forEach(event => {
+                    event.roles.forEach(role => {
+                        if (this.roleNames.indexOf(role.name) === -1) {
+                            this.roleNames.push(role.name);
+                        }
+                    });
+                });
+            } else {
                 this.showFailLoadingDialog();
             }
+            if (this.roleNames.length === 1) {
+                this.guestFlag = true;
+            }
         });
-        this.role_title = ["PR", "HOST", "GRID", "SCHMODEL GUEST"];
     }
 
     showDetailDialog(index) {
-        let title = '';
-        if (index === 3) {
-            title = 'GUEST position';
-        } else {
-            title = `${this.role_title[index]} position`;
-        }
+        let title = `${this.roleNames[index]} position`;
 
         this.detailDlgRef = this.detailDlgService.show(DialogDetailComponent, this.detailDlgConfig);
         this.detailDlgRef.content.dialogContent = this.detailDlgContent;
         this.detailDlgRef.content.dialogTitle = title;
 
         if(title === 'PR position') {
-            this.detailDlgRef.content.dialogContent = ValidationMessage.PR_DESCRIPTION;	
+            this.detailDlgRef.content.dialogContent = ValidationMessage.PR_DESCRIPTION;
         } else if(title === 'HOST position') {
             this.detailDlgRef.content.dialogContent = ValidationMessage.HOST_DESCRIPTION;
         } else if(title === 'GRID position') {
             this.detailDlgRef.content.dialogContent = ValidationMessage.GRID_DESCRIPTION;
-        } else if(title === 'GUEST position') {
+        } else if(title === 'Schmodel Guest position') {
             this.detailDlgRef.content.dialogContent = ValidationMessage.SCHMODEL_GUEST_DESCRIPTION;
         }
 

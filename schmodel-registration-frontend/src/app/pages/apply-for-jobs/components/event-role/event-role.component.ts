@@ -88,6 +88,7 @@ export class EventRoleComponent implements OnInit {
   }
 
   ngOnInit() {
+    // console.log(this.status);
   }
 
   ngOnChanges() {
