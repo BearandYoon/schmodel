@@ -72,8 +72,8 @@ export class ChangepasswordComponent implements OnInit {
       this.user.token = this.token;
       this.authService.changePwd(this.user).subscribe( res => {
         if (res.tokenValid === true && res.newPasswordValid === true) {
-          this.localSt.store('toastStatus', false);
-          this.router.navigate(['/'], { queryParams: { resetPwd: true}});
+          this.authService.changedPwdStatus = true;
+          this.router.navigate(['/']);
         } else {
           this.message = 'Invalid token. Unable to change password';
         }
