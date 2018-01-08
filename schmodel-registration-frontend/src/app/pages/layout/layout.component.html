@@ -4,4 +4,9 @@
     <router-outlet></router-outlet>
   </div>
   <app-toast [ngClass]="{'hide': !httpHelperService.serverError}" [animatable]="true" toastMessage="We're experiencing technical difficulties. We've logged this error and we'll be working to fix it right away. Please try again later." (closeToast)="onCloseErrorMessage()"></app-toast>
+  <app-toast 
+    [ngClass]="{'hide': !offlineMode}" 
+    [animatable]="true" toastMessage="Oh snap! It looks like you're disconnected from the Internet. Please re-connect and try again." 
+    (closeToast)="onCloseOfflineMessage()">
+    </app-toast>
 </div>
