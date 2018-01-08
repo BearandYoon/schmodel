@@ -14,13 +14,13 @@ export class SchJobRowComponent implements OnInit, AfterViewChecked {
   @Input() event_role: any;
   @ViewChild('jobBody') private jobBody: ElementRef;
 
-  public collapse_no: number = -1;
-  public isCollapsed: boolean = false;
+  public collapse_no = -1;
+  public isCollapsed = false;
 
   constructor(private sharedService: SharedService) { }
 
   ngOnInit() {
-    this.formatAMPM("20:09:00");
+    this.formatAMPM('20:09:00');
 
     const scrollLeft = document.documentElement.scrollLeft;
     window.scrollTo(scrollLeft, 0);
@@ -33,12 +33,12 @@ export class SchJobRowComponent implements OnInit, AfterViewChecked {
 
   scrollToBottom(): void {
     try {
-      this.jobBody.nativeElement.scrollIntoView();
-    } catch(err) { }
+      this.jobBody.nativeElement.scrollIntoView(false);
+    } catch (err) { }
   }
 
   onCollapse(index: number) {
-    if (this.collapse_no == index) {
+    if (this.collapse_no === index) {
       this.isCollapsed = false;
       this.collapse_no = -1;
     } else {
@@ -52,16 +52,13 @@ export class SchJobRowComponent implements OnInit, AfterViewChecked {
   }
 
   formatAMPM(timeStr) {
-    var tmp = timeStr.split(':');
-    var hours = tmp[0];
-    var minutes = tmp[1];
-    var ampm = hours >= 12 ? 'PM' : 'AM';
+    const tmp = timeStr.split(':');
+    let hours = tmp[0];
+    const minutes = tmp[1];
+    const ampm = hours >= 12 ? 'PM' : 'AM';
     hours = hours % 12;
     hours = hours ? hours : 12;
-    var strTime = hours + ':' + minutes + ' ' + ampm;
+    const strTime = hours + ':' + minutes + ' ' + ampm;
     return strTime;
-  }
-
-  ngOnChanges() {
   }
 }
