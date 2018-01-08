@@ -1,42 +1,40 @@
 <div class="page-container" [@routerTransition]>
-    <div class="logo-container">
-      <img class="img-logo" src="assets/img/img_logo.png">
-    </div>
-    <p class="title">Reset Password</p>
-    <div class="content-wrapper">
-      <div class="content-container">
-        <div *ngIf="tokenValid" class="message-wrapper">
-          <span class="icon-close" (click)="onCloseErrorMessage()"></span>
-          <span class="message">
-            <b>Oh snap!</b><br/>
-            {{errorMessage}}
-          </span>
-        </div>
-        <p class="comment">
-            Forgot your password?<br>
-            No problem, just enter your email below and we'll send you a link to reset your password.
-        </p>
-        <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-3 form-wrapper">
-          <form [formGroup]="forgotForm" (submit)="onReset()">
-            <div class="form-content">
-              <div class="form-group">
-                <input type="email" class="form-control input-underline input-lg" formControlName="email" id="email" placeholder="ENTER YOUR EMAIL" (keypress)="onChangeInput()">
-                <app-control-messages  [control]="forgotForm.controls.email"></app-control-messages>
-                <div class="danger">
-                    <span [ngClass]="{errormessage:!emailValid, validmessage:emailValid}" class="message">{{message}}</span>
-                </div>
-              </div>
+  <div class="logo-container">
+    <img class="img-logo" src="assets/img/img_logo.png">
+  </div>
+  <p class="title">Reset Password</p>
+  <div class="content-container">
+    <p class="comment">
+        Forgot your password?<br>
+        No problem, just enter your email below and we'll send you a link to reset your password.
+    </p>
+    <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-3 form-wrapper">
+      <form [formGroup]="forgotForm" (submit)="onReset()">
+        <div class="form-content">
+          <div class="form-group">
+            <input type="email" class="form-control input-underline input-lg" formControlName="email" id="email" placeholder="ENTER YOUR EMAIL" (keypress)="onChangeInput()">
+            <app-control-messages  [control]="forgotForm.controls.email"></app-control-messages>
+            <div class="danger">
+                <span [ngClass]="{errormessage:!emailValid, validmessage:emailValid}" class="message">{{message}}</span>
             </div>
-            <div class="action-container">
-              <div class="btn-submit-container">
-                <button class="btn bordered-btn" type="submit" [disabled]="!forgotForm.valid || isSubmitting"> SUBMIT </button>
-              </div>
-              <div class="btn-login-container">
-                  <a class="" [routerLink]="['/login']">Schmodel Login</a>
-                </div>
-            </div>
-          </form>
+          </div>
         </div>
-      </div>
+        <div class="action-container">
+          <div class="btn-submit-container">
+            <button class="btn bordered-btn" type="submit" [disabled]="!forgotForm.valid || isSubmitting"> SUBMIT </button>
+          </div>
+          <div class="btn-login-container">
+              <a class="" [routerLink]="['/login']">Schmodel Login</a>
+            </div>
+        </div>
+      </form>
     </div>
   </div>
+</div>
+<app-toast
+  *ngIf="tokenValid"
+  class="message-wrapper"
+  toastType="error"
+  [toastMessage]="errorMessage"
+  (closeToast)="onCloseErrorMessage()"
+></app-toast>
