@@ -1,21 +1,23 @@
 <div class="info-header--apply-for-job table-header" [ngClass]="{'sticky-show' : stickyFlag}">
   <img class="info-logo" src="/assets/images/ic_formula_e.svg">
-  <div *ngFor="let title of role_title; let i = index" class="info-wrapper" (click)="showDetailDialog(i)">
+  <div *ngFor="let roleName of roleNames; let i = index" class="info-wrapper" [ngClass]="{'header-guest': guestFlag}" (click)="showDetailDialog(i)">
     <img src="/assets/img/ic_infor.png">
-    <span>{{title}}</span>
+    <span>{{roleName}}</span>
   </div>
+  <div [ngClass]="{'rest-header': guestFlag}"></div>
 </div>
 
 <div (scroll)="onPageScroll($event)" class="apply-for-jobs" [@routerTransition]>
     <div class="info-header--apply-for-job" [ngClass]="{'sticky-hide' : stickyFlag}">
       <img class="info-logo" src="/assets/images/ic_formula_e.svg">
-      <div *ngFor="let title of role_title; let i = index" class="info-wrapper" (click)="showDetailDialog(i)">
+      <div *ngFor="let roleName of roleNames; let i = index" class="info-wrapper" [ngClass]="{'header-guest': guestFlag}"  (click)="showDetailDialog(i)">
         <img src="/assets/img/ic_infor.png">
-        <span>{{title}}</span>
+        <span>{{roleName}}</span>
       </div>
+      <div [ngClass]="{'rest-header': guestFlag}"></div>
     </div>
 
     <app-event *ngFor="let event of events" [event_no]="event.id" [event_number]="event.name" [event_start_date]="event.startDate" [event_end_date]="event.endDate"
-      [event_city]="event.city" [event_country_code]="event.country" [roles_data]="event.roles">
+      [event_city]="event.city" [event_country_code]="event.country" [roles_data]="event.roles" [guest_flag]="guestFlag" [position]="roleNames">
     </app-event>
 </div>
