@@ -12,11 +12,15 @@ $header-font-color: #fff;
 }
 .event-guest {
     flex: none !important;
-    width: 150px;
+    width: 152px;
 }
 .header-guest {
     flex: none !important;
-	width: 272px !important;
+    width: 170px !important;
+}
+.rest-header {
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.03);
 }
 .info-header--apply-for-job {
     display: flex;
@@ -96,7 +100,10 @@ $header-font-color: #fff;
 
     .header-guest {
         flex: none !important;
-        width: 252px !important;
+        width: 150px !important;
+    }
+    .rest-header {
+        flex: 1;
     }
     app-event {
         .event-calendar {
