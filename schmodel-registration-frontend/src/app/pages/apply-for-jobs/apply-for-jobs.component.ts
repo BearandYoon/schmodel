@@ -23,7 +23,6 @@ export class ApplyForJobsComponent implements OnInit {
 
     public showDialog = false;
     public stickyFlag = false;
-    public role_title: string[];
     detailDlgRef: BsModalRef;
     detailDlgContent: string;
     detailDlgConfig = {

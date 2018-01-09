@@ -20,12 +20,12 @@ export class EventComponent implements OnInit, OnChanges {
   @Input() event_city: string;             // formula race city   e.g : MARRAKESH, SANTIAGO, MEXICO CITY, ...
   @Input() event_country_code: string;     // formula race country code e.g : CL, MX, BR, ...
   @Input() roles_data: Array<any>;
-  @Input() guestFlag: boolean;
+  @Input() guest_flag: boolean;
+  @Input() position: Array<any>;
 
   public race_bg_urls: Array<any> = [];
   public race_title_style: Array<any> = [];
   public role_ids: number[];
-  public role_infor: string[];
   public event_role_status: number[];
   public event_role_price: number[];
   public event_role_workschedule: Array<any> = [];
@@ -51,7 +51,6 @@ export class EventComponent implements OnInit, OnChanges {
       { imagePath: '/assets/img/bg_r13_14.png' }
     );
     this.role_ids = [-1, -1, -1, -1];
-    this.role_infor = ["PR", "HOST", "GRID", "SCHMODEL GUEST"];
     this.event_role_status = [0, 0, 0, 0];
     this.event_role_price = [0, 0, 0, 0];
   }
@@ -74,21 +73,20 @@ export class EventComponent implements OnInit, OnChanges {
     } else {
       this.title_border_style = this.light_purple;
     }
-
     // Event_Role Status
     for (let i = 0; i < this.roles_data.length; i++) {
       this.event_role_workschedule[this.roles_data[i].id - 1] = this.roles_data[i].workSchedules;
-      this.event_role_price[this.roles_data[i].id] = this.roles_data[i].pay;
+      this.event_role_price[this.roles_data[i].id - 1] = this.roles_data[i].pay;
 
       if (this.roles_data[i].applied === true) {
-        this.event_role_status[this.roles_data[i].id] = 1;
+        this.event_role_status[this.roles_data[i].id - 1] = 1;
       } else {
-        this.event_role_status[this.roles_data[i].id] = 2;
+        this.event_role_status[this.roles_data[i].id - 1] = 2;
       }
 
       if (this.roles_data[i].hired === true) {
         this.event_role_status = [0, 0, 0, 0];
-        this.event_role_status[this.roles_data[i].id] = 3;
+        this.event_role_status[this.roles_data[i].id - 1] = 3;
         return;
       }
     }

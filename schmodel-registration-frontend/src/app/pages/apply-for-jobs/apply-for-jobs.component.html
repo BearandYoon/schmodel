@@ -16,6 +16,6 @@
     </div>
 
     <app-event *ngFor="let event of events" [event_no]="event.id" [event_number]="event.name" [event_start_date]="event.startDate" [event_end_date]="event.endDate"
-      [event_city]="event.city" [event_country_code]="event.country" [roles_data]="event.roles" [guestFlag]=guestFlag>
+      [event_city]="event.city" [event_country_code]="event.country" [roles_data]="event.roles" [guest_flag]="guestFlag" [position]="roleNames">
     </app-event>
 </div>

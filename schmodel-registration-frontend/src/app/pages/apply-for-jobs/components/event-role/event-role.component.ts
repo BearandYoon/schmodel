@@ -26,8 +26,7 @@ export class EventRoleComponent implements OnInit {
   @Input() country: string;
   @Input() status: number;
   @Input() position: string;
-  @Input() workschedule: Array<any>;
-  @Input()
+  @Input() workschedule: Array<any>; 
   get getStatus() {
     return this.status;
   }
@@ -49,6 +48,7 @@ export class EventRoleComponent implements OnInit {
     ignoreBackdropClick: false
   };
   openDialog() {
+    console.log(this.role_id);
     if (this.status === ButtonStatus.Apply) {
       this.jobapplyDlgRef = this.detailDlgService.show(DialogJobApplyComponent, this.dialogConfig);
       this.jobapplyDlgRef.content.pay_rate_field = this.price;
@@ -88,7 +88,6 @@ export class EventRoleComponent implements OnInit {
   }
 
   ngOnInit() {
-    // console.log(this.status);
   }
 
   ngOnChanges() {
