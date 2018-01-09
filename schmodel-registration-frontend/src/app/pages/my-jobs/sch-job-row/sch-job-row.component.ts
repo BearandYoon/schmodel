@@ -22,9 +22,9 @@ export class SchJobRowComponent implements OnInit, AfterViewChecked {
   ngOnInit() {
     this.formatAMPM('20:09:00');
 
-    const scrollLeft = document.documentElement.scrollLeft;
-    window.scrollTo(scrollLeft, 0);
-    this.scrollToBottom();
+    // const scrollLeft = document.documentElement.scrollLeft;
+    // window.scrollTo(scrollLeft, 0);
+    // this.scrollToBottom();
   }
 
   ngAfterViewChecked() {
