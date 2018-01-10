@@ -1,5 +1,5 @@
 <section>
-    <form [formGroup]="editTermsForm" (submit)="onSubmit()" (change)="onChange($event)" (keypress)="onChange($event)">
+    <form [formGroup]="editTermsForm" (submit)="onSubmit()" (input)="onChange($event)" (change)="onChange($event)" (keypress)="onChange($event)">
     <div formArrayName="items" *ngFor="let item of editTermsForm.get('items')['controls'] as FormArray; let i = index;">
       <div [formGroupName]="i" class="item">
         <span>{{i+1}}.</span>
