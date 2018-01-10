@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Router } from '@angular/router';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { LocalStorageService } from 'ngx-webstorage';
 
 
 import { routerTransition } from '../../router.animations';
-import { ProfileService } from '../../core/services';
+import { ProfileService, AuthenticationService } from '../../core/services';
 import { SharedService } from '../../shared/services';
 import { ValidationMessage, TermsModalResponse } from '../../shared/models';
 import { ErrorResponse } from '../../shared/models';
@@ -49,15 +49,15 @@ export class HomeComponent implements OnInit {
   public upcoming: number;
   public photo_url: string;
   public message: string;
-  public hasActivationCode : boolean;
+  public hasActivationCode: boolean;
 
   constructor(
     public router: Router,
     private localStorage: LocalStorageService,
     private modalService: BsModalService,
     private profileService: ProfileService,
+    private authService: AuthenticationService,
     private sharedService: SharedService,
-    private activatedRoute: ActivatedRoute
   ) {
     this.firstName = '';
     this.lastName = '';
@@ -67,7 +67,7 @@ export class HomeComponent implements OnInit {
     this.message = '';
     this.isCompletedProfile = false;
     this.isHomePageLoaded = false;
-    this.hasActivationCode=false;
+    this.hasActivationCode = false;
     this.status = null;
   }
 
@@ -77,15 +77,16 @@ export class HomeComponent implements OnInit {
 
     this.isCompletedProfile = false;
     this.isHomePageLoaded = false;
-
-    this.activatedRoute.queryParams.subscribe((params: Params) => {
-      if(params['resetPwd'] == 'true') {
-        this.status = {
-          success: params['resetPwd'],
-          message: ValidationMessage.RESET_PASSWORD_SUCCESS
-        };
-      }
-    });
+    const changedPwdStatus = this.authService.changedPwdStatus;
+    if (changedPwdStatus) {
+      this.status = {
+        success: changedPwdStatus,
+        message: ValidationMessage.RESET_PASSWORD_SUCCESS
+      };
+      this.authService.changedPwdStatus = false;
+    } else {
+      this.status = null;
+    }
 
     this.termsContent = ValidationMessage.TERMS_CONTENT;
     if (this.sharedService.fromSignup) {
@@ -95,7 +96,7 @@ export class HomeComponent implements OnInit {
     }
     this.profileService.isProfileComplete().subscribe(res => {
       this.isCompletedProfile = res.profileComplete;
-      this.hasActivationCode =res.hasActivationCode;
+      this.hasActivationCode = res.hasActivationCode;
       if (this.isCompletedProfile) {
         this.profileService.getAfterProfile().subscribe(response => {
         this.firstName = response.firstName;
@@ -136,14 +137,14 @@ export class HomeComponent implements OnInit {
   }
 
   onJobs() {
-    if (this.hasActivationCode===true) {
+    if (this.hasActivationCode === true) {
       this.router.navigate(['my-jobs']);
     }
     return false;
   }
 
   onApply() {
-    if (this.hasActivationCode===true) {
+    if (this.hasActivationCode === true) {
         this.router.navigate(['apply-for-jobs']);
     }
     return false;

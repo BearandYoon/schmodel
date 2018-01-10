@@ -13,22 +13,13 @@ export class JobService {
     private apiRoutingService: ApiRoutingService
   ) { }
 
-  getApplyForJobs(callback = undefined) {
+  getApplyForJobs() {
     return this.http.get(
       this.apiRoutingService.getApplyForJobsUrl(),
       {},
       true,
       null
-    ).subscribe(res => {
-      if (callback) {
-        callback(true, res.events ? res.events : []);
-      }
-    }, error => {
-      console.log(error);
-      if (callback) {
-        callback(false, []);
-      }
-    });
+    );
   }
 
   createApplication(data) {
@@ -50,5 +41,4 @@ export class JobService {
       null
     );
   }
-
 }

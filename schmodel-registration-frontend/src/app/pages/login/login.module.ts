@@ -7,7 +7,6 @@ import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 import { ComponentsModule } from '../../shared/components/components.module';
 import { SharedModule } from '../../shared/modules';
-import { AuthenticationService } from '../../core/services';
 
 @NgModule({
   imports: [
@@ -21,10 +20,7 @@ import { AuthenticationService } from '../../core/services';
   ],
   declarations: [
     LoginComponent
-  ],
-  providers: [
-    AuthenticationService
-  ],
+  ]
 })
 export class LoginModule {
 }

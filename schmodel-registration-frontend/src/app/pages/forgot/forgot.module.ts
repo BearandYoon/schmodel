@@ -6,7 +6,6 @@ import { ForgotRoutingModule } from './forgot-routing.module';
 import { ForgotComponent } from './forgot.component';
 import { ComponentsModule } from '../../shared/components/components.module';
 import { SharedModule } from '../../shared/modules';
-import { AuthenticationService } from '../../core/services';
 
 @NgModule({
   imports: [
@@ -17,9 +16,6 @@ import { AuthenticationService } from '../../core/services';
     SharedModule,
     ForgotRoutingModule,
   ],
-  declarations: [ForgotComponent],
-  providers: [
-    AuthenticationService
-  ]
+  declarations: [ForgotComponent]
 })
 export class ForgotModule { }
