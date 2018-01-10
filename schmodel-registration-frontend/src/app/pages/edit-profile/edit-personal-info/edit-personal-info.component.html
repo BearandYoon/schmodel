@@ -1,7 +1,7 @@
 <section>
   <p class="mandatory"> Fields marked with * are mandatory.</p>
 
-  <form [formGroup]="editPersonalForm" (submit)="onSubmit()" (change)="onChange($event)" (keypress)="onChange($event)">
+  <form [formGroup]="editPersonalForm" (submit)="onSubmit()" (input)="onChange($event)" (change)="onChange($event)" (keypress)="onChange($event)">
     <div class="form-group form-group--personal">
       <sch-input-row  formControlName="firstName" label="First Name *" maxlength="20"></sch-input-row>
       <sch-input-row  formControlName="lastName" label="Last Name *" maxlength="20"></sch-input-row>
