@@ -77,14 +77,14 @@ $header-font-color: #fff;
 
 .apply-for-jobs {
     // height: 90vh;
-    // overflow-y: scroll;
-    overflow: hidden;
-    // -webkit-overflow-scrolling: touch;
+     overflow-y: scroll;
+    //overflow: hidden;
+     -webkit-overflow-scrolling: touch;
 
     app-event:nth-of-type(2n) .event-calendar {
         background-color: rgba(97, 29, 146, 0.19);
     }
-    
+
     app-event:nth-of-type(2n+1) .event-calendar {
         background-color:rgba(0, 198, 253, 0.19);
     }
@@ -108,7 +108,7 @@ $header-font-color: #fff;
     app-event {
         .event-calendar {
             width: 100px !important;
-            
+
             .info-values {
                 span {
                     &:first-of-type {

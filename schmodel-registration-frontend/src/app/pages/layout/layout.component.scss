@@ -3,10 +3,10 @@
   background-image: url('/assets/images/bg_dark.png');
   background-repeat: no-repeat;
   background-size: cover;
-  // overflow: scroll;
-  overflow-x: hidden;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  overflow: scroll;
+  //overflow-x: hidden;
+  //overflow-y: auto;
+  //-webkit-overflow-scrolling: touch;
 }
 
 app-toast {
