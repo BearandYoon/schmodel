@@ -27,36 +27,36 @@ export class ProfileService {
   isProfileComplete() {
     return this.http.get(this.apiRoutingService.getIsProfileCompleteAPIUrl(), {}, true, null);
   }
-  
+
   viewProfile() {
     const photoWidth = Math.round(window.innerWidth);
     const photoHeight = Math.round(window.innerWidth);
      return this.http.post(
       this.apiRoutingService.getViewProfileAPIUrl(),
       {
-      	photoWidth,
-      	photoHeight
+        photoWidth,
+        photoHeight
       },
       false,
       true,
       null
     );
   }
-  
+
   viewTalentProfile(talentId) {
     const photoWidth = Math.round(window.innerWidth);
     const photoHeight = Math.round(window.innerWidth);
     return this.http.post(
       this.apiRoutingService.getViewTalentProfileUrl(),
-	  {
-	          talentId,
-	          photoWidth,      
-	          photoHeight
-	   },
-	   false,
-	   true,
-	   null
-	 );
+      {
+        talentId,
+        photoWidth,
+        photoHeight
+      },
+      false,
+      true,
+      null
+    );
   }
 
   getAfterProfile() {
@@ -65,8 +65,8 @@ export class ProfileService {
     return this.http.post(
       this.apiRoutingService.getAfterProfileInfoAPIUrl(),
       {
-      	photoWidth,
-      	photoHeight
+        photoWidth,
+        photoHeight
       },
       false,
       true,

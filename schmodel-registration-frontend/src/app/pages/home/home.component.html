@@ -90,9 +90,6 @@
     </div>
   </div>
   <p class="content-text" *ngIf="!hasActivationCode">Only Schmodels with an activation code can apply for jobs (until further notice).</p>
-  <div class="danger" *ngIf="message.length">
-    <span class="message">{{message}}</span>
-  </div>
 
   <div class="page-footer" [ngClass]="isCompletedProfile ? '' : 'unCompleted'">
     <p class="logout-text" (click)="logout()">LOG-OUT</p>
