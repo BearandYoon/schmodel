@@ -3,27 +3,27 @@
   <div class="info-wrapper">
     <ng-container *ngFor="let eventHeader of eventItems?.eventHeaders; let i = index">
         <div class="header-item" *ngIf=" i != 0 " [ngClass]="{'header-sch-guest' : (eventItems?.eventHeaders.length == 2)}">
-          {{eventHeader.data | uppercase}}            
+          {{eventHeader.data | uppercase}}
         </div>
     </ng-container>
     <div [ngClass]="{'rest-header': (eventItems?.eventHeaders.length == 2)}"></div>
   </div>
 </div>
 
-<div (scroll)="onPageScroll($event)" class="event-calender">  
+<div (scroll)="onPageScroll($event)" class="event-calender">
   <div class="info-bar" [ngClass]="{'sticky-hide' : stickyFlag}">
       <img class="formula-logo" src="/assets/images/ic_formula_e.svg">
       <div class="info-wrapper">
         <ng-container *ngFor="let eventHeader of eventItems?.eventHeaders; let i = index">
             <div class="header-item" *ngIf=" i != 0 " [ngClass]="{'header-sch-guest' : (eventItems?.eventHeaders.length == 2)}">
-              {{eventHeader.data | uppercase}}            
+              {{eventHeader.data | uppercase}}
             </div>
         </ng-container>
         <div [ngClass]="{'rest-header': (eventItems?.eventHeaders.length == 2)}"></div>
       </div>
   </div>
   <div class="talent-container">
-    <div class="section--talent" [style.backgroundImage]="bgImgUrls[i]" *ngFor="let eventItem of eventItems?.eventList; let i = index">
+    <div class="section--talent" (click)="onEvent(eventItem[0].data.id)" [style.backgroundImage]="bgImgUrls[i]" *ngFor="let eventItem of eventItems?.eventList; let i = index">
       <div class="talent-calendar">
         <p class="info-values">
           <span><b>{{eventItem[0].data.name}}</b></span>
@@ -33,7 +33,7 @@
         </p>
       </div>
       <ng-container *ngFor="let eventHeader of eventItems?.eventHeaders; let j = index">
-        <div class="talent-content" (click)="onEvent(eventItem[0].data.id)" *ngIf=" j != 0 " [ngClass]="{'event-sch-guest' : (eventItems?.eventHeaders.length == 2)}">
+        <div class="talent-content" *ngIf=" j != 0 " [ngClass]="{'event-sch-guest' : (eventItems?.eventHeaders.length == 2)}">
           <div class="info-item" [ngClass]="{'item--none': (eventItem[j].data.jobs == 0)}">
             <p *ngIf="!(eventItem[j].data.jobs == 0)">JOBS<span>{{eventItem[j].data.jobs | number: '2.'}}</span></p>
             <p *ngIf="!(eventItem[j].data.jobs == 0)">APPLICANTS<span>{{eventItem[j].data.applicants | number: '2.'}}</span></p>
