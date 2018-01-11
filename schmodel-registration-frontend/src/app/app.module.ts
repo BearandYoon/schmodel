@@ -13,6 +13,7 @@ import { AuthGuard } from './shared';
 import { HttpHelperService } from './core/http-helper.service';
 import { ApiRoutingService } from './core/api-routing.service';
 import { ValidationService, SharedService } from './shared/services';
+import { AuthenticationService } from './core/services';
 import { TermsModalComponent } from './shared/modules';
 import { MessageModalComponent } from './shared/modules';
 import { ConfirmModalComponent } from './pages/hire-model/confirm-modal/confirm-modal.component';
@@ -53,7 +54,8 @@ import { SwiperModule } from 'angular2-useful-swiper';
     ApiRoutingService,
     AuthGuard,
     ValidationService,
-    SharedService
+    SharedService,
+    AuthenticationService
   ],
   entryComponents: [
     DialogDetailComponent,

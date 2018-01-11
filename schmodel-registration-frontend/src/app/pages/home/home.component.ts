@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Router } from '@angular/router';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { LocalStorageService } from 'ngx-webstorage';
 
 
 import { routerTransition } from '../../router.animations';
-import { ProfileService } from '../../core/services';
+import { ProfileService, AuthenticationService } from '../../core/services';
 import { SharedService } from '../../shared/services';
 import { ValidationMessage, TermsModalResponse } from '../../shared/models';
 import { ErrorResponse } from '../../shared/models';
@@ -56,6 +56,7 @@ export class HomeComponent implements OnInit {
     private localStorage: LocalStorageService,
     private modalService: BsModalService,
     private profileService: ProfileService,
+    private authService: AuthenticationService,
     private sharedService: SharedService,
     private activatedRoute: ActivatedRoute
   ) {
@@ -77,15 +78,16 @@ export class HomeComponent implements OnInit {
 
     this.isCompletedProfile = false;
     this.isHomePageLoaded = false;
-
-    this.activatedRoute.queryParams.subscribe((params: Params) => {
-      if (params['resetPwd'] === 'true') {
-        this.status = {
-          success: params['resetPwd'],
-          message: ValidationMessage.RESET_PASSWORD_SUCCESS
-        };
-      }
-    });
+    const changedPwdStatus = this.authService.changedPwdStatus;
+    if (changedPwdStatus) {
+      this.status = {
+        success: changedPwdStatus,
+        message: ValidationMessage.RESET_PASSWORD_SUCCESS
+      };
+      this.authService.changedPwdStatus = false;
+    } else {
+      this.status = null;
+    }
 
     this.termsContent = ValidationMessage.TERMS_CONTENT;
     if (this.sharedService.fromSignup) {

@@ -21,6 +21,9 @@ export class ToastComponent implements AfterViewInit {
     const toastElement = this.toastWrapper.nativeElement;
     const windowHeight = window.innerHeight;
     const toastRect = toastElement.getBoundingClientRect();
+    if (toastRect.y === undefined) {
+      toastRect.y = toastRect.top;
+    }
     if (toastRect.y + toastRect.height > windowHeight) {
       toastElement.scrollIntoView({behavior: 'smooth', block: 'end'});
     } else if (toastRect.y < 0) {

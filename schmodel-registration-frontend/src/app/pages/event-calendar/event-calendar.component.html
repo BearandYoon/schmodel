@@ -6,6 +6,7 @@
           {{eventHeader.data | uppercase}}            
         </div>
     </ng-container>
+    <div [ngClass]="{'rest-header': (eventItems?.eventHeaders.length == 2)}"></div>
   </div>
 </div>
 
@@ -18,6 +19,7 @@
               {{eventHeader.data | uppercase}}            
             </div>
         </ng-container>
+        <div [ngClass]="{'rest-header': (eventItems?.eventHeaders.length == 2)}"></div>
       </div>
   </div>
   <div class="talent-container">

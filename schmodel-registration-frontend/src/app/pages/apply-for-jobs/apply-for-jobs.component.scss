@@ -2,6 +2,7 @@ $page-margin: 3px;
 $page-margin-half: 1.5px;
 $model-img-size: 120px;
 $formula-logo-height: 70px;
+$formula-row-padding: 10px;
 $header-font-color: #fff;
 
 .sticky-show {
@@ -37,7 +38,7 @@ $header-font-color: #fff;
     .info-wrapper {
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
+        justify-content: space-between;
         flex: 1;
         text-align: center;
         color: $header-font-color;
@@ -45,14 +46,17 @@ $header-font-color: #fff;
         margin: 0 $page-margin-half;
 
         img {
+            padding-top: $formula-row-padding;
             width: auto;
-            height: 15px;
+            height: 25px;
             align-self: center;
         }
 
         span {
+            padding-bottom: $formula-row-padding;
             font-size: 12px;
             font-weight: bold;
+            height: 34px;            
         }
 
         &:last-of-type {

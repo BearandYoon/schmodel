@@ -28,6 +28,10 @@ $formula-logo-height: 70px;
 .sticky-hide {
     visibility: hidden !important;
 }
+.rest-header {
+	flex: 1;
+	background-color: rgba(255, 255, 255, 0.05);
+}
 
 .info-bar {
     display: flex;

@@ -12,7 +12,7 @@ import { ProfileService } from '../../core/services';
     CommonModule,
     HomeRoutingModule,
     SharedModule,
-    ComponentsModule,    
+    ComponentsModule
   ],
   declarations: [HomeComponent],
   providers: [

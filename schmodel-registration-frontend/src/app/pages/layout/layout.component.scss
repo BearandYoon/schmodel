@@ -1,12 +1,10 @@
-.page-container {
+.main-page-container {
   width: 100%;
-  background-image: url('/assets/images/bg_dark.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  overflow: scroll;
-  //overflow-x: hidden;
-  //overflow-y: auto;
-  //-webkit-overflow-scrolling: touch;
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 app-toast {
