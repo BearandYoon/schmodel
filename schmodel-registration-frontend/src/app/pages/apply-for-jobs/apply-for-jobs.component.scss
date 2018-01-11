@@ -80,9 +80,6 @@ $header-font-color: #fff;
 }
 
 .apply-for-jobs {
-    // height: 90vh;
-     overflow-y: scroll;
-    //overflow: hidden;
      -webkit-overflow-scrolling: touch;
 
     app-event:nth-of-type(2n) .event-calendar {
