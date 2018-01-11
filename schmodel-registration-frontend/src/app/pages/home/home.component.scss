@@ -1,7 +1,10 @@
 :host {
   display: block;
 }
-.page-container {
+.home-page-container {
+  background-color: black;
+  background-image: url("/assets/img/bg_home_page.png");
+  background-position: center top;
   width: 100%;
   min-height: 100vh;
   padding: 18px 0 0;
@@ -219,7 +222,7 @@
 }
 
 @media (max-width: 426px) {
-  .page-container {
+  .home-page-container {
     .title {
       font-size: 18px;
       padding: 14px;
@@ -264,7 +267,7 @@
 }
 
 @media (min-width:768px ) and ( max-width: 800px){
-  .page-container {
+  .home-page-container {
     .page-footer {
       width: 100%;
       position: absolute;
