@@ -1,7 +1,7 @@
 <section>
     <p class="mandatory"> Fields marked with * are mandatory.</p>
 
-    <form [formGroup]="editBillingForm" (submit)="onSubmit()" (input)="onChange($event)" (change)="onChange($event)" (keypress)="onChange($event)">
+    <form [formGroup]="editBillingForm" (submit)="onSubmit()" (input)="onChange($event)" (change)="onChange($event)">
     <div class="form-group">
       <sch-input-row formControlName="companyName" label="Company Name" maxlength="30"></sch-input-row>
       <sch-dropdown-row formControlName="companyRegistrationCountryId" label="Country of Registration" [items]="['countries']"></sch-dropdown-row>
