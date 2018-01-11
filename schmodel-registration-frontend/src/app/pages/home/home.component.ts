@@ -57,8 +57,7 @@ export class HomeComponent implements OnInit {
     private modalService: BsModalService,
     private profileService: ProfileService,
     private authService: AuthenticationService,
-    private sharedService: SharedService,
-    private activatedRoute: ActivatedRoute
+    private sharedService: SharedService
   ) {
     this.firstName = '';
     this.lastName = '';
