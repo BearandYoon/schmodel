@@ -2,6 +2,7 @@ $page-margin: 3px;
 $page-margin-half: 1.5px;
 $model-img-size: 120px;
 $formula-logo-height: 70px;
+$formula-row-padding: 10px;
 $header-font-color: #fff;
 
 .sticky-show {
@@ -10,7 +11,18 @@ $header-font-color: #fff;
 .sticky-hide {
     visibility: hidden !important;
 }
-
+.event-guest {
+    flex: none !important;
+    width: 152px;
+}
+.header-guest {
+    flex: none !important;
+    width: 170px !important;
+}
+.rest-header {
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.03);
+}
 .info-header--apply-for-job {
     display: flex;
     flex-direction: row;
@@ -26,7 +38,7 @@ $header-font-color: #fff;
     .info-wrapper {
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
+        justify-content: space-between;
         flex: 1;
         text-align: center;
         color: $header-font-color;
@@ -34,14 +46,17 @@ $header-font-color: #fff;
         margin: 0 $page-margin-half;
 
         img {
+            padding-top: $formula-row-padding;
             width: auto;
-            height: 15px;
+            height: 25px;
             align-self: center;
         }
 
         span {
+            padding-bottom: $formula-row-padding;
             font-size: 12px;
             font-weight: bold;
+            height: 34px;            
         }
 
         &:last-of-type {
@@ -66,14 +81,14 @@ $header-font-color: #fff;
 
 .apply-for-jobs {
     // height: 90vh;
-    // overflow-y: scroll;
-    overflow: hidden;
-    // -webkit-overflow-scrolling: touch;
+     overflow-y: scroll;
+    //overflow: hidden;
+     -webkit-overflow-scrolling: touch;
 
     app-event:nth-of-type(2n) .event-calendar {
         background-color: rgba(97, 29, 146, 0.19);
     }
-    
+
     app-event:nth-of-type(2n+1) .event-calendar {
         background-color:rgba(0, 198, 253, 0.19);
     }
@@ -87,10 +102,17 @@ $header-font-color: #fff;
     	width: 100px !important;
     }
 
+    .header-guest {
+        flex: none !important;
+        width: 150px !important;
+    }
+    .rest-header {
+        flex: 1;
+    }
     app-event {
         .event-calendar {
             width: 100px !important;
-            
+
             .info-values {
                 span {
                     &:first-of-type {

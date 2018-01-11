@@ -6,7 +6,6 @@ import { AlertModule } from 'ngx-bootstrap';
 import { ClientLoginRoutingModule } from './client-login-routing.module';
 import { ClientLoginComponent } from './client-login.component';
 import { SharedModule } from '../../shared/modules';
-import { AuthenticationService } from '../../core/services';
 
 @NgModule({
   imports: [
@@ -19,10 +18,7 @@ import { AuthenticationService } from '../../core/services';
   ],
   declarations: [
     ClientLoginComponent
-  ],
-  providers: [
-    AuthenticationService
-  ],
+  ]
 })
 export class ClientLoginModule {
 }

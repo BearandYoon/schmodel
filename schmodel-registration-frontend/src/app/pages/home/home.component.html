@@ -1,4 +1,4 @@
-<div class="page-container" *ngIf="isHomePageLoaded">
+<div class="home-page-container" *ngIf="isHomePageLoaded">
 
   <div class="logo-container">
     <img class="img-logo" src="assets/img/img_logo.png">
@@ -7,7 +7,7 @@
   <p class="title" *ngIf="!isCompletedProfile">Complete Your Profile</p>
   <p class="title" *ngIf="isCompletedProfile">Welcome back <span class="user-name">{{firstName}}</span></p>
 
-  <app-toast  *ngIf="status"
+  <app-toast *ngIf="status"
   [toastType]="status.success ? 'success' : 'error'"
   [toastMessage]="status.message"
   (closeToast)="status = null"
@@ -90,9 +90,6 @@
     </div>
   </div>
   <p class="content-text" *ngIf="!hasActivationCode">Only Schmodels with an activation code can apply for jobs (until further notice).</p>
-  <div class="danger" *ngIf="message.length">
-    <span class="message">{{message}}</span>
-  </div>
 
   <div class="page-footer" [ngClass]="isCompletedProfile ? '' : 'unCompleted'">
     <p class="logout-text" (click)="logout()">LOG-OUT</p>

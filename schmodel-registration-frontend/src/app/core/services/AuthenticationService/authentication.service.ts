@@ -7,6 +7,7 @@ import { AuthUser, NewPassword, ResetUser, TokenUser } from '../../../shared/mod
 
 @Injectable()
 export class AuthenticationService {
+  changedPwdStatus = null;
   constructor(
     private http: HttpHelperService,
     private apiRoutingService: ApiRoutingService

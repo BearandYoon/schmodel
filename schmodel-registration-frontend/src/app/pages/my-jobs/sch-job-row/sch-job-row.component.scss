@@ -16,7 +16,7 @@ header {
         color: white;
         margin: 0;
     }
-  
+
     .icon {
         font-size: 22px;
         color: #939598;
@@ -30,7 +30,7 @@ header {
         color: white;
         margin-bottom: 0px;
     }
-    
+
     strong {
         font-family: 'Open Sans';
         font-size: 11px;
@@ -71,11 +71,11 @@ header {
             font-weight: 700;
             color: gray;
             margin-bottom: 3px;
-            padding-bottom: 0px;
+            padding-bottom: 0;
         }
-        
+
         p {
-            margin-bottom: 0px;
+            margin-bottom: 0;
             padding-bottom: 10px;
         }
     }
@@ -86,7 +86,7 @@ header {
         font-weight: 9px;
         text-align: left;
         padding-bottom: 10px;
-        
+
         .col-md-4.col-4 {
             font-weight: 700;
         }
@@ -141,7 +141,7 @@ header {
 }
 
 .col-3.col-md-3 {
-    padding-left: 0px;
+    padding-left: 0;
 }
 
 .custom-border-bottom {
