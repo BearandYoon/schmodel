@@ -50,7 +50,7 @@ export class EditProfilePasswordComponent implements OnInit {
     const { oldPassword, newPassword, confirmPassword } = fg.controls;
     const confirmString = confirmPassword.value as string + '';
     const newString = newPassword.value as string + '';
-    if ( !confirmString.match(/^[a-zA-Z0-9!@#$%^&*]{6,100}$/) || !newString.match(/^[a-zA-Z0-9!@#$%^&*]{6,100}$/)) {
+    if ( !confirmString.match(/^[a-zA-Z0-9!"£$%^&*()_\-=+{|}[\]'`;:@~#,.<>/?\\]{6,100}$/) || !newString.match(/^[a-zA-Z0-9!"£$%^&*()_\-=+{|}[\]'`;:@~#,.<>/?\\]{6,100}$/)) {
       confirmPassword.setErrors({'invalidPassword': true});
       return { 'invalidPassword': true };
     }
