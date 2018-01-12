@@ -24,7 +24,15 @@ export class ValidationService {
   }
 
   static passwordValidator(control) {
-    if (control.value.match(/^[a-zA-Z0-9!"£$%^&*()_\-=+{|}[\]'`;:@~#,.<>/?\\]{6,100}$/)) {
+    if (control.value.match(/^[a-zA-Z0-9!@#$%^&*]{6,100}$/)) {
+      return null;
+    } else {
+      return { 'invalidPassword': true };
+    }
+  }
+
+  static passwordLengthValidator(control) {
+    if (control.value.length >= 6) {
       return null;
     } else {
       return { 'invalidPassword': true };
