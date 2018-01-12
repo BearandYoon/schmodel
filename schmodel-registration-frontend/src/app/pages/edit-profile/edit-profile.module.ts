@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AccordionModule, AlertModule } from 'ngx-bootstrap';
+import { TextareaAutosizeModule } from 'ngx-textarea-autosize';
 
 import { ComponentsModule } from '../../shared/components/components.module';
 import { SharedModule } from '../../shared/modules';
@@ -27,7 +28,8 @@ import { ProfileService } from '../../core/services';
     SharedModule,
     AccordionModule.forRoot(),
     EditProfileRoutingModule,
-    AlertModule
+    AlertModule,
+    TextareaAutosizeModule
   ],
   declarations: [
     EditProfileComponent,
