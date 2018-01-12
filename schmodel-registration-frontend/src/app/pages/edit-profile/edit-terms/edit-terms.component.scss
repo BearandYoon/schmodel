@@ -25,6 +25,12 @@ section {
       border: none;
       outline: none;
       color: white;
+      resize: none;
+    }
+
+    .index-number {
+      align-self: flex-start;
+      padding-top: 2px;
     }
 
     .icon-close {
