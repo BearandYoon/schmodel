@@ -131,12 +131,19 @@ accordion.edit-profile {
 
     &.row--multi select {
       margin-bottom: 4px;
+      padding-right: 20px;
     }
 
     label {
       width: 130px;
       margin: 0;
-      line-height: 1em;
+      align-self: flex-start;
+      line-height: 24px;
+
+      &.label-narrow {
+        line-height: 1em;
+        padding-top: 4px;
+      }
 
       & > span {
         font-size: 14px;
