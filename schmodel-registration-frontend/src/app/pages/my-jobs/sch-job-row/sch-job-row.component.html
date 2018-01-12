@@ -1,5 +1,5 @@
 <accordion>
-  <div class="collapse_section" *ngFor="let event of event_role; let i = index" #jobBody>
+  <div id="{{event_role_type}}{{i}}" class="collapse_section" *ngFor="let event of event_role; let i = index">
     <header accordion-heading (click)="onCollapse(i)" [attr.aria-expanded]="!isCollapsed">
       <div>
         <h1> FIA Formula E {{event.eventName}} </h1>

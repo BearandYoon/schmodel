@@ -12,6 +12,7 @@ import { SharedService } from '../../../shared/services';
 export class SchJobRowComponent implements OnInit, AfterViewChecked {
 
   @Input() event_role: any;
+  @Input() event_role_type: string;
   @ViewChild('jobBody') private jobBody: ElementRef;
 
   public collapse_no = -1;
@@ -27,15 +28,14 @@ export class SchJobRowComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked() {
-    if(this.isCollapsed) {
-      this.scrollToBottom();
-    }
   }
 
   scrollToBottom(): void {
     try {
-      this.jobBody.nativeElement.scrollIntoView();
-      window.scrollBy(0, this.jobBody.nativeElement.clientHeight);
+      console.log(this.event_role_type+this.collapse_no);
+      console.log(document.getElementById(this.event_role_type+this.collapse_no).offsetHeight);
+      document.getElementById(this.event_role_type+this.collapse_no).scrollIntoView(false);
+      // window.scrollBy(0, document.getElementById(this.event_role_type+this.collapse_no).offsetHeight);
     } catch (err) { }
   }
 
@@ -46,9 +46,9 @@ export class SchJobRowComponent implements OnInit, AfterViewChecked {
     } else {
       this.isCollapsed = true;
       this.collapse_no = index;
+      this.scrollToBottom();
     }
-    // this.zone.run(() => { console.log("force update")});
-    
+
   }
 
   onCollapseSection(sectionTemplate: TemplateRef<any>): void {
