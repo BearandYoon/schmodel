@@ -18,7 +18,7 @@ export function slideToRight() {
         ])
     ]);
 }
- 
+
 export function slideToLeft() {
     return trigger('routerTransition', [
         state('void', style({})),
