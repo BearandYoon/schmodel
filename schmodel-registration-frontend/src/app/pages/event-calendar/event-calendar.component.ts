@@ -1,5 +1,4 @@
-import { Component, OnInit, Pipe, ChangeDetectorRef, HostListener } from '@angular/core';
-import * as moment from 'moment';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 import { Router } from '@angular/router';
 import { ProfileService } from '../../core/services';
@@ -19,7 +18,6 @@ export class EventCalendarComponent implements OnInit {
   constructor(
     public router: Router,
     private profileService: ProfileService,
-    private cdr: ChangeDetectorRef,
     private sharedService: SharedService
   ) { }
 

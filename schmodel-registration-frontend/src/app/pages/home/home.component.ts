@@ -57,7 +57,7 @@ export class HomeComponent implements OnInit {
     private modalService: BsModalService,
     private profileService: ProfileService,
     private authService: AuthenticationService,
-    private sharedService: SharedService,
+    private sharedService: SharedService
   ) {
     this.firstName = '';
     this.lastName = '';
@@ -107,7 +107,6 @@ export class HomeComponent implements OnInit {
         this.isHomePageLoaded = true;
         }, err => {
           this.isHomePageLoaded = true;
-          this.message = 'The page could not be loaded. Please log out, log in again and try once more.';
         });
       } else {
         this.isHomePageLoaded = true;
@@ -118,7 +117,6 @@ export class HomeComponent implements OnInit {
             this.router.navigate(['login']);
       } else {
         this.isHomePageLoaded = true;
-        this.message = 'The page could not be loaded. Please log out, log in again and try once more.';
       }
     });
   }
@@ -151,7 +149,7 @@ export class HomeComponent implements OnInit {
   }
 
   isLinkEnabled() {
-    return this.isCompletedProfile === true && this.hasActivationCode===true;
+    return this.isCompletedProfile === true && this.hasActivationCode === true;
   }
 
   showTermsAndConditions() {

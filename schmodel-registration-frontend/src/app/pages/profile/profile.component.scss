@@ -1,4 +1,5 @@
 $profileTextColor: #ffffff;
+$infoFontSize: 14px;
 
 .danger {
       height:22px;
@@ -67,30 +68,20 @@ $profileTextColor: #ffffff;
             p {
                 display:table;
                 margin-bottom: 0px;
-                font-size: 14px;
+                font-size: $infoFontSize;
 
                 label {
                     display: table-cell;
 
                     width : 120px;
                     font-weight: 500;
+                    span {
+                        font-size: 11px;
+                    }
                 }
                 span {
                     display: table-cell;
                     font-weight: 200;
-                    font-size: 14px;
-                }
-                i {
-                    width: 20px;
-                    margin-right: 10px;
-                }
-
-                &:last-of-type {
-                    label {
-                        span {
-                            font-size: 11px;
-                        }
-                    }
                 }
 
             }
@@ -98,6 +89,12 @@ $profileTextColor: #ffffff;
             h1 {
                 margin-bottom: 0px;
                 padding-bottom: 6px;
+            }
+
+            &.section--social i {
+                display: inline-block;
+                width: 20px;
+                margin-right: 10px;
             }
         }
     }

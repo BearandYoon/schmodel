@@ -6,6 +6,7 @@ import { Component, AfterViewInit, Input, Output, ViewChild, ElementRef, EventEm
   styleUrls: ['./toast.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
+
 export class ToastComponent implements AfterViewInit {
   @ViewChild('toastWrapper') toastWrapper: ElementRef;
 
