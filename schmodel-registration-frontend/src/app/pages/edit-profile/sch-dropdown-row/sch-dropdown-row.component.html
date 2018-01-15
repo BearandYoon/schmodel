@@ -1,5 +1,5 @@
 <div class="row" [ngClass]="{'row--multi': !!allowAddCategory}">
-  <label>{{label}}&nbsp;
+  <label [ngClass]="{'label-narrow': !!description}">{{label}}&nbsp;
     <span *ngIf="!!description"><br/>{{description}}</span>&nbsp;&nbsp;
   </label>
   <div class="dropdown-wrapper">

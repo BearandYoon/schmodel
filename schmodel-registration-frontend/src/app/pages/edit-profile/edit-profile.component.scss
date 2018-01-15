@@ -124,19 +124,31 @@ accordion.edit-profile {
     align-items: center;
     font-size: 11px;
 
-    &.row--valign-top,
     &.row--multi {
-      align-items: center;
-    }
+      align-items: flex-start;
 
-    &.row--multi select {
-      margin-bottom: 4px;
+      sch-dropdown {
+        display: inline-block;
+        width: calc(100% - 5px);
+
+        select {
+          width: 100%;
+          margin-bottom: 4px;
+          padding-right: 18px;
+        }
+      }
     }
 
     label {
       width: 130px;
       margin: 0;
-      line-height: 1em;
+      align-self: flex-start;
+      line-height: 24px;
+
+      &.label-narrow {
+        line-height: 1em;
+        padding-top: 4px;
+      }
 
       & > span {
         font-size: 14px;
