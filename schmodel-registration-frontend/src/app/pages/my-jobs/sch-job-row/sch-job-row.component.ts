@@ -1,4 +1,4 @@
-import {Component, AfterViewChecked, OnInit, Input, ViewEncapsulation, TemplateRef, ViewChild, ElementRef} from '@angular/core';
+import {Component, AfterViewChecked, OnInit, Input, ViewEncapsulation, TemplateRef, ViewChild, ElementRef, NgZone} from '@angular/core';
 
 import { routerTransition } from '../../../router.animations';
 import { SharedService } from '../../../shared/services';
@@ -12,39 +12,39 @@ import { SharedService } from '../../../shared/services';
 export class SchJobRowComponent implements OnInit, AfterViewChecked {
 
   @Input() event_role: any;
+  @Input() event_role_type: string;
   @ViewChild('jobBody') private jobBody: ElementRef;
 
   public collapse_no = -1;
-  public isCollapsed = false;
+  public isCollapsed = -1;
 
-  constructor(private sharedService: SharedService) { }
+  constructor(private sharedService: SharedService, private zone: NgZone) { }
 
   ngOnInit() {
     this.formatAMPM('20:09:00');
 
     const scrollLeft = document.documentElement.scrollLeft;
     window.scrollTo(scrollLeft, 0);
-    this.scrollToBottom();
   }
 
   ngAfterViewChecked() {
-    this.scrollToBottom();
+    if(this.isCollapsed==0) {
+      this.isCollapsed = 1;
+      document.getElementById(this.event_role_type+this.collapse_no).scrollIntoView(false);
+    }
   }
 
-  scrollToBottom(): void {
-    try {
-      this.jobBody.nativeElement.scrollIntoView(false);
-    } catch (err) { }
-  }
+  onCollapse(index: number, event: any) {
 
-  onCollapse(index: number) {
+    console.log(index);
     if (this.collapse_no === index) {
-      this.isCollapsed = false;
+      this.isCollapsed = -1;
       this.collapse_no = -1;
     } else {
-      this.isCollapsed = true;
+      this.isCollapsed = 0;
       this.collapse_no = index;
     }
+
   }
 
   onCollapseSection(sectionTemplate: TemplateRef<any>): void {
