@@ -1,6 +1,6 @@
 <accordion>
   <div id="{{event_role_type}}{{i}}" class="collapse_section" *ngFor="let event of event_role; let i = index">
-    <header accordion-heading (click)="onCollapse(i, $event)" [attr.aria-expanded]="!isCollapsed">
+    <header accordion-heading (click)="onCollapse(i, $event)">
       <div>
         <h1> FIA Formula E {{event.eventName}} </h1>
         <time> {{sharedService.formatEventDate(event.eventStartDate, event.eventEndDate)}}</time>
