@@ -29,23 +29,9 @@ export class SchJobRowComponent implements OnInit, AfterViewChecked {
 
   ngAfterViewChecked() {
     if(this.isCollapsed==0) {
-      this.isCollapsed  = 1;
-      // window.scroll
-      console.log('collaped'+this.event_role_type);
+      this.isCollapsed = 1;
       document.getElementById(this.event_role_type+this.collapse_no).scrollIntoView(false);
     }
-  }
-
-  scrollToBottom(): void {
-    document.getElementById(this.event_role_type+this.collapse_no).scrollIntoView(false);
-    // document.getElementById(this.event_role_type+this.collapse_no).scrollTop = 100;
-    try {
-      console.log(this.event_role_type+this.collapse_no);
-      console.log(document.getElementById(this.event_role_type+this.collapse_no));
-      
-      // window.scrollBy(0, 100);
-      // window.scrollBy(0, document.getElementById(this.event_role_type+this.collapse_no).offsetTop);
-    } catch (err) { }
   }
 
   onCollapse(index: number, event: any) {
@@ -57,7 +43,6 @@ export class SchJobRowComponent implements OnInit, AfterViewChecked {
     } else {
       this.isCollapsed = 0;
       this.collapse_no = index;
-      // this.scrollToBottom();
     }
 
   }
