@@ -2,12 +2,10 @@ import { Component, OnInit, HostListener } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { LocalStorageService } from 'ngx-webstorage';
 
 import { ClientService } from '../../core/services';
 import { SharedService } from '../../shared/services';
 import { HireTalent, TermsModalResponse, ValidationMessage } from '../../shared/models';
-import { environment } from '../../../environments/environment';
 import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
 import * as moment from 'moment';
 
@@ -39,14 +37,12 @@ export class HireModelComponent implements OnInit {
     private router: Router,
     private modalService: BsModalService,
     private clientService: ClientService,
-    private localStorage: LocalStorageService,
     private sharedService: SharedService
   ) {
   }
 
   @HostListener('window:scroll', ['$event'])
   onPageScroll(event) {
-    console.log(event);    
     if (event.target.scrollTop > 60) {
         this.stickyFlag = true;
     } else {
