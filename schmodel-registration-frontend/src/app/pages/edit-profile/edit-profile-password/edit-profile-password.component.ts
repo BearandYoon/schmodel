@@ -22,7 +22,7 @@ export class EditProfilePasswordComponent implements OnInit {
     private profileService: ProfileService
   ) {
     this.editPasswordForm = formBuilder.group({
-      'oldPassword': ['', [ValidationService.passwordValidator]],
+      'oldPassword': ['', [ValidationService.passwordLengthValidator]],
       'newPassword': [''],
       'confirmPassword': {validator: this.areEqual}
     }, {validator: this.areEqual.bind(this)});
@@ -54,6 +54,13 @@ export class EditProfilePasswordComponent implements OnInit {
     //   confirmPassword.setErrors({'invalidPassword': true});
     //   return { 'invalidPassword': true };
     // }
+
+
+    if (confirmString.length < 6 || newString.length < 6) {
+      confirmPassword.setErrors({'invalidPassword': true});
+      return { 'invalidPassword': true };
+    }
+
     if (newPassword.value !== confirmPassword.value) {
       confirmPassword.setErrors({'notMatchingPassword': true});
       return { 'notMatchingPassword': true };

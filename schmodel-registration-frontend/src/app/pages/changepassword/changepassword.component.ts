@@ -30,8 +30,8 @@ export class ChangepasswordComponent implements OnInit {
     private localSt: LocalStorageService,
   ) {
     this.changePwdForm = this.formBuilder.group({
-      'password': ['', [Validators.required, ValidationService.passwordValidator]],
-      'confirmPass': ['', [Validators.required, ValidationService.passwordValidator]]
+      'password': ['', [Validators.required, ValidationService.passwordLengthValidator]],
+      'confirmPass': ['', [Validators.required, ValidationService.passwordLengthValidator]]
     });
      this.missMatchPass = '';
      this.message = '';
