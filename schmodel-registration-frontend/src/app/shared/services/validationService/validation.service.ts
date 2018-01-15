@@ -14,7 +14,7 @@ export class ValidationService {
   }
 
   static emailValidator(control) {
-    const value=control.value.toLowerCase();
+    const value = control.value.toLowerCase();
     // RFC 2822 compliant regex
     if (value.match(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/)) {
       return null;
@@ -23,14 +23,21 @@ export class ValidationService {
     }
   }
 
+  static passwordSpecialValidator(control) {
+    if (control.value.match(/[a-zA-Z0-9!£$%^&*()_\-=+{}[\]:@~#,.<>/?\\|]{6,100}$/)) {
+      return null;
+    } else {
+      return true;
+    }
+  }
   static passwordValidator(control) {
     // {6,100}           - Assert password is between 6 and 100 characters
     // (?=.*[0-9])       - Assert a string has at least one number
 
-    if (control.value.match(/^[a-zA-Z0-9!@#$%^&*]{6,100}$/)) {
-      return null;
-    } else {
-      return { 'invalidPassword': true };
-    }
+    // if (control.value.match(/^[a-zA-Z0-9!@#$%^&*]{6,100}$/)) {
+    //   return null;
+    // } else {
+    //   return { 'invalidPassword': true };
+    // }
   }
 }

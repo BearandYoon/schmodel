@@ -6,7 +6,7 @@ import { LocalStorageService } from 'ngx-webstorage';
 import { routerTransition } from '../../router.animations';
 import { ValidationService } from '../../shared/services';
 import { AuthenticationService } from '../../core/services';
-import { NewPassword, TokenUser } from '../../shared/models';
+import { NewPassword, TokenUser, ValidationMessage } from '../../shared/models';
 
 @Component({
   selector: 'app-changepassword',
@@ -60,12 +60,13 @@ export class ChangepasswordComponent implements OnInit {
     });
   }
   onChangeInput(event) {
-    this.missMatchPass = '';
-    this.message = '';
   }
 
   onChangePwd() {
-    if (this.changePwdForm.value.password !== this.changePwdForm.value.confirmPass) {
+    if (ValidationService.passwordSpecialValidator(this.changePwdForm.controls.password) === true) {
+      this.missMatchPass = ValidationMessage.INVALID_SPECIAL_PASSWORD;
+       return;
+    } else if (this.changePwdForm.value.password !== this.changePwdForm.value.confirmPass) {
       this.missMatchPass = 'Passwords do not match. Please try again.';
     } else {
       this.user.newPassword = this.changePwdForm.value.password;

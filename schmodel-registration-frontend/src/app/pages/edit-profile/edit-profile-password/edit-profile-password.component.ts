@@ -50,11 +50,10 @@ export class EditProfilePasswordComponent implements OnInit {
     const { oldPassword, newPassword, confirmPassword } = fg.controls;
     const confirmString = confirmPassword.value as string + '';
     const newString = newPassword.value as string + '';
-    if ( !confirmString.match(/^[a-zA-Z0-9!@#$%^&*]{6,100}$/) || !newString.match(/^[a-zA-Z0-9!@#$%^&*]{6,100}$/)) {
-      confirmPassword.setErrors({'invalidPassword': true});
-      return { 'invalidPassword': true };
-    }
-
+    // if ( !confirmString.match(/^[a-zA-Z0-9!@#$%^&*]{6,100}$/) || !newString.match(/^[a-zA-Z0-9!@#$%^&*]{6,100}$/)) {
+    //   confirmPassword.setErrors({'invalidPassword': true});
+    //   return { 'invalidPassword': true };
+    // }
     if (newPassword.value !== confirmPassword.value) {
       confirmPassword.setErrors({'notMatchingPassword': true});
       return { 'notMatchingPassword': true };
@@ -64,6 +63,13 @@ export class EditProfilePasswordComponent implements OnInit {
   onSubmit() {
     this.status = null;
     const { oldPassword, newPassword } = this.editPasswordForm.value;
+    if (ValidationService.passwordSpecialValidator(this.editPasswordForm.controls.newPassword)) {
+      this.status = {
+        success: false,
+        message: ValidationMessage.INVALID_SPECIAL_PASSWORD
+      };
+      return;
+    }
     this.profileService.updatePassword(oldPassword, newPassword).subscribe( res => {
       if (res.oldPasswordValid && res.newPasswordValid) {
         this.status = {
@@ -73,6 +79,7 @@ export class EditProfilePasswordComponent implements OnInit {
         this.profileService.getProfileInfo();
       }
 
+      // if (ValidationService.passwordSpecialPassword(this.sign))
       if (!res.oldPasswordValid) {
         this.editPasswordForm.get('oldPassword').setErrors({'currentPasswordNotMatching': true});
       }
