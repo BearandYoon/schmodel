@@ -24,6 +24,8 @@
     color: red;
     text-align: left;
   }
+  
+  
 
   .action-container a {
     text-transform: none;
@@ -32,6 +34,16 @@
   }
 
   .action-container {
+
+    app-toast {
+      position: relative;
+      display: block;
+      margin: 0 -30px; 
+      text-align: left;
+      bottom: 4px;
+      width: auto;
+    }
+    
     .btn-login-container {
       padding-bottom: 0;
     }

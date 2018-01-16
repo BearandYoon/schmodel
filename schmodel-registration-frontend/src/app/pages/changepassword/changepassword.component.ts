@@ -5,7 +5,7 @@ import { LocalStorageService } from 'ngx-webstorage';
 
 import { ValidationService } from '../../shared/services';
 import { AuthenticationService } from '../../core/services';
-import { NewPassword, TokenUser } from '../../shared/models';
+import { NewPassword, TokenUser, ValidationMessage } from '../../shared/models';
 
 @Component({
   selector: 'app-changepassword',
@@ -20,6 +20,7 @@ export class ChangepasswordComponent implements OnInit {
   token: string;
   tokenUser: TokenUser = new TokenUser();
   tokenValid: boolean;
+  status: any = null;
 
   constructor(
     public router: Router,
@@ -29,8 +30,8 @@ export class ChangepasswordComponent implements OnInit {
     private localSt: LocalStorageService,
   ) {
     this.changePwdForm = this.formBuilder.group({
-      'password': ['', [Validators.required, ValidationService.passwordValidator]],
-      'confirmPass': ['', [Validators.required, ValidationService.passwordValidator]]
+      'password': ['', [Validators.required, ValidationService.passwordLengthValidator]],
+      'confirmPass': ['', [Validators.required, ValidationService.passwordLengthValidator]]
     });
      this.missMatchPass = '';
      this.message = '';
@@ -59,13 +60,20 @@ export class ChangepasswordComponent implements OnInit {
     });
   }
   onChangeInput(event) {
-    this.missMatchPass = '';
-    this.message = '';
   }
 
   onChangePwd() {
-    if (this.changePwdForm.value.password !== this.changePwdForm.value.confirmPass) {
-      this.missMatchPass = 'Passwords do not match. Please try again.';
+    this.status = null;
+    if (ValidationService.passwordSpecialValidator(this.changePwdForm.controls.password)) {
+      this.status = {
+        success: false,
+        missMatchPass: ValidationMessage.INVALID_SPECIAL_PASSWORD
+      };
+    } else if (this.changePwdForm.value.password !== this.changePwdForm.value.confirmPass) {
+      this.status = {
+        success: false,
+        missMatchPass: ValidationMessage.NON_MATCHING_PASSWORD
+      };
     } else {
       this.user.newPassword = this.changePwdForm.value.password;
       this.user.token = this.token;
