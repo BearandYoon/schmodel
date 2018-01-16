@@ -1,4 +1,5 @@
 import { Component, AfterViewInit, Input, Output, ViewChild, ElementRef, EventEmitter, ViewEncapsulation } from '@angular/core';
+import { DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-toast',
@@ -16,7 +17,7 @@ export class ToastComponent implements AfterViewInit {
   @Input() toastMessage = '';
   @Output() closeToast: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+  constructor(private sanitizer: DomSanitizer) { }
 
   ngAfterViewInit() {
     const toastElement = this.toastWrapper.nativeElement;

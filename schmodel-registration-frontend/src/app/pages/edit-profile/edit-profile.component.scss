@@ -96,9 +96,6 @@ accordion.edit-profile {
     padding-top: 20px;
 
     .row {
-      margin: 0;
-      padding-top: 5px;
-      align-items: center;
       font-size: 14px;
     }
 
@@ -122,7 +119,7 @@ accordion.edit-profile {
   .row {
     margin: 0;
     padding-top: 5px;
-    align-items: center;
+    align-items: flex-start;
     font-size: 11px;
 
     &.row--multi {

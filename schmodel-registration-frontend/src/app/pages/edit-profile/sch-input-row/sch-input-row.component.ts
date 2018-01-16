@@ -45,4 +45,10 @@ export class SchInputRowComponent implements ControlValueAccessor {
   writeValue(value) {
     this.value = value;
   }
+
+  onKeyUp(event: any) {
+    if (this.maxlength && this.value.length > this.maxlength) {
+      this.value = this.value.substring(0, this.maxlength);
+    }
+  }
 }
