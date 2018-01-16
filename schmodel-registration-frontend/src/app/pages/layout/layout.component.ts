@@ -1,9 +1,9 @@
-import { Component, OnInit,HostListener } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { HttpHelperService } from '../../core/http-helper.service';
 
 @Component({
-    host: {
+  host: {
     '(window:offline)': 'onBrowserOffline($event)',
     '(window:online)': 'onBrowserOnline($event)'
   },
@@ -15,12 +15,12 @@ export class LayoutComponent implements OnInit {
 
  @HostListener('window:online', ['$event'])
     onBrowserOnline(ev) {
-       this.offlineMode=false
+       this.offlineMode = false;
   }
 
   @HostListener('window:onffline', ['$event'])
     onBrowserOffline(ev) {
-      this.offlineMode=true
+      this.offlineMode = true;
   }
 
   pageData: any = {};
@@ -51,7 +51,7 @@ export class LayoutComponent implements OnInit {
   }
 
   onCloseOfflineMessage() {
-    this.offlineMode=false;
+    this.offlineMode = false;
   }
 
 }

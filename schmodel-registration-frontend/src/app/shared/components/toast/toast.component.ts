@@ -7,6 +7,7 @@ import { DomSanitizer} from '@angular/platform-browser';
   styleUrls: ['./toast.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
+
 export class ToastComponent implements AfterViewInit {
   @ViewChild('toastWrapper') toastWrapper: ElementRef;
 

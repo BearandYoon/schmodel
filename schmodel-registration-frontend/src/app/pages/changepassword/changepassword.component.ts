@@ -3,7 +3,6 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { LocalStorageService } from 'ngx-webstorage';
 
-import { routerTransition } from '../../router.animations';
 import { ValidationService } from '../../shared/services';
 import { AuthenticationService } from '../../core/services';
 import { NewPassword, TokenUser, ValidationMessage } from '../../shared/models';

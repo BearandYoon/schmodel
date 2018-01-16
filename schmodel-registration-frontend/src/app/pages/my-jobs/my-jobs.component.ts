@@ -14,6 +14,7 @@ export class MyJobsComponent implements OnInit {
 
     public response: any = '';
     public isLoading = false;
+    public role_type: any = ["upcoming", "previous"];
 
     constructor(
         private myjobService: MyJobService
