@@ -130,5 +130,6 @@ export class EditTermsComponent implements OnInit {
     this.initializeEditTermsForm();
     this.status = null;
     this.collapseSection.emit();
+    this.untouched = true;
   }
 }
