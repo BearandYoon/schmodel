@@ -21,6 +21,7 @@ export class ChangepasswordComponent implements OnInit {
   token: string;
   tokenUser: TokenUser = new TokenUser();
   tokenValid: boolean;
+  status: any = null;
 
   constructor(
     public router: Router,
@@ -63,11 +64,17 @@ export class ChangepasswordComponent implements OnInit {
   }
 
   onChangePwd() {
-    if (ValidationService.passwordSpecialValidator(this.changePwdForm.controls.password) === true) {
-      this.missMatchPass = ValidationMessage.INVALID_SPECIAL_PASSWORD;
-       return;
+    this.status = null;
+    if (ValidationService.passwordSpecialValidator(this.changePwdForm.controls.password)) {
+      this.status = {
+        success: false,
+        missMatchPass: ValidationMessage.INVALID_SPECIAL_PASSWORD
+      };
     } else if (this.changePwdForm.value.password !== this.changePwdForm.value.confirmPass) {
-      this.missMatchPass = 'Passwords do not match. Please try again.';
+      this.status = {
+        success: false,
+        missMatchPass: ValidationMessage.NON_MATCHING_PASSWORD
+      };
     } else {
       this.user.newPassword = this.changePwdForm.value.password;
       this.user.token = this.token;

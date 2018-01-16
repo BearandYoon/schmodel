@@ -25,6 +25,7 @@ export class SignupComponent implements OnInit {
   missMatchPass: string;
   authUser: AuthUser = new AuthUser();
   message: string;
+  status: any = null;
   termsModalRef: BsModalRef;
   termsContent: string;
   termsModalConfig = {
@@ -57,11 +58,17 @@ export class SignupComponent implements OnInit {
   }
 
   onSignUp() {
-    this.message = '';
+    this.status = null;
     if (ValidationService.passwordSpecialValidator(this.signUpForm.controls.password)) {
-      this.message = ValidationMessage.INVALID_SPECIAL_PASSWORD;
+      this.status = {
+        success: false,
+        message: ValidationMessage.INVALID_SPECIAL_PASSWORD
+      };
     } else if (this.signUpForm.value.password !== this.signUpForm.value.confirmPass) {
-      this.message = ValidationMessage.NON_MATCHING_PASSWORD_SIGNUP;
+      this.status = {
+        success: false,
+        message: ValidationMessage.NON_MATCHING_PASSWORD_SIGNUP
+      };
     } else {
       this.showTermsAndConditions();
     }
