@@ -92,7 +92,7 @@ $infoFontSize: 14px;
                 span {
                     display: inline-block;
                     width: 100%;
-                    word-wrap: break-word;
+                    word-break: break-all;
                 }
             }
 
