@@ -64,7 +64,7 @@
       <div *ngIf="profile.clauses.length">
         <small class="heading" *ngIf="isOwnProfile">MY TERMS & CONDITIONS</small>
         <small class="heading" *ngIf="!isOwnProfile">TERMS & CONDITIONS</small>
-        <p *ngFor="let item of profile.clauses;let i = index "><span>{{i+1}}. {{item}}</span></p>
+        <p *ngFor="let item of profile.clauses;let i = index " class="terms"><span>{{i+1}}. {{item}}</span></p>
       </div>
       <div *ngIf="profile">
         <small class="heading">BILLING INFORMATION</small>
