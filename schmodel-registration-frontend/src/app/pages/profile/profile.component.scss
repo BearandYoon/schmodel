@@ -59,7 +59,7 @@ $infoFontSize: 14px;
         div {
             border-bottom: 2px solid rgba(255,255,255,.5);
             padding: 22px 0 22px 0;
-
+         
             > small {
                 font-size: 17px;
                 color: #afb2b3;
@@ -84,6 +84,16 @@ $infoFontSize: 14px;
                     font-weight: 200;
                 }
 
+            }
+
+            .terms {
+                display: block;
+                
+                span {
+                    display: inline-block;
+                    width: 100%;
+                    word-wrap: break-word;
+                }
             }
 
             h1 {
