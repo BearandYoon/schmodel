@@ -3,22 +3,17 @@ app-toast {
   overflow: hidden;
   z-index: 999;
 
-  -moz-transform: translateY(0);
-  -ms-transform: translateY(0);
-  -o-transform: translateY(0);
-  -webkit-transform: translateY(0);
-  transform: translateY(0);
-  transition: transform 0.5s;
-
   &.hide {
     pointer-events: none;
 
-    transform: translateY(-100%);
-    -moz-transform: translateY(-100%);
-    -ms-transform: translateY(-100%);
-    -o-transform: translateY(-100%);
-    -webkit-transform: translateY(-100%);
-    transition: transform 0.5s;
+    .toast-wrapper {
+      transform: translateY(-100%);
+      -moz-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+      -o-transform: translateY(-100%);
+      -webkit-transform: translateY(-100%);
+      transition: transform 0.5s;
+    }
   }
 
   .toast-wrapper {
@@ -29,6 +24,12 @@ app-toast {
     display: flex;
     align-items: center;
     padding: 2px 5px 3px 25px;
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    transition: transform 0.5s;
 
     &.animatable {
       transition: transform 0.5s;

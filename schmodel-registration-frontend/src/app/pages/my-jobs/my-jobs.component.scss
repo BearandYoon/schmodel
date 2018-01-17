@@ -1,7 +1,6 @@
 .my-jobs {
   background-image: url(/assets/img/bg_pattern.png);
-  // overflow: scroll;
-  // height: 90vh;
+  -webkit-overflow-scrolling: touch;
 }
 
 .sch-job-row {
