@@ -11,6 +11,10 @@ import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
 import * as moment from 'moment';
 
 @Component({
+  host: {
+    '(window:offline)': 'onBrowserOffline($event)',
+    '(window:online)': 'onBrowserOnline($event)'
+  },
   selector: 'app-hire-model',
   templateUrl: './hire-model.component.html',
   styleUrls: ['./hire-model.component.scss']

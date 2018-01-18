@@ -12,6 +12,10 @@ import { HttpHelperService } from '../../../../core/http-helper.service';
 enum ButtonStatus { Disabled, Checked, Apply, Hired }
 
 @Component({
+  host: {
+    '(window:offline)': 'onBrowserOffline($event)',
+    '(window:online)': 'onBrowserOnline($event)'
+  },
   selector: 'app-event-role',
   templateUrl: './event-role.component.html',
   styleUrls: ['./event-role.component.scss'],
