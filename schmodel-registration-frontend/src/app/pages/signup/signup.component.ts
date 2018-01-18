@@ -88,29 +88,47 @@ export class SignupComponent implements OnInit {
         this.authService.signUp(this.authUser).subscribe(res => {
           this.message = '';
           if (!res.activationCodeValid) {
-            this.message = ValidationMessage.WRONG_ACTIVATION_CODE;
+            this.status = {
+              success: false,
+              message: ValidationMessage.WRONG_ACTIVATION_CODE
+            };
             return;
           }
           if (!res.emailValid) {
-            this.message = ValidationMessage.INVALID_EMAIL;
+            this.status = {
+              success: false,
+              message: ValidationMessage.INVALID_EMAIL
+            };
             return;
           }
           if (!res.passwordValid) {
-            this.message = ValidationMessage.INVALID_PASSWORD;
+            this.status = {
+              success: false,
+              message: ValidationMessage.INVALID_PASSWORD
+            };
             return;
           }
           if (!res.emailAvailable) {
-            this.message = ValidationMessage.ALREADY_REGISTERED;
+            this.status = {
+              success: false,
+              message: ValidationMessage.ALREADY_REGISTERED
+            };
             return;
           }
 
           this.sharedService.fromSignup = true;
           this.router.navigate(['']);
         }, err => {
-          this.message = ValidationMessage.GENERIC_ERROR_MESSAGE;
+          this.status = {
+            success: false,
+            message: ValidationMessage.GENERIC_ERROR_MESSAGE
+          };
         });
       } else {
-        this.message = ValidationMessage.TERMS_CONDITIONS_DECLINE;
+        this.status = {
+          success: false,
+          message: ValidationMessage.TERMS_CONDITIONS_DECLINE
+        };
         return;
       }
     });
