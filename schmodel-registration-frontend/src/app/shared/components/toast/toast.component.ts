@@ -17,7 +17,7 @@ export class ToastComponent implements AfterViewInit {
   @Input() toastMessage = '';
   @Output() closeToast: EventEmitter<any> = new EventEmitter();
 
-  constructor(private sanitizer: DomSanitizer) { }
+  constructor(public sanitizer: DomSanitizer) { }
 
   ngAfterViewInit() {
     const toastElement = this.toastWrapper.nativeElement;
