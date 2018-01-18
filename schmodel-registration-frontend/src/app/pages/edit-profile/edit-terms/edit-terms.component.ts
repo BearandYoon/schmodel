@@ -53,11 +53,13 @@ export class EditTermsComponent implements OnInit {
    }
 
   initializeEditTermsForm() {
-    this.editTermsForm = null;
+    if (!this.editTermsForm) {
+      this.editTermsForm = this.formBuilder.group({
+        items: this.formBuilder.array([this.createItem()])
+      });
+    }
+
     this.items = [];
-    this.editTermsForm = this.formBuilder.group({
-      items: this.formBuilder.array([this.createItem()])
-    });
 
     let clauses = this.profileService.profileData.clauses;
     if (!clauses || !clauses.length) {

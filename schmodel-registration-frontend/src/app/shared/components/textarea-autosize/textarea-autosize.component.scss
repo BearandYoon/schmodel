@@ -1,0 +1,21 @@
+textarea-autosize {
+  position: relative;
+
+  textarea {
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    height: auto;
+    background: none;
+    border: none;
+    outline: none;
+    color: white;
+    resize: none;
+  
+    &.hidden {
+      position: absolute;
+      pointer-events: none;
+      visibility: hidden;
+    }
+  }
+}
