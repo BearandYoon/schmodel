@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 import { ClientService } from '../../core/services';
+import { HttpHelperService } from '../../core/http-helper.service';
 import { SharedService } from '../../shared/services';
 import { HireTalent, TermsModalResponse, ValidationMessage } from '../../shared/models';
 import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
@@ -29,6 +30,7 @@ export class HireModelComponent implements OnInit {
   stickyFlag = false;
   guestFlag = false;
   status: any = null;
+  offlineMode = false;
 
   hireModelData: any = {};
 
@@ -37,7 +39,8 @@ export class HireModelComponent implements OnInit {
     private router: Router,
     private modalService: BsModalService,
     private clientService: ClientService,
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    private httpHelperService: HttpHelperService
   ) {
   }
 
@@ -48,6 +51,16 @@ export class HireModelComponent implements OnInit {
     } else {
         this.stickyFlag = false;
     }
+  }
+
+  @HostListener('window:online', ['$event'])
+    onBrowserOnline(ev) {
+       this.offlineMode = false;
+  }
+
+  @HostListener('window:onffline', ['$event'])
+    onBrowserOffline(ev) {
+      this.offlineMode = true;
   }
 
   ngOnInit() {
@@ -168,6 +181,7 @@ export class HireModelComponent implements OnInit {
   }
 
   confirmHiring(value) {
+    if (this.httpHelperService.serverError || this.offlineMode) return;
     this.message = '';
     const { talent } = value;
 

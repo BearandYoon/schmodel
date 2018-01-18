@@ -61,7 +61,7 @@ export class EventRoleComponent implements OnInit {
     private detailDlgService: BsModalService,
     private withdrawDlgService: BsModalService,
     private jobService: JobService,
-    public httpHelperService: HttpHelperService,
+    private httpHelperService: HttpHelperService
   ) {
     this.image_url = this.ic_disabled;
   }
