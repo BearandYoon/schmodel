@@ -16,7 +16,7 @@ export class ValidationService {
   static emailValidator(control) {
     const value = control.value.toLowerCase();
     // RFC 2822 compliant regex
-    if (value.match(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/)) {
+    if (value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/)) {
       return null;
     } else {
       return { 'invalidEmailAddress': true };
@@ -39,7 +39,6 @@ export class ValidationService {
     } else {
       return { 'invalidPassword': true };
     }
-
   }
 
   static passwordLengthValidator(control) {
