@@ -8,6 +8,7 @@ export class ValidationMessage {
   public static GENERIC_ERROR_MESSAGE = 'Something went wrong.';
   public static BACKEND_CONNECTION_ERROR = 'We\'re experiencing <br/>technical difficulties. ' +
     'We\'ve logged this error and we\'ll be working to fix it right away. Please try again later.';
+  public static ERR_INTERNET_DISCONNECTED='Oh snap! It looks like you\'re disconnected from the Internet. Please re-connect and try again.'
   public static INVALID_EMAIL = 'Enter a valid email address.';
   public static INVALID_PASSWORD_1 = 'Enter a valid password.';
   public static INVALID_CREDENTIALS = 'Invalid Credentials.';
