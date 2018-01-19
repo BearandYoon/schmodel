@@ -5,6 +5,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { HeaderComponent } from './header/header.component';
 import { PhoneCodeSelectComponent } from './phone-code-select/phone-code-select.component';
 import { ToastComponent } from './toast/toast.component';
+import { TextareaAutosizeComponent } from './textarea-autosize/textarea-autosize.component';
 
 @NgModule({
   imports: [
@@ -15,12 +16,14 @@ import { ToastComponent } from './toast/toast.component';
   declarations: [
     HeaderComponent,
     PhoneCodeSelectComponent,
-    ToastComponent
+    ToastComponent,
+    TextareaAutosizeComponent
   ],
   exports: [
     HeaderComponent,
     PhoneCodeSelectComponent,
-    ToastComponent
+    ToastComponent,
+    TextareaAutosizeComponent,
   ]
 })
 export class ComponentsModule { }
