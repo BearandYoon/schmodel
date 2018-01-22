@@ -43,7 +43,17 @@ export class EditTermsComponent implements OnInit {
   createItem() {
     return this.formBuilder.group({
       term: ['', [Validators.required]]
-    });
+    }, {validator: this.validateTerm});
+  }
+
+  validateTerm = (f: FormGroup) => {
+    const data = f.value;
+    const trimmedTerm = data.term.trim();
+    if (trimmedTerm.length === 0) {
+      return { termInvalid: true };
+    }
+
+    return null;
   }
 
   ngOnInit() {
