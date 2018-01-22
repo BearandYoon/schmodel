@@ -22,7 +22,7 @@ export class EditProfilePasswordComponent implements OnInit {
     private profileService: ProfileService
   ) {
     this.editPasswordForm = formBuilder.group({
-      'oldPassword': ['', [ValidationService.passwordLengthValidator]],
+      'oldPassword': [''],
       'newPassword': [''],
       'confirmPassword': {validator: this.areEqual}
     }, {validator: this.areEqual.bind(this)});
@@ -47,7 +47,7 @@ export class EditProfilePasswordComponent implements OnInit {
   }
 
   areEqual(fg: FormGroup) {
-    const { oldPassword, newPassword, confirmPassword } = fg.controls;
+    const { newPassword, confirmPassword } = fg.controls;
     const confirmString = confirmPassword.value as string + '';
     const newString = newPassword.value as string + '';
 
