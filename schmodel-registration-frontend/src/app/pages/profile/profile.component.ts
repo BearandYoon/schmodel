@@ -16,13 +16,11 @@ export class ProfileComponent implements OnInit {
     pagination: '.swiper-pagination',
     paginationClickable: true,
   };
-  message: string;
   talentId: number;
   constructor(
     private _profileService: ProfileService,
     private activatedRoute: ActivatedRoute
   ) {
-    this.message = '';
     this.talentId = 0;
     this.profile = null;
   }
@@ -39,23 +37,15 @@ export class ProfileComponent implements OnInit {
 	    	console.log(res);
       		if ( res !== null) {
         		this.profile = res;
-      		} else {
-        		this.message = 'Something went wrong.';
       		}
-    	}, err => {
-      		this.message = 'Something went wrong.'; 
-      	 });  
+    	});  
     } else {
        	this.isOwnProfile = true;
 	    this._profileService.viewProfile().subscribe( res => {
 	    	console.log(res);
       		if ( res !== null) {
         		this.profile = res;
-      		} else {
-        		this.message = 'Something went wrong.';
       		}
-    	}, err => {
-      		this.message = 'Something went wrong.';
     	});  
     }
 

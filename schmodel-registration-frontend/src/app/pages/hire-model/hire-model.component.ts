@@ -245,9 +245,6 @@ export class HireModelComponent implements OnInit {
             talent.contractRoleId = roleId;
             this.getHireSchemodel();
           }
-        }, error => {
-          console.log(error);
-          this.message = ValidationMessage.GENERIC_ERROR_MESSAGE;
         });
       }
     });

@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { HttpHelperService } from '../../core/http-helper.service';
-
+import { ValidationMessage } from '../../shared/models';
 @Component({
   host: {
     '(window:offline)': 'onBrowserOffline($event)',
@@ -51,7 +51,19 @@ export class LayoutComponent implements OnInit {
   }
 
   onCloseOfflineMessage() {
-    this.offlineMode = false;
+    this.offlineMode=false;
+  }
+
+  displayToast() {
+    return this.httpHelperService.serverError || this.offlineMode;
+  }
+
+  getOfflineModeMessage() {
+    return ValidationMessage.ERR_INTERNET_DISCONNECTED;
+  }
+
+  getServerErrorMessage() {
+    return this.httpHelperService.serverStatus===0? ValidationMessage.ERR_INTERNET_DISCONNECTED:ValidationMessage.BACKEND_CONNECTION_ERROR;
   }
 
 }

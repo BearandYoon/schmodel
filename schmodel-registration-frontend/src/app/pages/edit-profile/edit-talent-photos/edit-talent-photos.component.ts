@@ -157,10 +157,6 @@ export class EditTalentPhotosComponent implements OnInit {
       };
     }, error => {
       this.photo_section_infor[num].isUploading = false;
-      this.status = {
-        success: false,
-        message: ValidationMessage.GENERIC_ERROR_MESSAGE
-      };
     });
   }
 
@@ -219,10 +215,6 @@ export class EditTalentPhotosComponent implements OnInit {
                   message: 'Successfully uploaded'
                 };
             }, error => {
-              this.status = {
-                success: false,
-                message: ValidationMessage.GENERIC_ERROR_MESSAGE
-              };
               this.photo_section_infor[this.no_tmp].isUploading = false;
             });
           }
