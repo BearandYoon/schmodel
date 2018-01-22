@@ -20,13 +20,6 @@
             </div>
           </div>
           <div class="action-container">
-            <!-- <div class="message-wrapper" *ngIf="message">
-              <span class="icon-close" (click)="message='';"></span>
-              <span class="message">
-                  <b>Oh snap!</b><br/>
-                  {{message}}
-                </span>
-            </div> -->
             <app-toast
               *ngIf="status"
               [toastType]="status.success ? 'success' : 'error'"
