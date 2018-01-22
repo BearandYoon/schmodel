@@ -23,13 +23,12 @@
             <p class="forgot-pass" [routerLink]="['/forgot']">Forgot Password?</p>
           </div>
           <div class="action-container">
-            <div class="message-wrapper" *ngIf="message">
-              <span class="icon-close" (click)="message='';"></span>
-              <span class="message">
-                  <b>Oh snap!</b><br/>
-                  {{message}}
-                </span>
-            </div>
+            <app-toast
+              *ngIf="status"
+              [toastType]="status.success ? 'success' : 'error'"
+              [toastMessage]="status.message"
+              (closeToast)="status = null"
+            ></app-toast>
             <div class="btn-login-container">
               <button class="btn bordered-btn" type="submit" [disabled]="!signInForm.valid"> Login </button>
             </div>
