@@ -15,6 +15,7 @@ export class EditProfilePasswordComponent implements OnInit {
   @Output() collapseSection: EventEmitter<any> = new EventEmitter();
   editPasswordForm: FormGroup;
   status: any = null;
+  status_notmatch: any = null;
   untouched = true;
 
   constructor(
@@ -29,8 +30,22 @@ export class EditProfilePasswordComponent implements OnInit {
   }
 
   onChange(event: any) {
+    const { oldPassword, newPassword, confirmPassword } = this.editPasswordForm.value;
+    console.log("New:" + newPassword);
+    console.log("Confirm:" + confirmPassword);
     this.status = null;
+    this.status_notmatch = null;
     this.untouched = false;
+    if (newPassword != confirmPassword) {
+      this.status_notmatch = {
+        success: false,
+        message: ValidationMessage.NON_MATCHING_PASSWORD
+      };
+      return;
+    } else {
+      this.status_notmatch = null;
+      return;
+    }
   }
 
   ngOnInit() {
