@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { ValidationService } from '../../../shared/services';
 import { ProfileService } from '../../../core/services';
@@ -22,8 +22,8 @@ export class EditProfilePasswordComponent implements OnInit {
     private profileService: ProfileService
   ) {
     this.editPasswordForm = formBuilder.group({
-      'oldPassword': [''],
-      'newPassword': [''],
+      'oldPassword': ['', [Validators.required]],
+      'newPassword': ['', [Validators.required]],
       'confirmPassword': {validator: this.areEqual}
     }, {validator: this.areEqual.bind(this)});
   }
@@ -51,7 +51,7 @@ export class EditProfilePasswordComponent implements OnInit {
     const confirmString = confirmPassword.value as string + '';
     const newString = newPassword.value as string + '';
 
-    if (confirmString.length === 0 || newString.length === 0) {
+    if (confirmString.length === 0) {
       confirmPassword.setErrors({'required': true});
       return { 'required': true };
     }
