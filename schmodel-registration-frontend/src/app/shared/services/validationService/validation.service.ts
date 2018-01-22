@@ -16,7 +16,8 @@ export class ValidationService {
   static emailValidator(control) {
     const value = control.value.toLowerCase();
     // RFC 2822 compliant regex
-    if (value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/)) {
+    const result = value.match(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g);
+    if (result && value && (result[0].length === value.length)) {
       return null;
     } else {
       return { 'invalidEmailAddress': true };
