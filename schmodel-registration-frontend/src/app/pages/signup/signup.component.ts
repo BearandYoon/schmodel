@@ -118,11 +118,6 @@ export class SignupComponent implements OnInit {
 
           this.sharedService.fromSignup = true;
           this.router.navigate(['']);
-        }, err => {
-          this.status = {
-            success: false,
-            message: ValidationMessage.GENERIC_ERROR_MESSAGE
-          };
         });
       } else {
         this.status = {
