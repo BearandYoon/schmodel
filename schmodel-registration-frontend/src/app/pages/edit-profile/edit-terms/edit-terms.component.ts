@@ -115,9 +115,19 @@ export class EditTermsComponent implements OnInit {
       return;
     }
 
+    const trimmedItems = this.editTermsForm.value.items.map(e => ({
+      ...e,
+      term: e.term.trim()
+    }));
+
+    this.editTermsForm.setValue({
+      items: trimmedItems
+    });
+
     const data = {
-      clauses: this.editTermsForm.value.items.map(e => e.term)
+      clauses: trimmedItems.map(e => e.term)
     };
+
     this.profileService.updateTerms(data).subscribe( res => {
       this.status = {
         success: true,
