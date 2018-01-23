@@ -21,6 +21,7 @@ export class LayoutComponent implements OnInit {
   @HostListener('window:onffline', ['$event'])
     onBrowserOffline(ev) {
       this.httpHelperService.offlineMode = true;
+      this.httpHelperService.serverError = false;
   }
 
   pageData: any = {};
