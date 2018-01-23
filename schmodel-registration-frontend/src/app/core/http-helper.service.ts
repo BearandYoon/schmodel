@@ -10,7 +10,7 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class HttpHelperService {
   public serverError: boolean = false;
-  public serverStatus: number;
+  public offlineMode: boolean = false;
 
   constructor(
     private router: Router,
@@ -243,7 +243,6 @@ export class HttpHelperService {
    */
   private handleError(error: Response | any) {
     let skipThrowingError = false;
-    this.serverStatus=error.status;
     if (error.status === 500) {
       const body = error.json() || '';
       if (body.exception && body.exception === ErrorResponse.TOKEN_EXPIRE) {
@@ -260,7 +259,7 @@ export class HttpHelperService {
       this.serverError = true;
       skipThrowingError = true;
     }else  if (error.status === 0) {
-      this.serverError = true;
+      this.offlineMode = true;
       skipThrowingError = true; 
     }
 

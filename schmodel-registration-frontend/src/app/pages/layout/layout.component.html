@@ -5,7 +5,7 @@
     (closeToast)="onCloseErrorMessage()">
   </app-toast>
   <app-toast
-    [ngClass]="{'hide': !offlineMode}"
+    [ngClass]="{'hide': !httpHelperService.offlineMode}"
     [animatable]="true" toastMessage={{getOfflineModeMessage()}}
     (closeToast)="onCloseOfflineMessage()">
   </app-toast>

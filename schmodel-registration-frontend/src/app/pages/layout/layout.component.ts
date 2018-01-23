@@ -15,16 +15,15 @@ export class LayoutComponent implements OnInit {
 
  @HostListener('window:online', ['$event'])
     onBrowserOnline(ev) {
-       this.offlineMode = false;
+       this.httpHelperService.offlineMode = false;
   }
 
   @HostListener('window:onffline', ['$event'])
     onBrowserOffline(ev) {
-      this.offlineMode = true;
+      this.httpHelperService.offlineMode = true;
   }
 
   pageData: any = {};
-  offlineMode: boolean = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -51,19 +50,16 @@ export class LayoutComponent implements OnInit {
   }
 
   onCloseOfflineMessage() {
-    this.offlineMode=false;
+    this.httpHelperService.offlineMode=false;
   }
 
-  displayToast() {
-    return this.httpHelperService.serverError || this.offlineMode;
-  }
 
   getOfflineModeMessage() {
     return ValidationMessage.ERR_INTERNET_DISCONNECTED;
   }
 
   getServerErrorMessage() {
-    return this.httpHelperService.serverStatus===0? ValidationMessage.ERR_INTERNET_DISCONNECTED:ValidationMessage.BACKEND_CONNECTION_ERROR;
+    return ValidationMessage.BACKEND_CONNECTION_ERROR;
   }
 
 }
