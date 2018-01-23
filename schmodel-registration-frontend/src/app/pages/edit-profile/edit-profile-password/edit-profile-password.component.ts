@@ -86,9 +86,11 @@ export class EditProfilePasswordComponent implements OnInit {
         this.profileService.getProfileInfo();
       }
 
-      // if (ValidationService.passwordSpecialPassword(this.sign))
       if (!res.oldPasswordValid) {
-        this.editPasswordForm.get('oldPassword').setErrors({'currentPasswordNotMatching': true});
+        this.status = {
+          success: false,
+          message: ValidationMessage.CURRENT_PASSWORD_NOT_MATCH
+        };
       }
     }, error => {
     });
