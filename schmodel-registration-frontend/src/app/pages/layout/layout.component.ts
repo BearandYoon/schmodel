@@ -46,13 +46,20 @@ export class LayoutComponent implements OnInit {
   }
 
   onCloseErrorMessage() {
-    this.httpHelperService.serverError = false;
+    this.httpHelperService.serverError= false;
   }
 
   onCloseOfflineMessage() {
     this.httpHelperService.offlineMode=false;
   }
 
+  showErrorToast() {
+    return this.httpHelperService.serverError && navigator.onLine;
+  }
+
+  showOfflineToast(){
+    return this.httpHelperService.offlineMode;
+  }
 
   getOfflineModeMessage() {
     return ValidationMessage.ERR_INTERNET_DISCONNECTED;
