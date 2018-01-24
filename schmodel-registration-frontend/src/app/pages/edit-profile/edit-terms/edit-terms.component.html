@@ -2,8 +2,8 @@
     <form [formGroup]="editTermsForm" (submit)="onSubmit()" (input)="onChange($event)" (change)="onChange($event)">
     <div formArrayName="items" *ngFor="let item of editTermsForm.get('items')['controls'] as FormArray; let i = index;">
       <div [formGroupName]="i" class="item">
-        <span>{{i+1}}.</span>
-        <input type="text" formControlName="term" maxlength="300">
+        <span class="index-number">{{i+1}}.</span>
+        <textarea-autosize formControlName="term" maxlength="300"></textarea-autosize>
         <span class="icon-close" (click)="onRemoveTerm(i)"></span>
       </div>
     </div>

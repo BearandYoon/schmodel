@@ -18,13 +18,13 @@ section {
       }
     }
 
-    input {
+    textarea-autosize {
       flex: 1;
-      height: 100%;
-      background: none;
-      border: none;
-      outline: none;
-      color: white;
+    }
+
+    .index-number {
+      align-self: flex-start;
+      padding-top: 2px;
     }
 
     .icon-close {

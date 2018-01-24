@@ -14,8 +14,4 @@
     <edit-billing-info *ngIf="!hasError && panel.component=='edit-billing-info'" (collapseSection)="onCollapseSection(sectionTemplate)"></edit-billing-info>
   </accordion-group>
 </accordion>
-<div class="alert-wrapper" *ngIf="hasError">
-  <alert type="danger">
-    <strong>We could not load your profile details. Please log out and log in again.</strong>
-  </alert>
-</div>
+

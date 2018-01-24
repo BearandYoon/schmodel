@@ -21,6 +21,7 @@ export class ClientLoginComponent implements OnInit {
   signInForm: any;
   authUser: AuthUser = new AuthUser();
   message: string;
+  status: any = null;
   termsModalRef: BsModalRef;
   termsContent: string;
   termsModalConfig = {
@@ -51,6 +52,7 @@ export class ClientLoginComponent implements OnInit {
 
   onSignIn() {
     this.message = '';
+    this.status = null;
     this.authUser.email = this.signInForm.value.email.toLowerCase();
     this.authUser.password = this.signInForm.value.password;
     this.authService.clientLogin(this.authUser).subscribe( res => {
@@ -58,7 +60,10 @@ export class ClientLoginComponent implements OnInit {
       this.router.navigate(['client']);
     }, error => {
       if (error.status === 401) {
-        this.message = ValidationMessage.INVALID_CREDENTIALS;
+        this.status = {
+          sucess: false,
+          message: ValidationMessage.INVALID_CREDENTIALS
+        };
       }
       console.log(error);
     });

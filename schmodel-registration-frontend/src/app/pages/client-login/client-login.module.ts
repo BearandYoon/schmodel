@@ -5,6 +5,7 @@ import { AlertModule } from 'ngx-bootstrap';
 
 import { ClientLoginRoutingModule } from './client-login-routing.module';
 import { ClientLoginComponent } from './client-login.component';
+import { ComponentsModule } from '../../shared/components/components.module';
 import { SharedModule } from '../../shared/modules';
 
 @NgModule({
@@ -13,6 +14,7 @@ import { SharedModule } from '../../shared/modules';
     FormsModule,
     ReactiveFormsModule,
     ClientLoginRoutingModule,
+    ComponentsModule,
     SharedModule,
     AlertModule
   ],

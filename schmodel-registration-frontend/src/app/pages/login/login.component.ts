@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
   signInForm: any;
   authUser: AuthUser = new AuthUser();
   message: string;
+  status: any = null;
   termsModalRef: BsModalRef;
   termsContent: string;
   termsModalConfig = {
@@ -49,6 +50,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSignIn() {
+    this.status = null;
     this.message = '';
     this.authUser.email = this.signInForm.value.email.toLowerCase();
     this.authUser.password = this.signInForm.value.password;
@@ -56,7 +58,10 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['']);
     }, error => {
       if (error.status === 401) {
-        this.message = ValidationMessage.INVALID_CREDENTIALS;
+        this.status = {
+          sucess: false,
+          message: ValidationMessage.INVALID_CREDENTIALS
+        };
       }
       console.log(error);
     });

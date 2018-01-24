@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { ValidationService } from '../../../shared/services';
 import { ProfileService } from '../../../core/services';
@@ -76,11 +76,11 @@ export class EditProfilePasswordComponent implements OnInit {
         this.profileService.getProfileInfo();
       }
 
-      if(!res.oldPasswordValid) {
+      if (!res.oldPasswordValid) {
         this.status = {
           success: false,
           message: ValidationMessage.CURRENT_PASSWORD_NOT_MATCH
-        }
+        };
       }
     }, error => {
     });

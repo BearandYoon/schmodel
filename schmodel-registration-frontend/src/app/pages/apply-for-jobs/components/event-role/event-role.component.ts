@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, Output, EventEmitter, HostListener } from '@angular/core';
 import { BsModalService } from "ngx-bootstrap/modal";
 import { BsModalRef } from "ngx-bootstrap/modal";
 
@@ -7,10 +7,15 @@ import { DialogWithdrawComponent } from '../dialog-withdraw/dialog-withdraw.comp
 import { routerTransition } from '../../../../router.animations';
 
 import { JobService } from '../../../../core/services';
+import { HttpHelperService } from '../../../../core/http-helper.service';
 
 enum ButtonStatus { Disabled, Checked, Apply, Hired }
 
 @Component({
+  host: {
+    '(window:offline)': 'onBrowserOffline($event)',
+    '(window:online)': 'onBrowserOnline($event)'
+  },
   selector: 'app-event-role',
   templateUrl: './event-role.component.html',
   styleUrls: ['./event-role.component.scss'],
@@ -27,15 +32,13 @@ export class EventRoleComponent implements OnInit {
   @Input() status: number;
   @Input() position: string;
   @Input() workschedule: Array<any>; 
-  get getStatus() {
-    return this.status;
-  }
 
   public showDialog = false;
   public detailDlgRef: BsModalRef;
   public jobapplyDlgRef: BsModalRef;
   public withdrawDlgRef: BsModalRef;
   public image_url: string = "";
+  public offlineMode = false;
 
   private ic_checked: string = "/assets/img/ic_checked.png";
   private ic_apply: string = "/assets/img/ic_apply.png";
@@ -47,8 +50,35 @@ export class EventRoleComponent implements OnInit {
     backdrop: true,
     ignoreBackdropClick: false
   };
+
+  @HostListener('window:online', ['$event'])
+    onBrowserOnline(ev) {
+       this.offlineMode = false;
+  }
+
+  @HostListener('window:onffline', ['$event'])
+    onBrowserOffline(ev) {
+      this.offlineMode = true;
+  }
+
+  constructor(
+    private detailDlgService: BsModalService,
+    private withdrawDlgService: BsModalService,
+    private jobService: JobService,
+    private httpHelperService: HttpHelperService
+  ) {
+    this.image_url = this.ic_disabled;
+  }
+
+  ngOnInit() {
+  }
+
+  get getStatus() {
+    return this.status;
+  }
+
   openDialog() {
-    console.log(this.role_id);
+    if (this.httpHelperService.serverError || this.offlineMode) return;
     if (this.status === ButtonStatus.Apply) {
       this.jobapplyDlgRef = this.detailDlgService.show(DialogJobApplyComponent, this.dialogConfig);
       this.jobapplyDlgRef.content.pay_rate_field = this.price;
@@ -81,13 +111,6 @@ export class EventRoleComponent implements OnInit {
         }
       });
     }
-  }
-
-  constructor(private detailDlgService: BsModalService, private withdrawDlgService: BsModalService, private jobService: JobService) {
-    this.image_url = this.ic_disabled;
-  }
-
-  ngOnInit() {
   }
 
   ngOnChanges() {
