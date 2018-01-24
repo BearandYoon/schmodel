@@ -30,22 +30,8 @@ export class EditProfilePasswordComponent implements OnInit {
   }
 
   onChange(event: any) {
-    const { oldPassword, newPassword, confirmPassword } = this.editPasswordForm.value;
-    console.log("New:" + newPassword);
-    console.log("Confirm:" + confirmPassword);
     this.status = null;
-    this.status_notmatch = null;
     this.untouched = false;
-    if (newPassword != confirmPassword) {
-      this.status_notmatch = {
-        success: false,
-        message: ValidationMessage.NON_MATCHING_PASSWORD
-      };
-      return;
-    } else {
-      this.status_notmatch = null;
-      return;
-    }
   }
 
   ngOnInit() {
@@ -93,12 +79,20 @@ export class EditProfilePasswordComponent implements OnInit {
       return;
     }
     this.profileService.updatePassword(oldPassword, newPassword).subscribe( res => {
+      console.log(res);
       if (res.oldPasswordValid && res.newPasswordValid) {
         this.status = {
           success: true,
           message: ValidationMessage.PASSWORD_SAVE_SUCCESS
         };
         this.profileService.getProfileInfo();
+      }
+
+      if(!res.oldPasswordValid) {
+        this.status = {
+          success: false,
+          message: ValidationMessage.CURRENT_PASSWORD_NOT_MATCH
+        }
       }
 
       // if (ValidationService.passwordSpecialPassword(this.sign))
