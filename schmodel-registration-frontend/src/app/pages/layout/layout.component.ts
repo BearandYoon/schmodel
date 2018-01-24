@@ -15,16 +15,18 @@ export class LayoutComponent implements OnInit {
 
  @HostListener('window:online', ['$event'])
     onBrowserOnline(ev) {
-       this.offlineMode = false;
+       this.httpHelperService.offlineMode = false;
+       this.httpHelperService.offlineError=false;
   }
 
   @HostListener('window:onffline', ['$event'])
     onBrowserOffline(ev) {
-      this.offlineMode = true;
+      this.httpHelperService.offlineMode = true;
+      this.httpHelperService.offlineError= true;
+      this.httpHelperService.serverError = false;
   }
 
   pageData: any = {};
-  offlineMode: boolean = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -47,15 +49,19 @@ export class LayoutComponent implements OnInit {
   }
 
   onCloseErrorMessage() {
-    this.httpHelperService.serverError = false;
+    this.httpHelperService.serverError= false;
   }
 
   onCloseOfflineMessage() {
-    this.offlineMode=false;
+    this.httpHelperService.offlineError=false;
   }
 
-  displayToast() {
-    return this.httpHelperService.serverError || this.offlineMode;
+  showErrorToast() {
+    return this.httpHelperService.serverError && !this.httpHelperService.offlineMode;
+  }
+
+  showOfflineToast(){
+    return this.httpHelperService.offlineError;
   }
 
   getOfflineModeMessage() {
@@ -63,7 +69,7 @@ export class LayoutComponent implements OnInit {
   }
 
   getServerErrorMessage() {
-    return this.httpHelperService.serverStatus===0? ValidationMessage.ERR_INTERNET_DISCONNECTED:ValidationMessage.BACKEND_CONNECTION_ERROR;
+    return ValidationMessage.BACKEND_CONNECTION_ERROR;
   }
 
 }

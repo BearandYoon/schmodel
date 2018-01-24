@@ -1,11 +1,11 @@
 <div class="main-page-container">
   <app-toast
-    [ngClass]="{'hide': !httpHelperService.serverError}"
+    [ngClass]="{'hide': !showErrorToast()}"
     [animatable]="true" toastMessage={{getServerErrorMessage()}}
     (closeToast)="onCloseErrorMessage()">
   </app-toast>
   <app-toast
-    [ngClass]="{'hide': !offlineMode}"
+    [ngClass]="{'hide': !showOfflineToast()}"
     [animatable]="true" toastMessage={{getOfflineModeMessage()}}
     (closeToast)="onCloseOfflineMessage()">
   </app-toast>
