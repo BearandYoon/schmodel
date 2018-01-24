@@ -15,6 +15,7 @@ export class EditProfilePasswordComponent implements OnInit {
   @Output() collapseSection: EventEmitter<any> = new EventEmitter();
   editPasswordForm: FormGroup;
   status: any = null;
+  status_notmatch: any = null;
   untouched = true;
 
   constructor(
@@ -22,9 +23,9 @@ export class EditProfilePasswordComponent implements OnInit {
     private profileService: ProfileService
   ) {
     this.editPasswordForm = formBuilder.group({
-      'oldPassword': ['', Validators.required],
-      'newPassword': ['', [Validators.required, ValidationService.passwordLengthValidator]],
-      'confirmPassword': ['', Validators.required]
+      'oldPassword': ['', [ValidationService.passwordLengthValidator]],
+      'newPassword': ['', [ValidationService.passwordLengthValidator]],
+      'confirmPassword': ['', [ValidationService.passwordLengthValidator]]
     });
   }
 
@@ -48,7 +49,16 @@ export class EditProfilePasswordComponent implements OnInit {
 
   onSubmit() {
     this.status = null;
-    const { oldPassword, newPassword } = this.editPasswordForm.value;
+    const { oldPassword, newPassword, confirmPassword } = this.editPasswordForm.value;
+    
+    if (newPassword != confirmPassword) {
+      this.status = {
+        success: false,
+        message: ValidationMessage.NON_MATCHING_PASSWORD
+      };
+      return;
+    }
+
     if (ValidationService.passwordSpecialValidator(this.editPasswordForm.controls.newPassword)) {
       this.status = {
         success: false,
@@ -56,6 +66,7 @@ export class EditProfilePasswordComponent implements OnInit {
       };
       return;
     }
+
     this.profileService.updatePassword(oldPassword, newPassword).subscribe( res => {
       if (res.oldPasswordValid && res.newPasswordValid) {
         this.status = {
