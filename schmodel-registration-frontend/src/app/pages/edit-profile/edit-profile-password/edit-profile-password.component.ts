@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { ValidationService } from '../../../shared/services';
 import { ProfileService } from '../../../core/services';
@@ -15,6 +15,7 @@ export class EditProfilePasswordComponent implements OnInit {
   @Output() collapseSection: EventEmitter<any> = new EventEmitter();
   editPasswordForm: FormGroup;
   status: any = null;
+  status_notmatch: any = null;
   untouched = true;
 
   constructor(
@@ -23,9 +24,9 @@ export class EditProfilePasswordComponent implements OnInit {
   ) {
     this.editPasswordForm = formBuilder.group({
       'oldPassword': ['', [ValidationService.passwordLengthValidator]],
-      'newPassword': [''],
-      'confirmPassword': {validator: this.areEqual}
-    }, {validator: this.areEqual.bind(this)});
+      'newPassword': ['', [ValidationService.passwordLengthValidator]],
+      'confirmPassword': ['', [ValidationService.passwordLengthValidator]]
+    });
   }
 
   onChange(event: any) {
@@ -46,30 +47,18 @@ export class EditProfilePasswordComponent implements OnInit {
     });
   }
 
-  areEqual(fg: FormGroup) {
-    const { oldPassword, newPassword, confirmPassword } = fg.controls;
-    const confirmString = confirmPassword.value as string + '';
-    const newString = newPassword.value as string + '';
-    // if ( !confirmString.match(/^[a-zA-Z0-9!@#$%^&*]{6,100}$/) || !newString.match(/^[a-zA-Z0-9!@#$%^&*]{6,100}$/)) {
-    //   confirmPassword.setErrors({'invalidPassword': true});
-    //   return { 'invalidPassword': true };
-    // }
-
-
-    if (confirmString.length < 6 || newString.length < 6) {
-      confirmPassword.setErrors({'invalidPassword': true});
-      return { 'invalidPassword': true };
-    }
-
-    if (newPassword.value !== confirmPassword.value) {
-      confirmPassword.setErrors({'notMatchingPassword': true});
-      return { 'notMatchingPassword': true };
-    }
-  }
-
   onSubmit() {
     this.status = null;
-    const { oldPassword, newPassword } = this.editPasswordForm.value;
+    const { oldPassword, newPassword, confirmPassword } = this.editPasswordForm.value;
+    
+    if (newPassword != confirmPassword) {
+      this.status = {
+        success: false,
+        message: ValidationMessage.NON_MATCHING_PASSWORD
+      };
+      return;
+    }
+
     if (ValidationService.passwordSpecialValidator(this.editPasswordForm.controls.newPassword)) {
       this.status = {
         success: false,
@@ -77,6 +66,7 @@ export class EditProfilePasswordComponent implements OnInit {
       };
       return;
     }
+
     this.profileService.updatePassword(oldPassword, newPassword).subscribe( res => {
       if (res.oldPasswordValid && res.newPasswordValid) {
         this.status = {
@@ -86,9 +76,11 @@ export class EditProfilePasswordComponent implements OnInit {
         this.profileService.getProfileInfo();
       }
 
-      // if (ValidationService.passwordSpecialPassword(this.sign))
       if (!res.oldPasswordValid) {
-        this.editPasswordForm.get('oldPassword').setErrors({'currentPasswordNotMatching': true});
+        this.status = {
+          success: false,
+          message: ValidationMessage.CURRENT_PASSWORD_NOT_MATCH
+        };
       }
     }, error => {
     });
