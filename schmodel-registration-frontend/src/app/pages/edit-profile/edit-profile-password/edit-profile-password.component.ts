@@ -21,11 +21,16 @@ export class EditProfilePasswordComponent implements OnInit {
     private formBuilder: FormBuilder,
     private profileService: ProfileService
   ) {
+    // this.editPasswordForm = formBuilder.group({
+    //   'oldPassword': ['', [Validators.required]],
+    //   'newPassword': ['', [Validators.required]],
+    //   'confirmPassword': {validator: this.areEqual}
+    // }, {validator: this.areEqual.bind(this)});
     this.editPasswordForm = formBuilder.group({
-      'oldPassword': ['', [Validators.required]],
-      'newPassword': ['', [Validators.required]],
-      'confirmPassword': {validator: this.areEqual}
-    }, {validator: this.areEqual.bind(this)});
+      'oldPassword': ['', Validators.required],
+      'newPassword': ['', [Validators.required, ValidationService.passwordLengthValidator]],
+      'confirmPassword': ['', Validators.required]
+    });
   }
 
   onChange(event: any) {
@@ -44,27 +49,6 @@ export class EditProfilePasswordComponent implements OnInit {
       newPassword: '',
       confirmPassword: ''
     });
-  }
-
-  areEqual(fg: FormGroup) {
-    const { newPassword, confirmPassword } = fg.controls;
-    const confirmString = confirmPassword.value as string + '';
-    const newString = newPassword.value as string + '';
-
-    if (confirmString.length === 0) {
-      confirmPassword.setErrors({'required': true});
-      return { 'required': true };
-    }
-
-    if (confirmString.length < 6 || newString.length < 6) {
-      confirmPassword.setErrors({'invalidPassword': true});
-      return { 'invalidPassword': true };
-    }
-
-    if (newPassword.value !== confirmPassword.value) {
-      confirmPassword.setErrors({'notMatchingPassword': true});
-      return { 'notMatchingPassword': true };
-    }
   }
 
   onSubmit() {
