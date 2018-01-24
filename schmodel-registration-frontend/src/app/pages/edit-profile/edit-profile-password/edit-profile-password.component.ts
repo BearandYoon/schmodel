@@ -50,18 +50,19 @@ export class EditProfilePasswordComponent implements OnInit {
   onSubmit() {
     this.status = null;
     const { oldPassword, newPassword, confirmPassword } = this.editPasswordForm.value;
-    if (ValidationService.passwordSpecialValidator(this.editPasswordForm.controls.newPassword)) {
-      this.status = {
-        success: false,
-        message: ValidationMessage.INVALID_SPECIAL_PASSWORD
-      };
-      return;
-    }
-
+    
     if (newPassword != confirmPassword) {
       this.status = {
         success: false,
         message: ValidationMessage.NON_MATCHING_PASSWORD
+      };
+      return;
+    }
+
+    if (ValidationService.passwordSpecialValidator(this.editPasswordForm.controls.newPassword)) {
+      this.status = {
+        success: false,
+        message: ValidationMessage.INVALID_SPECIAL_PASSWORD
       };
       return;
     }
