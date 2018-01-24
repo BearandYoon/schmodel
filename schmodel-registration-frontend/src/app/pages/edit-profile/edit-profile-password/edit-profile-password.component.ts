@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { ValidationService } from '../../../shared/services';
 import { ProfileService } from '../../../core/services';
@@ -21,11 +21,16 @@ export class EditProfilePasswordComponent implements OnInit {
     private formBuilder: FormBuilder,
     private profileService: ProfileService
   ) {
+    // this.editPasswordForm = formBuilder.group({
+    //   'oldPassword': ['', [Validators.required]],
+    //   'newPassword': ['', [Validators.required]],
+    //   'confirmPassword': {validator: this.areEqual}
+    // }, {validator: this.areEqual.bind(this)});
     this.editPasswordForm = formBuilder.group({
-      'oldPassword': ['', [ValidationService.passwordLengthValidator]],
-      'newPassword': [''],
-      'confirmPassword': {validator: this.areEqual}
-    }, {validator: this.areEqual.bind(this)});
+      'oldPassword': ['', Validators.required],
+      'newPassword': ['', [Validators.required, ValidationService.passwordLengthValidator]],
+      'confirmPassword': ['', Validators.required]
+    });
   }
 
   onChange(event: any) {
@@ -44,27 +49,6 @@ export class EditProfilePasswordComponent implements OnInit {
       newPassword: '',
       confirmPassword: ''
     });
-  }
-
-  areEqual(fg: FormGroup) {
-    const { oldPassword, newPassword, confirmPassword } = fg.controls;
-    const confirmString = confirmPassword.value as string + '';
-    const newString = newPassword.value as string + '';
-    // if ( !confirmString.match(/^[a-zA-Z0-9!@#$%^&*]{6,100}$/) || !newString.match(/^[a-zA-Z0-9!@#$%^&*]{6,100}$/)) {
-    //   confirmPassword.setErrors({'invalidPassword': true});
-    //   return { 'invalidPassword': true };
-    // }
-
-
-    if (confirmString.length < 6 || newString.length < 6) {
-      confirmPassword.setErrors({'invalidPassword': true});
-      return { 'invalidPassword': true };
-    }
-
-    if (newPassword.value !== confirmPassword.value) {
-      confirmPassword.setErrors({'notMatchingPassword': true});
-      return { 'notMatchingPassword': true };
-    }
   }
 
   onSubmit() {
