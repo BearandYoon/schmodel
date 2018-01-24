@@ -1,6 +1,7 @@
 import {Component, OnInit, Input, NgZone} from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { HttpHelperService } from '../../../core/http-helper.service';
 
 @Component({
   selector: 'app-header',
@@ -14,12 +15,17 @@ export class HeaderComponent implements OnInit {
   constructor(
     private location: Location,
     private router: Router,
+    private httpHelperService: HttpHelperService,
   ) {}
 
   ngOnInit() {
   }
 
   handleLeftNavClick() {
+    if(this.httpHelperService.offlineMode){
+       return ;
+    }
+
     const navLeft: String = this.pageData.navLeft;
     switch (navLeft) {
       case 'back':

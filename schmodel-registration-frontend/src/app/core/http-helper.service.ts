@@ -11,6 +11,7 @@ import { environment } from '../../environments/environment';
 export class HttpHelperService {
   public serverError: boolean = false;
   public offlineMode: boolean = false;
+  public offlineError: boolean = false;
 
   constructor(
     private router: Router,
@@ -258,10 +259,12 @@ export class HttpHelperService {
     } else if (error.status === 504) {
       this.serverError = true;
       skipThrowingError = true;
-    }else  if (error.status === 0) {
-      this.offlineMode = true;
-      skipThrowingError = true; 
     }
+
+    if(this.offlineMode){
+      this.offlineError=true;
+    }
+    
 
     // go ahead to throw error for upload photo
     // const url = error.url;

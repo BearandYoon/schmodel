@@ -16,11 +16,13 @@ export class LayoutComponent implements OnInit {
  @HostListener('window:online', ['$event'])
     onBrowserOnline(ev) {
        this.httpHelperService.offlineMode = false;
+       this.httpHelperService.offlineError=false;
   }
 
   @HostListener('window:onffline', ['$event'])
     onBrowserOffline(ev) {
       this.httpHelperService.offlineMode = true;
+      this.httpHelperService.offlineError= true;
       this.httpHelperService.serverError = false;
   }
 
@@ -51,15 +53,15 @@ export class LayoutComponent implements OnInit {
   }
 
   onCloseOfflineMessage() {
-    this.httpHelperService.offlineMode=false;
+    this.httpHelperService.offlineError=false;
   }
 
   showErrorToast() {
-    return this.httpHelperService.serverError && navigator.onLine;
+    return this.httpHelperService.serverError && !this.httpHelperService.offlineMode;
   }
 
   showOfflineToast(){
-    return this.httpHelperService.offlineMode;
+    return this.httpHelperService.offlineError;
   }
 
   getOfflineModeMessage() {
