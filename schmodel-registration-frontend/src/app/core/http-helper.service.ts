@@ -263,6 +263,7 @@ export class HttpHelperService {
 
     if(this.offlineMode){
       this.offlineError=true;
+      skipThrowingError = true;
     }
     
 
