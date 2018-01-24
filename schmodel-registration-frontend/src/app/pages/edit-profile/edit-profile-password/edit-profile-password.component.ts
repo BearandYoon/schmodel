@@ -24,9 +24,9 @@ export class EditProfilePasswordComponent implements OnInit {
   ) {
     this.editPasswordForm = formBuilder.group({
       'oldPassword': ['', [ValidationService.passwordLengthValidator]],
-      'newPassword': [''],
-      'confirmPassword': {validator: this.areEqual}
-    }, {validator: this.areEqual.bind(this)});
+      'newPassword': ['', [ValidationService.passwordLengthValidator]],
+      'confirmPassword': ['', [ValidationService.passwordLengthValidator]]
+    });
   }
 
   onChange(event: any) {
@@ -47,30 +47,9 @@ export class EditProfilePasswordComponent implements OnInit {
     });
   }
 
-  areEqual(fg: FormGroup) {
-    const { oldPassword, newPassword, confirmPassword } = fg.controls;
-    const confirmString = confirmPassword.value as string + '';
-    const newString = newPassword.value as string + '';
-    // if ( !confirmString.match(/^[a-zA-Z0-9!@#$%^&*]{6,100}$/) || !newString.match(/^[a-zA-Z0-9!@#$%^&*]{6,100}$/)) {
-    //   confirmPassword.setErrors({'invalidPassword': true});
-    //   return { 'invalidPassword': true };
-    // }
-
-
-    if (confirmString.length < 6 || newString.length < 6) {
-      confirmPassword.setErrors({'invalidPassword': true});
-      return { 'invalidPassword': true };
-    }
-
-    if (newPassword.value !== confirmPassword.value) {
-      confirmPassword.setErrors({'notMatchingPassword': true});
-      return { 'notMatchingPassword': true };
-    }
-  }
-
   onSubmit() {
     this.status = null;
-    const { oldPassword, newPassword } = this.editPasswordForm.value;
+    const { oldPassword, newPassword, confirmPassword } = this.editPasswordForm.value;
     if (ValidationService.passwordSpecialValidator(this.editPasswordForm.controls.newPassword)) {
       this.status = {
         success: false,
@@ -78,8 +57,16 @@ export class EditProfilePasswordComponent implements OnInit {
       };
       return;
     }
+
+    if (newPassword != confirmPassword) {
+      this.status = {
+        success: false,
+        message: ValidationMessage.NON_MATCHING_PASSWORD
+      };
+      return;
+    }
+
     this.profileService.updatePassword(oldPassword, newPassword).subscribe( res => {
-      console.log(res);
       if (res.oldPasswordValid && res.newPasswordValid) {
         this.status = {
           success: true,
@@ -93,11 +80,6 @@ export class EditProfilePasswordComponent implements OnInit {
           success: false,
           message: ValidationMessage.CURRENT_PASSWORD_NOT_MATCH
         }
-      }
-
-      // if (ValidationService.passwordSpecialPassword(this.sign))
-      if (!res.oldPasswordValid) {
-        this.editPasswordForm.get('oldPassword').setErrors({'currentPasswordNotMatching': true});
       }
     }, error => {
     });
