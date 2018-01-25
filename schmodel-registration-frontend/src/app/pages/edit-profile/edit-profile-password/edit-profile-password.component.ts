@@ -23,9 +23,9 @@ export class EditProfilePasswordComponent implements OnInit {
     private profileService: ProfileService
   ) {
     this.editPasswordForm = formBuilder.group({
-      'oldPassword': ['', [ValidationService.passwordLengthValidator]],
-      'newPassword': ['', [ValidationService.passwordLengthValidator]],
-      'confirmPassword': ['', [ValidationService.passwordLengthValidator]]
+      'oldPassword': ['', [Validators.required, ValidationService.passwordLengthValidator]],
+      'newPassword': ['', [Validators.required, ValidationService.passwordLengthValidator]],
+      'confirmPassword': ['', [Validators.required, ValidationService.passwordLengthValidator]]
     });
   }
 
