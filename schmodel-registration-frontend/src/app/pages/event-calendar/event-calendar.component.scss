@@ -4,8 +4,6 @@ $model-img-size: 120px;
 $formula-logo-height: 70px;
 
 .event-calender {
-	// height: 90vh;
-	// overflow-y: scroll;
 	overflow: hidden;
 }
 
@@ -75,10 +73,10 @@ $formula-logo-height: 70px;
 		display: flex;
 		margin-top: 4px;
 		width: 100%;
-		//height: $model-img-size; 
 		background-repeat: no-repeat;
 		background-size: 100% 100%;
-		//-webkit-overflow-scrolling: touch;
+		align-items: stretch;
+		-webkit-overflow-scrolling: touch;
 
 		img {
 			background-repeat: no-repeat;
@@ -144,11 +142,11 @@ $formula-logo-height: 70px;
 				flex: 1;
 				height: 100%;
 				position: relative;
-				//background-repeat: no-repeat;
-				//background-position: 50% 50%;
-				//background-size: 55px 55px;
-				padding: 15px 13px 0px 0px;
-				
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				padding-right: 13px;
+					
 				&:after {
 					content: "";
 					position: absolute;
@@ -201,7 +199,6 @@ $formula-logo-height: 70px;
 		}
 	}
 	.section--talent {
-		height: 105px !important;
 
 		.talent-calendar {
 			width: 100px !important;
