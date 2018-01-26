@@ -117,7 +117,7 @@ export class SchDropdownComponent implements OnInit, ControlValueAccessor {
         for (const item of data) {
           options.push({
             value: item.id,
-            text: `UK ${item.ukValue} / EU ${item.euValue} / US ${item.usValue}`
+            text: `UK ${item.ukValue}/EU ${item.euValue}/US ${item.usValue}`
           });
         }
       }
@@ -127,7 +127,7 @@ export class SchDropdownComponent implements OnInit, ControlValueAccessor {
         for (const item of data) {
           options.push({
             value: item.id,
-            text: `${Math.floor(item.valueInch / 12)}'${item.valueInch % 12}" / ${item.valueCm}cm`
+            text: `${Math.floor(item.valueInch / 12)}'${item.valueInch % 12}"/${item.valueCm}cm`
           });
         }
       }
@@ -137,7 +137,7 @@ export class SchDropdownComponent implements OnInit, ControlValueAccessor {
         for (const item of data) {
           options.push({
             value: item.id,
-            text: `${item.valueDeciInch / 10}" / ${item.valueCm}cm`
+            text: `${item.valueDeciInch / 10}"/${item.valueCm}cm`
           });
         }
       }
@@ -147,7 +147,7 @@ export class SchDropdownComponent implements OnInit, ControlValueAccessor {
         for (const item of data) {
           options.push({
             value: item.id,
-            text: `${item.valueLb}lbs / ${item.valueHg / 10}kg`
+            text: `${item.valueLb}lbs/${item.valueHg / 10}kg`
           });
         }
       }
@@ -157,7 +157,7 @@ export class SchDropdownComponent implements OnInit, ControlValueAccessor {
         for (const item of data) {
           options.push({
             value: item.id,
-            text: `UK ${item.ukValue} / EU ${item.euValue} / US ${item.usValue}`
+            text: `UK ${item.ukValue}/EU ${item.euValue}/US ${item.usValue}`
           });
         }
       }
@@ -167,7 +167,7 @@ export class SchDropdownComponent implements OnInit, ControlValueAccessor {
         for (const item of data) {
           options.push({
             value: item.id,
-            text: `UK ${item.ukValue} / EU ${item.euValue} / US ${item.usValue}`
+            text: `UK ${item.ukValue}/EU ${item.euValue}/US ${item.usValue}`
           });
         }
       }
