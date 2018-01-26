@@ -117,7 +117,7 @@ export class SchDropdownComponent implements OnInit, ControlValueAccessor {
         for (const item of data) {
           options.push({
             value: item.id,
-            text: `UK ${item.ukValue} / EU ${item.euValue} / US ${item.usValue}`
+            text: `UK ${item.ukValue}/EU ${item.euValue}/US ${item.usValue}`
           });
         }
       }
@@ -157,7 +157,7 @@ export class SchDropdownComponent implements OnInit, ControlValueAccessor {
         for (const item of data) {
           options.push({
             value: item.id,
-            text: `UK ${item.ukValue} / EU ${item.euValue} / US ${item.usValue}`
+            text: `UK ${item.ukValue}/EU ${item.euValue}/US ${item.usValue}`
           });
         }
       }
@@ -167,7 +167,7 @@ export class SchDropdownComponent implements OnInit, ControlValueAccessor {
         for (const item of data) {
           options.push({
             value: item.id,
-            text: `UK ${item.ukValue} / EU ${item.euValue} / US ${item.usValue}`
+            text: `UK ${item.ukValue}/EU ${item.euValue}/US ${item.usValue}`
           });
         }
       }
