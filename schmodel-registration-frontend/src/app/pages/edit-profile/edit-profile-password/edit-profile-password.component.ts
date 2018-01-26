@@ -95,4 +95,11 @@ export class EditProfilePasswordComponent implements OnInit {
     this.collapseSection.emit();
     this.untouched = true;
   }
+
+  onCloseErrorToast() {
+    if (this.status && !this.status.success) {
+      this.status = null;
+      this.untouched = false;
+    }
+  }
 }
