@@ -1,11 +1,10 @@
 import { Component, OnInit, Output, EventEmitter} from '@angular/core';
-import { FormArray, FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormArray, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 
 import { TermsModalComponent } from '../../../shared/modules';
-import { ValidationService } from '../../../shared/services';
 import { ProfileService } from '../../../core/services';
 import { ValidationMessage } from '../../../shared/models';
 
@@ -52,7 +51,6 @@ export class EditTermsComponent implements OnInit {
     if (trimmedTerm.length === 0) {
       return { termInvalid: true };
     }
-
     return null;
   }
 
@@ -81,9 +79,17 @@ export class EditTermsComponent implements OnInit {
     if (!clauses.length) {
       this.items.removeAt(0);
     }
-    while (this.items.length < clauses.length) {
-      this.items.push(this.createItem());
+
+    if (this.items.length < clauses.length) {
+      while (this.items.length < clauses.length) {
+        this.items.push(this.createItem());
+      }
+    } else {
+      while (this.items.length > clauses.length) {
+        this.items.removeAt(this.items.length - 1);
+      }
     }
+
     this.editTermsForm.setValue({
       items: clauses
     });
