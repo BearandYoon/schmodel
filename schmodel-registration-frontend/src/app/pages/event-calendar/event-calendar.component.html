@@ -35,9 +35,9 @@
       <ng-container *ngFor="let eventHeader of eventItems?.eventHeaders; let j = index">
         <div class="talent-content" *ngIf=" j != 0 " [ngClass]="{'event-sch-guest' : (eventItems?.eventHeaders.length == 2)}">
           <div class="info-item" [ngClass]="{'item--none': (eventItem[j].data.jobs == 0)}">
-            <p *ngIf="!(eventItem[j].data.jobs == 0)">JOBS<span>{{eventItem[j].data.jobs | number: '2.'}}</span></p>
-            <p *ngIf="!(eventItem[j].data.jobs == 0)">APPLICANTS<span>{{eventItem[j].data.applicants | number: '2.'}}</span></p>
-            <p *ngIf="!(eventItem[j].data.jobs == 0)">HIRED<span>{{eventItem[j].data.hired | number: '2.'}}</span></p>
+            <p *ngIf="!(eventItem[j].data.jobs == 0)"><span>JOBS</span><strong>{{eventItem[j].data.jobs | number: '2.'}}</strong></p>
+            <p *ngIf="!(eventItem[j].data.jobs == 0)"><span>APPLIED</span><strong>{{eventItem[j].data.applicants | number: '2.'}}</strong></p>
+            <p *ngIf="!(eventItem[j].data.jobs == 0)"><span>HIRED</span><strong>{{eventItem[j].data.hired | number: '2.'}}</strong></p>
           </div>
         </div>
       </ng-container>
