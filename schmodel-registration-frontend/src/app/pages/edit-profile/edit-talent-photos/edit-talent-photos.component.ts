@@ -3,6 +3,7 @@ import { Component, OnInit, ViewChild, Renderer, ElementRef } from '@angular/cor
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 
+import { ComponentsModule } from '../../../shared/components/components.module';
 import { MessageModalComponent } from '../../../shared/modules';
 import { ProfileService } from '../../../core/services';
 import { ValidationMessage } from '../../../shared/models';
@@ -22,6 +23,7 @@ export class EditTalentPhotosComponent implements OnInit {
   private data: any;
   private photo_upload_cnt: number;
   status: any = null;
+  uploadInvalidStatus: boolean = false;
   isCompleted: number;
 
   messageModalRef: BsModalRef;
@@ -178,8 +180,15 @@ export class EditTalentPhotosComponent implements OnInit {
     this.myFile = event.nativeElement;
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
+      const validFileTypes = ['image/gif', 'image/jpg', 'image/jpeg', 'image/png'];
       this.data.file = event.target.files[0];
 
+      if (validFileTypes.indexOf(this.data.file.type) === -1) {
+        this.uploadInvalidStatus = true;
+        return;
+      }
+
+      this.uploadInvalidStatus = false;
       reader.onload = (event: any) => {
         const image = new Image();
         image.src = event.target.result;
