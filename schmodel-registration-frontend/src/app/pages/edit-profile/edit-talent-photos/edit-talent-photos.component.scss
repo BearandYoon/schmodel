@@ -3,6 +3,10 @@ section {
   flex-wrap: wrap;
   padding: 4px 0 18px;
 
+  &.edit-photo-section {
+    padding-bottom: 0px;
+  }
+
   p {
     font-size: 14px;
     width: 100%;
