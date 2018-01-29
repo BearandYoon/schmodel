@@ -1,11 +1,5 @@
 <section class="edit-photo-section">
   <span *ngIf="isCompleted < 3">Please upload your head shot, full length and profile photos to complete your profile.</span>
-  <app-toast
-    *ngIf="uploadInvalidStatus"
-    [toastType]="'error'"
-    [toastMessage]="'We only accept PNG, JPG/JPEG, and GIF files. Please upload one of these file types.'"
-    (closeToast)="uploadInvalidStatus = false">
-  </app-toast>
   <div *ngFor="let val of photo_section_infor; let i = index; trackBy:trackByFn" class="item">
     <div class="spinner-container" *ngIf="val.isUploading">
       <i class="fa fa-spinner fa-pulse fa-2x fa-fw loading-page"></i>
@@ -27,5 +21,11 @@
       <img *ngIf="!val.flag" src="/assets/images/bg_cell_gradient.png"/>
       <img *ngIf="val.flag" [src]="val.photoUrl"/>
     </div>    
-  </div>  
+  </div> 
+  <app-toast
+    *ngIf="uploadInvalidStatus"
+    [toastType]="'error'"
+    [toastMessage]="'We only accept PNG, JPG/JPEG, and GIF files. Please upload one of these file types.'"
+    (closeToast)="uploadInvalidStatus = false">
+  </app-toast> 
 </section>
