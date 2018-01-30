@@ -32,7 +32,8 @@ $formula-logo-height: 70px;
   .formula-logo {
     width: $model-img-size;
     min-height: $formula-logo-height;
-    object-fit: cover;
+    background-color: #4EC8EB;
+    // object-fit: cover;
   }
 
   .info-wrapper {

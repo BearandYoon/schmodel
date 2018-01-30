@@ -1,6 +1,6 @@
 <p *ngIf="!!role.name" class="info-values">
-  <span>APPLICANTS <b>{{pad(role.applicants)}}</b></span><br/>
-  <span>LIKES <b>{{pad(role.liked)}}</b></span><br/>
-  <span>HIRED <b>{{pad(role.hired)}}</b></span>
+  <span>APPLIED<br/> <b>{{pad(role.applicants)}}</b></span><br/>
+  <span>LIKED<br/> <b>{{pad(role.liked)}}</b></span><br/>
+  <span>HIRED<br/><b>{{pad(role.hired)}}</b></span>
 </p>
-{{role.name}}
+<span class="role-name">{{role.name}}</span>
