@@ -1,6 +1,6 @@
 $page-margin: 3px;
 $page-margin-half: 1.5px;
-$model-img-size: 120px;
+$model-img-size: 100px;
 $formula-logo-height: 70px;
 
 .event-calender {
@@ -101,7 +101,7 @@ $formula-logo-height: 70px;
 				font-weight: normal;
 				margin: 0;
 				line-height: 16px;
-				padding: 15px 12px;
+				padding: 7px 12px;
 
 				span {
 					white-space: nowrap;
@@ -109,7 +109,7 @@ $formula-logo-height: 70px;
 
 					&:nth-of-type(1) {
 						display: block;
-						font-size: 24px;
+						font-size: 20px;
 						line-height: 17px;
 						margin-bottom: 4px;
 					}
@@ -145,7 +145,7 @@ $formula-logo-height: 70px;
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
-				padding-right: 13px;
+				padding-right: 7px;
 					
 				&:after {
 					content: "";
@@ -163,17 +163,18 @@ $formula-logo-height: 70px;
 				}
 
 				p {
-					font-size: 8px;
+					font-size: 14px;
 					text-align: right;
 					margin: 0;
-					line-height: 3em;
-
+					line-height: 13px;
+					margin: 3px 0;
+		
 					span {
-						font-size: 20px;
-						vertical-align: -webkit-baseline-middle;
-						font-weight: 800;
-						margin-left: 3px;
-						
+						display: block;
+					}
+
+					strong {
+						display: block;
 					}
 
 					&:nth-of-type(1) {
@@ -191,60 +192,60 @@ $formula-logo-height: 70px;
 	}
 }
 
-@media screen and (min-width: 320px) and (max-width: 414px) {
+// @media screen and (min-width: 320px) and (max-width: 414px) {
 	
-	.info-bar {
-		img {
-			width: 100px !important;
-		}
-	}
-	.section--talent {
+// 	.info-bar {
+// 		img {
+// 			width: 100px !important;
+// 		}
+// 	}
+// 	.section--talent {
 
-		.talent-calendar {
-			width: 100px !important;
+// 		.talent-calendar {
+// 			width: 100px !important;
 
-			.info-values {
-				padding: 10px 9px !important;
+// 			.info-values {
+// 				padding: 10px 9px !important;
 
-				span {
-					&:nth-of-type(1) {
-						font-size: 18px !important;
-						line-height: 16px !important;
-					}
-				}
-			}
-		}
+// 				span {
+// 					&:nth-of-type(1) {
+// 						font-size: 18px !important;
+// 						line-height: 16px !important;
+// 					}
+// 				}
+// 			}
+// 		}
 	
-		.talent-content {
-			.info-item {
-				padding-right: 6px !important;
+// 		.talent-content {
+// 			.info-item {
+// 				padding-right: 6px !important;
 				
-				p {
-					span {
-						margin-left: 3px;
-						font-size: 9px !important;
-						vertical-align: baseline !important;
-					}
-				}
+// 				p {
+// 					span {
+// 						margin-left: 3px;
+// 						font-size: 9px !important;
+// 						vertical-align: baseline !important;
+// 					}
+// 				}
 				
-			}
-		}
-	}
+// 			}
+// 		}
+// 	}
 
-	.event-sch-guest {
-		flex: none;
-		width: 153px !important;
+// 	.event-sch-guest {
+// 		flex: none;
+// 		width: 153px !important;
 
-		.talent-content {
-			.info-item {
-				padding-right: 13px !important;
-				p {
-					span {
-						font-size: 20px !important;
-						vertical-align: -webkit-baseline-middle !important;
-					}
-				}		
-			}
-		}
-	}
-}
+// 		.talent-content {
+// 			.info-item {
+// 				padding-right: 13px !important;
+// 				p {
+// 					span {
+// 						font-size: 20px !important;
+// 						vertical-align: -webkit-baseline-middle !important;
+// 					}
+// 				}		
+// 			}
+// 		}
+// 	}
+// }
