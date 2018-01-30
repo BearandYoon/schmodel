@@ -50,7 +50,7 @@ export class HireModelComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   onPageScroll(event) {
-    if (event.target.scrollingElement.scrollTop > 60) {
+    if (event.target.scrollingElement.scrollTop > 65) {
         this.stickyFlag = true;
     } else {
         this.stickyFlag = false;
