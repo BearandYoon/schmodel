@@ -79,9 +79,9 @@ export class ApplyForJobsComponent implements OnInit {
 
         if(title === 'PR position') {
             this.detailDlgRef.content.dialogContent = ValidationMessage.PR_DESCRIPTION;
-        } else if(title === 'HOST position') {
+        } else if(title === 'Host position') {
             this.detailDlgRef.content.dialogContent = ValidationMessage.HOST_DESCRIPTION;
-        } else if(title === 'GRID position') {
+        } else if(title === 'Grid position') {
             this.detailDlgRef.content.dialogContent = ValidationMessage.GRID_DESCRIPTION;
         } else if(title === 'Schmodel Guest position') {
             this.detailDlgRef.content.dialogContent = ValidationMessage.SCHMODEL_GUEST_DESCRIPTION;
