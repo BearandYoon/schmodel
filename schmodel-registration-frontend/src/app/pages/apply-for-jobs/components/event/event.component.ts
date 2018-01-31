@@ -75,7 +75,7 @@ export class EventComponent implements OnInit, OnChanges {
     }
     // Event_Role Status
     for (let i = 0; i < this.roles_data.length; i++) {
-      this.event_role_workschedule[this.roles_data[i].id - 1] = this.roles_data[i].workSchedules;
+      this.event_role_workschedule[i] = this.roles_data[i].workSchedules;
       this.event_role_price[this.roles_data[i].id - 1] = this.roles_data[i].pay;
 
       if (this.roles_data[i].applied === true) {
