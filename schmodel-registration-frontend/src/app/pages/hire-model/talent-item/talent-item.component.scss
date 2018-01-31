@@ -41,7 +41,8 @@ $model-img-size: 100px;
         &:after {
           content: "";
           position: absolute;
-          background-image: url('/assets/images/ic_separator_horz.png');
+          // background-image: url('/assets/images/ic_separator_horz.png');
+          background-image: linear-gradient(to right, rgba(132, 132, 132, 0.04), #6b6568, rgba(255, 255, 255, 0.04));
           background-size: 100% 100%;
           width: 100%;
           height: 1px;
@@ -64,7 +65,8 @@ $model-img-size: 100px;
           &:after {
             content: "";
             position: absolute;
-            background-image: url('/assets/images/ic_separator_vert.png');
+            // background-image: url('/assets/images/ic_separator_vert.png');
+            background-image: linear-gradient(rgba(132, 132, 132, 0.04), #6b6568, rgba(255, 255, 255, 0.04));
             background-size: 100% 100%;
             height: 100%;
             width: 1px;
@@ -106,6 +108,10 @@ $model-img-size: 100px;
           &.item--hired:before {
             content: "HIRED";
             background-color: #4EC8EB;
+          }
+          &:last-of-type {
+            flex: none;
+            width: 40px;
           }
         }
       }

@@ -33,7 +33,6 @@ $formula-logo-height: 70px;
     width: $model-img-size;
     min-height: $formula-logo-height;
     background-color: #4EC8EB;
-    // object-fit: cover;
   }
 
   .info-wrapper {
@@ -54,7 +53,13 @@ $formula-logo-height: 70px;
       text-align: right;
       flex-direction: column;
       justify-content: space-between;
+
+      &:last-of-type {
+        flex: none;
+        width: 40px;
+      }
     }
+    
     .header-guest {
       flex: none !important;
       width: 150px;
