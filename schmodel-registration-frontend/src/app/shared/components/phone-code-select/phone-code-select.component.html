@@ -3,7 +3,6 @@
     <div class="selected-flag dropdown-toggle" dropdownToggle>
       <div class="pi-arrow"></div>
       <div>+ {{selectedCountry.dialCode}}</div>
-      <!-- <div class="pi-flag" [ngClass]="selectedCountry.flagClass"></div> -->
     </div>
     <ul class="country-list dropdown-menu" *dropdownMenu>
       <li class="country" *ngFor="let country of preferredCountriesInDropDown" (click)="onCountrySelect(country, focusable)">
