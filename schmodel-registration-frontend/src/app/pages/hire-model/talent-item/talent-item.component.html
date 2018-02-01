@@ -11,8 +11,8 @@
           'item--hired-circle': talent.contractRoleId === role.id,
           'item--liked': role.application && role.application.liked && !talent.contractRoleId,
           'item--unliked': role.application && !role.application.liked && !talent.contractRoleId}" (click)="onClickActionItem(i)"></div>
-        <div *ngIf="!talent.contractRoleId" class="action-item item--hire" (click)="onConfirmHiring()"></div>
-        <div *ngIf="talent.contractRoleId" class="action-item item--hired"></div>
+        <div *ngIf="!talent.contractRoleId" class="action-item item--hire" (click)="onConfirmHiring()" [ngClass]="{'event-guest' : guestFlag}"></div>
+        <div *ngIf="talent.contractRoleId" class="action-item item--hired" [ngClass]="{'event-guest' : guestFlag}"></div>
       </div>
       
     </div>
