@@ -45,7 +45,10 @@
       <div class="row">
         <label class="phone-number-label">Phone number *</label>
         <div class="phone-number-group">
-          <phone-code-select formControlName="phoneCountryCode" [preferredCountries]="['us', 'gb']"></phone-code-select>
+          <phone-code-select formControlName="phoneCountryCode"
+                             [preferredCountries]="['us', 'gb']"
+                             (onChangeCountryCode)="onChange($event)">
+          </phone-code-select>
           <input [attr.placeholder]="getPhoneNumberPlaceHolder(editPersonalForm.value.phoneCountryCode)" maxLength="10" formControlName="phoneNumber">
         </div>
       </div>

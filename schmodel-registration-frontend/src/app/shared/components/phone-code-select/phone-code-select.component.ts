@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, forwardRef, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, forwardRef, ViewEncapsulation } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { CountryCode } from './country-code';
 import { Country } from './country.model';
@@ -17,16 +17,17 @@ import { Country } from './country.model';
   ],
   encapsulation: ViewEncapsulation.None
 })
-export class PhoneCodeSelectComponent implements ControlValueAccessor {
-
-  @Input('value') _value = '';
-  @Input() preferredCountries: Array<string> = [];
-  onChange: any = () => { };
-  onTouched: any = () => { };
-
+export class PhoneCodeSelectComponent implements OnInit, ControlValueAccessor {
   allCountries: Array<Country> = [];
   preferredCountriesInDropDown: Array<Country> = [];
   selectedCountry: Country = new Country();
+
+  @Input('value') _value = '';
+  @Input() preferredCountries: Array<string> = [];
+  @Output() onChangeCountryCode = new EventEmitter();
+
+  onChange: any = () => { };
+  onTouched: any = () => { };
 
   constructor(
       private countryCodeData: CountryCode
@@ -82,6 +83,10 @@ export class PhoneCodeSelectComponent implements ControlValueAccessor {
 
   public onCountrySelect(country: Country, el): void {
     this.selectedCountry = country;
+
+    if (this.value !== this.selectedCountry.dialCode) {
+      this.onChangeCountryCode.emit();
+    }
     this.value = this.selectedCountry.dialCode;
   }
 
