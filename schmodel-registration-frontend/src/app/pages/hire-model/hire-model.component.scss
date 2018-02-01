@@ -63,6 +63,10 @@ $formula-logo-height: 70px;
     .header-guest {
       flex: none !important;
       width: 150px;
+
+      &:last-of-type {
+        flex: inherit !important;
+      }
     }
   }
 }

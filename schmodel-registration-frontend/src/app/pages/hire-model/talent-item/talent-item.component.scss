@@ -121,5 +121,9 @@ $model-img-size: 100px;
   .event-guest {
     flex: none !important;
     width: 153px;
+
+    &:last-of-type {
+      flex: inherit !important;
+    }
   }
  }
