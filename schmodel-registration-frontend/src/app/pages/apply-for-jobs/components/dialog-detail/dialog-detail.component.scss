@@ -51,6 +51,9 @@
   text-align: justify;
 
   .content-wrapper {
+    max-height: calc(85vh - 200px);
+    overflow-y: auto;
+
     .content {
       padding: 10px;
       font-size: 10px;
