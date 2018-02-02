@@ -27,7 +27,7 @@ export class ToastComponent implements AfterViewInit {
       toastRect.y = toastRect.top;
     }
     if (toastRect.y + toastRect.height > windowHeight) {
-      toastElement.scrollIntoView({behavior: 'smooth', block: 'end'});
+      toastElement.scrollIntoView(false);
     } else if (toastRect.y < 0) {
       toastElement.scrollIntoView({behavior: 'smooth', block: 'start'});
     }
