@@ -180,7 +180,7 @@ export class EditTalentPhotosComponent implements OnInit {
     this.myFile = event.nativeElement;
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
-      const validFileTypes = ['image/gif', 'image/jpg', 'image/jpeg', 'image/png'];
+      const validFileTypes = ['image/jpg', 'image/jpeg', 'image/png'];
       this.data.file = event.target.files[0];
 
       if (validFileTypes.indexOf(this.data.file.type) === -1) {
