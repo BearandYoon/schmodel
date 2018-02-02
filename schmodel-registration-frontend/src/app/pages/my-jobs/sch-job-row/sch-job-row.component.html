@@ -12,33 +12,40 @@
     </header>
 
     <div class="job-body" *ngIf="collapse_no == i">
-      <div class="job-role-content row col-md-12 col-12 text-left">
-        <p class="job-title">JOB:</p>
-        <p class="custom-border-bottom">
-          <strong>{{event.roleName}}</strong>
-        </p>
-      </div>
-
-      <div class="d-flex row">
-        <div class="workschedule-wrapper custom-border-right">
-          <div class="workschedule-title col-md-12 col-12"> WORK SCHEDULE:</div>
-
-          <div class="workschedule-col-title col-md-12 col-12 row">
-            <div class="col-md-6 col-6 text-left"> Date </div>
-            <div class="col-md-3 col-3 text-right"> Start </div>
-            <div class="col-md-3 col-3 text-right"> End </div>
-          </div>
-
-          <div *ngFor="let schedule of event.workSchedules" class="workschedule row col-md-12 col-12 row">
-            <div class="col-md-6 col-6 text-left"> {{schedule.day | date: 'd MMMM y'}}</div>
-            <div class="col-md-3 col-3 text-right"> {{formatAMPM(schedule.startTime)}} </div>
-            <div class="col-md-3 col-3 text-right"> {{formatAMPM(schedule.endTime)}} </div>
-          </div>
+      <div class="row">
+        <div class="job-role-content col-md-12 col-12 text-left">
+          <p class="job-title">JOB:</p>
+          <p class="custom-border-bottom">
+            <strong>{{event.roleName}}</strong>
+          </p>
         </div>
 
-        <div class="pay-rate-wrapper">
-          <div class="pay-rate-title col-md-12 col-12"> PAY RATE</div>
-          <div class="pay-rate-col-title col-md-12 col-12"> €{{event.pay | number : '1.0-2'}}</div>
+        <div class="col-md-12 col-12">
+          <div class="row">
+
+            <div class="col-md-9 col-9 workschedule-wrapper custom-border-right">
+              <div class="row">
+                <div class="workschedule-title col-md-12 col-12"> WORK SCHEDULE:</div>
+              </div>
+
+              <div class="row workschedule-col-title">
+                <div class="col-md-6 col-6 text-left"> Date </div>
+                <div class="col-md-3 col-3 text-right"> Start </div>
+                <div class="col-md-3 col-3 text-right"> End </div>
+              </div>
+
+              <div *ngFor="let schedule of event.workSchedules" class="workschedule row">
+                <div class="col-md-6 col-6 text-left"> {{schedule.day | date: 'd MMMM y'}}</div>
+                <div class="col-md-3 col-3 text-right"> {{formatAMPM(schedule.startTime)}} </div>
+                <div class="col-md-3 col-3 text-right"> {{formatAMPM(schedule.endTime)}} </div>
+              </div>
+            </div>
+            
+            <div class="col-md-3 col-3 pay-rate-wrapper">
+              <div class="pay-rate-title col-md-12 col-12"> PAY RATE</div>
+              <div class="pay-rate-col-title col-md-12 col-12"> €{{event.pay | number : '1.0-2'}}</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
