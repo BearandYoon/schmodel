@@ -1,5 +1,5 @@
 <div class="info-header--apply-for-job table-header" [ngClass]="{'sticky-show' : stickyFlag}">
-  <img class="info-logo" src="/assets/images/ic_formula_e.svg">
+  <img class="info-logo" src="/assets/img/ic_formula_e.svg">
   <div *ngFor="let roleName of roleNames; let i = index" class="info-wrapper" [ngClass]="{'header-guest': guestFlag}" (click)="showDetailDialog(i)">
     <img src="/assets/img/ic_infor.png">
     <span>{{roleName}}</span>
@@ -9,7 +9,7 @@
 
 <div (scroll)="onPageScroll($event)" class="apply-for-jobs" [@routerTransition]>
     <div class="info-header--apply-for-job" [ngClass]="{'sticky-hide' : stickyFlag}">
-      <img class="info-logo" src="/assets/images/ic_formula_e.svg">
+      <img class="info-logo" src="/assets/img/ic_formula_e.svg">
       <div *ngFor="let roleName of roleNames; let i = index" class="info-wrapper" [ngClass]="{'header-guest': guestFlag}"  (click)="showDetailDialog(i)">
         <img src="/assets/img/ic_infor.png">
         <span>{{roleName}}</span>

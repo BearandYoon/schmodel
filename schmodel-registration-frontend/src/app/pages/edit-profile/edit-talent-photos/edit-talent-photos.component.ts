@@ -51,7 +51,7 @@ export class EditTalentPhotosComponent implements OnInit {
         photoWidth: 0,
         photoHeight: 0,
         flag: false,
-        backImg: '/assets/images/ic_photo_head.svg',
+        backImg: '/assets/img/ic_photo_head.svg',
         backSize: '80% auto', backPos: '50% 100%',
         isUploading: false
       }, {
@@ -62,7 +62,7 @@ export class EditTalentPhotosComponent implements OnInit {
         photoWidth: 0,
         photoHeight: 0,
         flag: false,
-        backImg: '/assets/images/ic_photo_fullbody.svg',
+        backImg: '/assets/img/ic_photo_fullbody.svg',
         backSize: '35% auto',
         backPos: '50% 50%',
         isUploading: false
@@ -74,7 +74,7 @@ export class EditTalentPhotosComponent implements OnInit {
         photoWidth: 0,
         photoHeight: 0,
         flag: false,
-        backImg: '/assets/images/ic_photo_profile.svg',
+        backImg: '/assets/img/ic_photo_profile.svg',
         backSize: '65% auto',
         backPos: '50% 100%',
         isUploading: false
