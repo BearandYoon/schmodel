@@ -11,7 +11,7 @@ $model-img-size: 100px;
 
   .content-wrapper {
     display: flex;
-    background-image: url('/assets/images/bg_row_big.png');
+    background-image: url('/assets/img/bg_row_big.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
 
@@ -41,7 +41,7 @@ $model-img-size: 100px;
         &:after {
           content: "";
           position: absolute;
-          // background-image: url('/assets/images/ic_separator_horz.png');
+          // background-image: url('/assets/img/ic_separator_horz.png');
           background-image: linear-gradient(to right, rgba(132, 132, 132, 0.04), #6b6568, rgba(255, 255, 255, 0.04));
           background-size: 100% 100%;
           width: 100%;
@@ -58,14 +58,14 @@ $model-img-size: 100px;
         .action-item {
           flex: 1;
           position: relative;
-          background-image: url('/assets/images/ic_circle_none.svg');
+          background-image: url('/assets/img/ic_circle_none.svg');
           background-repeat: no-repeat;
           background-position: 50% 50%;
 
           &:after {
             content: "";
             position: absolute;
-            // background-image: url('/assets/images/ic_separator_vert.png');
+            // background-image: url('/assets/img/ic_separator_vert.png');
             background-image: linear-gradient(rgba(132, 132, 132, 0.04), #6b6568, rgba(255, 255, 255, 0.04));
             background-size: 100% 100%;
             height: 100%;
@@ -75,13 +75,13 @@ $model-img-size: 100px;
           }
 
           &.item--liked {
-            background-image: url('/assets/images/ic_heart_fill.svg');
+            background-image: url('/assets/img/ic_heart_fill.svg');
           }
           &.item--unliked {
-            background-image: url('/assets/images/ic_heart_empty.svg');
+            background-image: url('/assets/img/ic_heart_empty.svg');
           }
           &.item--hired-circle {
-            background-image: url('/assets/images/ic_circle_hired.png');
+            background-image: url('/assets/img/ic_circle_hired.png');
           }
           &.item--hire,
           &.item--hired {

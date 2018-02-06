@@ -1,5 +1,5 @@
 <div class="info-bar table-header" [ngClass]="{'sticky-show' : stickyFlag}">
-  <img class="formula-logo" src="/assets/images/ic_formula_e.svg">
+  <img class="formula-logo" src="/assets/img/ic_formula_e.svg">
   <div class="info-wrapper">
     <ng-container *ngFor="let eventHeader of eventItems?.eventHeaders; let i = index">
         <div class="header-item" *ngIf=" i != 0 " [ngClass]="{'header-sch-guest' : (eventItems?.eventHeaders.length == 2)}">
@@ -12,7 +12,7 @@
 
 <div (scroll)="onPageScroll($event)" class="event-calender">
   <div class="info-bar" [ngClass]="{'sticky-hide' : stickyFlag}">
-      <img class="formula-logo" src="/assets/images/ic_formula_e.svg">
+      <img class="formula-logo" src="/assets/img/ic_formula_e.svg">
       <div class="info-wrapper">
         <ng-container *ngFor="let eventHeader of eventItems?.eventHeaders; let i = index">
             <div class="header-item" *ngIf=" i != 0 " [ngClass]="{'header-sch-guest' : (eventItems?.eventHeaders.length == 2)}">

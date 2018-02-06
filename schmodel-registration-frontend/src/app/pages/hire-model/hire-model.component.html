@@ -1,5 +1,5 @@
 <div class="info-bar table-header" [ngClass]="{'sticky-show' : stickyFlag}">
-  <img class="formula-logo" src="/assets/images/ic_formula_e.svg">
+  <img class="formula-logo" src="/assets/img/ic_formula_e.svg">
   <div class="info-wrapper">
     <role-item *ngFor="let role of hireModelData.roles" [role]="role" [ngClass]="{'header-guest' : guestFlag }"></role-item>
     <role-item [ngClass]="{'header-guest' : guestFlag }"></role-item>
@@ -8,7 +8,7 @@
 
 <div (scroll)="onPageScroll($event)" class="hire-model-page">
   <div class="info-bar" [ngClass]="{'sticky-hide' : stickyFlag}">
-    <img class="formula-logo" src="/assets/images/ic_formula_e.svg">
+    <img class="formula-logo" src="/assets/img/ic_formula_e.svg">
     <div class="info-wrapper">
       <role-item *ngFor="let role of hireModelData.roles" [role]="role" [ngClass]="{'header-guest' : guestFlag }"></role-item>
       <role-item [ngClass]="{'header-guest' : guestFlag }"></role-item>
