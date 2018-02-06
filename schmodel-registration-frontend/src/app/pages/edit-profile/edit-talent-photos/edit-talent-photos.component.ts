@@ -121,12 +121,12 @@ export class EditTalentPhotosComponent implements OnInit {
     this.isCompleted = 0;
     for (let i = 0; i < this.profileService.profileData.photos.length; i++) {
       this.data = this.profileService.profileData.photos[i];
-      if (this.data.photoTypeId < 4) {
+      if (this.data.photoTypeId < 4 && this.data.photoTypeId > 0) {
         this.isCompleted ++;
         this.photo_section_infor[this.data.photoTypeId - 1].photoId = this.data.id;
         this.photo_section_infor[this.data.photoTypeId - 1].photoUrl = this.data.url;
         this.photo_section_infor[this.data.photoTypeId - 1].flag = true;
-      } else if (this.data.photoTypeId === 4) {
+      } else if (this.data.photoTypeId === 4 && i_add < this.photo_section_infor.length) {
         this.photo_section_infor[i_add].photoId = this.data.id;
         this.photo_section_infor[i_add].photoUrl = this.data.url;
         this.photo_section_infor[i_add].flag = true;
