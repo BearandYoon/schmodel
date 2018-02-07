@@ -259,13 +259,13 @@ export class HttpHelperService {
     } else if (error.status === 504) {
       this.serverError = true;
       skipThrowingError = true;
-    }
-
-    if(this.offlineMode){
-      this.offlineError=true;
+    } else if (error.status === 403) {
+      this.serverError = true;
+      skipThrowingError = true;
+    } if ( this.offlineMode) {
+      this.offlineError = true;
       skipThrowingError = true;
     }
-    
 
     // go ahead to throw error for upload photo
     // const url = error.url;
