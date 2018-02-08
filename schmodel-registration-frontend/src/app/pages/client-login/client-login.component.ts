@@ -38,7 +38,7 @@ export class ClientLoginComponent implements OnInit {
     private authService: AuthenticationService
   ) {
     this.signInForm = this.formBuilder.group({
-      'email': ['', [Validators.required, ValidationService.emailValidator]],
+      'email': ['', [Validators.required]],
       'password': ['', [Validators.required, ValidationService.passwordLengthValidator]]
     });
   }
@@ -53,6 +53,15 @@ export class ClientLoginComponent implements OnInit {
   onSignIn() {
     this.message = '';
     this.status = null;
+
+    if (ValidationService.emailValidator(this.signInForm.controls.email)) {
+      this.status = {
+        sucess: false,
+        message: ValidationMessage.INVALID_EMAIL
+      };
+      return;
+    }
+
     this.authUser.email = this.signInForm.value.email.toLowerCase();
     this.authUser.password = this.signInForm.value.password;
     this.authService.clientLogin(this.authUser).subscribe( res => {
