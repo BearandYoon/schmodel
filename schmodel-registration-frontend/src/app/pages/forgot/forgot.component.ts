@@ -30,7 +30,7 @@ export class ForgotComponent implements OnInit {
     private resetPwdService: AuthenticationService
   ) {
     this.forgotForm = this.formBuilder.group({
-      'email': ['', [Validators.required, ValidationService.emailValidator]],
+      'email': ['', [Validators.required]],
     });
     this.emailValid = false;
     this.isSubmitting = false;
@@ -62,6 +62,12 @@ export class ForgotComponent implements OnInit {
   }
      // reset password feature
   onReset() {
+    if (ValidationService.emailValidator(this.forgotForm.controls.email)) {
+      this.tokenValid = true;
+      this.errorMessage = ValidationMessage.INVALID_EMAIL;
+      return;
+    }
+
     this.resetUser.email = this.forgotForm.value.email.toLowerCase();
     this.isSubmitting = true;
     this.resetPwdService.resetPwd(this.resetUser).subscribe( res => {
