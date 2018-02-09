@@ -266,6 +266,13 @@ $model-img-size: 150px;
   }
 }
 
+.validation-error {
+  display: block;
+  margin: 0 -30px;
+  width: calc(100% + 60px);
+  text-align: left;
+}
+
 .message-wrapper {
   position: absolute;
   top: 0;

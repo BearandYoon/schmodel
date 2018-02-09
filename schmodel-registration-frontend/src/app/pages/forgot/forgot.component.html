@@ -13,12 +13,18 @@
         <div class="form-content">
           <div class="form-group">
             <input type="email" class="form-control input-underline input-lg" formControlName="email" id="email" placeholder="ENTER YOUR EMAIL" (keypress)="onChangeInput()">
-            <app-control-messages  [control]="forgotForm.controls.email"></app-control-messages>
             <div class="danger">
                 <span [ngClass]="{errormessage:!emailValid, validmessage:emailValid}" class="message">{{message}}</span>
             </div>
           </div>
         </div>
+        <app-toast
+          *ngIf="emailValidationFail"
+          class="validation-error"
+          toastType="error"
+          [toastMessage]="errorMessage"
+          (closeToast)="onCloseErrorMessage()"
+        ></app-toast>
         <div class="action-container">
           <div class="btn-submit-container">
             <button class="btn bordered-btn" type="submit" [disabled]="!forgotForm.valid || isSubmitting"> SUBMIT </button>

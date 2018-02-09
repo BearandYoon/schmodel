@@ -21,6 +21,7 @@ export class ForgotComponent implements OnInit {
   isSubmitting: boolean;
   emailValid: boolean;
   tokenValid: boolean;
+  emailValidationFail: boolean;
   errorMessage: string;
 
   constructor(
@@ -33,6 +34,7 @@ export class ForgotComponent implements OnInit {
       'email': ['', [Validators.required]],
     });
     this.emailValid = false;
+    this.emailValidationFail = false;
     this.isSubmitting = false;
     this.tokenValid = false;
   }
@@ -57,13 +59,14 @@ export class ForgotComponent implements OnInit {
   }
 
   onCloseErrorMessage() {
+    this.emailValidationFail = false;
     this.errorMessage = '';
     this.tokenValid = null;
   }
      // reset password feature
   onReset() {
     if (ValidationService.emailValidator(this.forgotForm.controls.email)) {
-      this.tokenValid = true;
+      this.emailValidationFail = true;
       this.errorMessage = ValidationMessage.INVALID_EMAIL;
       return;
     }
