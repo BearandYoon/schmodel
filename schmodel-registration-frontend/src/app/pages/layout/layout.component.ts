@@ -49,18 +49,18 @@ export class LayoutComponent implements OnInit {
   }
 
   onCloseErrorMessage() {
-    this.httpHelperService.serverError= false;
+    this.httpHelperService.serverError = false;
   }
 
   onCloseOfflineMessage() {
-    this.httpHelperService.offlineError=false;
+    this.httpHelperService.offlineError = false;
   }
 
   showErrorToast() {
     return this.httpHelperService.serverError && !this.httpHelperService.offlineMode;
   }
 
-  showOfflineToast(){
+  showOfflineToast() {
     return this.httpHelperService.offlineError;
   }
 
