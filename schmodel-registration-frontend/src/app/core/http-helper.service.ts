@@ -256,13 +256,10 @@ export class HttpHelperService {
         this.serverError = true;
         skipThrowingError = true;
       }
-    } else if (error.status === 504) {
+    } else if (error.status !== 401) {
       this.serverError = true;
       skipThrowingError = true;
-    } else if (error.status === 403) {
-      this.serverError = true;
-      skipThrowingError = true;
-    } if ( this.offlineMode) {
+    } if (this.offlineMode) {
       this.offlineError = true;
       skipThrowingError = true;
     }

@@ -146,10 +146,6 @@ export class ProfileService {
         callback(true);
       }
     }, error => {
-      if (error.status === 500 || error.status === 504 || error.status === 403) {
-        return;
-      }
-
       if (callback) {
         callback(false);
       }
