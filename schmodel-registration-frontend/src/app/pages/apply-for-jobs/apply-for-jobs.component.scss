@@ -54,15 +54,12 @@ $header-font-color: #fff;
 
         span {
             padding-bottom: $formula-row-padding;
-            font-size: 9px;
+            font-size: 12px;
             font-weight: bold;
             height: 34px;            
         }
 
-        &:last-of-type {
-            img {
-                margin-top: 3px;
-            }
+        &:nth-last-child(2) {
             span {
                 font-size: 9px;
             }
