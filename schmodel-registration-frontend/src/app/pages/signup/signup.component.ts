@@ -43,7 +43,7 @@ export class SignupComponent implements OnInit {
     private modalService: BsModalService,
   ) {
     this.signUpForm = this.formBuilder.group({
-      'email': ['', [Validators.required, ValidationService.emailValidator]],
+      'email': ['', [Validators.required]],
       'password': ['', [Validators.required, ValidationService.passwordLengthValidator]],
       'confirmPass': ['', [Validators.required, ValidationService.passwordLengthValidator]],
       'activationCode': ''
@@ -64,6 +64,12 @@ export class SignupComponent implements OnInit {
         success: false,
         message: ValidationMessage.INVALID_SPECIAL_PASSWORD
       };
+    } else if (ValidationService.emailValidator(this.signUpForm.controls.email)) {
+      this.status = {
+        sucess: false,
+        message: ValidationMessage.INVALID_EMAIL
+      };
+      return;
     } else if (this.signUpForm.value.password !== this.signUpForm.value.confirmPass) {
       this.status = {
         success: false,
