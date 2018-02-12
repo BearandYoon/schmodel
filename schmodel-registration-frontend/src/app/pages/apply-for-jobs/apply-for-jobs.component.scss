@@ -1,6 +1,6 @@
 $page-margin: 3px;
 $page-margin-half: 1.5px;
-$model-img-size: 120px;
+$model-img-size: 100px;
 $formula-logo-height: 70px;
 $formula-row-padding: 10px;
 $header-font-color: #fff;
@@ -17,7 +17,7 @@ $header-font-color: #fff;
 }
 .header-guest {
     flex: none !important;
-    width: 170px !important;
+    width: 150px !important;
 }
 .rest-header {
     flex: 1;
@@ -79,41 +79,17 @@ $header-font-color: #fff;
 .apply-for-jobs {
      -webkit-overflow-scrolling: touch;
 
+    app-event {
+        .event-calendar {
+            width: 100px !important;
+        }
+    }
+
     app-event:nth-of-type(2n) .event-calendar {
         background-color: rgba(97, 29, 146, 0.19);
     }
 
     app-event:nth-of-type(2n+1) .event-calendar {
         background-color:rgba(0, 198, 253, 0.19);
-    }
-}
-
-
-
-
-@media screen and (min-width: 320px) and (max-width: 414px) {
-	.info-logo {
-    	width: 100px !important;
-    }
-
-    .header-guest {
-        flex: none !important;
-        width: 150px !important;
-    }
-    .rest-header {
-        flex: 1;
-    }
-    app-event {
-        .event-calendar {
-            width: 100px !important;
-
-            .info-values {
-                span {
-                    &:first-of-type {
-                        font-size: 18px !important;
-                    }
-                }
-            }
-        }
     }
 }
