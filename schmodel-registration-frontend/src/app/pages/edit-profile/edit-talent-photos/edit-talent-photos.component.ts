@@ -148,7 +148,6 @@ export class EditTalentPhotosComponent implements OnInit, AfterViewChecked {
 
   onClose(num: number) {
     this.status = null;
-    console.log("photo close");
     this.photo_section_infor[num].isUploading = true;
     this.profileService.deletePhoto(this.photo_section_infor[num].photoId).subscribe( res => {
       this.photo_section_infor[num].flag = false;
@@ -182,12 +181,7 @@ export class EditTalentPhotosComponent implements OnInit, AfterViewChecked {
 
   ngAfterViewChecked() {
 
-    console.log(this.httpHelperService.serverError);
-
-
     if ( this.httpHelperService.serverError && this.photo_section_infor[this.no_tmp].flag ) {
-      console.log(this.photo_section_infor[this.no_tmp].flag);
-      console.log(this.no_tmp);
       this.photo_section_infor[this.no_tmp].flag = false;
       this.photo_section_infor[this.no_tmp].isUploading = false;
     }
