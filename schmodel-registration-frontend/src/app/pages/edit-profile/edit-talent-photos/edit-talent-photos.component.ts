@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Renderer, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewChecked, ViewChild, Renderer, ElementRef, ChangeDetectorRef } from '@angular/core';
 
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal';
@@ -7,6 +7,7 @@ import { ComponentsModule } from '../../../shared/components/components.module';
 import { MessageModalComponent } from '../../../shared/modules';
 import { ProfileService } from '../../../core/services';
 import { ValidationMessage } from '../../../shared/models';
+import { HttpHelperService } from '../../../core/http-helper.service';
 
 @Component({
   selector: 'edit-talent-photos',
@@ -14,7 +15,7 @@ import { ValidationMessage } from '../../../shared/models';
   styleUrls: ['./edit-talent-photos.component.scss']
 })
 
-export class EditTalentPhotosComponent implements OnInit {
+export class EditTalentPhotosComponent implements OnInit, AfterViewChecked {
   @ViewChild('fileInput') fileInput: ElementRef;
 
   public photo_section_infor: Array<any> = [];
@@ -36,6 +37,8 @@ export class EditTalentPhotosComponent implements OnInit {
   };
 
   constructor(private renderer: Renderer,
+              private cdr: ChangeDetectorRef,
+              private httpHelperService: HttpHelperService,
               private profileService: ProfileService,
               private dlgService: BsModalService) {
   }
@@ -145,6 +148,7 @@ export class EditTalentPhotosComponent implements OnInit {
 
   onClose(num: number) {
     this.status = null;
+    console.log("photo close");
     this.photo_section_infor[num].isUploading = true;
     this.profileService.deletePhoto(this.photo_section_infor[num].photoId).subscribe( res => {
       this.photo_section_infor[num].flag = false;
@@ -176,8 +180,23 @@ export class EditTalentPhotosComponent implements OnInit {
       this.fileInput.nativeElement, 'dispatchEvent', [event]);
   }
 
+  ngAfterViewChecked() {
+
+    console.log(this.httpHelperService.serverError);
+
+
+    if ( this.httpHelperService.serverError && this.photo_section_infor[this.no_tmp].flag ) {
+      console.log(this.photo_section_infor[this.no_tmp].flag);
+      console.log(this.no_tmp);
+      this.photo_section_infor[this.no_tmp].flag = false;
+      this.photo_section_infor[this.no_tmp].isUploading = false;
+    }
+    this.cdr.detectChanges();
+  }
+
   valuechange(event: any) {
     this.myFile = event.nativeElement;
+
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
       const validFileTypes = ['image/jpg', 'image/jpeg', 'image/png'];
@@ -216,7 +235,7 @@ export class EditTalentPhotosComponent implements OnInit {
                 this.photo_section_infor[this.no_tmp].photoId = res.photoId;
                 this.photo_section_infor[this.no_tmp].photo = res.photoUrl;
                 this.photo_section_infor[this.no_tmp].isUploading = false;
-                if(this.no_tmp < 3) {
+                if (this.no_tmp < 3) {
                   this.isCompleted ++;
                 }
                 this.status = {
