@@ -19,8 +19,9 @@ export class EditTalentPhotosComponent implements OnInit, AfterViewChecked {
   @ViewChild('fileInput') fileInput: ElementRef;
 
   public photo_section_infor: Array<any> = [];
-  public no_tmp: number;
   public myFile: number;
+  private no_tmp: number;
+  private no_status: string;
   private data: any;
   private photo_upload_cnt: number;
   status: any = null;
@@ -45,6 +46,7 @@ export class EditTalentPhotosComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() {
     this.status = null;
+    this.no_status = '';
     this.photo_section_infor.push(
       {
         text: 'Headshot Photo',
@@ -147,6 +149,8 @@ export class EditTalentPhotosComponent implements OnInit, AfterViewChecked {
   }
 
   onClose(num: number) {
+    this.no_tmp = num;
+    this.no_status = "close";
     this.status = null;
     this.photo_section_infor[num].isUploading = true;
     this.profileService.deletePhoto(this.photo_section_infor[num].photoId).subscribe( res => {
@@ -173,6 +177,7 @@ export class EditTalentPhotosComponent implements OnInit, AfterViewChecked {
     this.status = null;
     const event = new MouseEvent('click', {bubbles: true});
     this.no_tmp = num;
+    this.no_status = "upload";
     this.myFile = null;
 
     this.renderer.invokeElementMethod(
@@ -180,9 +185,10 @@ export class EditTalentPhotosComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked() {
-
     if ( this.httpHelperService.serverError && this.photo_section_infor[this.no_tmp].flag ) {
-      this.photo_section_infor[this.no_tmp].flag = false;
+      if ( this.no_status === "upload") {
+        this.photo_section_infor[this.no_tmp].flag = false;
+      }
       this.photo_section_infor[this.no_tmp].isUploading = false;
     }
     this.cdr.detectChanges();
