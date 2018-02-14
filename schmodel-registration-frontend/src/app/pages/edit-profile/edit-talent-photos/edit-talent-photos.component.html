@@ -7,7 +7,7 @@
     <button *ngIf="val.flag" class="btn-close" (click)="onClose(i)">
       <span class="icon-close"></span>
     </button>
-    <div *ngIf="!val.flag" class="item-content" [ngStyle]="{'background-image':'url(' + val.backImg + ')', 'background-repeat':'no-repeat', 'background-size':val.backSize, 'background-position':val.backPos}">
+    <div *ngIf="!val.flag" class="item-content" [ngStyle]="{'background-image':val.backImg ? 'url(' + val.backImg + ')' : 'none', 'background-repeat':'no-repeat', 'background-size':val.backSize, 'background-position':val.backPos}">
       <div class="photo-type">
         <div>
           <i class="icon-plus-circle" (click)="onUploadFile(i)"></i>
