@@ -219,8 +219,7 @@ export class EditTalentPhotosComponent implements OnInit, AfterViewChecked {
             this.messageModalRef.content.messageTitle = "Error";
             this.messageModalRef.content.isBtnCancel = false;
             this.messageModalRef.content.onCloseReason.subscribe(result => {});
-          } else {
-            this.photo_section_infor[this.no_tmp].flag = true;
+          } else {            
             this.data.photoWidth = Math.round(window.innerWidth / 3);
             this.data.photoHeight = Math.round(window.innerWidth / 3);
             this.data.photoTypeId = this.photo_section_infor[this.no_tmp].photoTypeId;
@@ -235,6 +234,8 @@ export class EditTalentPhotosComponent implements OnInit, AfterViewChecked {
                 this.photo_section_infor[this.no_tmp].photoId = res.photoId;
                 this.photo_section_infor[this.no_tmp].photo = res.photoUrl;
                 this.photo_section_infor[this.no_tmp].isUploading = false;
+                this.photo_section_infor[this.no_tmp].flag = true;
+                
                 if (this.no_tmp < 3) {
                   this.isCompleted ++;
                 }
