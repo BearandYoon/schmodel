@@ -185,7 +185,7 @@ export class EditTalentPhotosComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked() {
-    if ( this.httpHelperService.serverError && this.photo_section_infor[this.no_tmp].flag ) {
+    if ( this.httpHelperService.serverError && this.photo_section_infor[this.no_tmp].isUploading ) {
       if ( this.no_status === "upload") {
         this.photo_section_infor[this.no_tmp].flag = false;
       }
